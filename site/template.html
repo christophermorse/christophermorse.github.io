@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Christopher M. Morse</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500&family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&display=swap" rel="stylesheet">
+<style>
+:root{
+  --parch:#EFE6D1; --page:#EFE6D1; --ink:#14110E; --faded:#5E5448; --rule:#CFC2A6; --hair:#E2D7BF;
+  --rubric:#972B1A; --brass:#8F7036;
+  --t-cultural-heritage:#97762A; --t-hci-ux:#356A5A; --t-ai-nlp:#2B4777; --t-speech:#972B1A;
+  --t-digital-humanities:#714F31; --t-teaching:#646827; --t-art:#73355B; --t-japan:#465A72; --t-community:#7E7366;
+  --shadow:rgba(60,40,15,.22);
+  --display:"IM Fell English", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --sc:"IM Fell English SC", "IM Fell English", Georgia, serif;
+  --body:"Alegreya Sans", "Gill Sans", "Seravek", "Trebuchet MS", system-ui, sans-serif;
+  color-scheme:light; box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html,body{margin:0}
+body{background-color:var(--parch); background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .38  0 0 0 0 .28  0 0 0 0 .14  0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='.09'/%3E%3C/svg%3E"); color:var(--ink);
+  font-family:var(--body); font-size:1.09rem; line-height:1.55; font-variant-numeric:oldstyle-nums proportional-nums; -webkit-font-smoothing:antialiased}
+a{color:inherit; text-decoration-color:color-mix(in srgb,var(--rubric) 55%,transparent); text-underline-offset:.18em; text-decoration-thickness:1px}
+a:hover{color:var(--rubric)}
+:focus-visible{outline:2px solid var(--rubric); outline-offset:2px}
+button{font:inherit; color:inherit}
+
+.layout{display:grid; grid-template-columns:minmax(380px,46fr) minmax(0,54fr); max-width:1640px; margin:0 auto}
+/* the instrument: fixed while the page beside it changes */
+.instrument{position:sticky; top:0; height:100vh; height:100dvh; display:flex; flex-direction:column; align-items:center;
+  padding:clamp(18px,3vh,36px) clamp(16px,2.5vw,40px) clamp(14px,2.5vh,28px); border-right:1px solid var(--rule)}
+.who{width:100%; text-align:center}
+.who h1{font-family:var(--display); font-weight:400; font-size:clamp(1.8rem,2.7vw,2.6rem); line-height:1; margin:0}
+.who p{color:var(--faded); margin:.35rem 0 0; font-size:1rem}
+.dock{flex:1; min-height:0; width:100%; display:flex; flex-direction:column; align-items:center; justify-content:center}
+#astro{height:100%; max-height:calc(100dvh - 220px); width:auto; max-width:100%; aspect-ratio:500/520}
+.rings-key{text-align:center; font-size:.9rem; color:var(--faded); font-style:italic; margin:.2rem 0 0; max-width:30em}
+/* astrolabe */
+.astro-wrap{position:relative; margin:.8rem auto .2rem; width:100%; max-width:470px}
+#astro{display:block; width:100%; height:auto; touch-action:none; overflow:visible}
+#astro text{font-family:var(--display); fill:var(--ink)}
+#astro .eng{fill:none; stroke:var(--ink); stroke-width:1}
+#astro .eng.thin{stroke-width:.55; opacity:.75}
+#astro .ring{fill:none; stroke:var(--ink); stroke-opacity:.18; stroke-dasharray:1 3}
+#astro .face{transition:transform .5s cubic-bezier(.3,.7,.2,1); transform-origin:250px 270px}
+#astro.dragging .face{transition:none}
+#astro .rete{transition:transform .6s cubic-bezier(.3,.7,.2,1); transform-origin:250px 270px}
+#astro .rete *{fill:none; stroke:var(--brass); stroke-width:1.2}
+#astro .rete .star{fill:var(--brass); stroke:none}
+#astro .alidade{transition:transform .5s cubic-bezier(.3,.7,.2,1); transform-origin:250px 270px; cursor:grab}
+#astro.dragging .alidade,#astro.dragging .rete{transition:none}
+#astro.dragging .alidade{cursor:grabbing}
+#astro .alidade:focus{outline:none}
+#astro .alidade:focus-visible .rule{stroke:var(--rubric); stroke-width:2}
+#astro .dot.past{opacity:.45}
+#astro .limb-hit{fill:transparent; cursor:pointer}
+.cartouche{display:flex; align-items:center; justify-content:center; gap:.8rem; margin:-.2rem 0 .2rem}
+.cartouche button{background:none; border:1px solid color-mix(in srgb,var(--ink) 35%,transparent); border-radius:50%; width:2rem; height:2rem; cursor:pointer; color:var(--ink); line-height:1}
+.cartouche button:hover{border-color:var(--rubric); color:var(--rubric)}
+.cartouche button:disabled{opacity:.3; cursor:default}
+.cartouche output{font-family:var(--display); font-size:1.5rem; min-width:6.5em; text-align:center}
+.cartouche output small{font-family:var(--sc); font-size:.85rem; color:var(--faded); display:block; margin-top:-.15rem}
+.rings-key{text-align:center; font-size:.86rem; color:var(--faded); font-style:italic; margin:0 0 .4rem}
+.yr-list{list-style:none; margin:.15rem auto 0; padding:0; max-width:24em; min-height:1.4em}
+.yr-list li{margin:.12rem 0}
+.yr-list button{background:none; border:0; padding:0; cursor:pointer; font-size:.95rem; text-align:center; color:var(--ink); text-decoration:underline; text-decoration-color:color-mix(in srgb,var(--rubric) 40%,transparent); text-underline-offset:.18em}
+.yr-list button:hover{color:var(--rubric)}
+.yr-list .none{color:var(--faded); font-style:italic; font-size:.92rem}
+.strip .dot.out,#bubbles .dot.out{opacity:.22}
+.strip .mark{stroke:var(--rubric); stroke-width:1.2; stroke-dasharray:2 2}
+.fade{animation:fadein .35s ease-out}
+@keyframes fadein{from{opacity:.15}}
+@media (prefers-reduced-motion:reduce){ #astro .rete,#astro .alidade{transition:none} .fade{animation:none} }
+
+
+
+.cartouche{margin:.3rem 0 0}
+#astro .dot{cursor:pointer; transition:opacity .2s}
+#astro .dot:focus{outline:none}
+#astro .dot .hl{fill:none; stroke:transparent}
+#astro .dot:hover .hl,#astro .dot:focus-visible .hl{stroke:var(--ink); stroke-opacity:.5}
+
+/* the leaf: the year, on the right */
+.leaf{padding:clamp(22px,4vh,44px) clamp(20px,4vw,64px) 80px; min-width:0}
+.overview{margin:0 0 1.6rem}
+.overview svg{display:block; width:100%; height:auto; overflow:visible}
+.overview text{font-family:var(--body); font-size:11.5px; fill:var(--faded)}
+.overview .star{transition:opacity .3s}
+@media (prefers-reduced-motion:no-preference){ .overview .star.tw{animation:twinkle 3.2s ease-in-out infinite; animation-delay:var(--d)} @keyframes twinkle{50%{opacity:.55}} }
+.overview .col-hit{fill:transparent; cursor:pointer}
+.overview .yr-col:hover .col-hit{fill:color-mix(in srgb,var(--rubric) 6%,transparent)}
+.overview .yr-col.on .col-hit{fill:transparent}
+.overview .yr-col.on text{fill:var(--rubric)}
+.overview .yr-col:focus{outline:none}
+.overview .yr-col:focus-visible .col-hit{stroke:var(--rubric)}
+.overview-cap{display:flex; justify-content:space-between; font-size:.9rem; color:var(--faded); font-style:italic; margin-top:.2rem}
+
+.yh{display:grid; grid-template-columns:auto 1fr; align-items:end; gap:0 1.4rem; border-bottom:1px solid var(--ink); padding-bottom:.9rem}
+.yh .num{font-family:var(--display); font-size:clamp(3.6rem,7vw,5.6rem); line-height:.82; letter-spacing:-.01em}
+.yh .role{font-family:var(--display); font-size:clamp(1.3rem,2vw,1.7rem); line-height:1.15}
+.yh .where{font-variant:small-caps; letter-spacing:.05em; color:var(--rubric); margin-top:.3rem}
+.sig{display:grid; grid-template-columns:1fr auto; gap:1.2rem; align-items:start; margin:1.4rem 0 .4rem; padding:1rem 1.1rem;
+  border:1px solid var(--rule); background:color-mix(in srgb,var(--parch) 70%,white 30%); cursor:pointer; text-align:left; width:100%}
+.sig:hover{border-color:var(--rubric)}
+.sig .k{font-variant:small-caps; letter-spacing:.04em; color:var(--rubric); font-size:1rem}
+.sig b{display:block; font-family:var(--display); font-weight:400; font-size:1.4rem; line-height:1.2; margin:.1rem 0 .25rem}
+.sig img{width:150px; height:150px; object-fit:cover; border:1px solid var(--rule)}
+.sigil{width:1.05em; height:1.05em; flex:none; color:var(--rubric); overflow:visible}
+.toc{display:flex; flex-wrap:wrap; gap:.35rem 1.3rem; margin:1.1rem 0 .2rem; font-variant:small-caps; letter-spacing:.03em; font-size:1.02rem}
+.toc a{display:inline-flex; align-items:center; gap:.4em; text-decoration:none; color:var(--ink)}
+.toc a span{color:var(--faded); font-family:var(--body); font-style:italic}
+.toc a:hover{color:var(--rubric)}
+.group{margin-top:2.1rem; scroll-margin-top:1rem}
+.group > h2{font-family:var(--sc); font-weight:400; color:var(--rubric); font-size:1.18rem; letter-spacing:.04em; margin:0 0 .5rem;
+  display:flex; align-items:center; gap:.55rem}
+.group > h2::after{content:""; flex:1; border-top:1px solid var(--rule)}
+.group > h2 span{color:var(--faded); font-family:var(--body); font-style:italic; font-size:.9rem; letter-spacing:0}
+.th{display:inline-flex; gap:.2rem; vertical-align:middle; margin-left:.3rem} .th svg{width:.75rem; height:.75rem}
+.group h3{font-weight:400; margin:0}
+.group .m{margin:.1rem 0 0; color:var(--faded); font-style:italic; font-size:.97rem}
+.group .m em{font-style:normal}
+.group details{margin-top:.3rem; color:var(--faded); font-size:.97rem} .group details summary{cursor:pointer; font-style:italic}
+.group details p{color:var(--ink); margin:.3rem 0 0}
+.group blockquote{margin:.45rem 0 0; padding-left:.8rem; border-left:2px solid var(--rubric); font-family:var(--display); font-style:italic}
+/* positions: a card with the strand's colour at its edge */
+.card{position:relative; background:color-mix(in srgb,var(--parch) 72%,white 28%); border:1px solid var(--rule); border-left:4px solid var(--c);
+  padding:.85rem 1.1rem .9rem; margin:.7rem 0; display:grid; grid-template-columns:1fr auto; column-gap:1rem}
+.card > *{grid-column:1} .card img{grid-column:2; grid-row:1 / span 5; width:120px; height:120px; object-fit:cover; border:1px solid var(--rule)}
+.card .d{font-variant:small-caps; letter-spacing:.04em; color:var(--rubric); font-size:1rem}
+.card h3{font-family:var(--display); font-size:1.42rem; line-height:1.2; margin:.05rem 0 0}
+.card p.x{margin:.45rem 0 0}
+/* writing: a citation list */
+.cite{display:grid; grid-template-columns:1.1rem 1fr; gap:.55rem; padding:.45rem 0}
+.cite .bullet{width:.9rem; height:.9rem; margin-top:.35rem}
+.cite h3{font-style:italic; font-weight:500; font-size:1.08rem; line-height:1.35}
+.cite .m{font-style:normal; font-size:.93rem}
+.cite .k{font-variant:small-caps; color:var(--faded); font-size:.9rem; margin-left:.3rem}
+/* everything else: dated rows */
+.row{display:grid; grid-template-columns:6.4rem 1fr auto; gap:.2rem 1rem; padding:.55rem 0; border-top:1px dotted var(--rule)}
+.row:first-of-type{border-top:0}
+.row .d{font-variant:small-caps; letter-spacing:.04em; color:var(--rubric); font-size:1rem; padding-top:.1rem}
+.row h3{font-family:var(--body); font-weight:500; font-size:1.06rem; line-height:1.35}
+.row p.x{margin:.25rem 0 0; font-size:.97rem; color:color-mix(in srgb,var(--ink) 82%,var(--parch))}
+.row img{width:88px; height:88px; object-fit:cover; border:1px solid var(--rule)}
+.quiet{margin-top:1.6rem; font-style:italic; color:var(--faded)}
+.about{margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--ink); color:var(--ink)}
+.about h2{font-family:var(--sc); font-weight:400; color:var(--rubric); font-size:1.05rem; margin:0 0 .3rem}
+.about p{margin:.2rem 0 .8rem; max-width:40em}
+.about nav{display:flex; gap:1.2rem; font-style:italic}
+.about small{display:block; color:var(--faded); font-style:italic; margin-top:.6rem}
+.fade{animation:fadein .35s ease-out} @keyframes fadein{from{opacity:.1; transform:translateY(4px)}}
+@media (prefers-reduced-motion:reduce){ .fade{animation:none} }
+
+/* phones: the astrolabe becomes a dial docked at the bottom */
+@media (max-width:860px){
+  .layout{grid-template-columns:minmax(0,1fr)}
+  .instrument{position:static; height:auto; border-right:0; padding:20px 18px 0}
+  .who{text-align:left}
+  body{padding-bottom:178px}
+  .dock{position:fixed; left:0; right:0; bottom:0; height:170px; overflow:hidden; z-index:30; display:block;
+    background-color:var(--parch); background-image:inherit; border-top:1px solid var(--rule); box-shadow:0 -10px 30px -18px var(--shadow)}
+  #astro{position:absolute; width:min(560px,145vw); height:auto; max-height:none; max-width:none; left:50%; top:6px; transform:translateX(-50%); touch-action:pan-y}
+  .dock .cartouche{position:absolute; left:50%; bottom:8px; transform:translateX(-50%); margin:0; background:var(--parch);
+    border:1px solid var(--rule); border-radius:999px; padding:.15rem .4rem; box-shadow:0 4px 14px -8px var(--shadow)}
+  .dock .cartouche output{font-size:1.2rem; min-width:5.6em}
+  .dock .cartouche output small,.rings-key{display:none}
+  .leaf{padding-top:14px}
+  .sig{grid-template-columns:1fr} .sig img{width:100%; height:180px}
+  .row{grid-template-columns:1fr} .row .d{padding:0} .row img{width:100%; height:150px} .row > span{display:none}
+  .card{grid-template-columns:1fr} .card img{grid-column:1; grid-row:auto; width:100%; height:160px; margin-top:.6rem}
+}
+.tip{position:fixed; pointer-events:none; z-index:40; background:var(--parch); border:1px solid var(--rule); box-shadow:0 8px 20px -12px var(--shadow);
+  padding:.3em .6em; font-size:.92rem; opacity:0; transition:opacity .1s; max-width:280px}
+.tip b{font-weight:500; display:block} .tip span{color:var(--faded); font-style:italic}
+</style>
+</head>
+<body>
+<div class="layout">
+  <aside class="instrument" aria-label="Choose a year">
+    <header class="who"><h1 id="name"></h1><p id="pos"></p></header>
+    <div class="dock" id="dock">
+      <svg id="astro" viewBox="0 0 500 520" role="group" aria-label="Astrolabe of years. Turn the pointer to choose a year; the page beside it shows that year."></svg>
+      <div class="cartouche"><button type="button" id="prev" aria-label="Previous year">‹</button><output id="anno" aria-live="polite"></output><button type="button" id="next" aria-label="Next year">›</button></div>
+      <p class="rings-key">Turn the pointer, or click the rim. Rings, outside in: Language &amp; AI, Research, Learning, Community.</p>
+    </div>
+  </aside>
+  <main class="leaf" id="leaf">
+    <div class="overview"><svg id="overview" role="group" aria-label="Every year at a glance; select one to open it"></svg>
+      <div class="overview-cap"><span>Each star is one entry, coloured by its strand of work; the brightest are positions and degrees.</span><span id="count"></span></div></div>
+    <div id="year" aria-live="polite"></div>
+    <section class="about" id="about"></section>
+  </main>
+</div>
+<div class="tip" id="tip" role="tooltip"></div>
+<script>
+const D = /*DATA*/null;
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const md = s => esc(s).replace(/\[([^\]]+)\]\(([^)\s]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>')
+  .replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>').replace(/\*([^*]+)\*/g,'<em>$1</em>');
+const plain = s => String(s).replace(/\[([^\]]+)\]\([^)]+\)/g,'$1').replace(/\*/g,'');
+const col = k => `var(--t-${k})`;
+const THEMES = {...D.themes, community:"Community"};
+const ALL = []; D.items.forEach(it => { ALL.push(it); (it.ticks||[]).forEach(t => { t.parent = it; ALL.push(t); }); });
+const BY = Object.fromEntries(ALL.map(i => [i.id, i]));
+const MOBILE = matchMedia("(max-width:860px)");
+const p = D.person;
+$("#name").textContent = p.name;
+$("#pos").textContent = p.position.replace(/ · /g, ", ");
+
+/* ---------- time state ---------- */
+const FIRST = 2005, LAST = 2026, NOW = 2026.75, T0 = 2005, T1 = 2027;
+let YEAR = LAST;
+const inYear = (it, y) => it.span ? (it.start < y + 1 && it.end >= y) : Math.floor(it.start) === y;
+/* Signature work for each era (your call which pieces stand for which years) */
+const ERAS = [
+  {from:2024, id:"exp0", title:"sproochmaschinn.lu", imageFrom:"prs2", head:"Signature work: the Sproochmaschinn", text:"The public speech-to-text and text-to-speech platform I train the models for, launched in 2025."},
+  {from:2022, id:"grt0", head:"Signature work: explainable NLP", text:"A €1.4 million project with SnT on multilingual language models and interfaces that make AI decisions understandable."},
+  {from:2017, id:"edu0", head:"Signature work: the museum doctorate", text:"Museum Meaning-making: experience design for digital cultural heritage, defended in 2021."},
+  {from:2013, id:"tlk12", head:"Signature work: a Vatican manuscript in IIIF", text:"A digital critical edition of a 16th-century bilingual manuscript at the Biblioteca Apostolica Vaticana."},
+  {from:2005, id:"edu3", head:"Where it began: Japanese", text:"Japanese language and literature at UMass Amherst, with study in Nishinomiya and Tokyo."},
+];
+const eraFor = y => ERAS.find(e => y >= e.from);
+const POS = ["exp0","exp1","exp2","exp3","exp4"].map(i => BY[i]);
+const DEG = ["edu3","edu2","edu1","edu0"].map(i => BY[i]);
+function roleFor(y){
+  const act = POS.filter(p => inYear(p, y));
+  if (act.length){ const a = [...act].sort((x,y) => y.start - x.start)[0]; return {text: a.label, id: a.id}; }
+  const now = DEG.find(d => Math.floor(d.start) === y); if (now) return {text: now.label + ", completed", id: now.id};
+  const next = DEG.find(d => d.start > y && d.start - y < 3); if (next) return {text: "Studying for the " + next.label, id: next.id};
+  const prev = [...DEG].reverse().find(d => d.start < y); return prev ? {text: "After the " + prev.label, id: prev.id} : {text: "", id: "edu3"};
+}
+
+/* ---------- the astrolabe ---------- */
+const RINGS = [
+  {name:"Language & AI", ids:["exp0","exp1","grt0","brd0"]},
+  {name:"Research",      ids:["exp2","exp3","edt0"]},
+  {name:"Learning",      ids:["exp4","edu0","edu1","edu2","edu3"]},
+  {name:"Community",     ids:["act0","act1"]},
+];
+const CX = 250, CY = 270;
+const deg = t => -90 + (t - T0)/(T1 - T0)*360;
+const pol = (r, t) => { const a = deg(t)*Math.PI/180; return [CX + r*Math.cos(a), CY + r*Math.sin(a)]; };
+const arcD = (r, a, b) => { const [x1,y1] = pol(r,a), [x2,y2] = pol(r,b), big = (b - a)/(T1 - T0) > .5 ? 1 : 0; return `M${x1.toFixed(1)} ${y1.toFixed(1)}A${r} ${r} 0 ${big} 1 ${x2.toFixed(1)} ${y2.toFixed(1)}`; };
+const f = v => v.toFixed(1);
+
+function drawAstro(){
+  let s = "";
+  // throne and shackle at the top
+  s += `<path class="eng" d="M${CX-26} ${CY-226} C${CX-24} ${CY-246} ${CX-10} ${CY-252} ${CX} ${CY-256} C${CX+10} ${CY-252} ${CX+24} ${CY-246} ${CX+26} ${CY-226}"/>`;
+  s += `<path class="eng thin" d="M${CX-14} ${CY-231} C${CX-12} ${CY-242} ${CX-5} ${CY-246} ${CX} ${CY-248} C${CX+5} ${CY-246} ${CX+12} ${CY-242} ${CX+14} ${CY-231}"/>`;
+  s += `<circle class="eng" cx="${CX}" cy="${CY-262}" r="7"/><circle class="eng" cx="${CX}" cy="${CY-262}" r="12" stroke-width="1.6"/>`;
+  // mater and limb (inside a face group that turns on phones)
+  s += `<g class="face" id="face"><circle cx="${CX}" cy="${CY}" r="236" fill="var(--parch)" fill-opacity=".6"/><circle class="eng" cx="${CX}" cy="${CY}" r="236" stroke-width="2"/><circle class="eng" cx="${CX}" cy="${CY}" r="231"/><circle class="eng" cx="${CX}" cy="${CY}" r="219"/><circle class="eng thin" cx="${CX}" cy="${CY}" r="198"/>`;
+  for (let m = 0; m < (T1 - T0)*12; m++){ const t = T0 + m/12, yr = m % 12 === 0, q = m % 3 === 0;
+    const [a,b] = pol(219, t), [c,d] = pol(yr ? 231 : q ? 226 : 223, t);
+    s += `<line x1="${f(a)}" y1="${f(b)}" x2="${f(c)}" y2="${f(d)}" stroke="var(--ink)" stroke-width="${yr ? 1.2 : .6}"/>`; }
+  for (let y = FIRST; y <= LAST; y++){ const tm = y + .5, [x, yy] = pol(208, tm), r = deg(tm) + 90;
+    s += `<text class="yl" data-r="${f(r)}" x="${f(x)}" y="${f(yy)}" font-size="${y % 5 ? 11 : 13}" text-anchor="middle" dominant-baseline="middle" ${y % 5 ? 'opacity=".75"' : ''}>${y}</text>`; }
+  // a hit ring on the limb: click anywhere to set the year
+  s += `<path class="limb-hit" fill-rule="evenodd" d="M${CX-236} ${CY}a236 236 0 1 0 472 0a236 236 0 1 0 -472 0ZM${CX-196} ${CY}a196 196 0 1 1 392 0a196 196 0 1 1 -392 0Z"/>`;
+  // tympan: the strands of work
+  const radii = [180, 154, 128, 102];
+  RINGS.forEach((rg, i) => { const r = radii[i]; s += `<circle class="ring" cx="${CX}" cy="${CY}" r="${r}"/>`;
+    const spans = rg.ids.map(id => BY[id]).filter(o => o && o.span);
+    rg.ids.forEach(id => { const it = BY[id]; if (!it) return; const c = col(it.themes[0]);
+      const overl = spans.filter(o => o !== it && it.span && o.start < it.end && o.end > it.start && spans.indexOf(o) < spans.indexOf(it)).length;
+      const rr = r + (overl ? 8 : 0);
+      const attrs = `class="dot" tabindex="0" role="button" data-id="${id}" aria-label="${esc(it.label)}, ${esc(it.when)}"`;
+      if (it.span){ const d = arcD(rr, it.start, Math.min(it.end, NOW));
+        s += `<g ${attrs}><path d="${d}" stroke="transparent" stroke-width="16" fill="none"/><path class="hl" d="${d}" stroke-width="13" stroke-linecap="round"/><path d="${d}" stroke="${c}" stroke-width="${it.kind==='Grant'?5:8}" ${it.kind==='Grant'?'stroke-dasharray="4 3"':'stroke-linecap="round"'} fill="none"/></g>`; }
+      else { const [x,y] = pol(r, it.start);
+        s += `<g ${attrs}><circle cx="${f(x)}" cy="${f(y)}" r="11" fill="transparent"/><circle class="hl" cx="${f(x)}" cy="${f(y)}" r="8"/><circle cx="${f(x)}" cy="${f(y)}" r="5.5" fill="var(--page)" stroke="${c}" stroke-width="2.2"/></g>`; }
+    }); });
+  s += `</g>`;
+  // rete: openwork that turns with the year
+  let rete = `<circle cx="${CX+0}" cy="${CY-38}" r="122"/><circle cx="${CX}" cy="${CY-38}" r="114" stroke-dasharray="1 4"/><circle cx="${CX}" cy="${CY}" r="64"/>`;
+  rete += `<path d="M${CX-190} ${CY}H${CX-64}M${CX+64} ${CY}H${CX+190}M${CX} ${CY+64}V${CY+190}"/>`;
+  [[150,30],[172,95],[118,160],[188,215],[140,280],[176,330]].forEach(([r,a]) => { const rad = a*Math.PI/180, x = CX + r*Math.cos(rad), y = CY + r*Math.sin(rad), n = rad + Math.PI/2;
+    rete += `<path class="star" d="M${f(x)} ${f(y)}Q${f(x - 14*Math.cos(rad) + 5*Math.cos(n))} ${f(y - 14*Math.sin(rad) + 5*Math.sin(n))} ${f(x - 26*Math.cos(rad))} ${f(y - 26*Math.sin(rad))}Q${f(x - 12*Math.cos(rad) - 3*Math.cos(n))} ${f(y - 12*Math.sin(rad) - 3*Math.sin(n))} ${f(x)} ${f(y)}Z"/>`; });
+  for (let i = 0; i < 8; i++){ const a = i*Math.PI/4, b = a + Math.PI/8;
+    rete += `<path d="M${CX} ${CY}L${f(CX+52*Math.cos(a))} ${f(CY+52*Math.sin(a))}L${f(CX+20*Math.cos(b))} ${f(CY+20*Math.sin(b))}Z" stroke-width=".8"/>`; }
+  s += `<g class="rete" id="rete" opacity=".42" pointer-events="none">${rete}</g>`;
+  // alidade: the pointer you turn
+  s += `<g class="alidade" id="alidade" tabindex="0" role="slider" aria-label="Year" aria-valuemin="${FIRST}" aria-valuemax="${LAST}">
+    <path d="M${CX} ${CY+196}L${CX-7} ${CY+150}V${CY-150}L${CX} ${CY-236}L${CX+7} ${CY-150}V${CY+150}Z" fill="var(--page)" fill-opacity=".82" stroke="var(--ink)" class="rule"/>
+    <path d="M${CX} ${CY-236}L${CX-7} ${CY-150}H${CX+7}Z" fill="var(--rubric)"/>
+    <line x1="${CX}" y1="${CY-150}" x2="${CX}" y2="${CY+150}" stroke="var(--ink)" stroke-width=".6"/>
+    <rect x="${CX-11}" y="${CY-120}" width="22" height="9" fill="var(--page)" stroke="var(--ink)"/><rect x="${CX-11}" y="${CY+111}" width="22" height="9" fill="var(--page)" stroke="var(--ink)"/>
+    <rect x="${CX-9}" y="${CY-236}" width="18" height="250" fill="transparent"/></g>`;
+  s += `<circle cx="${CX}" cy="${CY}" r="16" fill="var(--page)" stroke="var(--ink)" stroke-width="1.4"/><circle cx="${CX}" cy="${CY}" r="4" fill="var(--ink)"/>`;
+  $("#astro").innerHTML = s;
+}
+let ROT = 0;
+function turn(){
+  const t = YEAR === LAST ? NOW : YEAR + .5, a = deg(t) + 90;
+  ROT = MOBILE.matches ? -a : 0;
+  $("#face").style.transform = `rotate(${ROT}deg)`;
+  $("#alidade").style.transform = `rotate(${MOBILE.matches ? 0 : a}deg)`;
+  $("#rete").style.transform = `rotate(${MOBILE.matches ? -a * .5 : a * .5}deg)`;
+  $("#alidade").setAttribute("aria-valuenow", YEAR);
+  $("#alidade").setAttribute("aria-valuetext", YEAR === LAST ? `${YEAR}, the present` : String(YEAR));
+  document.querySelectorAll("#astro .dot").forEach(g => { const it = BY[g.dataset.id]; g.classList.toggle("past", !inYear(it, YEAR)); });
+  // numerals stay upright: on the desk they flip in the lower half; on phones only the top shows, so none flip
+  document.querySelectorAll("#astro .yl").forEach(el => { const r = +el.dataset.r, flip = !MOBILE.matches && r > 90 && r < 270;
+    el.setAttribute("transform", `rotate(${flip ? r + 180 : r} ${el.getAttribute("x")} ${el.getAttribute("y")})`); });
+}
+function setYear(y, quiet){
+  y = Math.max(FIRST, Math.min(LAST, Math.round(y))); if (y === YEAR && quiet) return;
+  YEAR = y; turn(); render();
+}
+(function wire(){
+  drawAstro();
+  const svg = $("#astro");
+  const yearAt = e => { const r = svg.getBoundingClientRect(), k = 500 / r.width;
+    const x = (e.clientX - r.left)*k - CX, y = (e.clientY - r.top)*k - CY;
+    let a = Math.atan2(y, x)*180/Math.PI + 90 - ROT; a = ((a % 360) + 360) % 360;
+    const t = T0 + a/360*(T1 - T0); return t > NOW + .1 ? (a > 340 ? LAST : FIRST) : Math.floor(t); };
+  let drag = null;
+  svg.addEventListener("pointerdown", e => {
+    if (MOBILE.matches){ drag = {x: e.clientX, y0: YEAR, moved: false, hit: !!e.target.closest(".limb-hit"), ev: e}; svg.setPointerCapture(e.pointerId); return; }
+    if (!e.target.closest("#alidade,.limb-hit")) return;
+    drag = {}; svg.classList.add("dragging"); svg.setPointerCapture(e.pointerId); setYear(yearAt(e), true); e.preventDefault(); });
+  svg.addEventListener("pointermove", e => { if (!drag) return;
+    if (MOBILE.matches){ const dx = e.clientX - drag.x; if (Math.abs(dx) > 6){ drag.moved = true; svg.classList.add("dragging"); }
+      if (drag.moved) setYear(drag.y0 - dx/30, true); return; }
+    setYear(yearAt(e), true); });
+  const end = e => { if (!drag) return;
+    if (MOBILE.matches && !drag.moved && drag.hit) setYear(yearAt(drag.ev));
+    drag = null; svg.classList.remove("dragging"); };
+  svg.addEventListener("pointerup", end); svg.addEventListener("pointercancel", end);
+  $("#alidade").addEventListener("keydown", e => {
+    const k = {ArrowRight:1, ArrowUp:1, ArrowLeft:-1, ArrowDown:-1, PageUp:5, PageDown:-5}[e.key];
+    if (k){ e.preventDefault(); setYear(YEAR + k); } if (e.key === "Home"){ e.preventDefault(); setYear(FIRST); } if (e.key === "End"){ e.preventDefault(); setYear(LAST); } });
+  $("#prev").addEventListener("click", () => setYear(YEAR - 1));
+  $("#next").addEventListener("click", () => setYear(YEAR + 1));
+})();
+
+
+
+/* ---------- the leaf: what happened in the chosen year ---------- */
+/* each section has a small engraved sigil and its own layout */
+const SIGIL = {
+  sun:    `<circle cx="0" cy="0" r="6.2" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="0" cy="0" r="1.8" fill="currentColor"/>`,
+  moon:   `<path d="M2.5 -6.5A6.8 6.8 0 1 0 2.5 6.5A5.2 5.2 0 1 1 2.5 -6.5Z" fill="currentColor"/>`,
+  star:   `<path d="${starPath(0, 0, 7, 8)}" fill="currentColor"/>`,
+  ringed: `<circle cx="0" cy="0" r="3.6" fill="currentColor"/><ellipse cx="0" cy="0" rx="7.4" ry="2.6" fill="none" stroke="currentColor" stroke-width="1.1" transform="rotate(-22)"/>`,
+  lamp:   `<circle cx="-4.5" cy="3.5" r="1.9" fill="currentColor"/><circle cx="0.5" cy="-4.5" r="1.9" fill="currentColor"/><circle cx="5" cy="2.5" r="1.9" fill="currentColor"/><path d="M-4.5 3.5L0.5 -4.5L5 2.5" fill="none" stroke="currentColor" stroke-width=".8"/>`,
+  conj:   `<circle cx="-1.5" cy="1.5" r="4" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M1.4 -1.4L6 -6" stroke="currentColor" stroke-width="1.3"/>`,
+  rose:   `<path d="${starPath(0, 0, 7.2, 4)}" fill="currentColor"/><path d="${starPath(0, 0, 4.6, 4)}" fill="var(--parch)" transform="rotate(45)"/>`,
+  comet:  `<circle cx="3.5" cy="-3.5" r="2.8" fill="currentColor"/><path d="M1.5 -1.5L-6.5 6.5M3.2 -0.6L-3.8 6.8M0.6 -3.2L-6.8 3.8" stroke="currentColor" stroke-width=".9"/>`,
+  earth:  `<circle cx="0" cy="0" r="6" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M0 -6V6M-6 0H6" stroke="currentColor" stroke-width="1"/>`,
+};
+const sig = (k, cls = "") => `<svg class="sigil ${cls}" viewBox="-8 -8 16 16" aria-hidden="true">${SIGIL[k]}</svg>`;
+const GROUPS = [
+  {name:"Positions and study", sig:"sun",    lay:"card", test: it => !it.parent && it.band === "work"},
+  {name:"Writing",             sig:"moon",   lay:"cite", test: it => !it.parent && it.band === "writing"},
+  {name:"Speaking",            sig:"star",   lay:"row",  test: it => !it.parent && it.band === "speaking" && !it.ticks && it.kind !== "Radio"},
+  {name:"Radio",               sig:"ringed", lay:"row",  test: it => (it.parent && it.parent.id === "brd0") || it.kind === "Radio"},
+  {name:"Teaching",            sig:"lamp",   lay:"row",  test: it => (!it.parent && it.kind === "Course") || (it.parent && it.parent.id === "wks")},
+  {name:"Convening",           sig:"conj",   lay:"row",  test: it => (it.parent && it.parent.id === "sym") || (!it.parent && it.kind === "Symposium")},
+  {name:"Art",                 sig:"rose",   lay:"row",  test: it => !it.parent && it.band === "art"},
+  {name:"In the press",        sig:"comet",  lay:"row",  test: it => !it.parent && it.band === "press"},
+  {name:"Service",             sig:"earth",  lay:"row",  test: it => !it.parent && it.band === "service"},
+];
+const LEAVES = ALL.filter(it => !it.ticks);   // series appear through their episodes and events
+const whereFor = y => { const pl = D.places.filter(q => q.start < y + 1 && q.end >= y); return pl.map(q => q.place).join(" and "); };
+const stars = it => `<span class="th" aria-hidden="true">${it.themes.map(k => `<svg viewBox="-6 -6 12 12"><path d="${starPath(0, 0, 5.2, 5)}" fill="${col(k)}"/></svg>`).join("")}</span>`;
+const more = rest => rest.length ? `<details><summary>${rest.length} more</summary>${rest.map(t => `<p>${md(t)}</p>`).join("")}</details>` : "";
+const shortWhen = w => w.replace(new RegExp(`\\s${YEAR}$`), "") || w;
+function entry(it, lay){
+  const [first, ...rest] = it.items || [];
+  if (lay === "card") return `<article class="card" id="e-${it.id}" style="--c:${col(it.themes[0])}">
+    <div class="d">${esc(it.when)} · ${esc(it.kind)} ${stars(it)}</div><h3>${md(it.title)}</h3>${it.meta ? `<p class="m">${md(it.meta)}</p>` : ""}
+    ${it.quote ? `<blockquote lang="de">${esc(it.quote)}</blockquote>` : ""}${first ? `<p class="x">${md(first)}</p>` : ""}${more(rest)}
+    ${it.image ? `<img src="${it.image}" alt="">` : ""}</article>`;
+  if (lay === "cite") return `<article class="cite" id="e-${it.id}"><svg class="bullet" viewBox="-6 -6 12 12" aria-hidden="true"><path d="${starPath(0, 0, 5.4, 5)}" fill="${col(it.themes[0])}"/></svg>
+    <div><h3>${md(it.title)}</h3><p class="m">${md(it.meta)} <span class="k">${esc(it.kind)}</span></p></div></article>`;
+  return `<article class="row" id="e-${it.id}"><div class="d">${esc(shortWhen(it.when))}</div>
+    <div><h3>${md(it.title)}</h3>${it.meta ? `<p class="m">${md(it.meta)}</p>` : ""}
+      ${it.quote ? `<blockquote lang="de">${esc(it.quote)}</blockquote>` : ""}${first ? `<p class="x">${md(first)}</p>` : ""}${more(rest)}</div>
+    ${it.image ? `<img src="${it.image}" alt="">` : `<span></span>`}</article>`;
+}
+function render(){
+  const role = roleFor(YEAR), era = eraFor(YEAR), fe = BY[era.id], where = whereFor(YEAR);
+  $("#anno").innerHTML = `Anno ${YEAR}<small>${YEAR === LAST ? "the present" : "turn to any year"}</small>`;
+  $("#prev").disabled = YEAR <= FIRST; $("#next").disabled = YEAR >= LAST;
+  let h = `<header class="yh fade"><div class="num">${YEAR}</div><div><div class="role">${esc(role.text)}</div>${where ? `<div class="where">${esc(where)}</div>` : ""}</div></header>
+    <button class="sig fade" type="button" data-go="${fe.id}"><span><span class="k">${esc(era.head)}</span><b>${esc(era.title || plain(fe.title))}</b>${esc(era.text)}</span>${(era.imageFrom ? BY[era.imageFrom].image : fe.image) ? `<img src="${era.imageFrom ? BY[era.imageFrom].image : fe.image}" alt="">` : ""}</button>`;
+  let n = 0, body = "", toc = [];
+  GROUPS.forEach((g, gi) => { const its = LEAVES.filter(it => g.test(it) && inYear(it, YEAR)).sort((a,b) => b.start - a.start);
+    if (!its.length) return; n += its.length;
+    toc.push(`<a href="#g-${gi}">${sig(g.sig)}${esc(g.name)} <span>${its.length}</span></a>`);
+    body += `<section class="group lay-${g.lay} fade" id="g-${gi}"><h2>${sig(g.sig)}${esc(g.name)} <span>${its.length}</span></h2>${its.map(it => entry(it, g.lay)).join("")}</section>`; });
+  if (toc.length) h += `<nav class="toc fade" aria-label="In ${YEAR}">${toc.join("")}</nav>`;
+  h += body;
+  if (!n) h += `<p class="quiet">Nothing is on the record for ${YEAR}.</p>`;
+  $("#year").innerHTML = h;
+  overview();
+}
+$("#year").addEventListener("click", e => { const b = e.target.closest("[data-go]"); if (!b) return;
+  const el = document.getElementById("e-" + b.dataset.go);
+  if (el){ el.scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block:"center"}); el.querySelector("details")?.setAttribute("open",""); }
+  else { const it = BY[b.dataset.go]; setYear(Math.floor(it.start)); } });
+
+/* overview: the years as a strip of sky, each entry a star coloured by its strand */
+function starPath(x, y, r, n){ let d = ""; for (let i = 0; i < n*2; i++){ const rr = i % 2 ? r*(n === 4 ? .32 : .42) : r, a = -Math.PI/2 + i*Math.PI/n;
+  d += (i ? "L" : "M") + (x + rr*Math.cos(a)).toFixed(2) + " " + (y + rr*Math.sin(a)).toFixed(2); } return d + "Z"; }
+const MAG = it => it.span || it.kind === "Degree" || it.kind === "Grant" ? [5.4, 8] : /Publication|Talk|Workshop|Exhibition|Course/.test(it.kind) ? [4.3, 5] : [3.4, 4];
+const hash = s => { let h = 2166136261; for (const c of s) h = Math.imul(h ^ c.charCodeAt(0), 16777619); return ((h >>> 0) % 1000)/1000; };
+function overview(){
+  const svg = $("#overview"), W = 700, cols = LAST - FIRST + 1, cw = W / cols, gap = 8.6, top = 10;
+  const per = []; let max = 0;
+  for (let y = FIRST; y <= LAST; y++){ const its = LEAVES.filter(it => Math.floor(it.start) === y)
+      .sort((a,b) => (a.themes[0] > b.themes[0] ? 1 : -1) || a.start - b.start);
+    per.push(its); max = Math.max(max, its.length); }
+  const base = top + max*gap + 6, H = base + 34;
+  let s = `<defs><radialGradient id="halo"><stop offset="0" stop-color="var(--brass)" stop-opacity=".28"/><stop offset="1" stop-color="var(--brass)" stop-opacity="0"/></radialGradient></defs>`;
+  // graduated scale, like the rim of the instrument
+  s += `<line x1="0" y1="${base}" x2="${W}" y2="${base}" stroke="var(--ink)" stroke-width=".9"/><line x1="0" y1="${base+3}" x2="${W}" y2="${base+3}" stroke="var(--ink)" stroke-width=".4"/>`;
+  for (let q = 0; q <= cols*4; q++){ const x = q*cw/4, yr = q % 4 === 0;
+    s += `<line x1="${x}" y1="${base}" x2="${x}" y2="${base + (yr ? 8 : 4)}" stroke="var(--ink)" stroke-width="${yr ? .8 : .45}"/>`; }
+  per.forEach((its, i) => { const y = FIRST + i, x0 = i*cw, on = y === YEAR;
+    s += `<g class="yr-col ${on ? "on" : ""}" tabindex="0" role="button" data-y="${y}" aria-label="${y}: ${its.length} entries"><rect class="col-hit" x="${x0+1}" y="0" width="${cw-2}" height="${H}" rx="2"/>`;
+    if (on){ const cy = base - Math.max(its.length, 2)*gap/2; s += `<ellipse cx="${x0 + cw/2}" cy="${cy}" rx="${cw*.95}" ry="${Math.max(its.length, 3)*gap*.75}" fill="url(#halo)"/>`; }
+    // stars loosen into a small cluster; same-strand stars are joined like a constellation
+    const pts = its.map((it, j) => ({it, x: x0 + cw/2 + (hash(it.id) - .5)*cw*.5, y: base - 6 - j*gap - (hash(it.id + "y") - .5)*3}));
+    const byT = {}; pts.forEach(pt => (byT[pt.it.themes[0]] ||= []).push(pt));
+    Object.entries(byT).forEach(([k, ps]) => { if (ps.length < 2) return;
+      s += `<path d="${ps.map((pt, n) => `${n ? "L" : "M"}${pt.x.toFixed(1)} ${pt.y.toFixed(1)}`).join("")}" fill="none" stroke="${col(k)}" stroke-width=".6" stroke-dasharray="1 2.2" opacity=".75"/>`; });
+    pts.forEach(pt => { const [r, n] = MAG(pt.it);
+      s += `<path class="star${on ? " tw" : ""}" data-id="${pt.it.id}" d="${starPath(pt.x, pt.y, r, n)}" fill="${col(pt.it.themes[0])}" style="--d:${(hash(pt.it.id+"t")*2.4).toFixed(2)}s"><title>${esc(pt.it.label)}, ${esc(pt.it.when)}</title></path>`; });
+    s += `<text x="${x0 + cw/2}" y="${H - 4}" text-anchor="middle">${(y % 5 === 0 && Math.abs(y - YEAR) > 1) || on || (y === LAST && YEAR < LAST - 1) ? y : ""}</text>`;
+    if (on) s += `<path d="M${x0 + cw/2} ${base + 10}l-4 7h8z" fill="var(--rubric)"/>`;
+    s += `</g>`; });
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`); svg.innerHTML = s;
+  $("#count").textContent = `${LEAVES.length} entries, ${FIRST}–${LAST}`;
+}
+$("#overview").addEventListener("click", e => { const g = e.target.closest(".yr-col"); if (g) setYear(+g.dataset.y); });
+$("#overview").addEventListener("keydown", e => { const g = e.target.closest(".yr-col"); if (g && (e.key === "Enter" || e.key === " ")){ e.preventDefault(); setYear(+g.dataset.y); } });
+
+/* about + contact */
+$("#about").innerHTML = `<h2>About</h2><p>${esc(p.summary)}</p>
+  <nav><a href="mailto:${esc(p.email)}">Email</a><a href="https://www.linkedin.com/in/${esc(p.linkedin)}" target="_blank" rel="noopener">LinkedIn</a><a href="https://scholar.google.com/citations?user=${esc(p.scholar)}" target="_blank" rel="noopener">Google Scholar</a>${p.instagram ? `<a href="https://www.instagram.com/${esc(p.instagram)}/" target="_blank" rel="noopener">Instagram</a>` : ""}</nav>
+  <small>Last revised ${new Date(D.updated).toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"})}</small>`;
+
+/* hovering the astrolabe names what you point at; clicking a ring opens its year */
+const tip = $("#tip");
+$("#astro").addEventListener("mouseover", e => { const g = e.target.closest(".dot"); if (!g){ tip.style.opacity = 0; return; }
+  const it = BY[g.dataset.id]; tip.innerHTML = `<b>${esc(it.label)}</b><span>${esc(it.when)}</span>`; tip.style.opacity = 1; });
+$("#astro").addEventListener("mousemove", e => { tip.style.left = Math.min(e.clientX + 14, innerWidth - 290) + "px"; tip.style.top = (e.clientY + 16) + "px"; });
+$("#astro").addEventListener("mouseleave", () => tip.style.opacity = 0);
+$("#astro").addEventListener("click", e => { const g = e.target.closest(".dot"); if (!g) return; const it = BY[g.dataset.id];
+  const y = it.span ? Math.min(LAST, Math.max(Math.floor(it.start), Math.min(YEAR, Math.floor(it.end)))) : Math.floor(it.start);
+  setYear(y); requestAnimationFrame(() => document.getElementById("e-" + it.id)?.scrollIntoView({behavior:"smooth", block:"center"})); });
+
+turn();
+(document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(render);
+render();
+MOBILE.addEventListener("change", turn);
+</script>
+</body>
+</html>
