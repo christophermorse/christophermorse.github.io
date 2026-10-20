@@ -35,6 +35,7 @@ button{font:inherit; color:inherit}
   padding:clamp(18px,3vh,36px) clamp(16px,2.5vw,40px) clamp(14px,2.5vh,28px); border-right:1px solid var(--rule)}
 .who{width:100%; text-align:center}
 .who h1{font-family:var(--display); font-weight:400; font-size:clamp(1.8rem,2.7vw,2.6rem); line-height:1; margin:0}
+.who h1 a{text-decoration:none}
 .who p{color:var(--faded); margin:.35rem 0 0; font-size:1rem}
 .dock{flex:1; min-height:0; width:100%; display:flex; flex-direction:column; align-items:center; justify-content:center}
 #astro{height:100%; max-height:calc(100dvh - 280px); width:auto; max-width:100%; aspect-ratio:500/532; flex:0 1 auto; min-height:0}
@@ -181,7 +182,7 @@ button{font:inherit; color:inherit}
 <body>
 <div class="layout">
   <aside class="instrument" aria-label="Choose a year">
-    <header class="who"><h1 id="name"></h1><p id="pos"></p></header>
+    <header class="who"><h1><a id="name" href="./" title="Back to the present"></a></h1><p id="pos"></p></header>
     <div class="dock" id="dock">
       <svg id="astro" viewBox="0 -12 500 532" role="group" aria-label="Astrolabe of years. Turn the pointer to choose a year; the page beside it shows that year."></svg>
       <div class="cartouche"><button type="button" id="prev" aria-label="Previous year">‹</button><output id="anno" aria-live="polite"></output><button type="button" id="next" aria-label="Next year">›</button></div>
@@ -210,6 +211,9 @@ const BY = Object.fromEntries(ALL.map(i => [i.id, i]));
 const MOBILE = matchMedia("(max-width:860px)");
 const p = D.person;
 $("#name").textContent = p.name;
+/* the name takes you back to the present, at the top of the page */
+$("#name").addEventListener("click", e => { e.preventDefault(); setYear(LAST);
+  window.scrollTo({top: 0, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"}); });
 $("#pos").textContent = p.position.replace(/ · /g, ", ");
 
 /* ---------- time state ---------- */
