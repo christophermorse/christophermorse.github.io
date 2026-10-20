@@ -100,7 +100,8 @@ experience:
     end: present
     themes: [speech, ai-nlp]
     items:   # CONFIRM all of these — drafted from your notes + public sources
-      - Trains and maintains the AI models behind [sproochmaschinn.lu](https://sproochmaschinn.lu), Luxembourg's first public web platform for Luxembourgish speech technology, which unites the Schreifmaschinn (speech-to-text) and the Liesmaschinn (text-to-speech). Launched by the Minister of Culture in February 2025.
+      - Trains and maintains the AI models behind [sproochmaschinn.lu](https://sproochmaschinn.lu), one of the first public web platforms for Luxembourgish speech technology, which unites the Schreifmaschinn (speech-to-text) and the Liesmaschinn (text-to-speech). Launched by the Minister of Culture in February 2025.
+      - Lead designer of the sproochmaschinn.lu web application.
       - Fine-tuned Whisper Large v3 Turbo on Luxembourgish parliamentary and broadcast speech and integrated pyannote speaker diarization; version 2.0 (December 2025) doubled the training data and added speaker recognition and a second synthetic voice.
       - Designs fully on-premise training and inference pipelines, so no audio or text ever leaves government servers.
       - Currently developing streaming speech recognition for live Luxembourgish subtitling.
