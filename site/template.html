@@ -12,7 +12,7 @@
   --parch:#EFE6D1; --page:#EFE6D1; --ink:#14110E; --faded:#5E5448; --rule:#CFC2A6; --hair:#E2D7BF;
   --rubric:#972B1A; --brass:#8F7036;
   --t-cultural-heritage:#97762A; --t-hci-ux:#356A5A; --t-ai-nlp:#2B4777; --t-speech:#972B1A;
-  --t-digital-humanities:#714F31; --t-teaching:#646827; --t-art:#73355B; --t-japan:#465A72; --t-community:#7E7366;
+  --t-digital-humanities:#714F31; --t-teaching:#646827; --t-japan:#465A72; --t-community:#7E7366;
   --shadow:rgba(60,40,15,.22);
   --display:"IM Fell English", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
   --sc:"IM Fell English SC", "IM Fell English", Georgia, serif;
@@ -37,7 +37,7 @@ button{font:inherit; color:inherit}
 .who h1{font-family:var(--display); font-weight:400; font-size:clamp(1.8rem,2.7vw,2.6rem); line-height:1; margin:0}
 .who p{color:var(--faded); margin:.35rem 0 0; font-size:1rem}
 .dock{flex:1; min-height:0; width:100%; display:flex; flex-direction:column; align-items:center; justify-content:center}
-#astro{height:100%; max-height:calc(100dvh - 220px); width:auto; max-width:100%; aspect-ratio:500/520}
+#astro{height:100%; max-height:calc(100dvh - 280px); width:auto; max-width:100%; aspect-ratio:500/532; flex:0 1 auto; min-height:0}
 .rings-key{text-align:center; font-size:.9rem; color:var(--faded); font-style:italic; margin:.2rem 0 0; max-width:30em}
 /* astrolabe */
 .astro-wrap{position:relative; margin:.8rem auto .2rem; width:100%; max-width:470px}
@@ -163,7 +163,7 @@ button{font:inherit; color:inherit}
   body{padding-bottom:178px}
   .dock{position:fixed; left:0; right:0; bottom:0; height:170px; overflow:hidden; z-index:30; display:block;
     background-color:var(--parch); background-image:inherit; border-top:1px solid var(--rule); box-shadow:0 -10px 30px -18px var(--shadow)}
-  #astro{position:absolute; width:min(560px,145vw); height:auto; max-height:none; max-width:none; left:50%; top:6px; transform:translateX(-50%); touch-action:pan-y}
+  #astro{position:absolute; width:min(560px,145vw); height:auto; max-height:none; max-width:none; left:50%; top:-6px; transform:translateX(-50%); touch-action:pan-y}
   .dock .cartouche{position:absolute; left:50%; bottom:8px; transform:translateX(-50%); margin:0; background:var(--parch);
     border:1px solid var(--rule); border-radius:999px; padding:.15rem .4rem; box-shadow:0 4px 14px -8px var(--shadow)}
   .dock .cartouche output{font-size:1.2rem; min-width:5.6em}
@@ -183,7 +183,7 @@ button{font:inherit; color:inherit}
   <aside class="instrument" aria-label="Choose a year">
     <header class="who"><h1 id="name"></h1><p id="pos"></p></header>
     <div class="dock" id="dock">
-      <svg id="astro" viewBox="0 0 500 520" role="group" aria-label="Astrolabe of years. Turn the pointer to choose a year; the page beside it shows that year."></svg>
+      <svg id="astro" viewBox="0 -12 500 532" role="group" aria-label="Astrolabe of years. Turn the pointer to choose a year; the page beside it shows that year."></svg>
       <div class="cartouche"><button type="button" id="prev" aria-label="Previous year">‹</button><output id="anno" aria-live="polite"></output><button type="button" id="next" aria-label="Next year">›</button></div>
       <p class="rings-key">Turn the pointer, or click the rim. Rings, outside in: Language &amp; AI, Research, Learning, Community.</p>
     </div>
@@ -250,10 +250,10 @@ const f = v => v.toFixed(1);
 
 function drawAstro(){
   let s = "";
-  // throne and shackle at the top
-  s += `<path class="eng" d="M${CX-26} ${CY-226} C${CX-24} ${CY-246} ${CX-10} ${CY-252} ${CX} ${CY-256} C${CX+10} ${CY-252} ${CX+24} ${CY-246} ${CX+26} ${CY-226}"/>`;
-  s += `<path class="eng thin" d="M${CX-14} ${CY-231} C${CX-12} ${CY-242} ${CX-5} ${CY-246} ${CX} ${CY-248} C${CX+5} ${CY-246} ${CX+12} ${CY-242} ${CX+14} ${CY-231}"/>`;
-  s += `<circle class="eng" cx="${CX}" cy="${CY-262}" r="7"/><circle class="eng" cx="${CX}" cy="${CY-262}" r="12" stroke-width="1.6"/>`;
+  // throne and shackle at the top: drawn first so the limb covers the throne's foot
+  s += `<path class="eng" fill="var(--parch)" d="M${CX-34} ${CY-232} C${CX-30} ${CY-246} ${CX-14} ${CY-251} ${CX-6} ${CY-254} L${CX+6} ${CY-254} C${CX+14} ${CY-251} ${CX+30} ${CY-246} ${CX+34} ${CY-232}"/>`;
+  s += `<path class="eng thin" d="M${CX-20} ${CY-236} C${CX-17} ${CY-243} ${CX-8} ${CY-246} ${CX} ${CY-247} C${CX+8} ${CY-246} ${CX+17} ${CY-243} ${CX+20} ${CY-236}"/>`;
+  s += `<circle class="eng" cx="${CX}" cy="${CY-264}" r="10" stroke-width="1.6"/><circle class="eng thin" cx="${CX}" cy="${CY-264}" r="5.5"/>`;
   // mater and limb (inside a face group that turns on phones)
   s += `<g class="face" id="face"><circle cx="${CX}" cy="${CY}" r="236" fill="var(--parch)" fill-opacity=".6"/><circle class="eng" cx="${CX}" cy="${CY}" r="236" stroke-width="2"/><circle class="eng" cx="${CX}" cy="${CY}" r="231"/><circle class="eng" cx="${CX}" cy="${CY}" r="219"/><circle class="eng thin" cx="${CX}" cy="${CY}" r="198"/>`;
   for (let m = 0; m < (T1 - T0)*12; m++){ const t = T0 + m/12, yr = m % 12 === 0, q = m % 3 === 0;
@@ -316,8 +316,8 @@ function setYear(y, quiet){
 (function wire(){
   drawAstro();
   const svg = $("#astro");
-  const yearAt = e => { const r = svg.getBoundingClientRect(), k = 500 / r.width;
-    const x = (e.clientX - r.left)*k - CX, y = (e.clientY - r.top)*k - CY;
+  const yearAt = e => { const p = new DOMPoint(e.clientX, e.clientY).matrixTransform(svg.getScreenCTM().inverse());
+    const x = p.x - CX, y = p.y - CY;
     let a = Math.atan2(y, x)*180/Math.PI + 90 - ROT; a = ((a % 360) + 360) % 360;
     const t = T0 + a/360*(T1 - T0); return t > NOW + .1 ? (a > 340 ? LAST : FIRST) : Math.floor(t); };
   let drag = null;
@@ -363,7 +363,6 @@ const GROUPS = [
   {name:"Radio",               sig:"ringed", lay:"row",  test: it => (it.parent && it.parent.id === "brd0") || it.kind === "Radio"},
   {name:"Teaching",            sig:"lamp",   lay:"row",  test: it => (!it.parent && it.kind === "Course") || (it.parent && it.parent.id === "wks")},
   {name:"Convening",           sig:"conj",   lay:"row",  test: it => (it.parent && it.parent.id === "sym") || (!it.parent && it.kind === "Symposium")},
-  {name:"Art",                 sig:"rose",   lay:"row",  test: it => !it.parent && it.band === "art"},
   {name:"In the press",        sig:"comet",  lay:"row",  test: it => !it.parent && it.band === "press"},
   {name:"Service",             sig:"earth",  lay:"row",  test: it => !it.parent && it.band === "service"},
 ];
@@ -410,7 +409,7 @@ $("#year").addEventListener("click", e => { const b = e.target.closest("[data-go
 /* overview: the years as a strip of sky, each entry a star coloured by its strand */
 function starPath(x, y, r, n){ let d = ""; for (let i = 0; i < n*2; i++){ const rr = i % 2 ? r*(n === 4 ? .32 : .42) : r, a = -Math.PI/2 + i*Math.PI/n;
   d += (i ? "L" : "M") + (x + rr*Math.cos(a)).toFixed(2) + " " + (y + rr*Math.sin(a)).toFixed(2); } return d + "Z"; }
-const MAG = it => it.span || it.kind === "Degree" || it.kind === "Grant" ? [5.4, 8] : /Publication|Talk|Workshop|Exhibition|Course/.test(it.kind) ? [4.3, 5] : [3.4, 4];
+const MAG = it => it.span || it.kind === "Degree" || it.kind === "Grant" ? [5.4, 8] : /Publication|Talk|Workshop|Course/.test(it.kind) ? [4.3, 5] : [3.4, 4];
 const hash = s => { let h = 2166136261; for (const c of s) h = Math.imul(h ^ c.charCodeAt(0), 16777619); return ((h >>> 0) % 1000)/1000; };
 function overview(){
   const svg = $("#overview"), W = 700, cols = LAST - FIRST + 1, cw = W / cols, gap = 8.6, top = 10;
@@ -445,7 +444,7 @@ $("#overview").addEventListener("keydown", e => { const g = e.target.closest(".y
 
 /* about + contact */
 $("#about").innerHTML = `<h2>About</h2><p>${esc(p.summary)}</p>
-  <nav><a href="mailto:${esc(p.email)}">Email</a><a href="https://www.linkedin.com/in/${esc(p.linkedin)}" target="_blank" rel="noopener">LinkedIn</a><a href="https://scholar.google.com/citations?user=${esc(p.scholar)}" target="_blank" rel="noopener">Google Scholar</a>${p.instagram ? `<a href="https://www.instagram.com/${esc(p.instagram)}/" target="_blank" rel="noopener">Instagram</a>` : ""}</nav>
+  <nav><a href="mailto:${esc(p.email)}">Email</a><a href="https://www.linkedin.com/in/${esc(p.linkedin)}" target="_blank" rel="noopener">LinkedIn</a><a href="https://scholar.google.com/citations?user=${esc(p.scholar)}" target="_blank" rel="noopener">Google Scholar</a></nav>
   <small>Last revised ${new Date(D.updated).toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"})}</small>`;
 
 /* hovering the astrolabe names what you point at; clicking a ring opens its year */

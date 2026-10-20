@@ -117,11 +117,6 @@ for i, x in enumerate([x for x in cv["organizing"] if x["host"] != "Harvard Univ
     add("teaching", "Symposium", f"org{i}", f'*{x["title"]}*', f'{x["host"]}, {x["location"]}', w, s, s, x.get("themes"),
         label=short(x["title"]) + " (organizer)")
 
-for i, x in enumerate(cv["exhibitions"]):
-    s, e, w = span(x.get("start"), x.get("end"))
-    add("art", "Exhibition", f"exh{i}", f'*{x["title"]}*', f'{x["venue"]}, {x["location"]}', w, s, s, x["themes"],
-        [x["description"]] if x.get("description") else [], image=img(x.get("image")))
-
 for i, x in enumerate(cv["media"]):
     s, w = parse(x["date"])
     add("press", "Press", f"prs{i}", link(x["title"], x.get("url")), x["outlet"] + (f'. {x["mentions"]}' if x.get("mentions") else ""), w, s, s, x.get("themes"),
@@ -143,10 +138,10 @@ for x in cv.get("places", []):
 p = cv["person"]
 DATA = {
   "person": {"name": f'{p["first_name"]} {p["last_name"]}', "position": p["position"], "summary": p["summary"],
-             "email": p["email"], "linkedin": p["linkedin"], "scholar": p["google_scholar"]["id"], "instagram": p.get("instagram")},
+             "email": p["email"], "linkedin": p["linkedin"], "scholar": p["google_scholar"]["id"]},
   "themes": cv["themes"], "items": items, "places": places, "updated": str(cv["meta"]["last_updated"]),
   "bands": [["work","Positions and study"],["writing","Writing"],["speaking","Speaking and radio"],["teaching","Teaching and convening"],
-            ["art","Art"],["press","In the press"],["service","Service"]],
+            ["press","In the press"],["service","Service"]],
 }
 import shutil
 OUT = os.path.join(ROOT, "_site")

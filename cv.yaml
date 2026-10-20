@@ -23,7 +23,6 @@ themes:
   speech:            Speech & language technology
   digital-humanities: Digital humanities & research computing
   teaching:          Teaching & training
-  art:               Papercutting & visual art
   japan:             Japan & Japanese studies
 
 person:
@@ -45,7 +44,6 @@ person:
   google_scholar:
     id: 6ZSS-ZEAAAAJ
     name: Christopher Morse
-  instagram: christophrmorse
   github: christophermorse
   homepage: https://christophermorse.github.io/
 
@@ -387,14 +385,14 @@ talks:
 organizing:
   - { title: "Zortify Summer School: The Future of Work", host: Zortify, location: "Luxembourg, Luxembourg", country: LU, date: 2023-08-28, themes: [ai-nlp] }
   - { title: "Making History Together: Public Participation in Museums", host: University of Luxembourg, location: "Luxembourg, Luxembourg", country: LU, date: 2020-12-15, themes: [cultural-heritage] }
-  - { title: ArtTechPsyche III, host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2017-04-20, themes: [art, hci-ux] }
-  - { title: ArtTechPsyche II, host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2016-04-14, themes: [art, hci-ux] }
-  - { title: "sIGHTLines: proJECT", host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2016-02-11, themes: [art, digital-humanities] }
-  - { title: "sIGHTLines: obJECT", host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2015-12-03, themes: [art, digital-humanities] }
+  - { title: ArtTechPsyche III, host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2017-04-20, themes: [hci-ux] }
+  - { title: ArtTechPsyche II, host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2016-04-14, themes: [hci-ux] }
+  - { title: "sIGHTLines: proJECT", host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2016-02-11, themes: [digital-humanities] }
+  - { title: "sIGHTLines: obJECT", host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2015-12-03, themes: [digital-humanities] }
   - { title: "Memories Realized: From Objects and Media to Curation and Scholarship", host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2015-11-15, themes: [cultural-heritage] }
-  - { title: "sIGHTLines: obSERVE", host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2015-10-14, themes: [art, digital-humanities] }
-  - { title: Art Technology Psyche, host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2015-04-23, themes: [art, hci-ux] }
-  - { title: Thinking With Your Eyes, host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2015-02-27, themes: [art, digital-humanities] }
+  - { title: "sIGHTLines: obSERVE", host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2015-10-14, themes: [digital-humanities] }
+  - { title: Art Technology Psyche, host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2015-04-23, themes: [hci-ux] }
+  - { title: Thinking With Your Eyes, host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2015-02-27, themes: [digital-humanities] }
 
 # -----------------------------------------------------------------------------
 teaching:
@@ -510,7 +508,7 @@ media:
   - { title: "In conversation with our young researchers: Christopher Morse", outlet: Research Luxembourg, date: 2021-09-17, url: "https://www.researchluxembourg.org/en/in-conversation-with-our-young-researchers-christopher-morse/", themes: [cultural-heritage] }
   - { title: "MNHA Launches Digital Collections Platform", outlet: Chronicle.lu, date: 2019-06-18, url: "https://chronicle.lu/category/museums/29558-mnha-launches-digital-platform", themes: [cultural-heritage] }
   - { title: "'Charlie' ou 'pas Charlie', comment Harvard a décidé de tout archiver", outlet: "L'Obs", date: 2016-07-08, url: "https://www.nouvelobs.com/attentats-terroristes-a-paris/20160708.OBS4267/charlie-ou-pas-charlie-comment-harvard-a-decide-de-tout-archiver.html", themes: [digital-humanities] }
-  - { title: "Arts and Technology Speakers Come Together At Conference", outlet: The Harvard Crimson, date: 2015-04-24, url: "https://www.thecrimson.com/article/2015/4/24/arts-technology-together-conference/", themes: [art] }
+  - { title: "Arts and Technology Speakers Come Together At Conference", outlet: The Harvard Crimson, date: 2015-04-24, url: "https://www.thecrimson.com/article/2015/4/24/arts-technology-together-conference/", themes: [hci-ux] }
 
 # -----------------------------------------------------------------------------
 broadcast:   # "Radio & Broadcast" — appearances where you're the voice, not the subject
@@ -565,40 +563,6 @@ editorial:
   - { role: Editorial Board, venue: DH Benelux, url: "https://dhbenelux.org/", start: 2018, end: 2021, themes: [digital-humanities] }
   - { role: Reviewer, venue: "CHI: Conference on Human Factors in Computing Systems", url: "https://dl.acm.org/conference/chi", year: 2021, themes: [hci-ux] }
   - { role: Reviewer, venue: Journal on Computing and Cultural Heritage (JOCCH), url: "https://dl.acm.org/journal/jocch", year: 2018, themes: [cultural-heritage] }
-
-# -----------------------------------------------------------------------------
-exhibitions:
-  - title: "Visions & Reliquaries"
-    venue: Elsewhere Gallery — two-person exhibition
-    location: Mondorf-les-Bains, Luxembourg
-    country: LU
-    start: 2026-10-16
-    end: 2026-11-06
-    description: "Papercuts from the Arcana Nova series: kiri-e cut into velvet-black paper. My first gallery exhibition."
-    themes: [art]
-  - title: Queer Arts Festival
-    venue: Luxembourg Pride — group exhibition
-    location: Luxembourg, Luxembourg
-    country: LU
-    start: 2022-07-01
-    end: 2022-07-03
-    print: false
-    themes: [art]
-  - title: "Temporary Contemporary / Décollage dans l'espace"
-    venue: Casino – Forum d'art contemporain — group exhibition
-    location: Luxembourg, Luxembourg
-    country: LU
-    start: 2021-03-08
-    end: 2021-04-13
-    print: false
-    themes: [art]
-  - title: Ukigumo Hakaze
-    venue: Harvard University — group exhibition
-    location: Cambridge, MA, USA
-    country: US
-    start: 2015-04
-    print: false
-    themes: [art, japan]
 
 # -----------------------------------------------------------------------------
 activities:
