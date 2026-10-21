@@ -9,7 +9,10 @@ and the site rebuilds and republishes itself within a minute or two.
 
 - Images: put them in `assets/` and add `image: assets/your-file.jpg` to an entry.
 - `public: false` keeps a field (phone, address, references) off the website.
-- Your address, phone and references live in `cv.private.yaml`, which stays on your computer and is never pushed.
+- Your email, phone, address and references live in `cv.private.yaml`, which stays on your
+  computer and is never pushed. **This repository is public**: anything in `cv.yaml` is served
+  in plain text at `raw.githubusercontent.com`, so never put contact details there. The website
+  links LinkedIn and Google Scholar instead of an address.
 - Lines marked `CONFIRM` or `TODO` are still waiting for a check.
 
 ## How it works

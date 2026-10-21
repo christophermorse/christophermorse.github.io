@@ -139,8 +139,8 @@ places = []
 for x in cv.get("places", []):
     s, e, _ = span(x["start"], x["end"]); places.append({"place": x["place"], "start": s, "end": e})
 p = cv["person"]
-# email may be a bare address, or a mapping with public: false to keep it off the website
-em = p["email"]
+# no address on the website: it lives in cv.private.yaml, which this script never reads
+em = p.get("email")
 EMAIL = em if not isinstance(em, dict) else (em["address"] if em.get("public", True) else None)
 DATA = {
   "person": {"name": f'{p["first_name"]} {p["last_name"]}' + (f', {p["suffix"]}' if p.get("suffix") else ""),

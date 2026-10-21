@@ -14,7 +14,7 @@
 # =============================================================================
 
 meta:
-  last_updated: 2026-10-21
+  last_updated: 2026-10-22
 
 themes:
   cultural-heritage: Museums & digital cultural heritage
@@ -48,9 +48,9 @@ person:
     so that a language spoken by fewer than half a million people can be spoken
     to machines as readily as to other people. The tools have evolved, but the
     question remains the same.
-  email:
-    address: [address removed]   # TODO: work or personal address for the printed CV?
-    public: false   # a plain mailto: link on a public page gets harvested; the site offers LinkedIn instead
+  # Your email, phone and address live in cv.private.yaml, which is never pushed:
+  # this repository is public, so anything here is served in plain text to anyone
+  # at raw.githubusercontent.com. The website offers LinkedIn and Scholar instead.
   linkedin: cmmorse
   google_scholar:
     id: 6ZSS-ZEAAAAJ
@@ -60,7 +60,7 @@ person:
 
 # -----------------------------------------------------------------------------
 places:   # where you lived — drawn as a ribbon above the timeline
-  - { place: Massachusetts, start: 2003, end: 2017-09 }   # CONFIRM start year
+  - { place: Massachusetts, start: 2003, end: 2017-09 }
   - { place: Japan, start: 2004-08, end: 2005-07 }
   - { place: Japan, start: 2006-06, end: 2006-08 }
   - { place: Luxembourg, start: 2017-09, end: present }
@@ -197,7 +197,7 @@ experience:
       - Ran circulation policies and workflows for students, faculty, and staff, and advocated for user needs in library planning.
 
   - title: Study Abroad Advisor
-    organization: University of Massachusetts Amherst, Study Abroad Office   # CONFIRM exact office name (International Programs Office?)
+    organization: University of Massachusetts Amherst, International Programs Office
     short_org: UMass Amherst
     location: Amherst, MA, USA
     country: US
@@ -228,7 +228,7 @@ publications:
     - authors: C. Morse
       title: Meaning-making in the digital museum
       venue: Studies in Digital History and Hermeneutics
-      year: 2023   # CONFIRM: Google Scholar lists 2022
+      year: 2022
       url: https://www.degruyter.com/serial/sdhh-b/html?lang=en
       themes: [cultural-heritage]
 
@@ -246,7 +246,7 @@ publications:
       url: https://dl.acm.org/doi/abs/10.1145/3437257
       themes: [cultural-heritage, hci-ux]
 
-    - authors: C. Morse, J. Niess, C. Lallemand, L. Wieneke, V. Koenig   # CONFIRM: Scholar lists no J. Niess
+    - authors: C. Morse, C. Lallemand, L. Wieneke, V. Koenig
       title: "Virtual masterpieces: Innovation through public co-creation for digital museum collections."
       venue: International Journal of the Inclusive Museum 15(1)
       year: 2021
@@ -282,6 +282,12 @@ publications:
       themes: [cultural-heritage, hci-ux]
 
   other:
+    - authors: C. Morse
+      title: "Vum LOD bis zur Kënschtlecher Intelligenz"
+      venue: "Konterbont (Dag vun der Lëtzebuerger Sprooch issue, 26 Sept. 2025)"
+      year: 2025
+      # TODO: link, if the issue is online
+      themes: [speech, ai-nlp]
     - authors: C. Morse
       title: Un partenaire de conversation culturelle.
       venue: La lettre de l'Ocim
@@ -347,8 +353,6 @@ talks:
     country: LU
     date: 2025-04-22   # per the ZLS 2025 activity report
     themes: [speech, ai-nlp, teaching]
-  # TODO: did you speak at the Elements of AI closing conference (7 June 2024,
-  #       which had an "NLP for Low-Resource Languages" slot) or at the 3 April 2025 one?
   - authors: C. Morse
     title: "Redefining Progress in the Margins: Lessons from Big Tech & Small Data"
     event: LT4All, UNESCO
@@ -510,11 +514,11 @@ skills:
   - category: Graphic & Print
     items: [Adobe Illustrator, Adobe InDesign, Adobe Photoshop, Inkscape]
 
-languages:   # TODO: update Luxembourgish (and French?) levels
+languages:
   - { language: English, level: native }
   - { language: Japanese, level: C1 }
-  - { language: French, level: B2/C1 }
-  - { language: Luxembourgish, level: A2 }
+  - { language: French, level: C1 }
+  - { language: Luxembourgish, level: B2 }
   - { language: Spanish, level: A2 }
 
 # -----------------------------------------------------------------------------
@@ -526,11 +530,10 @@ media:
     related: note-to-self-2026   # links to the workshop entry under talks
     themes: [ai-nlp, teaching]
   - { title: "Tech is Giving Luxembourgish A Digital Future", outlet: Silicon Luxembourg, date: 2025-09-22, url: "https://www.siliconluxembourg.lu/tech-is-giving-luxembourgish-a-digital-future/", themes: [speech] }
-  # TODO: Konterbont (Dag vun der Lëtzebuerger Sprooch issue, Sept. 2025?) — title/link?
   - title: "Wie Computer Luxemburgisch sprechen lernen"
     outlet: Revue (Wissenschaft, pp. 20–23)
     credits: "Text: Desislava Schengen; photos: Tania Feller"
-    date: 2025-04   # CONFIRM issue date — article says sproochmaschinn.lu launched "about two months ago"
+    date: 2025-04-09
     # TODO: link to the online version or issue number, if any
     image: assets/revue-2025.jpg   # your photo of the printed spread
     pull_quote: "Ich spreche Luxemburgisch, aber nicht so gut, wie ich es mir wünsche. Dank meiner Arbeit an der ‚Lies- und Schreiwmaschinn' kann ich es jeden Tag ein bisschen besser."
@@ -582,7 +585,6 @@ broadcast:   # "Radio & Broadcast" — appearances where you're the voice, not t
         with: Sarah Hess
         date: 2025-11-27
         topic: The origins of well-known sayings in Luxembourgish and English.
-        # CONFIRM: 100,7 credits you on this one too — keep it?
       - title: "Nach méi Spréchwierder am Lëtzebuergeschen an am Engleschen"
         with: Sarah Hess
         date: 2025-11-13
@@ -619,7 +621,7 @@ activities:
     location: Luxembourg, Luxembourg
     country: LU
     start: 2021-06
-    end: 2024   # CONFIRM: LinkedIn still says "present"
+    end: 2024
     items:
       - Connected Luxembourg-based alumni with the wider Harvard network and organized events across the Greater Benelux region.
       - Supported Harvard-wide initiatives including Global Networking Night, the Harvard Book Prize, and new-student orientations.
