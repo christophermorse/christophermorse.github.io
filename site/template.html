@@ -457,7 +457,7 @@ $("#overview").addEventListener("click", e => { const g = e.target.closest(".yr-
 $("#overview").addEventListener("keydown", e => { const g = e.target.closest(".yr-col"); if (g && (e.key === "Enter" || e.key === " ")){ e.preventDefault(); setYear(+g.dataset.y); } });
 
 /* about + contact */
-$("#about").innerHTML = `<h2>About</h2><p>${esc(p.summary)}</p>
+$("#about").innerHTML = `<h2>About</h2>${p.summary.split(/\n+/).map(t => `<p>${esc(t.trim())}</p>`).join("")}
   <nav>${p.email ? `<a href="mailto:${esc(p.email)}">Email</a>` : ""}<a href="https://www.linkedin.com/in/${esc(p.linkedin)}" target="_blank" rel="noopener">LinkedIn</a><a href="https://scholar.google.com/citations?user=${esc(p.scholar)}" target="_blank" rel="noopener">Google Scholar</a></nav>
   <small>Last revised ${new Date(D.updated).toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"})}</small>`;
 

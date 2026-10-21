@@ -33,18 +33,21 @@ person:
   photo: profile.png
   summary: >-
     Technology changes how we encounter and experience culture; this much is
-    certain. But how do those encounters enable us to connect with culture, and
-    make meaning from it? That question has shaped my career, and every answer
-    has moved it somewhere new. At Harvard, building computational tools for
-    humanities scholars, meaning sat in the sources, and in the new questions
-    computation made it possible to ask of them. A doctorate in human-computer interaction moved it to the
-    visitor: what a collection becomes for the person standing in front of it.
-    An applied AI lab moved it again, into the gap between what a model decides
-    and what a person can understand of that decision. Today it sits in language
-    itself — speech and language models for Luxembourgish at the Zenter fir
-    d'Lëtzebuerger Sprooch, so that a language of fewer than half a million
-    speakers can be spoken to machines as readily as to people. The tools have
-    evolved, but the question remains the same.
+    certain. But how do these interactions enable us to connect with culture and
+    create meaning from it? That question has shaped my career for more than a
+    decade, taking on new dimensions with each attempt to answer it.
+
+    At Harvard, building computational tools for humanities scholars, I explored
+    how meaning emerges from historical sources and the new questions computation
+    allows us to ask of them. My doctoral research in human-computer interaction
+    shifted the focus to museum visitors: what a collection becomes for the person
+    standing in front of it. Later, directing an applied AI lab, I turned to the
+    gap between what a model decides and what a person can understand of that
+    decision. Today, my work brings me to language itself: developing speech and
+    language models for Luxembourgish at the Zenter fir d'Lëtzebuerger Sprooch,
+    so that a language spoken by fewer than half a million people can be spoken
+    to machines as readily as to other people. The tools have evolved, but the
+    question remains the same.
   email:
     address: [address removed]   # TODO: work or personal address for the printed CV?
     public: false   # a plain mailto: link on a public page gets harvested; the site offers LinkedIn instead
