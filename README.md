@@ -13,7 +13,8 @@ and the site rebuilds and republishes itself within a minute or two.
   computer and is never pushed. **This repository is public**: anything in `cv.yaml` is served
   in plain text at `raw.githubusercontent.com`, so never put contact details there. The website
   links LinkedIn and Google Scholar instead of an address.
-- Lines marked `CONFIRM` or `TODO` are still waiting for a check.
+- Lines marked `CONFIRM` or `TODO` are still waiting for a check; **`open_questions:` at the top
+  of `cv.yaml` gathers all of them in one place**, so you can pick them up from any machine.
 
 ## How it works
 

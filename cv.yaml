@@ -16,6 +16,35 @@
 meta:
   last_updated: 2026-10-21
 
+# -----------------------------------------------------------------------------
+#  OPEN QUESTIONS — everything still waiting on you, gathered in one place so
+#  you can find it from any machine. Each line names the section it belongs to.
+#  Answer one, delete the line, and clear the matching CONFIRM/TODO further down.
+#  This repository is public: anything written here is readable by anyone, so
+#  keep these notes impersonal.  Nothing here is read by the site builder.
+# -----------------------------------------------------------------------------
+open_questions:
+
+  missing_information:
+    - "broadcast / RTL Radio: exact date and a one-line topic for the guest appearance. The title 'Vun dommen Ness a granzege Porretten' is guessed from the URL slug, so the spelling needs checking too."
+    - "teaching.courses: other Digital Learning Hub courses since 2023 — titles and terms. You mentioned teaching courses rather than speaking at the Elements of AI closing conference; those courses are not yet listed anywhere."
+    - "talks: anything from 2024-2026 still missing? NLP Roundtable at Uni.lu, Assises culturelles IA, a UNESCO workshop?"
+    - "media / Konterbont (26 Sept. 2025): a link, if the issue is online."
+    - "media / Revue (9 Apr. 2025): a link to the online version, or the issue number."
+    - "media / Museomag 2019-3, MNHA: https://www.mnaha.lu/assets/files/Museomag-2019-3-DEF-ISSUU.pdf — what is it, a piece about you or something you wrote? mnaha.lu would not respond when I tried to read it, so it is not filed anywhere yet."
+
+  wording_and_judgement:
+    - "experience / Zortify: the Chronicle.lu piece calls you co-director of Zortify Labs and of the Summer School. The CV says Director of Labs. Which is right for 2021-2024?"
+    - "experience / ZLS: all six bullets were drafted from your notes and public sources. Bullet 2 (lead designer) is the thinnest; bullet 3 (Whisper Large v3 Turbo, pyannote, v2.0 in December 2025) is the most specific and so the most falsifiable."
+    - "education: my wording for the two study-abroad entries, Kwansei Gakuin and ICU."
+    - "experience / Study Abroad Advisor: my wording for both bullets."
+    - "grants: my wording for the three-pillars description of the EUR 1.4M project."
+    - "skills: the Speech & ML list — confirm and extend. Coqui TTS / VITS is the item I was least sure of."
+    - "media / RTL Today (14 Aug. 2023): the segment covers the Summer School you organised but does not name you; the studio guests were Patricia Souza and Isabella Olariu. Keep it, or drop it?"
+    - "media / Konterbont: my one-line description of what you were interviewed about is inferred from the title alone."
+    - "media: 'The future of AI is human' now appears as a pull quote on two cards, Silicon Luxembourg and Chronicle.lu. Keep both, or just one?"
+    - "person.email: the personal address now lives in cv.private.yaml and is never pushed. The work address is still in this repository's git history, from the first CV commit; purging it would need a history rewrite."
+
 themes:
   cultural-heritage: Museums & digital cultural heritage
   hci-ux:            Human-computer interaction & UX
