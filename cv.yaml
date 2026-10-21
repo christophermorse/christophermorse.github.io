@@ -14,7 +14,7 @@
 # =============================================================================
 
 meta:
-  last_updated: 2026-10-20
+  last_updated: 2026-10-21
 
 themes:
   cultural-heritage: Museums & digital cultural heritage
@@ -28,18 +28,26 @@ themes:
 person:
   first_name: Christopher M.
   last_name: Morse
+  suffix: Ph.D.
   position: Computational Linguist · Speech & Language Technology · Human-Centred AI
   photo: profile.png
   summary: >-
-    Technology changes how we encounter culture; this much is certain. What it
-    does to meaning is less clear, and that question has shaped my work for over
-    a decade: first in humanities research computing at Harvard, then in a
-    doctorate on how people make meaning from museum collections, and later as
-    director of an applied AI lab. Today I bring it to language itself, training
-    speech and language models for Luxembourgish at the Zenter fir
-    d'Lëtzebuerger Sprooch. The tools have evolved, but the question remains the
-    same.
-  email: [address removed]   # TODO: work or personal address for the public site?
+    Technology changes how we encounter and experience culture; this much is
+    certain. But how do those encounters enable us to connect with culture, and
+    make meaning from it? That question has shaped my career, and every answer
+    has moved it somewhere new. At Harvard, building computational tools for
+    humanities scholars, meaning sat in the sources, and in the new questions
+    computation made it possible to ask of them. A doctorate in human-computer interaction moved it to the
+    visitor: what a collection becomes for the person standing in front of it.
+    An applied AI lab moved it again, into the gap between what a model decides
+    and what a person can understand of that decision. Today it sits in language
+    itself — speech and language models for Luxembourgish at the Zenter fir
+    d'Lëtzebuerger Sprooch, so that a language of fewer than half a million
+    speakers can be spoken to machines as readily as to people. The tools have
+    evolved, but the question remains the same.
+  email:
+    address: [address removed]   # TODO: work or personal address for the printed CV?
+    public: false   # a plain mailto: link on a public page gets harvested; the site offers LinkedIn instead
   linkedin: cmmorse
   google_scholar:
     id: 6ZSS-ZEAAAAJ
@@ -83,11 +91,35 @@ education:
     institution: University of Massachusetts, Amherst
     location: Amherst, MA, USA
     country: US
-    end: 2007
+    start: 2003-09
+    end: 2007-05
     themes: [japan]
     items:
-      - "Study abroad: Kwansei Gakuin University (Nishinomiya, Japan; Aug. 2004 – Jul. 2005)"
-      - "Study abroad: International Christian University (Tokyo, Japan; Jun. – Aug. 2006)"
+      - Two years of study in Japan, at Kwansei Gakuin University and International Christian University, alongside the degree.
+
+  # Study abroad: its own entries, so each year in Japan stands on the chart.
+  # kind: overrides the "Degree" label on the card and the astrolabe.
+  - degree: "Study abroad: *Japanese language & culture*"
+    kind: Study abroad
+    institution: Kwansei Gakuin University
+    location: Nishinomiya, Japan
+    country: JP
+    start: 2004-08
+    end: 2005-07
+    themes: [japan]
+    items:
+      - A full academic year of intensive Japanese language study and coursework in Japanese culture, on exchange from UMass Amherst.   # CONFIRM wording
+
+  - degree: "Study abroad: *Japanese language*"
+    kind: Study abroad
+    institution: International Christian University
+    location: Tokyo, Japan
+    country: JP
+    start: 2006-06
+    end: 2006-08
+    themes: [japan]
+    items:
+      - A summer intensive in Japanese language at ICU in Mitaka, Tokyo.   # CONFIRM wording
 
 # -----------------------------------------------------------------------------
 experience:
@@ -160,6 +192,18 @@ experience:
     items:
       - Supervised and trained the access services team across two libraries.
       - Ran circulation policies and workflows for students, faculty, and staff, and advocated for user needs in library planning.
+
+  - title: Study Abroad Advisor
+    organization: University of Massachusetts Amherst, Study Abroad Office   # CONFIRM exact office name (International Programs Office?)
+    short_org: UMass Amherst
+    location: Amherst, MA, USA
+    country: US
+    start: 2005-09
+    end: 2007-05
+    themes: [teaching, japan]
+    items:
+      - First point of contact for students considering a period of study abroad, through the junior and senior years of the degree.
+      - Advised on programmes, applications and what a year away actually asks of you, drawing on two years of study in Japan.   # CONFIRM wording
 
 # -----------------------------------------------------------------------------
 publications:

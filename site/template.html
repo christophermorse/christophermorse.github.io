@@ -32,13 +32,14 @@ button{font:inherit; color:inherit}
 .layout{display:grid; grid-template-columns:minmax(380px,46fr) minmax(0,54fr); max-width:1640px; margin:0 auto}
 /* the instrument: fixed while the page beside it changes */
 .instrument{position:sticky; top:0; height:100vh; height:100dvh; display:flex; flex-direction:column; align-items:center;
-  padding:clamp(18px,3vh,36px) clamp(16px,2.5vw,40px) clamp(14px,2.5vh,28px); border-right:1px solid var(--rule)}
-.who{width:100%; text-align:center}
+  padding:clamp(22px,4vh,44px) clamp(16px,2.5vw,40px) clamp(14px,2.5vh,28px); border-right:1px solid var(--rule)}
+.who{width:100%; text-align:center; min-height:var(--band,0px); margin-bottom:1.6rem;
+  display:flex; flex-direction:column; justify-content:center; padding-bottom:.55rem; border-bottom:1px solid var(--rule)}
 .who h1{font-family:var(--display); font-weight:400; font-size:clamp(1.8rem,2.7vw,2.6rem); line-height:1; margin:0}
 .who h1 a{text-decoration:none}
 .who p{color:var(--faded); margin:.35rem 0 0; font-size:1rem}
 .dock{flex:1; min-height:0; width:100%; display:flex; flex-direction:column; align-items:center; justify-content:center}
-#astro{height:100%; max-height:calc(100dvh - 280px); width:auto; max-width:100%; aspect-ratio:500/532; flex:0 1 auto; min-height:0}
+#astro{height:100%; max-height:calc(100dvh - 200px - var(--band,0px)); width:auto; max-width:100%; aspect-ratio:500/532; flex:0 1 auto; min-height:0}
 .rings-key{text-align:center; font-size:.9rem; color:var(--faded); font-style:italic; margin:.2rem 0 0; max-width:30em}
 /* astrolabe */
 .astro-wrap{position:relative; margin:.8rem auto .2rem; width:100%; max-width:470px}
@@ -160,7 +161,7 @@ button{font:inherit; color:inherit}
 @media (max-width:860px){
   .layout{grid-template-columns:minmax(0,1fr)}
   .instrument{position:static; height:auto; border-right:0; padding:20px 18px 0}
-  .who{text-align:left}
+  .who{text-align:left; display:block; min-height:0; margin-bottom:0; padding-bottom:0; border-bottom:0}
   body{padding-bottom:178px}
   .dock{position:fixed; left:0; right:0; bottom:0; height:170px; overflow:hidden; z-index:30; display:block;
     background-color:var(--parch); background-image:inherit; border-top:1px solid var(--rule); box-shadow:0 -10px 30px -18px var(--shadow)}
@@ -211,13 +212,14 @@ const BY = Object.fromEntries(ALL.map(i => [i.id, i]));
 const MOBILE = matchMedia("(max-width:860px)");
 const p = D.person;
 $("#name").textContent = p.name;
+document.title = p.name;
 /* the name takes you back to the present, at the top of the page */
 $("#name").addEventListener("click", e => { e.preventDefault(); setYear(LAST);
   window.scrollTo({top: 0, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"}); });
 $("#pos").textContent = p.position.replace(/ · /g, ", ");
 
 /* ---------- time state ---------- */
-const FIRST = 2005, LAST = 2026, NOW = 2026.75, T0 = 2005, T1 = 2027;
+const FIRST = 2003, LAST = 2026, NOW = 2026.75, T0 = 2003, T1 = 2027;
 let YEAR = LAST;
 const inYear = (it, y) => it.span ? (it.start < y + 1 && it.end >= y) : Math.floor(it.start) === y;
 /* Signature work for each era (your call which pieces stand for which years) */
@@ -226,24 +228,25 @@ const ERAS = [
   {from:2022, id:"grt0", head:"Signature work: explainable NLP", text:"A €1.4 million project with SnT on multilingual language models and interfaces that make AI decisions understandable."},
   {from:2017, id:"edu0", head:"Signature work: the museum doctorate", text:"Museum Meaning-making: experience design for digital cultural heritage, defended in 2021."},
   {from:2013, id:"tlk12", head:"Signature work: a Vatican manuscript in IIIF", text:"A digital critical edition of a 16th-century bilingual manuscript at the Biblioteca Apostolica Vaticana."},
-  {from:2005, id:"edu3", head:"Where it began: Japanese", text:"Japanese language and literature at UMass Amherst, with study in Nishinomiya and Tokyo."},
+  {from:2003, id:"edu3", head:"Where it began: Japanese", text:"Japanese language and literature at UMass Amherst, with study in Nishinomiya and Tokyo."},
 ];
 const eraFor = y => ERAS.find(e => y >= e.from);
-const POS = ["exp0","exp1","exp2","exp3","exp4"].map(i => BY[i]);
+const POS = ["exp0","exp1","exp2","exp3","exp4","exp5"].map(i => BY[i]);
 const DEG = ["edu3","edu2","edu1","edu0"].map(i => BY[i]);
 function roleFor(y){
   const act = POS.filter(p => inYear(p, y));
   if (act.length){ const a = [...act].sort((x,y) => y.start - x.start)[0]; return {text: a.label, id: a.id}; }
-  const now = DEG.find(d => Math.floor(d.start) === y); if (now) return {text: now.label + ", completed", id: now.id};
-  const next = DEG.find(d => d.start > y && d.start - y < 3); if (next) return {text: "Studying for the " + next.label, id: next.id};
-  const prev = [...DEG].reverse().find(d => d.start < y); return prev ? {text: "After the " + prev.label, id: prev.id} : {text: "", id: "edu3"};
+  const now = DEG.find(d => Math.floor(d.end) === y); if (now) return {text: now.label + ", completed", id: now.id};
+  const on = DEG.find(d => d.span && inYear(d, y)); if (on) return {text: "Reading for the " + on.label, id: on.id};
+  const next = DEG.find(d => d.end > y && d.end - y < 3); if (next) return {text: "Studying for the " + next.label, id: next.id};
+  const prev = [...DEG].reverse().find(d => d.end < y); return prev ? {text: "After the " + prev.label, id: prev.id} : {text: "", id: "edu3"};
 }
 
 /* ---------- the astrolabe ---------- */
 const RINGS = [
   {name:"Language & AI", ids:["exp0","exp1","grt0","brd0"]},
   {name:"Research",      ids:["exp2","exp3","edt0"]},
-  {name:"Learning",      ids:["exp4","edu0","edu1","edu2","edu3"]},
+  {name:"Learning",      ids:["exp4","exp5","edu0","edu1","edu2","edu3","edu4","edu5"]},
   {name:"Community",     ids:["act0","act1"]},
 ];
 const CX = 250, CY = 270;
@@ -413,7 +416,7 @@ $("#year").addEventListener("click", e => { const b = e.target.closest("[data-go
 /* overview: the years as a strip of sky, each entry a star coloured by its strand */
 function starPath(x, y, r, n){ let d = ""; for (let i = 0; i < n*2; i++){ const rr = i % 2 ? r*(n === 4 ? .32 : .42) : r, a = -Math.PI/2 + i*Math.PI/n;
   d += (i ? "L" : "M") + (x + rr*Math.cos(a)).toFixed(2) + " " + (y + rr*Math.sin(a)).toFixed(2); } return d + "Z"; }
-const MAG = it => it.span || it.kind === "Degree" || it.kind === "Grant" ? [5.4, 8] : /Publication|Talk|Workshop|Course/.test(it.kind) ? [4.3, 5] : [3.4, 4];
+const MAG = it => it.span || it.kind === "Degree" || it.kind === "Grant" ? [5.4, 8] : /Publication|Talk|Workshop|Course|Study abroad/.test(it.kind) ? [4.3, 5] : [3.4, 4];
 const hash = s => { let h = 2166136261; for (const c of s) h = Math.imul(h ^ c.charCodeAt(0), 16777619); return ((h >>> 0) % 1000)/1000; };
 function overview(){
   const svg = $("#overview"), W = 700, cols = LAST - FIRST + 1, cw = W / cols, gap = 8.6, top = 10;
@@ -442,13 +445,20 @@ function overview(){
     s += `</g>`; });
   svg.setAttribute("viewBox", `0 0 ${W} ${H}`); svg.innerHTML = s;
   $("#count").textContent = `${LEAVES.length} entries, ${FIRST}–${LAST}`;
+  fitBand();
 }
+/* the name block takes the height of the star chart beside it, so the two columns share a band */
+function fitBand(){
+  const ov = document.querySelector(".overview");
+  document.documentElement.style.setProperty("--band", MOBILE.matches ? "0px" : ov.offsetHeight + "px");
+}
+addEventListener("resize", fitBand);
 $("#overview").addEventListener("click", e => { const g = e.target.closest(".yr-col"); if (g) setYear(+g.dataset.y); });
 $("#overview").addEventListener("keydown", e => { const g = e.target.closest(".yr-col"); if (g && (e.key === "Enter" || e.key === " ")){ e.preventDefault(); setYear(+g.dataset.y); } });
 
 /* about + contact */
 $("#about").innerHTML = `<h2>About</h2><p>${esc(p.summary)}</p>
-  <nav><a href="mailto:${esc(p.email)}">Email</a><a href="https://www.linkedin.com/in/${esc(p.linkedin)}" target="_blank" rel="noopener">LinkedIn</a><a href="https://scholar.google.com/citations?user=${esc(p.scholar)}" target="_blank" rel="noopener">Google Scholar</a></nav>
+  <nav>${p.email ? `<a href="mailto:${esc(p.email)}">Email</a>` : ""}<a href="https://www.linkedin.com/in/${esc(p.linkedin)}" target="_blank" rel="noopener">LinkedIn</a><a href="https://scholar.google.com/citations?user=${esc(p.scholar)}" target="_blank" rel="noopener">Google Scholar</a></nav>
   <small>Last revised ${new Date(D.updated).toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"})}</small>`;
 
 /* hovering the astrolabe names what you point at; clicking a ring opens its year */
@@ -464,7 +474,7 @@ $("#astro").addEventListener("click", e => { const g = e.target.closest(".dot");
 turn();
 (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(render);
 render();
-MOBILE.addEventListener("change", turn);
+MOBILE.addEventListener("change", () => { turn(); fitBand(); });
 </script>
 </body>
 </html>

@@ -25,7 +25,9 @@ def span(a, b):
     if s is None: return e, e, ed
     if e is None: return s, s, sd
     sy = sd.split()[-1]; ey = ed if ed == "present" else ed.split()[-1]
-    return s, e, (f"{sy}–{ey}" if sy != ey else sd)
+    if sy != ey: return s, e, f"{sy}–{ey}"
+    # same year, different months: "Jun–Aug 2006"
+    return s, e, (f'{sd.rsplit(" ", 1)[0]}–{ed}' if sd != ed else sd)
 
 def plain(t): return re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", str(t)).replace("*", "")
 def short(t, n=38):
@@ -41,7 +43,8 @@ def img(path):
         return "data:image/jpeg;base64," + base64.b64encode(open(full, "rb").read()).decode()
     return path
 
-INST = {"University of Luxembourg": "Uni.lu", "Harvard University": "Harvard", "University of Massachusetts": "UMass Amherst"}
+INST = {"University of Luxembourg": "Uni.lu", "Harvard University": "Harvard", "University of Massachusetts": "UMass Amherst",
+        "Kwansei Gakuin University": "Kwansei Gakuin", "International Christian University": "ICU"}
 items = []
 def add(band, kind, iid, title, meta, when, s, e, themes, bullets=None, label=None, **kw):
     it = dict(id=iid, band=band, kind=kind, title=title, meta=meta, when=when, start=s, end=e,
@@ -62,7 +65,7 @@ for i, x in enumerate(cv["grants"]):
         label=f'{x["amount"]} R&D project: multilingual, explainable NLP', quote=quote)
 for i, x in enumerate(cv["education"]):
     s, e, w = span(x.get("start"), x.get("end"))
-    add("work", "Degree", f"edu{i}", x["degree"], f'{x["institution"]}, {x["location"]}', w, s, e, x.get("themes"), x.get("items"),
+    add("work", x.get("kind", "Degree"), f"edu{i}", x["degree"], f'{x["institution"]}, {x["location"]}', w, s, e, x.get("themes"), x.get("items"),
         label=f'{plain(x["degree"]).split(":")[0]}, {INST.get(x["institution"].split(",")[0], x["institution"].split(",")[0])}')
 
 P = cv["publications"]
@@ -136,9 +139,13 @@ places = []
 for x in cv.get("places", []):
     s, e, _ = span(x["start"], x["end"]); places.append({"place": x["place"], "start": s, "end": e})
 p = cv["person"]
+# email may be a bare address, or a mapping with public: false to keep it off the website
+em = p["email"]
+EMAIL = em if not isinstance(em, dict) else (em["address"] if em.get("public", True) else None)
 DATA = {
-  "person": {"name": f'{p["first_name"]} {p["last_name"]}', "position": p["position"], "summary": p["summary"],
-             "email": p["email"], "linkedin": p["linkedin"], "scholar": p["google_scholar"]["id"]},
+  "person": {"name": f'{p["first_name"]} {p["last_name"]}' + (f', {p["suffix"]}' if p.get("suffix") else ""),
+             "position": p["position"], "summary": p["summary"],
+             "email": EMAIL, "linkedin": p["linkedin"], "scholar": p["google_scholar"]["id"]},
   "themes": cv["themes"], "items": items, "places": places, "updated": str(cv["meta"]["last_updated"]),
   "bands": [["work","Positions and study"],["writing","Writing"],["speaking","Speaking and radio"],["teaching","Teaching and convening"],
             ["press","In the press"],["service","Service"]],
