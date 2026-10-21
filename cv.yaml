@@ -283,12 +283,6 @@ publications:
 
   other:
     - authors: C. Morse
-      title: "Vum LOD bis zur Kënschtlecher Intelligenz"
-      venue: "Konterbont (Dag vun der Lëtzebuerger Sprooch issue, 26 Sept. 2025)"
-      year: 2025
-      # TODO: link, if the issue is online
-      themes: [speech, ai-nlp]
-    - authors: C. Morse
       title: Un partenaire de conversation culturelle.
       venue: La lettre de l'Ocim
       year: 2023
@@ -529,6 +523,12 @@ media:
     url: "https://www.linkedin.com/posts/thenetworklu_facilitator-spotlight-christopher-morse-activity-7449694373904199680-REl9"
     related: note-to-self-2026   # links to the workshop entry under talks
     themes: [ai-nlp, teaching]
+  - title: "Vum LOD bis zur Kënschtlecher Intelligenz"
+    outlet: "Konterbont (Dag vun der Lëtzebuerger Sprooch issue)"
+    date: 2025-09-26
+    mentions: Interviewed about the ZLS's language technology, from the LOD to AI.   # CONFIRM wording
+    # TODO: link, if the issue is online
+    themes: [speech, ai-nlp]
   - { title: "Tech is Giving Luxembourgish A Digital Future", outlet: Silicon Luxembourg, date: 2025-09-22, url: "https://www.siliconluxembourg.lu/tech-is-giving-luxembourgish-a-digital-future/", themes: [speech] }
   - title: "Wie Computer Luxemburgisch sprechen lernen"
     outlet: Revue (Wissenschaft, pp. 20–23)
@@ -538,6 +538,14 @@ media:
     image: assets/revue-2025.jpg   # your photo of the printed spread
     pull_quote: "Ich spreche Luxemburgisch, aber nicht so gut, wie ich es mir wünsche. Dank meiner Arbeit an der ‚Lies- und Schreiwmaschinn' kann ich es jeden Tag ein bisschen besser."
     themes: [speech, ai-nlp]
+  - title: "Inaugural Zortify Summer School to Address Future of Work"
+    outlet: Chronicle.lu
+    date: 2023-08-03
+    url: "https://chronicle.lu/category/hr-recruitment/46229-inaugural-zortify-summer-school-to-address-future-of-work"
+    credits: "Text: ED"
+    pull_quote: "The future of AI is human, and the future of work is us."   # your words, quoted in the article
+    mentions: "Quoted on the first Zortify Summer School; the article calls you co-director of Zortify Labs and of the Summer School"   # CONFIRM: your title here is Director of Labs
+    themes: [ai-nlp, teaching]
   - { title: "Back to school: Zortify's data-driven future of work", outlet: Delano, date: 2023-06-28, url: "https://delano.lu/article/back-to-school-zortify-s-data-", themes: [ai-nlp] }
   - title: "Zortify, SnT Join Forces to Pioneer Ethical Use of AI"
     outlet: Chronicle.lu
