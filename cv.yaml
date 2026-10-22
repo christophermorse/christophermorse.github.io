@@ -38,7 +38,6 @@ open_questions:
     - "grants: my wording for the three-pillars description of the EUR 1.4M project."
     - "skills: the Speech & ML list — confirm and extend. Coqui TTS / VITS is the item I was least sure of."
     - "media / Konterbont: my one-line description of what you were interviewed about is inferred from the title alone."
-    - "media: 'The future of AI is human' now appears as a pull quote on two cards, Silicon Luxembourg and Chronicle.lu. Keep both, or just one?"
     - "person.email: the personal address now lives in cv.private.yaml and is never pushed. The work address is still in this repository's git history, from the first CV commit; purging it would need a history rewrite."
 
 themes:
@@ -739,7 +738,7 @@ media:
     date: 2023-05-15
     url: "https://www.siliconluxembourg.lu/zortify-snt-pioneer-next-gen-hr-ai-tech/"
     credits: "Text: Jess Bauldry"
-    pull_quote: "The future of AI is human."   # your words, quoted in the article
+    pull_quote: "The future of AI is human. At its core, AI is a reflection of ourselves, so it is essential that we create ethically and responsibly in order to reflect the best of us."   # your words, as the article prints them
     mentions: "Quoted on responsible AI development"
     themes: [ai-nlp, hci-ux]
   - { title: "Zortify et le SnT unis autour d'une IA «éthique» pour les RH", outlet: Paperjam, date: 2023-05-12, url: "https://paperjam.lu/article/zortify-et-snt-unis-autour-ia-", themes: [ai-nlp] }
