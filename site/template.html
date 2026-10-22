@@ -33,7 +33,7 @@ button{font:inherit; color:inherit}
 /* the instrument: fixed while the page beside it changes */
 .instrument{position:sticky; top:0; height:100vh; height:100dvh; display:flex; flex-direction:column; align-items:center;
   padding:clamp(22px,4vh,44px) clamp(16px,2.5vw,40px) clamp(14px,2.5vh,28px); border-right:1px solid var(--rule)}
-.who{width:100%; text-align:center; min-height:var(--band,0px); margin-bottom:1.6rem;
+.who{width:100%; text-align:center; min-height:calc(var(--band,0px) - 26px); margin-bottom:1.2rem;
   display:flex; flex-direction:column; justify-content:center; padding-bottom:.55rem; border-bottom:1px solid var(--rule)}
 .who h1{font-family:var(--display); font-weight:400; font-size:clamp(1.8rem,2.7vw,2.6rem); line-height:1; margin:0}
 .who h1 a{text-decoration:none}
@@ -237,7 +237,7 @@ function roleFor(y){
   const act = POS.filter(p => inYear(p, y));
   if (act.length){ const a = [...act].sort((x,y) => y.start - x.start)[0]; return {text: a.label, id: a.id}; }
   const now = DEG.find(d => Math.floor(d.end) === y); if (now) return {text: now.label + ", completed", id: now.id};
-  const on = DEG.find(d => d.span && inYear(d, y)); if (on) return {text: "Reading for the " + on.label, id: on.id};
+  const on = DEG.find(d => d.span && inYear(d, y)); if (on) return {text: "Studying for the " + on.label, id: on.id};
   const next = DEG.find(d => d.end > y && d.end - y < 3); if (next) return {text: "Studying for the " + next.label, id: next.id};
   const prev = [...DEG].reverse().find(d => d.end < y); return prev ? {text: "After the " + prev.label, id: prev.id} : {text: "", id: "edu3"};
 }
