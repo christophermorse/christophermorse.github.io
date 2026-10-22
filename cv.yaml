@@ -34,7 +34,6 @@ open_questions:
     - "media / Museomag 2019-3, MNHA: https://www.mnaha.lu/assets/files/Museomag-2019-3-DEF-ISSUU.pdf — what is it, a piece about you or something you wrote? mnaha.lu would not respond when I tried to read it, so it is not filed anywhere yet."
 
   wording_and_judgement:
-    - "experience / Zortify: the Chronicle.lu piece calls you co-director of Zortify Labs and of the Summer School. The CV says Director of Labs. Which is right for 2021-2024?"
     - "experience / ZLS: all six bullets were drafted from your notes and public sources. Bullet 2 (lead designer) is the thinnest; bullet 3 (Whisper Large v3 Turbo, pyannote, v2.0 in December 2025) is the most specific and so the most falsifiable."
     - "education: my wording for the two study-abroad entries, Kwansei Gakuin and ICU."
     - "experience / Study Abroad Advisor: my wording for both bullets."
@@ -571,7 +570,7 @@ media:
     outlet: "RTL Today — The Home Stretch, Today Radio"
     date: 2023-08-14
     url: "https://today.rtl.lu/news/business-and-tech/zortify-summer-school-the-future-of-work-2102344"
-    mentions: "On the Summer School you organised; the studio interview is with Patricia Souza and Isabella Olariu"   # CONFIRM: you are not named in this one — keep it, or drop it?
+    mentions: "On the Zortify Summer School; studio interview with Patricia Souza and Isabella Olariu"   # CONFIRM: you are not named in this one — keep it, or drop it?
     themes: [ai-nlp, teaching]
   - title: "Inaugural Zortify Summer School to Address Future of Work"
     outlet: Chronicle.lu
@@ -579,7 +578,7 @@ media:
     url: "https://chronicle.lu/category/hr-recruitment/46229-inaugural-zortify-summer-school-to-address-future-of-work"
     credits: "Text: ED"
     pull_quote: "The future of AI is human, and the future of work is us."   # your words, quoted in the article
-    mentions: "Quoted on the first Zortify Summer School; the article calls you co-director of Zortify Labs and of the Summer School"   # CONFIRM: your title here is Director of Labs
+    mentions: "Quoted on the first Zortify Summer School"
     themes: [ai-nlp, teaching]
   - { title: "Back to school: Zortify's data-driven future of work", outlet: Delano, date: 2023-06-28, url: "https://delano.lu/article/back-to-school-zortify-s-data-", themes: [ai-nlp] }
   - title: "Zortify, SnT Join Forces to Pioneer Ethical Use of AI"
