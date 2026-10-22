@@ -473,35 +473,117 @@ organizing:
   - { title: "Zortify Summer School: The Future of Work", host: Zortify, location: "Luxembourg, Luxembourg", country: LU, date: 2023-08-28, themes: [ai-nlp] }
   - { title: MNHA Design Jam, host: "Musée National d'Histoire et d'Art", location: "Luxembourg, Luxembourg", country: LU, date: 2019-06, themes: [cultural-heritage, hci-ux] }   # two public sessions, with the MNHA's Service Numérisation
   - { title: "Making History Together: Public Participation in Museums", host: University of Luxembourg, location: "Luxembourg, Luxembourg", country: LU, date: 2020-12-15, themes: [cultural-heritage] }
-  # The Digital Futures Consortium years at Harvard. Dates checked against each
-  # announcement at https://digital-futures-consortium.github.io
-  - { title: "Visual Eloquence: A Hands-On Workshop for Creating Effective Data Visualizations", host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2018-01-09, url: "https://digital-futures-consortium.github.io/visual-eloquence-dataviz-jan-18/", themes: [digital-humanities, teaching] }   # CONFIRM: this one ran in January 2018, after you left Harvard in summer 2017 — keep it?
-  - { title: ArtTechPsyche III, host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2017-04-20, url: "https://digital-futures-consortium.github.io/art-tech-psyche-iii/", themes: [hci-ux] }
-  - { title: ArtTechPsyche II, host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2016-04-14, url: "https://digital-futures-consortium.github.io/art-tech-psyche-ii/", themes: [hci-ux] }
-  - { title: "sIGHTLines: proJECT", host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2016-02-11, url: "https://digital-futures-consortium.github.io/sightlines-project/", themes: [digital-humanities] }
-  - { title: "sIGHTLines: obJECT", host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2015-12-03, url: "https://digital-futures-consortium.github.io/sightlines-object/", themes: [digital-humanities] }
-  - { title: "Memories Realized: From Objects and Media to Curation and Scholarship", host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2015-11-10, url: "https://digital-futures-consortium.github.io/memories-realized/", themes: [cultural-heritage] }
-  - { title: "sIGHTLines: obSERVE", host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2015-10-14, url: "https://digital-futures-consortium.github.io/sightlines-observe/", themes: [digital-humanities] }
-  - { title: Art Technology Psyche, host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2015-04-23, url: "https://digital-futures-consortium.github.io/art-tech-psyche/", themes: [hci-ux] }
+  # The Digital Futures Consortium years at Harvard. Dates and blurbs taken from each
+  # event's own announcement at https://digital-futures-consortium.github.io
+  - title: "Visual Eloquence: A Hands-On Workshop for Creating Effective Data Visualizations"
+    role: Co-organizer
+    host: Harvard University
+    location: "Cambridge, MA, USA"
+    country: US
+    date: 2018-01-09   # CONFIRM: ran January 2018, after you left Harvard in summer 2017 — keep it?
+    url: "https://digital-futures-consortium.github.io/visual-eloquence-dataviz-jan-18/"
+    description: "A participatory workshop on data visualization: short presentations, a hands-on exercise with a dataset and visualization tools, and an open lab for participants' own projects."
+    themes: [digital-humanities, teaching]
+  - title: ArtTechPsyche III
+    role: Co-founder and co-organizer
+    host: Harvard University
+    location: "Cambridge, MA, USA"
+    country: US
+    date: 2017-04-20
+    url: "https://digital-futures-consortium.github.io/art-tech-psyche-iii/"
+    description: "The third edition, at Arts @ 29 Garden: a day of immersive digital experiences, art exhibitions, technology demos and speakers, with Harvard DARTH and the Harvard Library."
+    image: assets/arttechpsyche-iii-2017.jpg
+    credits: "Poster: C. Morse"
+    themes: [hci-ux]
+  - title: ArtTechPsyche II
+    role: Co-founder and co-organizer
+    host: Harvard University
+    location: "Cambridge, MA, USA"
+    country: US
+    date: 2016-04-14
+    url: "https://digital-futures-consortium.github.io/art-tech-psyche-ii/"
+    description: "The second edition, again at Arts @ 29 Garden, on how technology shapes us and how artists in turn challenge and inform what technology becomes."
+    image: assets/arttechpsyche-ii-2016.jpg
+    credits: "Poster: C. Morse"
+    themes: [hci-ux]
+  - title: "sIGHTLines: proJECT"
+    role: Co-organizer
+    host: Harvard University
+    location: "Cambridge, MA, USA"
+    country: US
+    date: 2016-02-11
+    url: "https://digital-futures-consortium.github.io/sightlines-project/"
+    description: "Prepare, discover, interact. The last of the sIGHTLines trilogy: a look at the near future of interactive imagery for cultural heritage, across conservation, education, and augmented, virtual and mixed reality."
+    themes: [digital-humanities]
+  - title: "sIGHTLines: obJECT"
+    role: Co-organizer
+    host: Harvard University
+    location: "Cambridge, MA, USA"
+    country: US
+    date: 2015-12-03
+    url: "https://digital-futures-consortium.github.io/sightlines-object/"
+    description: "Preserve, use, engage. What emerging technologies were doing to technical imagery in the humanities, with multispectral imaging, art conservation, gamification and data visualization."
+    themes: [digital-humanities]
+  - title: "Memories Realized: From Objects and Media to Curation and Scholarship"
+    role: Co-organizer
+    host: Harvard University
+    location: "Cambridge, MA, USA"
+    country: US
+    date: 2015-11-10
+    url: "https://digital-futures-consortium.github.io/memories-realized/"
+    description: "A panel on how memory, events and personal objects become online archives, and on the sometimes complicated path from cultural heritage material to scholarly resource."
+    themes: [cultural-heritage]
+  - title: "sIGHTLines: obSERVE"
+    role: Co-organizer
+    host: Harvard University
+    location: "Cambridge, MA, USA"
+    country: US
+    date: 2015-10-14
+    url: "https://digital-futures-consortium.github.io/sightlines-observe/"
+    description: "Capture, process, deliver. The first of the sIGHTLines trilogy, on image acquisition: 2D, multispectral and 3D imaging, and the case for shared standards, open access and collaboration."
+    themes: [digital-humanities]
+  - title: Art Technology Psyche
+    role: Co-founder and co-organizer
+    host: Harvard University
+    location: "Cambridge, MA, USA"
+    country: US
+    date: 2015-04-23
+    url: "https://digital-futures-consortium.github.io/art-tech-psyche/"
+    description: "The first ArtTechPsyche: a day of art installations, software demos and speakers celebrating human expression at the meeting point of technology and the arts."
+    image: assets/arttechpsyche-2015.jpg
+    credits: "Poster: C. Morse"
+    themes: [hci-ux]
   - title: THATCamp Harvard
+    role: Co-organizer
     host: Harvard University
     location: "Cambridge, MA, USA"
     country: US
     date: 2014-09-27
     url: "https://digital-futures-consortium.github.io/thatcamp-2014/"
+    description: "An unconference at the Graduate School of Education, where humanists and technologists of every skill level learned and built together in sessions proposed on the spot."
     image: assets/thatcamp-harvard-2014.jpg
-    credits: "Poster design: C. Morse"   # CONFIRM: the poster is yours? The eye does not appear on it
+    credits: "Poster design: C. Morse   # CONFIRM: the poster is yours? the eye does not appear on it"
     themes: [digital-humanities]
   - title: "Thinking with Your Eyes: Visualizing the Arts, Humanities, & Sciences"
+    role: Co-organizer
     host: Harvard University
     location: "Cambridge, MA, USA"
     country: US
-    date: 2014-02-27          # ran 27-28 February 2014; the CV had it a year late
+    date: 2014-02-27   # ran 27-28 February 2014; the CV had it a year late
     url: "https://digital-futures-consortium.github.io/thinking-with-your-eyes-visualizing-the-arts-humanities-sciences/"
+    description: "A two-day symposium on visualization across the disciplines, keynoted by Martin Wattenberg and Fernanda Viégas of Google's Big Picture group, with lightning rounds, roundtables and hands-on workshops. Covered by the [Harvard Gazette](https://news.harvard.edu/gazette/story/2014/03/grasping-with-the-eyes/)."
     image: assets/thinking-with-your-eyes-logo.png
     credits: "Logo: C. Morse"
     themes: [digital-humanities]
-  - { title: "Digital Futures: The NOW Edition", host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2013-11-13, url: "https://digital-futures-consortium.github.io/digital-futures-now-edition/", themes: [digital-humanities] }
+  - title: "Digital Futures: The NOW Edition"
+    role: Co-organizer
+    host: Harvard University
+    location: "Cambridge, MA, USA"
+    country: US
+    date: 2013-11-13
+    url: "https://digital-futures-consortium.github.io/digital-futures-now-edition/"
+    description: "A showcase of digital projects from across the university, opening with metaLab on crowd-curated museum collections, and given over to informal conversation about digital work in teaching and scholarship."
+    themes: [digital-humanities]
 
 # -----------------------------------------------------------------------------
 teaching:
