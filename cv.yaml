@@ -4,6 +4,9 @@
 #  from this file. Edit here, commit, and everything else rebuilds.
 #
 #  Conventions
+#   - American spelling throughout: center, color, program, organize, practicing.
+#     Proper names keep their own spelling (C²DH's "Centre", the journal "Behaviour
+#     & Information Technology", French and German titles).
 #   - Dates: "YYYY", "YYYY-MM", or "YYYY-MM-DD". end: present  -> ongoing.
 #   - Text fields accept light markdown: *italic*, **bold**, [text](url).
 #   - themes: tags that drive the visualization (color, filtering, threads).
@@ -94,7 +97,7 @@ education:
     themes: [hci-ux, cultural-heritage]
     items:
       - "Dissertation: *Museum Meaning-making: Experience Design for Digital Cultural Heritage.* Supervised by Dr. Vincent Koenig."
-      - "Funded by the Luxembourg National Research Fund through its PRIDE programme, as one of eleven doctoral positions in the *Digital History and Hermeneutics* Doctoral Training Unit at the C²DH, coordinated by Prof. Andreas Fickers."   # FNR reference 10929115, per your museomag piece
+      - "Funded by the Luxembourg National Research Fund through its PRIDE program, as one of eleven doctoral positions in the *Digital History and Hermeneutics* Doctoral Training Unit at the C²DH, coordinated by Prof. Andreas Fickers."   # FNR reference 10929115, per your museomag piece
 
   - degree: "A.L.M. Information Technology: *Digital Media & Instructional Design*"
     institution: Harvard University, Extension School
@@ -134,7 +137,7 @@ education:
     themes: [japan]
     items:
       - A full academic year of intensive Japanese language study and coursework in Japanese culture, on exchange from UMass Amherst.
-      - "Member of the calligraphy club (書道部) and a private student of a practising calligrapher."
+      - "Member of the calligraphy club (書道部) and a private student of a practicing calligrapher."
 
   - degree: "Study abroad: *Japanese language*"
     kind: Study abroad
@@ -159,11 +162,11 @@ experience:
     themes: [speech, ai-nlp]
     items:
       - Oversees the development of the ZLS's AI and language-technology tools, and of the models behind them.
-      - Advises a Master's thesis on Luxembourgish language topics, and oversees student workers and external experts across the centre's digital projects.
+      - Advises a Master's thesis on Luxembourgish language topics, and oversees student workers and external experts across the center's digital projects.
       - "Lead designer of [sproochmaschinn.lu](https://sproochmaschinn.lu), one of the first public web platforms for Luxembourgish speech technology, which unites the Schreifmaschinn (speech-to-text) and the Liesmaschinn (text-to-speech), and trains and maintains the models it runs on. [Launched by the Ministry of Culture](https://gouvernement.lu/fr/gouvernement/eric-thill/actualites.gouvernement2024+fr+actualites+toutes_actualites+communiques+2025+02-fevrier+10-sproochmaschinn-thill.html) in February 2025."
       - "Lead developer of SproochHub, a platform for building and exploring Luxembourgish corpora. It ingests texts, parliamentary debates and transcribed recordings, aligns speech to its transcript, and holds some 70 million words in one searchable place, with concordance and corpus-query tools for work on word forms, collocations, dispersion and keyness."   # CONFIRM: is there a public URL to link?
       - Fine-tuned Whisper Large v3 Turbo on Luxembourgish parliamentary and broadcast speech and integrated pyannote speaker diarization; version 2.0 (December 2025) doubled the training data and added speaker recognition and a second synthetic voice.
-      - "Improved the Liesmaschinn's original synthetic voice, built by Marco Barnig from the voice of Max Kuborn and given to the centre."
+      - "Improved the Liesmaschinn's original synthetic voice, built by Marco Barnig from the voice of Max Kuborn and given to the center."
       - Currently developing streaming speech recognition for live Luxembourgish subtitling.
       - Represents the ZLS's language-technology work nationally and internationally, including at UNESCO's LT4All conference (Paris, 2025).
       - Teaches workshops and speaks publicly about these tools, as science communication and outreach.
