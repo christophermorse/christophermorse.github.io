@@ -168,7 +168,7 @@ experience:
       - "Improved the Liesmaschinn's original synthetic voice, built by Marco Barnig from the voice of Max Kuborn and given to the center."
       - "sproochmaschinn.lu in the press: [*D'Sproochmaschinn beherrscht Luxemburgisch auf Knopfdruck*](https://www.wort.lu/kultur/d-sproochmaschinn-beherrscht-luxemburgisch-auf-knopfdruck/39843950.html) and [*Praxistest: Wie gut spricht die Liesmaschinn Lëtzebuergesch?*](https://www.wort.lu/kultur/praxistest-wie-gut-spricht-die-liesmaschinn-letzebuergesch/40626825.html), *Luxemburger Wort*; [*Un outil transcrit du texte et de l'audio en luxembourgeois*](https://www.lessentiel.lu/fr/story/langue-au-luxembourg-un-outil-transcrit-du-texte-et-de-l-audio-en-luxembourgeois-103278177) and [*Luxemburg setzt auf KI zur Sprachförderung*](https://www.lessentiel.lu/de/story/sprachbarrieren-sproochmaschinn-luxemburg-setzt-auf-ki-zur-sprachfoerderung-103278196), *L'essentiel*; [*Geschwaten Texter verschrëftlechen oder Texter lauschteren*](https://100komma7.lu/news/Sproochmaschinn-lu-Neien?pd=radio), *Radio 100,7*; [*Nei digital Outile Sprooch- a Liesmaschinn*](https://play.rtl.lu/shows/lb/journal/episodes/r/3438045), *RTL Journal*; and [*Lëtzebuergesch. Digital. Fir jiddereen zougänglech.*](https://www.fgfc.lu/fr-lu/actualites/letzebuergesch-digital-fir-jiddereen-zougaenglech/), *FGFC*."
       - Currently developing streaming speech recognition for live Luxembourgish subtitling.
-      - Represents the ZLS's language-technology work nationally and internationally: at UNESCO's LT4All conference (Paris, 2025), and as lead organizer of *Languages at Every Stage*, a technical expert meeting co-hosted with UNESCO later the same year.
+      - Represents the ZLS's language-technology work nationally and internationally: at UNESCO's LT4All conference (Paris, 2025), and as lead organizer of *Languages at Every Stage*, a technical expert meeting co-hosted with UNESCO later the same year, where he also presented the Center's work.
       - Teaches workshops and speaks publicly about these tools, as science communication and outreach.
       - "Recurring contributor to Radio 100,7's *Wat s de net sees!*, on Luxembourgish language and the technology being built for it."
 
@@ -380,6 +380,14 @@ talks:
     url: "https://www.linkedin.com/posts/cmmorse_many-thanks-to-the-digital-learning-hub-luxembourg-activity-7453087665349898240-_Ssa"
     themes: [speech, ai-nlp, teaching]
   - authors: C. Morse
+    title: "Toward an AI-Informed Digital Ecosystem for Luxembourgish"
+    event: "Languages at Every Stage: A Technical Dialogue on Inclusive Language Technology Development, UNESCO and the ZLS"
+    location: Online
+    country: LU
+    date: 2025-09-25
+    description: "The applied language technologies built at the Center — speech recognition, speech synthesis and corpus-linguistic tools — and how open standards, participatory design and transparent data practices make them a question of digital sovereignty."
+    themes: [speech, ai-nlp]
+  - authors: C. Morse
     title: "Unlocking Luxembourgish: Hands-On with AI-Powered NLP Tools"
     event: "Elements of AI Luxembourg — Talk Time, Digital Learning Hub"
     location: Esch-Belval, Luxembourg
@@ -474,7 +482,7 @@ organizing:
     location: Online
     country: LU
     date: 2025-09-25
-    description: "Experts from national language institutions, academia, civil society and industry on how indigenous, minoritized and under-resourced languages can thrive in digital environments. Building on UNESCO's LT4All conference and the draft Global Roadmap for Multilingualism in the Digital Era, it asked how AI, open data and infrastructure might be aligned so that linguistic diversity drives innovation rather than exclusion."   # CONFIRM: did you present as well as convene?
+    description: "Experts from national language institutions, academia, civil society and industry on how indigenous, minoritized and under-resourced languages can thrive in digital environments. Building on UNESCO's LT4All conference and the draft Global Roadmap for Multilingualism in the Digital Era, it asked how AI, open data and infrastructure might be aligned so that linguistic diversity drives innovation rather than exclusion."   # you also presented: see "Toward an AI-Informed Digital Ecosystem" under talks
     themes: [speech, ai-nlp]
   - title: "Zortify Summer School: The Future of Work"
     host: Zortify
