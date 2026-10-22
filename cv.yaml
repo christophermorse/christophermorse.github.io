@@ -31,6 +31,7 @@ open_questions:
     - "talks: anything from 2024-2026 still missing? NLP Roundtable at Uni.lu, Assises culturelles IA, a UNESCO workshop?"
     - "media / Konterbont (26 Sept. 2025): a link, if the issue is online."
     - "media / Revue (9 Apr. 2025): a link to the online version, or the issue number."
+    - "organizing: one Digital Futures Consortium event inside your Harvard years is still unlisted — 'A More Open Future for the Past: Publishing, Data, and Archaeology', Eric Kansa on Open Context, 13 Nov. 2013. It was the series' inaugural talk, in Piper Auditorium the same evening as the NOW Edition, an hour after it. Yours too? (The later Visual Eloquence runs, 7-8 Nov. 2017 and 9-10 Jan. 2018, both fall after you left in July 2017, so neither is listed.)"
     - "media photos: Silicon Luxembourg (22 Sept. 2025) credits its portrait of you © ZLS, so the rights sit with your employer, not the magazine — ask ZLS comms for the original file. The Konterbont photo of you and Sara Martin carries no credit under a blanket © Autisme Luxembourg ASBL; ask ZLS first, then Konterbont. Neither can be hosted here until one of them says yes."
     - "grants: the museomag piece credits FNR project 10929115 as supporting the doctoral research. Should it be listed under grants, with a title, amount and dates?"
     - "talks / Elements of AI Talk Time: two talks are listed, 22 Apr. 2025 and 22 Apr. 2026, both titled 'The Luxembourgish Language Machine'. There were two talks, but probably with different titles; confirm the title (and date) of each."
@@ -475,15 +476,6 @@ organizing:
   - { title: "Making History Together: Public Participation in Museums", host: University of Luxembourg, location: "Luxembourg, Luxembourg", country: LU, date: 2020-12-15, themes: [cultural-heritage] }
   # The Digital Futures Consortium years at Harvard. Dates and blurbs taken from each
   # event's own announcement at https://digital-futures-consortium.github.io
-  - title: "Visual Eloquence: A Hands-On Workshop for Creating Effective Data Visualizations"
-    role: Co-organizer
-    host: Harvard University
-    location: "Cambridge, MA, USA"
-    country: US
-    date: 2018-01-09   # CONFIRM: ran January 2018, after you left Harvard in summer 2017 — keep it?
-    url: "https://digital-futures-consortium.github.io/visual-eloquence-dataviz-jan-18/"
-    description: "A participatory workshop on data visualization: short presentations, a hands-on exercise with a dataset and visualization tools, and an open lab for participants' own projects."
-    themes: [digital-humanities, teaching]
   - title: ArtTechPsyche III
     role: Co-founder and co-organizer
     host: Harvard University
@@ -495,6 +487,15 @@ organizing:
     image: assets/arttechpsyche-iii-2017.jpg
     credits: "Poster: C. Morse"
     themes: [hci-ux]
+  - title: "Visual Eloquence: A Hands-on Workshop for Creating Effective Data Visualizations"
+    role: Co-organizer
+    host: Harvard University
+    location: "Cambridge, MA, USA"
+    country: US
+    date: 2016-11-02
+    url: "https://digital-futures-consortium.github.io/visual-eloquence/"
+    description: "A participatory workshop on visualizing data: short presentations, a hands-on exercise building a data-driven narrative, and an open lab for participants' own projects. Co-presented with Harvard Library and Digital History at Harvard."
+    themes: [digital-humanities, teaching]
   - title: ArtTechPsyche II
     role: Co-founder and co-organizer
     host: Harvard University
