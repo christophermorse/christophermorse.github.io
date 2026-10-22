@@ -26,8 +26,8 @@ meta:
 open_questions:
 
   missing_information:
-    - "teaching.courses: other Digital Learning Hub courses since 2023 — titles and terms. You mentioned teaching courses rather than speaking at the Elements of AI closing conference; those courses are not yet listed anywhere."
-    - "talks: anything from 2024-2026 still missing? NLP Roundtable at Uni.lu, Assises culturelles IA, a UNESCO workshop?"
+    - "talks: only one UNESCO appearance is listed — LT4All in Paris, 24 Feb. 2025. You mention a second, co-hosted by the ZLS: its title, date, venue and a one-line topic would complete the pair."
+    - "talks: anything else from 2024-2026 still missing? NLP Roundtable at Uni.lu, Assises culturelles IA?"
     - "media / Konterbont (26 Sept. 2025): a link, if the issue is online."
     - "media photos: Silicon Luxembourg (22 Sept. 2025) credits its portrait of you © ZLS, so the rights sit with your employer, not the magazine — ask ZLS comms for the original file. The Konterbont photo of you and Sara Martin carries no credit under a blanket © Autisme Luxembourg ASBL; ask ZLS first, then Konterbont. Neither can be hosted here until one of them says yes."
 
@@ -697,8 +697,9 @@ media:
   - title: "Vum LOD bis zur Kënschtlecher Intelligenz"
     outlet: "Konterbont (Dag vun der Lëtzebuerger Sprooch issue)"
     date: 2025-09-26
+    url: "https://konterbont.app/lod-bis-ki/"
+    credits: "Text: Heng Barone"
     mentions: Interviewed about the ZLS's language technology, from the LOD to AI.   # CONFIRM wording
-    # TODO: link, if the issue is online
     themes: [speech, ai-nlp]
   - { title: "Tech is Giving Luxembourgish A Digital Future", outlet: Silicon Luxembourg, date: 2025-09-22, url: "https://www.siliconluxembourg.lu/tech-is-giving-luxembourgish-a-digital-future/", themes: [speech] }
   - title: "Wie Computer Luxemburgisch sprechen lernen"
