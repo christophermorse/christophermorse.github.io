@@ -154,7 +154,7 @@ education:
 experience:
   - title: Computational Linguist
     organization: Zenter fir d'Lëtzebuerger Sprooch / Center for the Luxembourgish Language
-    short_org: ZLS
+    short_org: "Zenter fir d'Lëtzebuerger Sprooch (Center for the Luxembourgish Language)"
     location: Strassen, Luxembourg
     country: LU
     start: 2024-04-01
@@ -164,9 +164,10 @@ experience:
       - Oversees the development of the ZLS's AI and language-technology tools, and of the models behind them.
       - Advises a Master's thesis on Luxembourgish language topics, and oversees student workers and external experts across the center's digital projects.
       - "Lead designer of [sproochmaschinn.lu](https://sproochmaschinn.lu), one of the first public web platforms for Luxembourgish speech technology, which unites the Schreifmaschinn (speech-to-text) and the Liesmaschinn (text-to-speech), and trains and maintains the models it runs on. [Launched by the Ministry of Culture](https://gouvernement.lu/fr/gouvernement/eric-thill/actualites.gouvernement2024+fr+actualites+toutes_actualites+communiques+2025+02-fevrier+10-sproochmaschinn-thill.html) in February 2025."
-      - "Lead developer of SproochHub, a platform for building and exploring Luxembourgish corpora. It ingests texts, parliamentary debates and transcribed recordings, aligns speech to its transcript, and holds some 70 million words in one searchable place, with concordance and corpus-query tools for work on word forms, collocations, dispersion and keyness."   # CONFIRM: is there a public URL to link?
+      - "Created SproochHub and leads its development: a platform for building and exploring Luxembourgish corpora. It ingests texts, parliamentary debates and transcribed recordings, aligns speech to its transcript, and holds some 70 million words in one searchable place, with concordance and corpus-query tools for work on word forms, collocations, dispersion and keyness."   # CONFIRM: is there a public URL to link?
       - Fine-tuned Whisper Large v3 Turbo on Luxembourgish parliamentary and broadcast speech and integrated pyannote speaker diarization; version 2.0 (December 2025) doubled the training data and added speaker recognition and a second synthetic voice.
       - "Improved the Liesmaschinn's original synthetic voice, built by Marco Barnig from the voice of Max Kuborn and given to the center."
+      - "sproochmaschinn.lu in the press: [*D'Sproochmaschinn beherrscht Luxemburgisch auf Knopfdruck*](https://www.wort.lu/kultur/d-sproochmaschinn-beherrscht-luxemburgisch-auf-knopfdruck/39843950.html) and [*Praxistest: Wie gut spricht die Liesmaschinn Lëtzebuergesch?*](https://www.wort.lu/kultur/praxistest-wie-gut-spricht-die-liesmaschinn-letzebuergesch/40626825.html), *Luxemburger Wort*; [*Un outil transcrit du texte et de l'audio en luxembourgeois*](https://www.lessentiel.lu/fr/story/langue-au-luxembourg-un-outil-transcrit-du-texte-et-de-l-audio-en-luxembourgeois-103278177) and [*Luxemburg setzt auf KI zur Sprachförderung*](https://www.lessentiel.lu/de/story/sprachbarrieren-sproochmaschinn-luxemburg-setzt-auf-ki-zur-sprachfoerderung-103278196), *L'essentiel*; [*Geschwaten Texter verschrëftlechen oder Texter lauschteren*](https://100komma7.lu/news/Sproochmaschinn-lu-Neien?pd=radio), *Radio 100,7*; [*Nei digital Outile Sprooch- a Liesmaschinn*](https://play.rtl.lu/shows/lb/journal/episodes/r/3438045), *RTL Journal*; and [*Lëtzebuergesch. Digital. Fir jiddereen zougänglech.*](https://www.fgfc.lu/fr-lu/actualites/letzebuergesch-digital-fir-jiddereen-zougaenglech/), *FGFC*."
       - Currently developing streaming speech recognition for live Luxembourgish subtitling.
       - Represents the ZLS's language-technology work nationally and internationally, including at UNESCO's LT4All conference (Paris, 2025).
       - Teaches workshops and speaks publicly about these tools, as science communication and outreach.
