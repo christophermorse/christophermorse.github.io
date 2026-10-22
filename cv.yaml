@@ -474,7 +474,7 @@ organizing:
     location: Online
     country: LU
     date: 2025-09-25
-    description: "A technical expert meeting co-hosted by the ZLS and UNESCO, on building language technology that includes the languages usually left out of it."   # CONFIRM wording — and did you present as well as convene?
+    description: "Experts from national language institutions, academia, civil society and industry on how indigenous, minoritized and under-resourced languages can thrive in digital environments. Building on UNESCO's LT4All conference and the draft Global Roadmap for Multilingualism in the Digital Era, it asked how AI, open data and infrastructure might be aligned so that linguistic diversity drives innovation rather than exclusion."   # CONFIRM: did you present as well as convene?
     themes: [speech, ai-nlp]
   - title: "Zortify Summer School: The Future of Work"
     host: Zortify
