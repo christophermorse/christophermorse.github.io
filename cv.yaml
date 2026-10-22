@@ -32,9 +32,6 @@ open_questions:
     - "media photos: Silicon Luxembourg (22 Sept. 2025) credits its portrait of you © ZLS, so the rights sit with your employer, not the magazine — ask ZLS comms for the original file. The Konterbont photo of you and Sara Martin carries no credit under a blanket © Autisme Luxembourg ASBL; ask ZLS first, then Konterbont. Neither can be hosted here until one of them says yes."
 
   wording_and_judgement:
-    - "experience / ZLS: all six bullets were drafted from your notes and public sources. Bullet 2 (lead designer) is the thinnest; bullet 3 (Whisper Large v3 Turbo, pyannote, v2.0 in December 2025) is the most specific and so the most falsifiable."
-    - "education: my wording for the two study-abroad entries, Kwansei Gakuin and ICU."
-    - "experience / Study Abroad Advisor: my wording for both bullets."
     - "person.email: the personal address now lives in cv.private.yaml and is never pushed. The work address is still in this repository's git history, from the first CV commit; purging it would need a history rewrite."
 
 themes:
@@ -136,7 +133,8 @@ education:
     end: 2005-07
     themes: [japan]
     items:
-      - A full academic year of intensive Japanese language study and coursework in Japanese culture, on exchange from UMass Amherst.   # CONFIRM wording
+      - A full academic year of intensive Japanese language study and coursework in Japanese culture, on exchange from UMass Amherst.
+      - "Member of the university's calligraphy club, the 書道部, and a private student of a practising calligrapher."
 
   - degree: "Study abroad: *Japanese language*"
     kind: Study abroad
@@ -159,14 +157,15 @@ experience:
     start: 2024-04-01
     end: present
     themes: [speech, ai-nlp]
-    items:   # CONFIRM all of these — drafted from your notes + public sources
-      - Trains and maintains the AI models behind [sproochmaschinn.lu](https://sproochmaschinn.lu), one of the first public web platforms for Luxembourgish speech technology, which unites the Schreifmaschinn (speech-to-text) and the Liesmaschinn (text-to-speech). [Launched by the Ministry of Culture](https://gouvernement.lu/fr/gouvernement/eric-thill/actualites.gouvernement2024+fr+actualites+toutes_actualites+communiques+2025+02-fevrier+10-sproochmaschinn-thill.html) in February 2025.
-      - Lead designer of the sproochmaschinn.lu web application.
+    items:
+      - Oversees the development of the ZLS's AI and language-technology tools, and of the models behind them.
+      - "Lead designer of [sproochmaschinn.lu](https://sproochmaschinn.lu), one of the first public web platforms for Luxembourgish speech technology, which unites the Schreifmaschinn (speech-to-text) and the Liesmaschinn (text-to-speech), and trains and maintains the models it runs on. [Launched by the Ministry of Culture](https://gouvernement.lu/fr/gouvernement/eric-thill/actualites.gouvernement2024+fr+actualites+toutes_actualites+communiques+2025+02-fevrier+10-sproochmaschinn-thill.html) in February 2025."
       - "Lead developer of SproochHub, a platform for building and exploring Luxembourgish corpora. It ingests texts, parliamentary debates and transcribed recordings, aligns speech to its transcript, and holds some 70 million words in one searchable place, with concordance and corpus-query tools for work on word forms, collocations, dispersion and keyness."   # CONFIRM: is there a public URL to link?
       - Fine-tuned Whisper Large v3 Turbo on Luxembourgish parliamentary and broadcast speech and integrated pyannote speaker diarization; version 2.0 (December 2025) doubled the training data and added speaker recognition and a second synthetic voice.
-      - Designs fully on-premise training and inference pipelines, so no audio or text ever leaves government servers.
       - Currently developing streaming speech recognition for live Luxembourgish subtitling.
-      - Represents the ZLS's language-technology work internationally, including at UNESCO's LT4All conference (Paris, 2025).
+      - Represents the ZLS's language-technology work nationally and internationally, including at UNESCO's LT4All conference (Paris, 2025).
+      - Teaches workshops and speaks publicly about these tools, as science communication and outreach.
+      - "Recurring contributor to Radio 100,7's *Wat s de net sees!*, on Luxembourgish language and the technology being built for it."
 
   - title: Director of Labs
     organization: Zortify
@@ -233,8 +232,8 @@ experience:
     end: 2007-05
     themes: [teaching, japan]
     items:
-      - First point of contact for students considering a period of study abroad, through the junior and senior years of the degree.
-      - Advised on programs, applications and what a year away actually asks of you, drawing on two years of study in Japan.   # CONFIRM wording
+      - First point of contact for students considering a period of study abroad, fielding the questions that come long before any application does.
+      - Advised on choosing programs and preparing applications, and on what a year abroad actually involves, drawing on two years of it in Japan.
 
 # -----------------------------------------------------------------------------
 publications:
