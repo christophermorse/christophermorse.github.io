@@ -96,7 +96,7 @@ for i, x in enumerate(cv["broadcast"]):
     else:
         s, w = parse(x.get("date"))
         add("speaking", "Radio", f"brd{i}", link(f'*{x["show"]}*', x.get("url")), f'{x["outlet"]}. {x["role"]}', w, s, s, x.get("themes"),
-            label=f'{plain(x["show"])}, {x["outlet"]}')
+            [x["topic"]] if x.get("topic") else [], label=f'{plain(x["show"])}, {x["outlet"]}')
 
 for i, x in enumerate(cv["teaching"]["courses"]):
     s, _ = parse(x["year"])
