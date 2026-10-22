@@ -35,9 +35,6 @@ open_questions:
     - "experience / ZLS: all six bullets were drafted from your notes and public sources. Bullet 2 (lead designer) is the thinnest; bullet 3 (Whisper Large v3 Turbo, pyannote, v2.0 in December 2025) is the most specific and so the most falsifiable."
     - "education: my wording for the two study-abroad entries, Kwansei Gakuin and ICU."
     - "experience / Study Abroad Advisor: my wording for both bullets."
-    - "grants: my wording for the three-pillars description of the EUR 1.4M project."
-    - "skills: the Speech & ML list — confirm and extend. Coqui TTS / VITS is the item I was least sure of."
-    - "media / Konterbont: my one-line description of what you were interviewed about is inferred from the title alone."
     - "person.email: the personal address now lives in cv.private.yaml and is never pushed. The work address is still in this repository's git history, from the first CV commit; purging it would need a history rewrite."
 
 themes:
@@ -165,6 +162,7 @@ experience:
     items:   # CONFIRM all of these — drafted from your notes + public sources
       - Trains and maintains the AI models behind [sproochmaschinn.lu](https://sproochmaschinn.lu), one of the first public web platforms for Luxembourgish speech technology, which unites the Schreifmaschinn (speech-to-text) and the Liesmaschinn (text-to-speech). [Launched by the Ministry of Culture](https://gouvernement.lu/fr/gouvernement/eric-thill/actualites.gouvernement2024+fr+actualites+toutes_actualites+communiques+2025+02-fevrier+10-sproochmaschinn-thill.html) in February 2025.
       - Lead designer of the sproochmaschinn.lu web application.
+      - "Lead developer of SproochHub, a platform for building and exploring Luxembourgish corpora. It ingests texts, parliamentary debates and transcribed recordings, aligns speech to its transcript, and holds some 70 million words in one searchable place, with concordance and corpus-query tools for work on word forms, collocations, dispersion and keyness."   # CONFIRM: is there a public URL to link?
       - Fine-tuned Whisper Large v3 Turbo on Luxembourgish parliamentary and broadcast speech and integrated pyannote speaker diarization; version 2.0 (December 2025) doubled the training data and added speaker recognition and a second synthetic voice.
       - Designs fully on-premise training and inference pipelines, so no audio or text ever leaves government servers.
       - Currently developing streaming speech recognition for live Luxembourgish subtitling.
@@ -656,7 +654,7 @@ grants:
     amount: €1.4 million
     start: 2022
     end: 2024
-    description: "Built on three pillars: training language models on ethically sourced data for European languages, including low-resource ones such as Luxembourgish; explainability, opening up how complex language models reach decisions; and interaction design, so non-experts can use the technology and its insights."   # CONFIRM wording
+    description: "Built on three pillars: training language models on ethically sourced data for European languages, including low-resource ones such as Luxembourgish; explainability, opening up how complex language models reach decisions; and interaction design, so non-experts can use the technology and its insights."
     press:   # media entries (matched by url) shown with the grant
       - https://www.siliconluxembourg.lu/zortify-snt-pioneer-next-gen-hr-ai-tech/
       - https://chronicle.lu/category/innovation/45773-zortify-snt-join-forces-to-pioneer-ethical-use-of-ai
@@ -664,8 +662,8 @@ grants:
 
 # -----------------------------------------------------------------------------
 skills:
-  - category: Speech & ML        # CONFIRM / extend
-    items: [Whisper fine-tuning, pyannote (speaker diarization), Coqui TTS / VITS, Hugging Face, PyTorch, on-premise model deployment]
+  - category: Speech & ML
+    items: [Whisper fine-tuning, pyannote (speaker diarization), "voice model training: Coqui TTS, VITS, VITS2, IndexTTS2", Hugging Face, PyTorch, on-premise model deployment]
   - category: Python
     items: [Flask, Jupyter, Neo4j, PyTorch]
   - category: JavaScript & Visualization
@@ -697,7 +695,7 @@ media:
     date: 2025-09-26
     url: "https://konterbont.app/lod-bis-ki/"
     credits: "Text: Heng Barone"
-    mentions: Interviewed about the ZLS's language technology, from the LOD to AI.   # CONFIRM wording
+    mentions: Interview about the Sproochmaschinn platform and language technologies at the ZLS.
     themes: [speech, ai-nlp]
   - { title: "Tech is Giving Luxembourgish A Digital Future", outlet: Silicon Luxembourg, date: 2025-09-22, url: "https://www.siliconluxembourg.lu/tech-is-giving-luxembourgish-a-digital-future/", themes: [speech] }
   - title: "Wie Computer Luxemburgisch sprechen lernen"
