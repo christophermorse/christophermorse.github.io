@@ -37,7 +37,6 @@ open_questions:
     - "experience / Study Abroad Advisor: my wording for both bullets."
     - "grants: my wording for the three-pillars description of the EUR 1.4M project."
     - "skills: the Speech & ML list — confirm and extend. Coqui TTS / VITS is the item I was least sure of."
-    - "media / RTL Today (14 Aug. 2023): the segment covers the Summer School you organized but does not name you; the studio guests were Patricia Souza and Isabella Olariu. Keep it, or drop it?"
     - "media / Konterbont: my one-line description of what you were interviewed about is inferred from the title alone."
     - "media: 'The future of AI is human' now appears as a pull quote on two cards, Silicon Luxembourg and Chronicle.lu. Keep both, or just one?"
     - "person.email: the personal address now lives in cv.private.yaml and is never pushed. The work address is still in this repository's git history, from the first CV commit; purging it would need a history rewrite."
