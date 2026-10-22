@@ -105,20 +105,21 @@ def series(band, kind, prefix, lst, title, meta, label):
     kids = []
     for j, x in enumerate(lst):
         es, ew = parse(x["date"])
-        kids.append(dict(id=f"{prefix}-{j}", kind=kind, title=f'*{x["title"]}*', meta=f'{x["host"]}' + (f', {x["location"]}' if x.get("location") else ""),
-                         when=ew, start=es, end=es, themes=x.get("themes") or ["community"], items=[], label=plain(x["title"])))
+        kids.append(dict(id=f"{prefix}-{j}", kind=kind, title=link(f'*{x["title"]}*', x.get("url")), meta=f'{x["host"]}' + (f', {x["location"]}' if x.get("location") else ""),
+                         when=ew, start=es, end=es, themes=x.get("themes") or ["community"], items=[], label=plain(x["title"]),
+                         image=img(x.get("image")), credits=x.get("credits")))
     kids.sort(key=lambda k: k["start"]); th = sorted({t for k in kids for t in k["themes"]}, key=lambda t: (-sum(t in k["themes"] for k in kids), t))
     add(band, kind + "s", prefix, title, meta, f'{kids[0]["when"].split()[-1]}–{kids[-1]["when"].split()[-1]}',
         kids[0]["start"], kids[-1]["start"], th, [f'{k["when"]}: {k["title"]}' for k in kids], label=label, ticks=kids)
 series("teaching", "Workshop", "wks", cv["teaching"]["workshops"], "Workshops in digital scholarship", "Harvard University",
        f'Digital-scholarship workshops, Harvard ({len(cv["teaching"]["workshops"])})')
 harv = [x for x in cv["organizing"] if x["host"] == "Harvard University"]
-series("teaching", "Symposium", "sym", harv, "Art-and-technology symposia", "Harvard University, Cambridge, MA",
-       f'ArtTechPsyche, sIGHTLines and other symposia, Harvard ({len(harv)})')
+series("teaching", "Symposium", "sym", harv, "Art-and-technology events", "Harvard University, Cambridge, MA",
+       f'ArtTechPsyche, sIGHTLines and other events, Harvard ({len(harv)})')
 for i, x in enumerate([x for x in cv["organizing"] if x["host"] != "Harvard University"]):
     s, w = parse(x["date"])
-    add("teaching", "Symposium", f"org{i}", f'*{x["title"]}*', f'{x["host"]}, {x["location"]}', w, s, s, x.get("themes"),
-        label=short(x["title"]) + " (organizer)")
+    add("teaching", "Symposium", f"org{i}", link(f'*{x["title"]}*', x.get("url")), f'{x["host"]}, {x["location"]}', w, s, s, x.get("themes"),
+        label=short(x["title"]) + " (organizer)", image=img(x.get("image")), credits=x.get("credits"))
 
 for i, x in enumerate(cv["media"]):
     s, w = parse(x["date"])

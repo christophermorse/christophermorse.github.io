@@ -217,7 +217,7 @@ experience:
       - Built scholarly tools on the International Image Interoperability Framework (IIIF), including a digital critical edition of a 16th-century manuscript at the Biblioteca Apostolica Vaticana, and taught IIIF workshops across the university.
       - "Created the IIIF image viewer interface through which visitors explored several of the larger objects in *Beyond Words: Illuminated Manuscripts in Boston Collections*, an exhibit spanning Boston's cultural institutions."
       - Designed data visualizations and interactive tools that made research findings explorable for non-specialist audiences.
-      - Organized ten art-and-technology symposia, including the *ArtTechPsyche* and *sIGHTLines* series.
+      - Co-founded the *ArtTechPsyche* series and co-organized the Digital Futures Consortium's art-and-technology events at Harvard, among them *sIGHTLines*, THATCamp Harvard and *Thinking with Your Eyes*.
 
   - title: Access Services Supervisor
     organization: Harvard Divinity School Library & Harvard-Yenching Library
@@ -473,14 +473,35 @@ organizing:
   - { title: "Zortify Summer School: The Future of Work", host: Zortify, location: "Luxembourg, Luxembourg", country: LU, date: 2023-08-28, themes: [ai-nlp] }
   - { title: MNHA Design Jam, host: "Musée National d'Histoire et d'Art", location: "Luxembourg, Luxembourg", country: LU, date: 2019-06, themes: [cultural-heritage, hci-ux] }   # two public sessions, with the MNHA's Service Numérisation
   - { title: "Making History Together: Public Participation in Museums", host: University of Luxembourg, location: "Luxembourg, Luxembourg", country: LU, date: 2020-12-15, themes: [cultural-heritage] }
-  - { title: ArtTechPsyche III, host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2017-04-20, themes: [hci-ux] }
-  - { title: ArtTechPsyche II, host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2016-04-14, themes: [hci-ux] }
-  - { title: "sIGHTLines: proJECT", host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2016-02-11, themes: [digital-humanities] }
-  - { title: "sIGHTLines: obJECT", host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2015-12-03, themes: [digital-humanities] }
-  - { title: "Memories Realized: From Objects and Media to Curation and Scholarship", host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2015-11-15, themes: [cultural-heritage] }
-  - { title: "sIGHTLines: obSERVE", host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2015-10-14, themes: [digital-humanities] }
-  - { title: Art Technology Psyche, host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2015-04-23, themes: [hci-ux] }
-  - { title: Thinking With Your Eyes, host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2015-02-27, themes: [digital-humanities] }
+  # The Digital Futures Consortium years at Harvard. Dates checked against each
+  # announcement at https://digital-futures-consortium.github.io
+  - { title: "Visual Eloquence: A Hands-On Workshop for Creating Effective Data Visualizations", host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2018-01-09, url: "https://digital-futures-consortium.github.io/visual-eloquence-dataviz-jan-18/", themes: [digital-humanities, teaching] }   # CONFIRM: this one ran in January 2018, after you left Harvard in summer 2017 — keep it?
+  - { title: ArtTechPsyche III, host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2017-04-20, url: "https://digital-futures-consortium.github.io/art-tech-psyche-iii/", themes: [hci-ux] }
+  - { title: ArtTechPsyche II, host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2016-04-14, url: "https://digital-futures-consortium.github.io/art-tech-psyche-ii/", themes: [hci-ux] }
+  - { title: "sIGHTLines: proJECT", host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2016-02-11, url: "https://digital-futures-consortium.github.io/sightlines-project/", themes: [digital-humanities] }
+  - { title: "sIGHTLines: obJECT", host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2015-12-03, url: "https://digital-futures-consortium.github.io/sightlines-object/", themes: [digital-humanities] }
+  - { title: "Memories Realized: From Objects and Media to Curation and Scholarship", host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2015-11-10, url: "https://digital-futures-consortium.github.io/memories-realized/", themes: [cultural-heritage] }
+  - { title: "sIGHTLines: obSERVE", host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2015-10-14, url: "https://digital-futures-consortium.github.io/sightlines-observe/", themes: [digital-humanities] }
+  - { title: Art Technology Psyche, host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2015-04-23, url: "https://digital-futures-consortium.github.io/art-tech-psyche/", themes: [hci-ux] }
+  - title: THATCamp Harvard
+    host: Harvard University
+    location: "Cambridge, MA, USA"
+    country: US
+    date: 2014-09-27
+    url: "https://digital-futures-consortium.github.io/thatcamp-2014/"
+    image: assets/thatcamp-harvard-2014.jpg
+    credits: "Poster design: C. Morse"   # CONFIRM: the poster is yours? The eye does not appear on it
+    themes: [digital-humanities]
+  - title: "Thinking with Your Eyes: Visualizing the Arts, Humanities, & Sciences"
+    host: Harvard University
+    location: "Cambridge, MA, USA"
+    country: US
+    date: 2014-02-27          # ran 27-28 February 2014; the CV had it a year late
+    url: "https://digital-futures-consortium.github.io/thinking-with-your-eyes-visualizing-the-arts-humanities-sciences/"
+    image: assets/thinking-with-your-eyes-logo.png
+    credits: "Logo: C. Morse"
+    themes: [digital-humanities]
+  - { title: "Digital Futures: The NOW Edition", host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2013-11-13, url: "https://digital-futures-consortium.github.io/digital-futures-now-edition/", themes: [digital-humanities] }
 
 # -----------------------------------------------------------------------------
 teaching:
