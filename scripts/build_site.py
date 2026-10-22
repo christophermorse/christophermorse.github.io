@@ -43,7 +43,7 @@ def img(path):
         return "data:image/jpeg;base64," + base64.b64encode(open(full, "rb").read()).decode()
     return path
 
-INST = {"University of Luxembourg": "Uni.lu", "Harvard University": "Harvard", "University of Massachusetts": "UMass Amherst",
+INST = {"University of Luxembourg": "Uni.lu", "Harvard University": "Harvard", "University of Massachusetts Amherst": "UMass Amherst",
         "Kwansei Gakuin University": "Kwansei Gakuin", "International Christian University": "ICU"}
 items = []
 def add(band, kind, iid, title, meta, when, s, e, themes, bullets=None, label=None, **kw):

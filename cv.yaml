@@ -124,14 +124,14 @@ education:
     themes: [digital-humanities]
 
   - degree: B.A. Japanese Language & Literature
-    institution: University of Massachusetts, Amherst
+    institution: University of Massachusetts Amherst
     location: Amherst, MA, USA
     country: US
     start: 2003-09
     end: 2007-05
     themes: [japan]
     items:
-      - Two years of study in Japan, at Kwansei Gakuin University and International Christian University, alongside the degree.
+      - "Coursework in Japanese language and literature. Study abroad at Kwansei Gakuin University (関西学院大学) in Nishinomiya, Hyōgo, and International Christian University (国際基督教大学) in Mitaka, Tokyo. Minor in religious studies."
 
   # Study abroad: its own entries, so each year in Japan stands on the chart.
   # kind: overrides the "Degree" label on the card and the astrolabe.
