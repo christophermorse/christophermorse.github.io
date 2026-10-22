@@ -33,7 +33,6 @@ open_questions:
     - "organizing / Making History Together (Uni.lu, Dec. 2020): the only convened event without a blurb — I have no source for what it covered."
     - "media photos: Silicon Luxembourg (22 Sept. 2025) credits its portrait of you © ZLS, so the rights sit with your employer, not the magazine — ask ZLS comms for the original file. The Konterbont photo of you and Sara Martin carries no credit under a blanket © Autisme Luxembourg ASBL; ask ZLS first, then Konterbont. Neither can be hosted here until one of them says yes."
     - "grants: the museomag piece credits FNR project 10929115 as supporting the doctoral research. Should it be listed under grants, with a title, amount and dates?"
-    - "talks / Elements of AI Talk Time: two talks are listed, 22 Apr. 2025 and 22 Apr. 2026, both titled 'The Luxembourgish Language Machine'. There were two talks, but probably with different titles; confirm the title (and date) of each."
     - "experience / 2009-2010: a non-career job between the M.T.S. and Harvard Library. Decide whether to list it."
 
   wording_and_judgement:
@@ -382,7 +381,7 @@ talks:
     url: "https://www.linkedin.com/posts/cmmorse_many-thanks-to-the-digital-learning-hub-luxembourg-activity-7453087665349898240-_Ssa"
     themes: [speech, ai-nlp, teaching]
   - authors: C. Morse
-    title: "The Luxembourgish 'Language Machine': New Tools for Luxembourgish AI"
+    title: "Unlocking Luxembourgish: Hands-On with AI-Powered NLP Tools"
     event: "Elements of AI Luxembourg — Talk Time, Digital Learning Hub"
     location: Esch-Belval, Luxembourg
     country: LU
