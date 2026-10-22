@@ -29,11 +29,7 @@ open_questions:
     - "teaching.courses: other Digital Learning Hub courses since 2023 — titles and terms. You mentioned teaching courses rather than speaking at the Elements of AI closing conference; those courses are not yet listed anywhere."
     - "talks: anything from 2024-2026 still missing? NLP Roundtable at Uni.lu, Assises culturelles IA, a UNESCO workshop?"
     - "media / Konterbont (26 Sept. 2025): a link, if the issue is online."
-    - "media / Revue (9 Apr. 2025): a link to the online version, or the issue number."
-    - "organizing / Making History Together (Uni.lu, Dec. 2020): the only convened event without a blurb — I have no source for what it covered."
     - "media photos: Silicon Luxembourg (22 Sept. 2025) credits its portrait of you © ZLS, so the rights sit with your employer, not the magazine — ask ZLS comms for the original file. The Konterbont photo of you and Sara Martin carries no credit under a blanket © Autisme Luxembourg ASBL; ask ZLS first, then Konterbont. Neither can be hosted here until one of them says yes."
-    - "grants: the museomag piece credits FNR project 10929115 as supporting the doctoral research. Should it be listed under grants, with a title, amount and dates?"
-    - "experience / 2009-2010: a non-career job between the M.T.S. and Harvard Library. Decide whether to list it."
 
   wording_and_judgement:
     - "experience / ZLS: all six bullets were drafted from your notes and public sources. Bullet 2 (lead designer) is the thinnest; bullet 3 (Whisper Large v3 Turbo, pyannote, v2.0 in December 2025) is the most specific and so the most falsifiable."
@@ -106,6 +102,7 @@ education:
     themes: [hci-ux, cultural-heritage]
     items:
       - "Dissertation: *Museum Meaning-making: Experience Design for Digital Cultural Heritage.* Supervised by Dr. Vincent Koenig."
+      - "Funded by the Luxembourg National Research Fund through its PRIDE programme, as one of eleven doctoral positions in the *Digital History and Hermeneutics* Doctoral Training Unit at the C²DH, coordinated by Prof. Andreas Fickers."   # FNR reference 10929115, per your museomag piece
 
   - degree: "A.L.M. Information Technology: *Digital Media & Instructional Design*"
     institution: Harvard University, Extension School
@@ -218,6 +215,7 @@ experience:
       - Designed data visualizations and interactive tools that made research findings explorable for non-specialist audiences.
       - Co-founded the *ArtTechPsyche* series and co-organized the Digital Futures Consortium's art-and-technology events at Harvard, among them *sIGHTLines*, THATCamp Harvard and *Thinking with Your Eyes*.
 
+  # 2009-2010 was retail, deliberately not listed: not relevant to the career.
   - title: Access Services Supervisor
     organization: Harvard Divinity School Library & Harvard-Yenching Library
     short_org: Harvard
@@ -483,7 +481,15 @@ organizing:
     date: 2019-06
     description: "Two public sessions run with the museum's Service Numérisation, in which designers, museum staff and members of the public worked through design-thinking exercises on the new collections platform and built low-fidelity prototypes of their own."
     themes: [cultural-heritage, hci-ux]
-  - { title: "Making History Together: Public Participation in Museums", host: University of Luxembourg, location: "Luxembourg, Luxembourg", country: LU, date: 2020-12-15, themes: [cultural-heritage] }
+  - title: "Making History Together: Public Participation in Museums"
+    role: Co-organizer
+    host: University of Luxembourg
+    location: "Online, from Luxembourg"
+    country: LU
+    date: 2020-12-15
+    url: "https://orbilu.uni.lu/handle/10993/49662"
+    description: "An international online symposium of scholars, museum professionals and heritage practitioners on how participatory history is built in museums, across co-creation and co-production, communities of interpretation, digital participatory practice, and empowerment."
+    themes: [cultural-heritage]
   # The Digital Futures Consortium years at Harvard. Dates and blurbs taken from each
   # event's own announcement at https://digital-futures-consortium.github.io
   - title: ArtTechPsyche III
@@ -700,7 +706,7 @@ media:
     credits: "Text: Desislava Schengen; photos: Tania Feller"
     date: 2025-04-09
     # TODO: link to the online version or issue number, if any
-    image: assets/revue-2025.jpg   # your photo of the printed spread
+    image: assets/revue-2025.jpg   # your photo of the printed spread; print only, there is no online version
     pull_quote: "Ich spreche Luxemburgisch, aber nicht so gut, wie ich es mir wünsche. Dank meiner Arbeit an der ‚Lies- und Schreiwmaschinn' kann ich es jeden Tag ein bisschen besser."
     themes: [speech, ai-nlp]
   - title: "Sproochmaschinn.lu: Eric Thill présente les applications numériques pour la langue luxembourgeoise"
@@ -738,7 +744,12 @@ media:
     themes: [ai-nlp, hci-ux]
   - { title: "Zortify et le SnT unis autour d'une IA «éthique» pour les RH", outlet: Paperjam, date: 2023-05-12, url: "https://paperjam.lu/article/zortify-et-snt-unis-autour-ia-", themes: [ai-nlp] }
   - { title: "Careers Talk: Becoming Director of Zortify Labs", outlet: EURAXESS Luxembourg, date: 2023-01-16, url: "https://youtu.be/v242qHjBMfU", themes: [ai-nlp] }
-  - { title: "Christopher Morse: Mediatioun brauch Emotioun", outlet: "Radio 100,7", date: 2022-01-19, url: "https://www.100komma7.lu/article/kultur/christopher-morse-mediatioun-brauch-emotioun", themes: [cultural-heritage] }
+  - title: "Christopher Morse: Mediatioun brauch Emotioun"
+    outlet: "Radio 100,7"
+    date: 2022-01-19
+    url: "https://www.100komma7.lu/article/kultur/christopher-morse-mediatioun-brauch-emotioun"
+    mentions: "Interview; [listen to the broadcast](https://100komma7.lu/program/episode/382599/20220119084800-20220119085400?pd=radio&show_id=256597&episode_id=435869)"
+    themes: [cultural-heritage]
   - { title: "In conversation with our young researchers: Christopher Morse", outlet: Research Luxembourg, date: 2021-09-17, url: "https://www.researchluxembourg.org/en/in-conversation-with-our-young-researchers-christopher-morse/", themes: [cultural-heritage] }
   - { title: "MNHA Launches Digital Collections Platform", outlet: Chronicle.lu, date: 2019-06-18, url: "https://chronicle.lu/category/museums/29558-mnha-launches-digital-platform", themes: [cultural-heritage] }
   - { title: "'Charlie' ou 'pas Charlie', comment Harvard a décidé de tout archiver", outlet: "L'Obs", date: 2016-07-08, url: "https://www.nouvelobs.com/attentats-terroristes-a-paris/20160708.OBS4267/charlie-ou-pas-charlie-comment-harvard-a-decide-de-tout-archiver.html", themes: [digital-humanities] }
