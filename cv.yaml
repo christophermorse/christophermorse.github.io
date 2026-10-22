@@ -167,8 +167,12 @@ experience:
     start: 2024-04-01
     end: present
     themes: [speech, ai-nlp]
+    image: assets/sproochmaschinn-launch-2025.jpg
+    # The licence on gouvernement.lu allows photos to be reproduced if the source is
+    # named, so the credit below must stay visible wherever the picture is used.
+    credits: "At the launch, with Daniel Wagener and Alexandre Ecker. Photo © MCULT, [Ministère de la Culture](https://gouvernement.lu/fr/gouvernement/eric-thill/actualites.gouvernement2024+fr+actualites+toutes_actualites+communiques+2025+02-fevrier+10-sproochmaschinn-thill.html)"
     items:   # CONFIRM all of these — drafted from your notes + public sources
-      - Trains and maintains the AI models behind [sproochmaschinn.lu](https://sproochmaschinn.lu), one of the first public web platforms for Luxembourgish speech technology, which unites the Schreifmaschinn (speech-to-text) and the Liesmaschinn (text-to-speech). Launched by the Minister of Culture in February 2025.
+      - Trains and maintains the AI models behind [sproochmaschinn.lu](https://sproochmaschinn.lu), one of the first public web platforms for Luxembourgish speech technology, which unites the Schreifmaschinn (speech-to-text) and the Liesmaschinn (text-to-speech). [Launched by the Ministry of Culture](https://gouvernement.lu/fr/gouvernement/eric-thill/actualites.gouvernement2024+fr+actualites+toutes_actualites+communiques+2025+02-fevrier+10-sproochmaschinn-thill.html) in February 2025.
       - Lead designer of the sproochmaschinn.lu web application.
       - Fine-tuned Whisper Large v3 Turbo on Luxembourgish parliamentary and broadcast speech and integrated pyannote speaker diarization; version 2.0 (December 2025) doubled the training data and added speaker recognition and a second synthetic voice.
       - Designs fully on-premise training and inference pipelines, so no audio or text ever leaves government servers.

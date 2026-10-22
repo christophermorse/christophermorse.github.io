@@ -54,7 +54,7 @@ def add(band, kind, iid, title, meta, when, s, e, themes, bullets=None, label=No
 for i, x in enumerate(cv["experience"]):
     s, e, w = span(x.get("start"), x.get("end"))
     add("work", "Position", f"exp{i}", x["title"], f'{x["organization"]}, {x["location"]}', w, s, e, x.get("themes"), x.get("items"),
-        label=f'{x["title"]}, {x.get("short_org") or x["organization"].split(",")[0]}', image=img(x.get("image")))
+        label=f'{x["title"]}, {x.get("short_org") or x["organization"].split(",")[0]}', image=img(x.get("image")), credits=x.get("credits"))
 for i, x in enumerate(cv["grants"]):
     s, e, w = span(x["start"], x["end"])
     press = [m for u in x.get("press", []) for m in cv["media"] if m.get("url") == u]
