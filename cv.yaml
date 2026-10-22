@@ -31,7 +31,6 @@ open_questions:
     - "talks: anything from 2024-2026 still missing? NLP Roundtable at Uni.lu, Assises culturelles IA, a UNESCO workshop?"
     - "media / Konterbont (26 Sept. 2025): a link, if the issue is online."
     - "media / Revue (9 Apr. 2025): a link to the online version, or the issue number."
-    - "organizing: one Digital Futures Consortium event inside your Harvard years is still unlisted — 'A More Open Future for the Past: Publishing, Data, and Archaeology', Eric Kansa on Open Context, 13 Nov. 2013. It was the series' inaugural talk, in Piper Auditorium the same evening as the NOW Edition, an hour after it. Yours too? (The later Visual Eloquence runs, 7-8 Nov. 2017 and 9-10 Jan. 2018, both fall after you left in July 2017, so neither is listed.)"
     - "media photos: Silicon Luxembourg (22 Sept. 2025) credits its portrait of you © ZLS, so the rights sit with your employer, not the magazine — ask ZLS comms for the original file. The Konterbont photo of you and Sara Martin carries no credit under a blanket © Autisme Luxembourg ASBL; ask ZLS first, then Konterbont. Neither can be hosted here until one of them says yes."
     - "grants: the museomag piece credits FNR project 10929115 as supporting the doctoral research. Should it be listed under grants, with a title, amount and dates?"
     - "talks / Elements of AI Talk Time: two talks are listed, 22 Apr. 2025 and 22 Apr. 2026, both titled 'The Luxembourgish Language Machine'. There were two talks, but probably with different titles; confirm the title (and date) of each."
@@ -563,7 +562,7 @@ organizing:
     url: "https://digital-futures-consortium.github.io/thatcamp-2014/"
     description: "An unconference at the Graduate School of Education, where humanists and technologists of every skill level learned and built together in sessions proposed on the spot."
     image: assets/thatcamp-harvard-2014.jpg
-    credits: "Poster design: C. Morse   # CONFIRM: the poster is yours? the eye does not appear on it"
+    credits: "Poster: C. Morse"
     themes: [digital-humanities]
   - title: "Thinking with Your Eyes: Visualizing the Arts, Humanities, & Sciences"
     role: Co-organizer
@@ -575,6 +574,15 @@ organizing:
     description: "A two-day symposium on visualization across the disciplines, keynoted by Martin Wattenberg and Fernanda Viégas of Google's Big Picture group, with lightning rounds, roundtables and hands-on workshops. Covered by the [Harvard Gazette](https://news.harvard.edu/gazette/story/2014/03/grasping-with-the-eyes/)."
     image: assets/thinking-with-your-eyes-logo.png
     credits: "Logo: C. Morse"
+    themes: [digital-humanities]
+  - title: "A More Open Future for the Past: Publishing, Data, and Archaeology"
+    role: Co-organizer
+    host: Harvard University
+    location: "Cambridge, MA, USA"
+    country: US
+    date: 2013-11-13
+    url: "https://digital-futures-consortium.github.io/more-open-future/"
+    description: "Eric Kansa on Open Context, an open-access publishing venue for archaeology built on the idea of data sharing as publishing, with peer review and linked open data. The inaugural talk of the Consortium's series on digital scholarship, an hour after the NOW Edition and in the same room."
     themes: [digital-humanities]
   - title: "Digital Futures: The NOW Edition"
     role: Co-organizer
