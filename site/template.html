@@ -157,6 +157,7 @@ button{font:inherit; color:inherit}
 .fade{animation:fadein .35s ease-out} @keyframes fadein{from{opacity:.1; transform:translateY(4px)}}
 @media (prefers-reduced-motion:reduce){ .fade{animation:none} }
 
+@media (min-width:861px){ .dock{transform:translateY(-25px)} }
 /* phones: the astrolabe becomes a dial docked at the bottom */
 @media (max-width:860px){
   .layout{grid-template-columns:minmax(0,1fr)}
@@ -192,7 +193,7 @@ button{font:inherit; color:inherit}
   </aside>
   <main class="leaf" id="leaf">
     <div class="overview"><svg id="overview" role="group" aria-label="Every year at a glance; select one to open it"></svg>
-      <div class="overview-cap"><span>Each star is one entry, colored by its strand of work; the brightest are positions and degrees.</span><span id="count"></span></div></div>
+      <div class="overview-cap"><span>Each star is one entry, with a star at each end of a span, colored by its strand of work; the brightest are positions and degrees.</span><span id="count"></span></div></div>
     <div id="year" aria-live="polite"></div>
     <section class="about" id="about"></section>
   </main>
@@ -421,8 +422,12 @@ const hash = s => { let h = 2166136261; for (const c of s) h = Math.imul(h ^ c.c
 function overview(){
   const svg = $("#overview"), W = 700, cols = LAST - FIRST + 1, cw = W / cols, gap = 8.6, top = 10;
   const per = []; let max = 0;
-  for (let y = FIRST; y <= LAST; y++){ const its = LEAVES.filter(it => Math.floor(it.start) === y)
-      .sort((a,b) => (a.themes[0] > b.themes[0] ? 1 : -1) || a.start - b.start);
+  // one star where an entry begins, and a second where a finished span ends in a later year
+  const marks = LEAVES.flatMap(it => { const m = [{it, y: Math.floor(it.start), key: it.id}];
+    if (it.span && it.end < NOW && Math.floor(it.end) > Math.floor(it.start)) m.push({it, y: Math.floor(it.end), key: it.id + ":end"});
+    return m; });
+  for (let y = FIRST; y <= LAST; y++){ const its = marks.filter(m => m.y === y)
+      .sort((a,b) => (a.it.themes[0] > b.it.themes[0] ? 1 : -1) || a.it.start - b.it.start);
     per.push(its); max = Math.max(max, its.length); }
   const base = top + max*gap + 6, H = base + 34;
   let s = `<defs><radialGradient id="halo"><stop offset="0" stop-color="var(--brass)" stop-opacity=".28"/><stop offset="1" stop-color="var(--brass)" stop-opacity="0"/></radialGradient></defs>`;
@@ -434,12 +439,12 @@ function overview(){
     s += `<g class="yr-col ${on ? "on" : ""}" tabindex="0" role="button" data-y="${y}" aria-label="${y}: ${its.length} entries"><rect class="col-hit" x="${x0+1}" y="0" width="${cw-2}" height="${H}" rx="2"/>`;
     if (on){ const cy = base - Math.max(its.length, 2)*gap/2; s += `<ellipse cx="${x0 + cw/2}" cy="${cy}" rx="${cw*.95}" ry="${Math.max(its.length, 3)*gap*.75}" fill="url(#halo)"/>`; }
     // stars loosen into a small cluster; same-strand stars are joined like a constellation
-    const pts = its.map((it, j) => ({it, x: x0 + cw/2 + (hash(it.id) - .5)*cw*.5, y: base - 6 - j*gap - (hash(it.id + "y") - .5)*3}));
+    const pts = its.map(({it, key}, j) => ({it, key, x: x0 + cw/2 + (hash(key) - .5)*cw*.5, y: base - 6 - j*gap - (hash(key + "y") - .5)*3}));
     const byT = {}; pts.forEach(pt => (byT[pt.it.themes[0]] ||= []).push(pt));
     Object.entries(byT).forEach(([k, ps]) => { if (ps.length < 2) return;
       s += `<path d="${ps.map((pt, n) => `${n ? "L" : "M"}${pt.x.toFixed(1)} ${pt.y.toFixed(1)}`).join("")}" fill="none" stroke="${col(k)}" stroke-width=".6" stroke-dasharray="1 2.2" opacity=".75"/>`; });
     pts.forEach(pt => { const [r, n] = MAG(pt.it);
-      s += `<path class="star${on ? " tw" : ""}" data-id="${pt.it.id}" d="${starPath(pt.x, pt.y, r, n)}" fill="${col(pt.it.themes[0])}" style="--d:${(hash(pt.it.id+"t")*2.4).toFixed(2)}s"><title>${esc(pt.it.label)}, ${esc(pt.it.when)}</title></path>`; });
+      s += `<path class="star${on ? " tw" : ""}" data-id="${pt.it.id}" d="${starPath(pt.x, pt.y, r, n)}" fill="${col(pt.it.themes[0])}" style="--d:${(hash(pt.key+"t")*2.4).toFixed(2)}s"><title>${esc(pt.it.label)}, ${esc(pt.it.when)}</title></path>`; });
     s += `<text x="${x0 + cw/2}" y="${H - 4}" text-anchor="middle">${(y % 5 === 0 && Math.abs(y - YEAR) > 1) || on || (y === LAST && YEAR < LAST - 1) ? y : ""}</text>`;
     if (on) s += `<path d="M${x0 + cw/2} ${base + 10}l-4 7h8z" fill="var(--rubric)"/>`;
     s += `</g>`; });
