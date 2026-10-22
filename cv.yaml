@@ -134,7 +134,7 @@ education:
     themes: [japan]
     items:
       - A full academic year of intensive Japanese language study and coursework in Japanese culture, on exchange from UMass Amherst.
-      - "Member of the university's calligraphy club, the 書道部, and a private student of a practising calligrapher."
+      - "Member of the calligraphy club (書道部) and a private student of a practising calligrapher."
 
   - degree: "Study abroad: *Japanese language*"
     kind: Study abroad
@@ -159,9 +159,11 @@ experience:
     themes: [speech, ai-nlp]
     items:
       - Oversees the development of the ZLS's AI and language-technology tools, and of the models behind them.
+      - Advises a Master's thesis on Luxembourgish language topics, and oversees student workers and external experts across the centre's digital projects.
       - "Lead designer of [sproochmaschinn.lu](https://sproochmaschinn.lu), one of the first public web platforms for Luxembourgish speech technology, which unites the Schreifmaschinn (speech-to-text) and the Liesmaschinn (text-to-speech), and trains and maintains the models it runs on. [Launched by the Ministry of Culture](https://gouvernement.lu/fr/gouvernement/eric-thill/actualites.gouvernement2024+fr+actualites+toutes_actualites+communiques+2025+02-fevrier+10-sproochmaschinn-thill.html) in February 2025."
       - "Lead developer of SproochHub, a platform for building and exploring Luxembourgish corpora. It ingests texts, parliamentary debates and transcribed recordings, aligns speech to its transcript, and holds some 70 million words in one searchable place, with concordance and corpus-query tools for work on word forms, collocations, dispersion and keyness."   # CONFIRM: is there a public URL to link?
       - Fine-tuned Whisper Large v3 Turbo on Luxembourgish parliamentary and broadcast speech and integrated pyannote speaker diarization; version 2.0 (December 2025) doubled the training data and added speaker recognition and a second synthetic voice.
+      - "Improved the Liesmaschinn's original synthetic voice, built by Marco Barnig from the voice of Max Kuborn and given to the centre."
       - Currently developing streaming speech recognition for live Luxembourgish subtitling.
       - Represents the ZLS's language-technology work nationally and internationally, including at UNESCO's LT4All conference (Paris, 2025).
       - Teaches workshops and speaks publicly about these tools, as science communication and outreach.
@@ -176,6 +178,7 @@ experience:
     themes: [ai-nlp, hci-ux]
     items:
       - Built and led Zortify Labs, an interdisciplinary R&D team of researchers, data scientists, psychologists, and designers working on natural language processing, UX, and explainable AI for HR technology.
+      - Supervised the project's doctoral researchers and postdocs alongside the co-director, in a hybrid academic and industry arrangement run with the University of Luxembourg.
       - Co-led, with Dr Siwen Guo, a €1.4 million R&D project funded by the Luxembourg Ministry of the Economy in partnership with SnT (University of Luxembourg), on multilingual NLP models and interfaces that make AI decisions understandable.
       - Translated research into product direction, explaining what AI can and cannot do to clients, executives, and investors.
       - Built research partnerships with universities and industry, and organized the 2023 Zortify Summer School on the Future of Work.
@@ -232,8 +235,8 @@ experience:
     end: 2007-05
     themes: [teaching, japan]
     items:
-      - First point of contact for students considering a period of study abroad, fielding the questions that come long before any application does.
-      - Advised on choosing programs and preparing applications, and on what a year abroad actually involves, drawing on two years of it in Japan.
+      - First contact for students interested in studying abroad.
+      - Advised on choosing countries and programs, and on what living abroad is actually like, drawing on first-hand experience of it.
 
 # -----------------------------------------------------------------------------
 publications:
@@ -753,6 +756,7 @@ media:
 
 # -----------------------------------------------------------------------------
 broadcast:   # "Radio & Broadcast" — appearances where you're the voice, not the subject
+  # Not involved in the Lëtzebuerger Wuertschatz book series, though it comes up on air.
   - show: "Wat s de net sees!"
     outlet: "Radio 100,7"
     role: Recurring contributor (ZLS language series)
