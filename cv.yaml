@@ -26,7 +26,6 @@ meta:
 open_questions:
 
   missing_information:
-    - "broadcast / RTL Radio: the entry covers Episod 4 of 'Frech duerch de Summer', which ran weekly through the summer of 2026. Were you on any of the other episodes?"
     - "teaching.courses: other Digital Learning Hub courses since 2023 — titles and terms. You mentioned teaching courses rather than speaking at the Elements of AI closing conference; those courses are not yet listed anywhere."
     - "talks: anything from 2024-2026 still missing? NLP Roundtable at Uni.lu, Assises culturelles IA, a UNESCO workshop?"
     - "media / Konterbont (26 Sept. 2025): a link, if the issue is online."
@@ -790,7 +789,7 @@ broadcast:   # "Radio & Broadcast" — appearances where you're the voice, not t
     outlet: RTL Radio
     role: Guest of Jean-Marc Turmes, with Sarah Hess
     url: "https://www.rtl.lu/radio/home/vun-dommen-ness-a-granzege-porretten-1727061976"
-    date: 2026-08-11
+    date: 2026-08-11   # the series ran all summer; this is the only episode you were on
     topic: "A summer series on Luxembourgish rudeness, built around *Vun Dräibiz bis Vullemätti*, the newest volume in the ZLS's *Lëtzebuerger Wuertschatz*."
     themes: [speech]
 
