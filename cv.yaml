@@ -29,7 +29,6 @@ meta:
 open_questions:
 
   missing_information:
-    - "talks: only one UNESCO appearance is listed — LT4All in Paris, 24 Feb. 2025. You mention a second, co-hosted by the ZLS: its title, date, venue and a one-line topic would complete the pair."
     - "talks: anything else from 2024-2026 still missing? NLP Roundtable at Uni.lu, Assises culturelles IA?"
     - "media / Konterbont (26 Sept. 2025): a link, if the issue is online."
     - "media photos: Silicon Luxembourg (22 Sept. 2025) credits its portrait of you © ZLS, so the rights sit with your employer, not the magazine — ask ZLS comms for the original file. The Konterbont photo of you and Sara Martin carries no credit under a blanket © Autisme Luxembourg ASBL; ask ZLS first, then Konterbont. Neither can be hosted here until one of them says yes."
@@ -164,12 +163,12 @@ experience:
       - Oversees the development of the ZLS's AI and language-technology tools, and of the models behind them.
       - Advises a Master's thesis on Luxembourgish language topics, and oversees student workers and external experts across the center's digital projects.
       - "Lead designer of [sproochmaschinn.lu](https://sproochmaschinn.lu), one of the first public web platforms for Luxembourgish speech technology, which unites the Schreifmaschinn (speech-to-text) and the Liesmaschinn (text-to-speech), and trains and maintains the models it runs on. [Launched by the Ministry of Culture](https://gouvernement.lu/fr/gouvernement/eric-thill/actualites.gouvernement2024+fr+actualites+toutes_actualites+communiques+2025+02-fevrier+10-sproochmaschinn-thill.html) in February 2025."
-      - "Created SproochHub and leads its development: a platform for building and exploring Luxembourgish corpora. It ingests texts, parliamentary debates and transcribed recordings, aligns speech to its transcript, and holds some 70 million words in one searchable place, with concordance and corpus-query tools for work on word forms, collocations, dispersion and keyness."   # CONFIRM: is there a public URL to link?
+      - "Created SproochHub and leads its development: a platform for building and exploring Luxembourgish corpora. It ingests texts, parliamentary debates and transcribed recordings, aligns speech to its transcript, and holds some 70 million words in one searchable place, with concordance and corpus-query tools for work on word forms, collocations, dispersion and keyness."   # internal to the ZLS for now, so there is nothing to link
       - Fine-tuned Whisper Large v3 Turbo on Luxembourgish parliamentary and broadcast speech and integrated pyannote speaker diarization; version 2.0 (December 2025) doubled the training data and added speaker recognition and a second synthetic voice.
       - "Improved the Liesmaschinn's original synthetic voice, built by Marco Barnig from the voice of Max Kuborn and given to the center."
       - "sproochmaschinn.lu in the press: [*D'Sproochmaschinn beherrscht Luxemburgisch auf Knopfdruck*](https://www.wort.lu/kultur/d-sproochmaschinn-beherrscht-luxemburgisch-auf-knopfdruck/39843950.html) and [*Praxistest: Wie gut spricht die Liesmaschinn Lëtzebuergesch?*](https://www.wort.lu/kultur/praxistest-wie-gut-spricht-die-liesmaschinn-letzebuergesch/40626825.html), *Luxemburger Wort*; [*Un outil transcrit du texte et de l'audio en luxembourgeois*](https://www.lessentiel.lu/fr/story/langue-au-luxembourg-un-outil-transcrit-du-texte-et-de-l-audio-en-luxembourgeois-103278177) and [*Luxemburg setzt auf KI zur Sprachförderung*](https://www.lessentiel.lu/de/story/sprachbarrieren-sproochmaschinn-luxemburg-setzt-auf-ki-zur-sprachfoerderung-103278196), *L'essentiel*; [*Geschwaten Texter verschrëftlechen oder Texter lauschteren*](https://100komma7.lu/news/Sproochmaschinn-lu-Neien?pd=radio), *Radio 100,7*; [*Nei digital Outile Sprooch- a Liesmaschinn*](https://play.rtl.lu/shows/lb/journal/episodes/r/3438045), *RTL Journal*; and [*Lëtzebuergesch. Digital. Fir jiddereen zougänglech.*](https://www.fgfc.lu/fr-lu/actualites/letzebuergesch-digital-fir-jiddereen-zougaenglech/), *FGFC*."
       - Currently developing streaming speech recognition for live Luxembourgish subtitling.
-      - Represents the ZLS's language-technology work nationally and internationally, including at UNESCO's LT4All conference (Paris, 2025).
+      - Represents the ZLS's language-technology work nationally and internationally: at UNESCO's LT4All conference (Paris, 2025), and as lead organizer of *Languages at Every Stage*, a technical expert meeting co-hosted with UNESCO later the same year.
       - Teaches workshops and speaks publicly about these tools, as science communication and outreach.
       - "Recurring contributor to Radio 100,7's *Wat s de net sees!*, on Luxembourgish language and the technology being built for it."
 
@@ -469,6 +468,14 @@ talks:
 
 # -----------------------------------------------------------------------------
 organizing:
+  - title: "Languages at Every Stage: A Technical Dialogue on Inclusive Language Technology Development"
+    role: Lead organizer
+    host: "Zenter fir d'Lëtzebuerger Sprooch and UNESCO"
+    location: Online
+    country: LU
+    date: 2025-09-25
+    description: "A technical expert meeting co-hosted by the ZLS and UNESCO, on building language technology that includes the languages usually left out of it."   # CONFIRM wording — and did you present as well as convene?
+    themes: [speech, ai-nlp]
   - title: "Zortify Summer School: The Future of Work"
     host: Zortify
     location: "Luxembourg, Luxembourg"
