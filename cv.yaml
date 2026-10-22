@@ -6,7 +6,7 @@
 #  Conventions
 #   - Dates: "YYYY", "YYYY-MM", or "YYYY-MM-DD". end: present  -> ongoing.
 #   - Text fields accept light markdown: *italic*, **bold**, [text](url).
-#   - themes: tags that drive the visualization (colour, filtering, threads).
+#   - themes: tags that drive the visualization (color, filtering, threads).
 #   - print: false  -> website only.   public: false -> PDF only.
 #   - Address, phone and references live in cv.private.yaml (not committed).
 #   - CONFIRM: wording I drafted from public sources; check it's accurate
@@ -39,7 +39,7 @@ open_questions:
     - "experience / Study Abroad Advisor: my wording for both bullets."
     - "grants: my wording for the three-pillars description of the EUR 1.4M project."
     - "skills: the Speech & ML list — confirm and extend. Coqui TTS / VITS is the item I was least sure of."
-    - "media / RTL Today (14 Aug. 2023): the segment covers the Summer School you organised but does not name you; the studio guests were Patricia Souza and Isabella Olariu. Keep it, or drop it?"
+    - "media / RTL Today (14 Aug. 2023): the segment covers the Summer School you organized but does not name you; the studio guests were Patricia Souza and Isabella Olariu. Keep it, or drop it?"
     - "media / Konterbont: my one-line description of what you were interviewed about is inferred from the title alone."
     - "media: 'The future of AI is human' now appears as a pull quote on two cards, Silicon Luxembourg and Chronicle.lu. Keep both, or just one?"
     - "person.email: the personal address now lives in cv.private.yaml and is never pushed. The work address is still in this repository's git history, from the first CV commit; purging it would need a history rewrite."
@@ -57,7 +57,7 @@ person:
   first_name: Christopher M.
   last_name: Morse
   suffix: Ph.D.
-  position: Computational Linguist · Speech & Language Technology · Human-Centred AI
+  position: Computational Linguist · Speech & Language Technology · Human-Centered AI
   photo: profile.png
   summary: >-
     Technology changes how we encounter and experience culture; this much is
@@ -99,6 +99,7 @@ education:
     institution: University of Luxembourg
     location: Esch-sur-Alzette, Luxembourg
     country: LU
+    start: 2017
     end: 2021-09
     themes: [hci-ux, cultural-heritage]
     items:
@@ -108,6 +109,7 @@ education:
     institution: Harvard University, Extension School
     location: Cambridge, MA, USA
     country: US
+    start: 2012
     end: 2015
     themes: [digital-humanities, teaching]
 
@@ -115,6 +117,7 @@ education:
     institution: Harvard University, Divinity School
     location: Cambridge, MA, USA
     country: US
+    start: 2007
     end: 2009
     themes: [digital-humanities]
 
@@ -234,7 +237,7 @@ experience:
     themes: [teaching, japan]
     items:
       - First point of contact for students considering a period of study abroad, through the junior and senior years of the degree.
-      - Advised on programmes, applications and what a year away actually asks of you, drawing on two years of study in Japan.   # CONFIRM wording
+      - Advised on programs, applications and what a year away actually asks of you, drawing on two years of study in Japan.   # CONFIRM wording
 
 # -----------------------------------------------------------------------------
 publications:
