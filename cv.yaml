@@ -31,6 +31,7 @@ open_questions:
     - "talks: anything from 2024-2026 still missing? NLP Roundtable at Uni.lu, Assises culturelles IA, a UNESCO workshop?"
     - "media / Konterbont (26 Sept. 2025): a link, if the issue is online."
     - "media / Revue (9 Apr. 2025): a link to the online version, or the issue number."
+    - "organizing / Making History Together (Uni.lu, Dec. 2020): the only convened event without a blurb — I have no source for what it covered."
     - "media photos: Silicon Luxembourg (22 Sept. 2025) credits its portrait of you © ZLS, so the rights sit with your employer, not the magazine — ask ZLS comms for the original file. The Konterbont photo of you and Sara Martin carries no credit under a blanket © Autisme Luxembourg ASBL; ask ZLS first, then Konterbont. Neither can be hosted here until one of them says yes."
     - "grants: the museomag piece credits FNR project 10929115 as supporting the doctoral research. Should it be listed under grants, with a title, amount and dates?"
     - "talks / Elements of AI Talk Time: two talks are listed, 22 Apr. 2025 and 22 Apr. 2026, both titled 'The Luxembourgish Language Machine'. There were two talks, but probably with different titles; confirm the title (and date) of each."
@@ -470,8 +471,20 @@ talks:
 
 # -----------------------------------------------------------------------------
 organizing:
-  - { title: "Zortify Summer School: The Future of Work", host: Zortify, location: "Luxembourg, Luxembourg", country: LU, date: 2023-08-28, themes: [ai-nlp] }
-  - { title: MNHA Design Jam, host: "Musée National d'Histoire et d'Art", location: "Luxembourg, Luxembourg", country: LU, date: 2019-06, themes: [cultural-heritage, hci-ux] }   # two public sessions, with the MNHA's Service Numérisation
+  - title: "Zortify Summer School: The Future of Work"
+    host: Zortify
+    location: "Luxembourg, Luxembourg"
+    country: LU
+    date: 2023-08-28
+    description: "A week at PwC Luxembourg for some thirty PhD students, postdocs, researchers and industry professionals, on the future of work and the AI being built for it. Covered by [RTL Today](https://today.rtl.lu/news/business-and-tech/zortify-summer-school-the-future-of-work-2102344)."
+    themes: [ai-nlp]
+  - title: MNHA Design Jam
+    host: "Musée National d'Histoire et d'Art"
+    location: "Luxembourg, Luxembourg"
+    country: LU
+    date: 2019-06
+    description: "Two public sessions run with the museum's Service Numérisation, in which designers, museum staff and members of the public worked through design-thinking exercises on the new collections platform and built low-fidelity prototypes of their own."
+    themes: [cultural-heritage, hci-ux]
   - { title: "Making History Together: Public Participation in Museums", host: University of Luxembourg, location: "Luxembourg, Luxembourg", country: LU, date: 2020-12-15, themes: [cultural-heritage] }
   # The Digital Futures Consortium years at Harvard. Dates and blurbs taken from each
   # event's own announcement at https://digital-futures-consortium.github.io
@@ -702,12 +715,6 @@ media:
     # so this credit must stay visible wherever the picture appears.
     credits: "Photo © MCULT, Ministère de la Culture"
     themes: [speech, ai-nlp]
-  - title: "Zortify Summer School: The Future of Work"
-    outlet: "RTL Today — The Home Stretch, Today Radio"
-    date: 2023-08-14
-    url: "https://today.rtl.lu/news/business-and-tech/zortify-summer-school-the-future-of-work-2102344"
-    mentions: "On the Zortify Summer School; studio interview with Patricia Souza and Isabella Olariu"   # CONFIRM: you are not named in this one — keep it, or drop it?
-    themes: [ai-nlp, teaching]
   - title: "Inaugural Zortify Summer School to Address Future of Work"
     outlet: Chronicle.lu
     date: 2023-08-03
