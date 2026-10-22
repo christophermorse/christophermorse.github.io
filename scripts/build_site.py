@@ -147,7 +147,7 @@ DATA = {
              "position": p["position"], "summary": p["summary"],
              "email": EMAIL, "linkedin": p["linkedin"], "scholar": p["google_scholar"]["id"]},
   "themes": cv["themes"], "items": items, "places": places, "updated": str(cv["meta"]["last_updated"]),
-  "bands": [["work","Positions and study"],["writing","Writing"],["speaking","Speaking and radio"],["teaching","Teaching and convening"],
+  "bands": [["work","Work and education"],["writing","Writing"],["speaking","Speaking and radio"],["teaching","Teaching and convening"],
             ["press","In the press"],["service","Service"]],
 }
 import shutil

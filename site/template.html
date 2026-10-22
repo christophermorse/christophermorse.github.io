@@ -105,12 +105,6 @@ button{font:inherit; color:inherit}
 .yh .num{font-family:var(--display); font-size:clamp(3.6rem,7vw,5.6rem); line-height:.82; letter-spacing:-.01em}
 .yh .role{font-family:var(--display); font-size:clamp(1.3rem,2vw,1.7rem); line-height:1.15}
 .yh .where{font-variant:small-caps; letter-spacing:.05em; color:var(--rubric); margin-top:.3rem}
-.sig{display:grid; grid-template-columns:1fr auto; gap:1.2rem; align-items:start; margin:1.4rem 0 .4rem; padding:1rem 1.1rem;
-  border:1px solid var(--rule); background:color-mix(in srgb,var(--parch) 70%,white 30%); cursor:pointer; text-align:left; width:100%}
-.sig:hover{border-color:var(--rubric)}
-.sig .k{font-variant:small-caps; letter-spacing:.04em; color:var(--rubric); font-size:1rem}
-.sig b{display:block; font-family:var(--display); font-weight:400; font-size:1.4rem; line-height:1.2; margin:.1rem 0 .25rem}
-.sig img{width:150px; height:150px; object-fit:cover; border:1px solid var(--rule)}
 .sigil{width:1.05em; height:1.05em; flex:none; color:var(--rubric); overflow:visible}
 .toc{display:flex; flex-wrap:wrap; gap:.35rem 1.3rem; margin:1.1rem 0 .2rem; font-variant:small-caps; letter-spacing:.03em; font-size:1.02rem}
 .toc a{display:inline-flex; align-items:center; gap:.4em; text-decoration:none; color:var(--ink)}
@@ -172,7 +166,6 @@ button{font:inherit; color:inherit}
   .dock .cartouche output{font-size:1.2rem; min-width:5.6em}
   .dock .cartouche output small,.rings-key{display:none}
   .leaf{padding-top:14px}
-  .sig{grid-template-columns:1fr} .sig img{width:100%; height:180px}
   .row{grid-template-columns:1fr} .row .d{padding:0} .row img{width:100%; height:150px} .row > span{display:none}
   .card{grid-template-columns:1fr} .card img{grid-column:1; grid-row:auto; width:100%; height:160px; margin-top:.6rem}
 }
@@ -193,7 +186,7 @@ button{font:inherit; color:inherit}
   </aside>
   <main class="leaf" id="leaf">
     <div class="overview"><svg id="overview" role="group" aria-label="Every year at a glance; select one to open it"></svg>
-      <div class="overview-cap"><span>Each star is one entry, with a star at each end of a span, colored by its strand of work; the brightest are positions and degrees.</span><span id="count"></span></div></div>
+      <div class="overview-cap"><span>A star per entry, one at each end of a span; colored by strand, brightest for work and degrees.</span><span id="count"></span></div></div>
     <div id="year" aria-live="polite"></div>
     <section class="about" id="about"></section>
   </main>
@@ -223,21 +216,14 @@ $("#pos").textContent = p.position.replace(/ · /g, ", ");
 const FIRST = 2003, LAST = 2026, NOW = 2026.75, T0 = 2003, T1 = 2027;
 let YEAR = LAST;
 const inYear = (it, y) => it.span ? (it.start < y + 1 && it.end >= y) : Math.floor(it.start) === y;
-/* Signature work for each era (your call which pieces stand for which years) */
-const ERAS = [
-  {from:2024, id:"exp0", title:"sproochmaschinn.lu", imageFrom:"prs2", head:"Signature work: the Sproochmaschinn", text:"A public speech-to-text and text-to-speech platform, launched in 2025: lead design of the web application, and training and maintenance of its AI models."},
-  {from:2022, id:"grt0", head:"Signature work: explainable NLP", text:"A €1.4 million project with SnT on multilingual language models and interfaces that make AI decisions understandable."},
-  {from:2017, id:"edu0", head:"Signature work: the museum doctorate", text:"Museum Meaning-making: experience design for digital cultural heritage, defended in 2021."},
-  {from:2013, id:"tlk12", head:"Signature work: a Vatican manuscript in IIIF", text:"A digital critical edition of a 16th-century bilingual manuscript at the Biblioteca Apostolica Vaticana."},
-  {from:2003, id:"edu3", head:"Foundations: Japanese studies", text:"At UMass Amherst, with two years of study in Nishinomiya and Tokyo."},
-];
-const eraFor = y => ERAS.find(e => y >= e.from);
 const POS = ["exp0","exp1","exp2","exp3","exp4","exp5"].map(i => BY[i]);
 const DEG = ["edu3","edu2","edu1","edu0"].map(i => BY[i]);
 function roleFor(y){
-  const act = POS.filter(p => inYear(p, y));
-  if (act.length){ const a = [...act].sort((x,y) => y.start - x.start)[0]; return {text: a.label, id: a.id}; }
-  const now = DEG.find(d => Math.floor(d.end) === y); if (now) return {text: now.label + ", completed", id: now.id};
+  const act = POS.filter(p => inYear(p, y)), now = DEG.find(d => Math.floor(d.end) === y);
+  // a job that ended during the year gives way to a degree completed that year
+  const held = act.filter(p => p.end >= NOW || Math.floor(p.end) > y);
+  if (held.length || (act.length && !now)){ const a = [...(held.length ? held : act)].sort((x,y) => y.start - x.start)[0]; return {text: a.label, id: a.id}; }
+  if (now) return {text: now.label + ", completed", id: now.id};
   const on = DEG.find(d => d.span && inYear(d, y)); if (on) return {text: "Studying for the " + on.label, id: on.id};
   const next = DEG.find(d => d.end > y && d.end - y < 3); if (next) return {text: "Studying for the " + next.label, id: next.id};
   const prev = [...DEG].reverse().find(d => d.end < y); return prev ? {text: "After the " + prev.label, id: prev.id} : {text: "", id: "edu3"};
@@ -365,7 +351,8 @@ const SIGIL = {
 };
 const sig = (k, cls = "") => `<svg class="sigil ${cls}" viewBox="-8 -8 16 16" aria-hidden="true">${SIGIL[k]}</svg>`;
 const GROUPS = [
-  {name:"Positions and study", sig:"sun",    lay:"card", test: it => !it.parent && it.band === "work"},
+  {name:"Work",                sig:"sun",    lay:"card", test: it => !it.parent && it.band === "work" && !/Degree|Study abroad/.test(it.kind)},
+  {name:"Education",           sig:"rose",   lay:"card", test: it => !it.parent && it.band === "work" && /Degree|Study abroad/.test(it.kind)},
   {name:"Writing",             sig:"moon",   lay:"cite", test: it => !it.parent && it.band === "writing"},
   {name:"Speaking",            sig:"star",   lay:"row",  test: it => !it.parent && it.band === "speaking" && !it.ticks && it.kind !== "Radio"},
   {name:"Radio",               sig:"ringed", lay:"row",  test: it => (it.parent && it.parent.id === "brd0") || it.kind === "Radio"},
@@ -393,11 +380,10 @@ function entry(it, lay){
     ${it.image ? `<img src="${it.image}" alt="">` : `<span></span>`}</article>`;
 }
 function render(){
-  const role = roleFor(YEAR), era = eraFor(YEAR), fe = BY[era.id], where = whereFor(YEAR);
+  const role = roleFor(YEAR), where = whereFor(YEAR);
   $("#anno").innerHTML = `Anno ${YEAR}<small>${YEAR === LAST ? "the present" : "turn to any year"}</small>`;
   $("#prev").disabled = YEAR <= FIRST; $("#next").disabled = YEAR >= LAST;
-  let h = `<header class="yh fade"><div class="num">${YEAR}</div><div><div class="role">${esc(role.text)}</div>${where ? `<div class="where">${esc(where)}</div>` : ""}</div></header>
-    <button class="sig fade" type="button" data-go="${fe.id}"><span><span class="k">${esc(era.head)}</span><b>${esc(era.title || plain(fe.title))}</b>${esc(era.text)}</span>${(era.imageFrom ? BY[era.imageFrom].image : fe.image) ? `<img src="${era.imageFrom ? BY[era.imageFrom].image : fe.image}" alt="">` : ""}</button>`;
+  let h = `<header class="yh fade"><div class="num">${YEAR}</div><div><div class="role">${esc(role.text)}</div>${where ? `<div class="where">${esc(where)}</div>` : ""}</div></header>`;
   let n = 0, body = "", toc = [];
   GROUPS.forEach((g, gi) => { const its = LEAVES.filter(it => g.test(it) && inYear(it, YEAR)).sort((a,b) => b.start - a.start);
     if (!its.length) return; n += its.length;
@@ -409,10 +395,6 @@ function render(){
   $("#year").innerHTML = h;
   overview();
 }
-$("#year").addEventListener("click", e => { const b = e.target.closest("[data-go]"); if (!b) return;
-  const el = document.getElementById("e-" + b.dataset.go);
-  if (el){ el.scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block:"center"}); el.querySelector("details")?.setAttribute("open",""); }
-  else { const it = BY[b.dataset.go]; setYear(Math.floor(it.start)); } });
 
 /* overview: the years as a strip of sky, each entry a star colored by its strand */
 function starPath(x, y, r, n){ let d = ""; for (let i = 0; i < n*2; i++){ const rr = i % 2 ? r*(n === 4 ? .32 : .42) : r, a = -Math.PI/2 + i*Math.PI/n;

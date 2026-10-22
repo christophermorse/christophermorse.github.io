@@ -32,6 +32,8 @@ open_questions:
     - "media / Konterbont (26 Sept. 2025): a link, if the issue is online."
     - "media / Revue (9 Apr. 2025): a link to the online version, or the issue number."
     - "media / Museomag 2019-3, MNHA: https://www.mnaha.lu/assets/files/Museomag-2019-3-DEF-ISSUU.pdf — what is it, a piece about you or something you wrote? mnaha.lu would not respond when I tried to read it, so it is not filed anywhere yet."
+    - "talks / Elements of AI Talk Time: two talks are listed, 22 Apr. 2025 and 22 Apr. 2026, both titled 'The Luxembourgish Language Machine'. There were two talks, but probably with different titles; confirm the title (and date) of each."
+    - "experience / 2009-2010: a non-career job between the M.T.S. and Harvard Library. Decide whether to list it."
 
   wording_and_judgement:
     - "experience / ZLS: all six bullets were drafted from your notes and public sources. Bullet 2 (lead designer) is the thinnest; bullet 3 (Whisper Large v3 Turbo, pyannote, v2.0 in December 2025) is the most specific and so the most falsifiable."
@@ -220,7 +222,7 @@ experience:
     short_org: Harvard
     location: Cambridge, MA, USA
     country: US
-    start: 2012
+    start: 2010   # CONFIRM: same title from 2010, or a different role before 2012?
     end: 2013
     themes: [digital-humanities]
     items:
@@ -413,14 +415,14 @@ talks:
     event: "Interact 2019: Doctoral Consortium"
     location: Paphos, Cyprus
     country: CY
-    date: 2019-09-01
+    date: 2019-09
     themes: [cultural-heritage, hci-ux]
   - authors: C. Morse et al.
     title: "Art in Rich-Prospect: Evaluating Next-Generation User Interfaces for Cultural Heritage."
     event: MuseWeb 2019
     location: Boston, MA, USA
     country: US
-    date: 2019-04-01
+    date: 2019-04
     themes: [cultural-heritage, hci-ux]
   - authors: C. Morse
     title: Emotional Design for Digital Cultural Heritage.
