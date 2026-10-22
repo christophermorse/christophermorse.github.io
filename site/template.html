@@ -33,7 +33,7 @@ button{font:inherit; color:inherit}
 /* the instrument: fixed while the page beside it changes */
 .instrument{position:sticky; top:0; height:100vh; height:100dvh; display:flex; flex-direction:column; align-items:center;
   padding:clamp(22px,4vh,44px) clamp(16px,2.5vw,40px) clamp(14px,2.5vh,28px); border-right:1px solid var(--rule)}
-.who{width:100%; text-align:center; min-height:calc(var(--band,0px) - 26px); margin-bottom:1.2rem;
+.who{width:100%; text-align:center; min-height:calc(var(--band,0px) - 76px); margin-bottom:1.2rem;
   display:flex; flex-direction:column; justify-content:center; padding-bottom:.55rem; border-bottom:1px solid var(--rule)}
 .who h1{font-family:var(--display); font-weight:400; font-size:clamp(1.8rem,2.7vw,2.6rem); line-height:1; margin:0}
 .who h1 a{text-decoration:none}
@@ -151,7 +151,6 @@ button{font:inherit; color:inherit}
 .fade{animation:fadein .35s ease-out} @keyframes fadein{from{opacity:.1; transform:translateY(4px)}}
 @media (prefers-reduced-motion:reduce){ .fade{animation:none} }
 
-@media (min-width:861px){ .dock{transform:translateY(-25px)} }
 /* phones: the astrolabe becomes a dial docked at the bottom */
 @media (max-width:860px){
   .layout{grid-template-columns:minmax(0,1fr)}
