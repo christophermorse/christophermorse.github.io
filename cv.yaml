@@ -214,7 +214,7 @@ experience:
     items:
       - Partnered with humanities faculty to bring computational methods into their research, from linked data and SPARQL to multilingual text mapping.
       - Built scholarly tools on the International Image Interoperability Framework (IIIF), including a digital critical edition of a 16th-century manuscript at the Biblioteca Apostolica Vaticana, and taught IIIF workshops across the university.
-      - "Designed the digital experience for *Beyond Words: Illuminated Manuscripts in Boston Collections*, an exhibit that let visitors interact with manuscripts shown across Boston's cultural institutions."
+      - "Created the IIIF image viewer interface through which visitors explored several of the larger objects in *Beyond Words: Illuminated Manuscripts in Boston Collections*, an exhibit spanning Boston's cultural institutions."
       - Designed data visualizations and interactive tools that made research findings explorable for non-specialist audiences.
       - Organized ten art-and-technology symposia, including the *ArtTechPsyche* and *sIGHTLines* series.
 
