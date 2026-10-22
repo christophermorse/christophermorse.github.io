@@ -14,7 +14,7 @@
 # =============================================================================
 
 meta:
-  last_updated: 2026-10-21
+  last_updated: 2026-10-22
 
 # -----------------------------------------------------------------------------
 #  OPEN QUESTIONS — everything still waiting on you, gathered in one place so
@@ -31,7 +31,7 @@ open_questions:
     - "talks: anything from 2024-2026 still missing? NLP Roundtable at Uni.lu, Assises culturelles IA, a UNESCO workshop?"
     - "media / Konterbont (26 Sept. 2025): a link, if the issue is online."
     - "media / Revue (9 Apr. 2025): a link to the online version, or the issue number."
-    - "media / Museomag 2019-3, MNHA: https://www.mnaha.lu/assets/files/Museomag-2019-3-DEF-ISSUU.pdf — what is it, a piece about you or something you wrote? mnaha.lu would not respond when I tried to read it, so it is not filed anywhere yet."
+    - "grants: the museomag piece credits FNR project 10929115 as supporting the doctoral research. Should it be listed under grants, with a title, amount and dates?"
     - "talks / Elements of AI Talk Time: two talks are listed, 22 Apr. 2025 and 22 Apr. 2026, both titled 'The Luxembourgish Language Machine'. There were two talks, but probably with different titles; confirm the title (and date) of each."
     - "experience / 2009-2010: a non-career job between the M.T.S. and Harvard Library. Decide whether to list it."
 
@@ -214,6 +214,7 @@ experience:
     items:
       - Partnered with humanities faculty to bring computational methods into their research, from linked data and SPARQL to multilingual text mapping.
       - Built scholarly tools on the International Image Interoperability Framework (IIIF), including a digital critical edition of a 16th-century manuscript at the Biblioteca Apostolica Vaticana, and taught IIIF workshops across the university.
+      - "Designed the digital experience for *Beyond Words: Illuminated Manuscripts in Boston Collections*, an exhibit that let visitors interact with manuscripts shown across Boston's cultural institutions."
       - Designed data visualizations and interactive tools that made research findings explorable for non-specialist audiences.
       - Organized ten art-and-technology symposia, including the *ArtTechPsyche* and *sIGHTLines* series.
 
@@ -345,6 +346,12 @@ publications:
       year: 2020
       url: https://www.c2dh.uni.lu/thinkering/luxlife-reflections-recurated-museum
       themes: [cultural-heritage]
+    - authors: C. Morse
+      title: "The Experiential Museum: about two Design Jam workshops organized at the museum"
+      venue: "museomag 03/2019, pp. 24–25 (Musée National d'Histoire et d'Art)"
+      year: 2019
+      url: "https://collections.mnaha.lu/fullscreen/alma990013389880107251_1903/24/"
+      themes: [cultural-heritage, hci-ux]
     - authors: J. Emanuel, C. Morse, L. Hollis
       title: "The New Interactive: Reimagining Visual Collections as Immersive Environments."
       venue: Visual Resources Association (VRA) Bulletin 43(2)
@@ -463,6 +470,7 @@ talks:
 # -----------------------------------------------------------------------------
 organizing:
   - { title: "Zortify Summer School: The Future of Work", host: Zortify, location: "Luxembourg, Luxembourg", country: LU, date: 2023-08-28, themes: [ai-nlp] }
+  - { title: MNHA Design Jam, host: "Musée National d'Histoire et d'Art", location: "Luxembourg, Luxembourg", country: LU, date: 2019-06, themes: [cultural-heritage, hci-ux] }   # two public sessions, with the MNHA's Service Numérisation
   - { title: "Making History Together: Public Participation in Museums", host: University of Luxembourg, location: "Luxembourg, Luxembourg", country: LU, date: 2020-12-15, themes: [cultural-heritage] }
   - { title: ArtTechPsyche III, host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2017-04-20, themes: [hci-ux] }
   - { title: ArtTechPsyche II, host: Harvard University, location: "Cambridge, MA, USA", country: US, date: 2016-04-14, themes: [hci-ux] }
