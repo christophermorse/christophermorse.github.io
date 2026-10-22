@@ -167,10 +167,6 @@ experience:
     start: 2024-04-01
     end: present
     themes: [speech, ai-nlp]
-    image: assets/sproochmaschinn-launch-2025.jpg
-    # The licence on gouvernement.lu allows photos to be reproduced if the source is
-    # named, so the credit below must stay visible wherever the picture is used.
-    credits: "At the launch, with Daniel Wagener and Alexandre Ecker. Photo © MCULT, [Ministère de la Culture](https://gouvernement.lu/fr/gouvernement/eric-thill/actualites.gouvernement2024+fr+actualites+toutes_actualites+communiques+2025+02-fevrier+10-sproochmaschinn-thill.html)"
     items:   # CONFIRM all of these — drafted from your notes + public sources
       - Trains and maintains the AI models behind [sproochmaschinn.lu](https://sproochmaschinn.lu), one of the first public web platforms for Luxembourgish speech technology, which unites the Schreifmaschinn (speech-to-text) and the Liesmaschinn (text-to-speech). [Launched by the Ministry of Culture](https://gouvernement.lu/fr/gouvernement/eric-thill/actualites.gouvernement2024+fr+actualites+toutes_actualites+communiques+2025+02-fevrier+10-sproochmaschinn-thill.html) in February 2025.
       - Lead designer of the sproochmaschinn.lu web application.
@@ -582,6 +578,16 @@ media:
     # TODO: link to the online version or issue number, if any
     image: assets/revue-2025.jpg   # your photo of the printed spread
     pull_quote: "Ich spreche Luxemburgisch, aber nicht so gut, wie ich es mir wünsche. Dank meiner Arbeit an der ‚Lies- und Schreiwmaschinn' kann ich es jeden Tag ein bisschen besser."
+    themes: [speech, ai-nlp]
+  - title: "Sproochmaschinn.lu: Eric Thill présente les applications numériques pour la langue luxembourgeoise"
+    outlet: Le gouvernement luxembourgeois
+    date: 2025-02-10
+    url: "https://gouvernement.lu/fr/gouvernement/eric-thill/actualites.gouvernement2024+fr+actualites+toutes_actualites+communiques+2025+02-fevrier+10-sproochmaschinn-thill.html"
+    mentions: "Pictured and named at the launch, with Daniel Wagener and Alexandre Ecker"
+    image: assets/sproochmaschinn-launch-2025.jpg
+    # gouvernement.lu allows photos to be reproduced where the source is named,
+    # so this credit must stay visible wherever the picture appears.
+    credits: "Photo © MCULT, Ministère de la Culture"
     themes: [speech, ai-nlp]
   - title: "Zortify Summer School: The Future of Work"
     outlet: "RTL Today — The Home Stretch, Today Radio"

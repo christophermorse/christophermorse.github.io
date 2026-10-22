@@ -33,17 +33,17 @@ button{font:inherit; color:inherit}
 /* the instrument: fixed while the page beside it changes */
 .instrument{position:sticky; top:0; height:100vh; height:100dvh; display:flex; flex-direction:column; align-items:center;
   padding:clamp(22px,4vh,44px) clamp(16px,2.5vw,40px) clamp(14px,2.5vh,28px); border-right:1px solid var(--rule)}
-.who{width:100%; text-align:center; min-height:calc(var(--band,0px) - 76px); margin-bottom:1.2rem;
+.who{width:100%; text-align:center; min-height:calc(var(--band,0px) - 76px); margin-bottom:0;
   display:flex; flex-direction:column; justify-content:center; padding-bottom:.55rem; border-bottom:1px solid var(--rule)}
 .who h1{font-family:var(--display); font-weight:400; font-size:clamp(1.8rem,2.7vw,2.6rem); line-height:1; margin:0}
 .who h1 a{text-decoration:none}
 .who p{color:var(--faded); margin:.35rem 0 0; font-size:1rem}
-.dock{flex:1; min-height:0; width:100%; display:flex; flex-direction:column; align-items:center; justify-content:center}
+.dock{flex:1; min-height:0; width:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start}
 #astro{height:100%; max-height:calc(100dvh - 200px - var(--band,0px)); width:auto; max-width:100%; aspect-ratio:500/532; flex:0 1 auto; min-height:0}
 .rings-key{text-align:center; font-size:.9rem; color:var(--faded); font-style:italic; margin:.2rem 0 0; max-width:30em}
 /* astrolabe */
 .astro-wrap{position:relative; margin:.8rem auto .2rem; width:100%; max-width:470px}
-#astro{display:block; width:100%; height:auto; touch-action:none; overflow:visible}
+#astro{display:block; width:100%; height:auto; touch-action:none; overflow:visible; margin-block:auto}
 #astro text{font-family:var(--display); fill:var(--ink)}
 #astro .eng{fill:none; stroke:var(--ink); stroke-width:1}
 #astro .eng.thin{stroke-width:.55; opacity:.75}
@@ -80,7 +80,7 @@ button{font:inherit; color:inherit}
 
 
 
-.cartouche{margin:.3rem 0 0}
+.cartouche{margin:0}
 #astro .dot{cursor:pointer; transition:opacity .2s}
 #astro .dot:focus{outline:none}
 #astro .dot .hl{fill:none; stroke:transparent}
