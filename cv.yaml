@@ -230,30 +230,19 @@ experience:
       - Ran circulation policies and workflows for students, faculty, and staff, and advocated for user needs in library planning.
 
   - title: Library Assistant
-    organization: Harvard Library, JSTOR Single Copy and Tozzer renovation projects
+    organization: Harvard Library
     short_org: Harvard Library
     location: Cambridge, MA, USA
     country: US
-    start: 2010
-    end: 2012
-    themes: [digital-humanities]
-    items:
-      - "JSTOR Single Copy Project: decommissioned the library's extensive print JSTOR holdings in Aleph, the cataloging system, and did the cataloging the retirement called for."
-      - Wrote macros and rebuilt the workflow around them, turning record-by-record handwork into something closer to a pipeline — an early turn toward the computational work that followed.
-      - "Tozzer Renovation Project: moved the Tozzer Library collections ahead of the building's renovation, with cataloging and more automation to carry the volume."
-
-  - title: Library Assistant
-    organization: Harvard Map Collection & Littauer Judaica Division
-    short_org: Harvard Map Collection
-    location: Cambridge, MA, USA
-    country: US
     start: 2007
-    end: 2009
-    themes: [cultural-heritage]
+    end: 2012   # CONFIRM: one span covering both student posts, 2007-2009 and 2010-2012
+    themes: [cultural-heritage, digital-humanities]
     items:
-      - Printed large-format facsimiles of oversized maps on the collection's wide-format printer, for researchers, artists, and anyone who needed to work from a copy rather than the original.
-      - Served readers in the Map Collection, bringing cartographic material out of the stacks and seeing it safely back, and supported the Littauer Judaica Division alongside it.
-      - An apprenticeship in special collections — the material side of the cultural heritage that later became his research subject.
+      - "Harvard Map Collection: paged maps for readers and returned them to the collection, and produced large-format facsimiles of oversized sheets on the collection's wide-format printer for researchers and artists."
+      - "Littauer Judaica Division: cataloged the division's holdings of ephemera in Aleph, in MARC format."
+      - "JSTOR Single Copy Project: decommissioned the library's extensive print JSTOR holdings in Aleph and did the cataloging the retirement called for."
+      - "Tozzer Renovation Project: moved the Tozzer Library collections ahead of the building's renovation, with the cataloging the transfer required."
+      - Wrote macros and rebuilt the workflows around them on both projects, turning record-by-record handwork into something closer to a pipeline — an early turn toward the computational work that followed.
 
   - title: Study Abroad Advisor
     organization: University of Massachusetts Amherst, International Programs Office
@@ -433,7 +422,7 @@ talks:
   - authors: C. Morse
     title: "D'Sproochmaschinn and Beyond: A Digital Corpus Infrastructure"
     event: "Digital Tools for Small Languages: Needs and Strategies, University of Luxembourg"
-    location: Esch-sur-Alzette, Luxembourg   # CONFIRM the campus: Belval is what this file assumes for the University of Luxembourg
+    location: Esch-sur-Alzette, Luxembourg
     country: LU
     date: 2025-03-06
     description: "The language technologies built at the Center, with SproochHub — the corpus infrastructure underneath them — introduced as a live demonstration."
@@ -762,7 +751,7 @@ media:
     outlet: RTL Journal
     date: 2025-12-13
     url: "https://play.rtl.lu/shows/lb/journal/episodes/r/3438045"
-    mentions: Television news coverage of the Sproochmaschinn tools.
+    mentions: Television news coverage of the Sproochmaschinn's second launch, for version 2.0.
     themes: [speech]
   - title: "Vum LOD bis zur Kënschtlecher Intelligenz"
     outlet: "Konterbont (Dag vun der Lëtzebuerger Sprooch issue)"
