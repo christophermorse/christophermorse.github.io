@@ -29,7 +29,6 @@ meta:
 open_questions:
 
   missing_information:
-    - "talks / NLP Roundtable at Uni.lu: nothing is recorded yet, so everything is missing — the title of your contribution, the event's own name, the date, the campus, and whether you presented, sat on a panel or chaired."
     - "media / sproochmaschinn.lu launch coverage: three of the seven notices moved out of the ZLS job description still carry a CONFIRM on their date. RTL Journal is dated to Feb 2025 only, because the player page carries no reliable date; Radio 100,7 (11 Feb. 2025) is the earliest date printed on its page; FGFC (14 Oct. 2026) comes from that page's own time element."
 
   wording_and_judgement:
@@ -448,7 +447,6 @@ talks:
     country: FR
     date: 2025-02-24
     themes: [speech, ai-nlp]
-  # TODO: the NLP Roundtable at Uni.lu — nothing about it is recorded yet
   - authors: H. Kiesow, C. Morse
     title: "Well-being from Within: Using Technology to Understand the Human Psyche."
     event: Ada Lovelace Festival
@@ -678,7 +676,6 @@ organizing:
 # -----------------------------------------------------------------------------
 teaching:
   courses:
-    # TODO: other Digital Learning Hub courses since 2023? (titles + terms)
     - title: Data Visualization with D3.js
       institution: Digital Learning Hub
       url: https://dlh.lu
