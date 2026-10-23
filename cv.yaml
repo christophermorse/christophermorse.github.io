@@ -427,6 +427,14 @@ talks:
     date: 2025-04-22   # per the ZLS 2025 activity report
     themes: [speech, ai-nlp, teaching]
   - authors: C. Morse
+    title: "D'Sproochmaschinn and Beyond: A Digital Corpus Infrastructure"
+    event: "Digital Tools for Small Languages: Needs and Strategies, University of Luxembourg"
+    location: Esch-sur-Alzette, Luxembourg   # CONFIRM the campus: Belval is the house assumption for Uni.lu
+    country: LU
+    date: 2025-03-06
+    description: "The language technologies built at the Center, with SproochHub — the corpus infrastructure underneath them — introduced as a live demonstration."
+    themes: [speech, ai-nlp]
+  - authors: C. Morse
     title: "Redefining Progress in the Margins: Lessons from Big Tech & Small Data"
     event: LT4All, UNESCO
     location: Paris, France
