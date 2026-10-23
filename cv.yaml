@@ -29,12 +29,11 @@ meta:
 open_questions:
 
   missing_information:
-    - "talks: anything else from 2024-2026 still missing? NLP Roundtable at Uni.lu, Assises culturelles IA?"
+    - "talks / NLP Roundtable at Uni.lu: nothing is recorded yet, so everything is missing — the title of your contribution, the event's own name, the date, the campus, and whether you presented, sat on a panel or chaired."
     - "media / sproochmaschinn.lu launch coverage: three of the seven notices moved out of the ZLS job description still carry a CONFIRM on their date. RTL Journal is dated to Feb 2025 only, because the player page carries no reliable date; Radio 100,7 (11 Feb. 2025) is the earliest date printed on its page; FGFC (14 Oct. 2026) comes from that page's own time element."
-    - "media photos: Silicon Luxembourg (22 Sept. 2025) credits its portrait of you © ZLS, so the rights sit with your employer, not the magazine — ask ZLS comms for the original file. The Konterbont photo of you and Sara Martin carries no credit under a blanket © Autisme Luxembourg ASBL; ask ZLS first, then Konterbont. Neither can be hosted here until one of them says yes."
 
   wording_and_judgement:
-    - "person.email: the personal address now lives in cv.private.yaml and is never pushed. The work address is still in this repository's git history, from the first CV commit; purging it would need a history rewrite."
+    - "person.email: the personal address now lives in cv.private.yaml and is never pushed. The work address is still in this repository's git history, from the first CV commit; a removal request is with GitHub Support. Nothing more to do here until they answer."
 
 themes:
   cultural-heritage: Museums & digital cultural heritage
@@ -411,6 +410,14 @@ talks:
     date: 2026-04-22
     url: "https://www.linkedin.com/posts/cmmorse_many-thanks-to-the-digital-learning-hub-luxembourg-activity-7453087665349898240-_Ssa"
     themes: [speech, ai-nlp, teaching]
+  - type: workshop
+    authors: C. Morse   # TODO: name the co-presenter — the website does not print authors for talks, but the PDF does
+    title: "Démonstration d'outils d'intelligence artificielle"
+    event: "Assises culturelles IA, Ministère de la Culture"   # CONFIRM the event's full official title
+    location: Differdange, Luxembourg
+    country: LU
+    date: 2025-11-12
+    themes: [ai-nlp, teaching]
   - authors: C. Morse
     title: "Toward an AI-Informed Digital Ecosystem for Luxembourgish"
     event: "Languages at Every Stage: A Technical Dialogue on Inclusive Language Technology Development, UNESCO and the ZLS"
@@ -441,7 +448,7 @@ talks:
     country: FR
     date: 2025-02-24
     themes: [speech, ai-nlp]
-  # TODO: anything else 2024–2026? (NLP Roundtable Uni.lu, Assises culturelles IA?)
+  # TODO: the NLP Roundtable at Uni.lu — nothing about it is recorded yet
   - authors: H. Kiesow, C. Morse
     title: "Well-being from Within: Using Technology to Understand the Human Psyche."
     event: Ada Lovelace Festival
@@ -768,7 +775,6 @@ media:
     outlet: Revue (Wissenschaft, pp. 20–23)
     credits: "Text: Desislava Schengen; photos: Tania Feller"
     date: 2025-04-09
-    # TODO: the issue number — the line below settles that there is no online version
     image: assets/revue-2025.jpg   # your photo of the printed spread; print only, there is no online version
     pull_quote: "Ich spreche Luxemburgisch, aber nicht so gut, wie ich es mir wünsche. Dank meiner Arbeit an der ‚Lies- und Schreiwmaschinn' kann ich es jeden Tag ein bisschen besser."
     themes: [speech, ai-nlp]
