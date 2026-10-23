@@ -38,6 +38,11 @@ button{font:inherit; color:inherit}
 .who h1{font-family:var(--display); font-weight:400; font-size:clamp(1.8rem,2.7vw,2.6rem); line-height:1; margin:0}
 .who h1 a{text-decoration:none}
 .who p{color:var(--faded); margin:.35rem 0 0; font-size:1rem}
+.who .ident{display:flex; align-items:center; justify-content:center; gap:.9rem; text-align:left}
+/* the portrait is ringed like the instrument: a hairline, a breath of parchment, then brass */
+#portrait{flex:none; width:clamp(52px,5.2vw,70px); aspect-ratio:1; border-radius:50%; object-fit:cover;
+  border:1px solid var(--rule); box-shadow:0 0 0 3px var(--parch),0 0 0 4px color-mix(in srgb,var(--brass) 45%,transparent)}
+#portrait[hidden]{display:none}
 .dock{flex:1; min-height:0; width:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start}
 #astro{height:100%; max-height:calc(100dvh - 200px - var(--band,0px)); width:auto; max-width:100%; aspect-ratio:500/532; flex:0 1 auto; min-height:0}
 .rings-key{text-align:center; font-size:.9rem; color:var(--faded); font-style:italic; margin:.2rem 0 0; max-width:30em}
@@ -177,6 +182,7 @@ button{font:inherit; color:inherit}
   .layout{grid-template-columns:minmax(0,1fr)}
   .instrument{position:static; height:auto; border-right:0; padding:20px 18px 0}
   .who{text-align:left; display:block; min-height:0; margin-bottom:0; padding-bottom:0; border-bottom:0}
+  .who .ident{justify-content:flex-start}
   body{padding-bottom:178px}
   .dock{position:fixed; left:0; right:0; bottom:0; height:170px; overflow:hidden; z-index:30; display:block;
     background-color:var(--parch); background-image:inherit; border-top:1px solid var(--rule); box-shadow:0 -10px 30px -18px var(--shadow)}
@@ -197,7 +203,7 @@ button{font:inherit; color:inherit}
 <body>
 <div class="layout">
   <aside class="instrument" aria-label="Choose a year">
-    <header class="who"><h1><a id="name" href="./" title="Back to the present"></a></h1><p id="pos"></p></header>
+    <header class="who"><div class="ident"><img id="portrait" alt="" hidden><div><h1><a id="name" href="./" title="Back to the present"></a></h1><p id="pos"></p></div></div></header>
     <div class="dock" id="dock">
       <svg id="astro" viewBox="0 -12 500 532" role="group" aria-label="Astrolabe of years. Turn the pointer to choose a year; the page beside it shows that year."></svg>
       <div class="cartouche"><button type="button" id="prev" aria-label="Previous year">‹</button><output id="anno" aria-live="polite"></output><button type="button" id="next" aria-label="Next year">›</button></div>
@@ -226,6 +232,7 @@ const BY = Object.fromEntries(ALL.map(i => [i.id, i]));
 const MOBILE = matchMedia("(max-width:860px)");
 const p = D.person;
 $("#name").textContent = p.name;
+if (p.photo){ const im = $("#portrait"); im.src = p.photo; im.hidden = false; }
 document.title = p.name;
 /* the name takes you back to the present, at the top of the page */
 $("#name").addEventListener("click", e => { e.preventDefault(); setYear(LAST);

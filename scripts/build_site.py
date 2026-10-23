@@ -152,7 +152,8 @@ EMAIL = em if not isinstance(em, dict) else (em["address"] if em.get("public", T
 DATA = {
   "person": {"name": f'{p["first_name"]} {p["last_name"]}' + (f', {p["suffix"]}' if p.get("suffix") else ""),
              "position": p["position"], "summary": p["summary"],
-             "email": EMAIL, "linkedin": p["linkedin"], "scholar": p["google_scholar"]["id"]},
+             "email": EMAIL, "linkedin": p["linkedin"], "scholar": p["google_scholar"]["id"],
+             "photo": img(p.get("photo"))},
   "themes": cv["themes"], "items": items, "places": places, "updated": str(cv["meta"]["last_updated"]),
   "bands": [["work","Work and education"],["writing","Writing"],["speaking","Speaking and radio"],["teaching","Teaching and convening"],
             ["press","In the press"],["service","Service"]],
