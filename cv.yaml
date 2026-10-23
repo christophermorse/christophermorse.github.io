@@ -100,6 +100,9 @@ education:
     start: 2012
     end: 2015
     themes: [digital-humanities, teaching]
+    items:
+      - "Thesis: *Harmonia: Interactive Music Theory Application.* A web application that teaches the musical modes through interactive data visualization."
+      - Computer-science coursework in programming, data visualization and web applications, with digital photography and interactive media alongside.
 
   - degree: M.T.S. Religion, Literature, & Culture
     institution: Harvard University, Divinity School
