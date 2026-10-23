@@ -31,6 +31,7 @@ open_questions:
   missing_information:
     - "talks: anything else from 2024-2026 still missing? NLP Roundtable at Uni.lu, Assises culturelles IA?"
     - "media / Konterbont (26 Sept. 2025): a link, if the issue is online."
+    - "media / sproochmaschinn.lu launch coverage: five of the seven notices moved out of the ZLS job description carry a CONFIRM on their date. The two Luxemburger Wort pieces are the least certain — wort.lu blocks automated requests, so one is dated to Feb 2025 and the other to 2025 alone. RTL Journal, Radio 100,7 and FGFC also want checking."
     - "media photos: Silicon Luxembourg (22 Sept. 2025) credits its portrait of you © ZLS, so the rights sit with your employer, not the magazine — ask ZLS comms for the original file. The Konterbont photo of you and Sara Martin carries no credit under a blanket © Autisme Luxembourg ASBL; ask ZLS first, then Konterbont. Neither can be hosted here until one of them says yes."
 
   wording_and_judgement:
@@ -172,13 +173,6 @@ experience:
       - "Created SproochHub and leads its development: a platform for building and exploring Luxembourgish corpora. It ingests texts, parliamentary debates and transcribed recordings, aligns speech to its transcript, and holds some 70 million words in one searchable place, with concordance and corpus-query tools for work on word forms, collocations, dispersion and keyness."   # internal to the ZLS for now, so there is nothing to link
       - Fine-tuned Whisper Large v3 Turbo on Luxembourgish parliamentary and broadcast speech and integrated pyannote speaker diarization; version 2.0 (December 2025) doubled the training data and added speaker recognition and a second synthetic voice.
       - "Improved the Liesmaschinn's original synthetic voice, built by Marco Barnig from the voice of Max Kuborn and given to the center."
-      - "In the press: [*D'Sproochmaschinn beherrscht Luxemburgisch auf Knopfdruck*](https://www.wort.lu/kultur/d-sproochmaschinn-beherrscht-luxemburgisch-auf-knopfdruck/39843950.html), *Luxemburger Wort*."
-      - "In the press: [*Praxistest: Wie gut spricht die Liesmaschinn Lëtzebuergesch?*](https://www.wort.lu/kultur/praxistest-wie-gut-spricht-die-liesmaschinn-letzebuergesch/40626825.html), *Luxemburger Wort*."
-      - "In the press: [*Un outil transcrit du texte et de l'audio en luxembourgeois*](https://www.lessentiel.lu/fr/story/langue-au-luxembourg-un-outil-transcrit-du-texte-et-de-l-audio-en-luxembourgeois-103278177), *L'essentiel*."
-      - "In the press: [*Luxemburg setzt auf KI zur Sprachförderung*](https://www.lessentiel.lu/de/story/sprachbarrieren-sproochmaschinn-luxemburg-setzt-auf-ki-zur-sprachfoerderung-103278196), *L'essentiel*."
-      - "In the press: [*Geschwaten Texter verschrëftlechen oder Texter lauschteren*](https://100komma7.lu/news/Sproochmaschinn-lu-Neien?pd=radio), *Radio 100,7*."
-      - "In the press: [*Nei digital Outile Sprooch- a Liesmaschinn*](https://play.rtl.lu/shows/lb/journal/episodes/r/3438045), *RTL Journal*."
-      - "In the press: [*Lëtzebuergesch. Digital. Fir jiddereen zougänglech.*](https://www.fgfc.lu/fr-lu/actualites/letzebuergesch-digital-fir-jiddereen-zougaenglech/), *FGFC*."
       - Currently developing streaming speech recognition for live Luxembourgish subtitling.
       - "Represents the ZLS's language-technology work nationally and internationally: at UNESCO's LT4All conference (Paris, 2025), and as lead organizer of *Languages at Every Stage*, a technical expert meeting co-hosted with UNESCO later the same year, where he also presented the Center's work."
       - Teaches workshops and speaks publicly about these tools, as science communication and outreach.
@@ -234,12 +228,38 @@ experience:
     short_org: Harvard
     location: Cambridge, MA, USA
     country: US
-    start: 2010   # CONFIRM: same title from 2010, or a different role before 2012?
+    start: 2012
     end: 2013
     themes: [digital-humanities]
     items:
       - Supervised and trained the access services team across two libraries.
       - Ran circulation policies and workflows for students, faculty, and staff, and advocated for user needs in library planning.
+
+  - title: Library Assistant
+    organization: Harvard Library, JSTOR Single Copy and Tozzer renovation projects
+    short_org: Harvard Library
+    location: Cambridge, MA, USA
+    country: US
+    start: 2010
+    end: 2012
+    themes: [digital-humanities]
+    items:
+      - "JSTOR Single Copy Project: decommissioned the library's extensive print JSTOR holdings in Aleph, the cataloging system, and did the cataloging the retirement called for."
+      - Wrote macros and rebuilt the workflow around them, turning record-by-record handwork into something closer to a pipeline — an early turn toward the computational work that followed.
+      - "Tozzer Renovation Project: moved the Tozzer Library collections ahead of the building's renovation, with cataloging and more automation to carry the volume."
+
+  - title: Library Assistant
+    organization: Harvard Map Collection & Littauer Judaica Division
+    short_org: Harvard Map Collection
+    location: Cambridge, MA, USA
+    country: US
+    start: 2007
+    end: 2009
+    themes: [cultural-heritage]
+    items:
+      - Printed large-format facsimiles of oversized maps on the collection's wide-format printer, for researchers, artists, and anyone who needed to work from a copy rather than the original.
+      - Served readers in the Map Collection, bringing cartographic material out of the stacks and seeing it safely back, and supported the Littauer Judaica Division alongside it.
+      - An apprenticeship in special collections — the material side of the cultural heritage that later became his research subject.
 
   - title: Study Abroad Advisor
     organization: University of Massachusetts Amherst, International Programs Office
@@ -718,6 +738,11 @@ languages:
 
 # -----------------------------------------------------------------------------
 media:
+  - title: "Lëtzebuergesch. Digital. Fir jiddereen zougänglech."
+    outlet: FGFC
+    date: 2026-10-14   # CONFIRM: taken from the page's own <time> element
+    url: "https://www.fgfc.lu/fr-lu/actualites/letzebuergesch-digital-fir-jiddereen-zougaenglech/"
+    themes: [speech, ai-nlp]
   - title: "Facilitator Spotlight: Christopher Morse"
     outlet: THE NETWORK (LinkedIn)
     date: 2026-04-14
@@ -732,6 +757,12 @@ media:
     mentions: Interview about the Sproochmaschinn platform and language technologies at the ZLS.
     themes: [speech, ai-nlp]
   - { title: "Tech is Giving Luxembourgish A Digital Future", outlet: Silicon Luxembourg, date: 2025-09-22, url: "https://www.siliconluxembourg.lu/tech-is-giving-luxembourgish-a-digital-future/", themes: [speech] }
+  - title: "Praxistest: Wie gut spricht die Liesmaschinn Lëtzebuergesch?"
+    outlet: Luxemburger Wort
+    date: 2025   # CONFIRM the date: wort.lu refuses automated requests, so only the year is certain
+    url: "https://www.wort.lu/kultur/praxistest-wie-gut-spricht-die-liesmaschinn-letzebuergesch/40626825.html"
+    mentions: A hands-on test of the Liesmaschinn's synthetic speech.
+    themes: [speech]
   - title: "Wie Computer Luxemburgisch sprechen lernen"
     outlet: Revue (Wissenschaft, pp. 20–23)
     credits: "Text: Desislava Schengen; photos: Tania Feller"
@@ -740,6 +771,32 @@ media:
     image: assets/revue-2025.jpg   # your photo of the printed spread; print only, there is no online version
     pull_quote: "Ich spreche Luxemburgisch, aber nicht so gut, wie ich es mir wünsche. Dank meiner Arbeit an der ‚Lies- und Schreiwmaschinn' kann ich es jeden Tag ein bisschen besser."
     themes: [speech, ai-nlp]
+  - title: "D'Sproochmaschinn beherrscht Luxemburgisch auf Knopfdruck"
+    outlet: Luxemburger Wort
+    date: 2025-02   # CONFIRM the day: wort.lu refuses automated requests; this is launch coverage
+    url: "https://www.wort.lu/kultur/d-sproochmaschinn-beherrscht-luxemburgisch-auf-knopfdruck/39843950.html"
+    themes: [speech, ai-nlp]
+  - title: "Un outil transcrit du texte et de l'audio en luxembourgeois"
+    outlet: L'essentiel
+    date: 2025-02-10
+    url: "https://www.lessentiel.lu/fr/story/langue-au-luxembourg-un-outil-transcrit-du-texte-et-de-l-audio-en-luxembourgeois-103278177"
+    themes: [speech, ai-nlp]
+  - title: "Luxemburg setzt auf KI zur Sprachförderung"
+    outlet: L'essentiel
+    date: 2025-02-10
+    url: "https://www.lessentiel.lu/de/story/sprachbarrieren-sproochmaschinn-luxemburg-setzt-auf-ki-zur-sprachfoerderung-103278196"
+    themes: [speech, ai-nlp]
+  - title: "Nei digital Outile Sprooch- a Liesmaschinn"
+    outlet: RTL Journal
+    date: 2025-02   # CONFIRM the day: the player page carries no reliable published date
+    url: "https://play.rtl.lu/shows/lb/journal/episodes/r/3438045"
+    mentions: Television news coverage of the launch.
+    themes: [speech]
+  - title: "Geschwaten Texter verschrëftlechen oder Texter lauschteren"
+    outlet: Radio 100,7
+    date: 2025-02-11   # CONFIRM: earliest date on the page, the day after the launch
+    url: "https://100komma7.lu/news/Sproochmaschinn-lu-Neien?pd=radio"
+    themes: [speech]
   - title: "Sproochmaschinn.lu: Eric Thill présente les applications numériques pour la langue luxembourgeoise"
     outlet: Le gouvernement luxembourgeois
     date: 2025-02-10

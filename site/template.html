@@ -119,8 +119,22 @@ button{font:inherit; color:inherit}
 .group h3{font-weight:400; margin:0}
 .group .m{margin:.1rem 0 0; color:var(--faded); font-style:italic; font-size:.97rem}
 .group .m em{font-style:normal}
-.group details{margin-top:.3rem; color:var(--faded); font-size:.97rem} .group details summary{cursor:pointer; font-style:italic}
-.group details p{color:var(--ink); margin:.3rem 0 0}
+.group details{margin-top:.3rem; color:var(--faded); font-size:.97rem}
+/* the toggle reads as a graduation on the limb: brass small caps, then a hairline running out to the margin */
+.group details summary{cursor:pointer; display:flex; align-items:center; gap:.5rem; list-style:none;
+  font-family:var(--sc); font-size:.92rem; letter-spacing:.045em; color:var(--brass)}
+.group details summary::-webkit-details-marker{display:none}
+.group details summary::before{content:""; flex:none; width:.42rem; height:.42rem; background:var(--brass);
+  transform:rotate(45deg); transition:transform .25s cubic-bezier(.3,.7,.2,1)}
+.group details[open] summary::before{transform:rotate(0deg) scale(.88)}
+.group details summary::after{content:""; flex:1; border-top:1px dotted var(--rule)}
+.group details summary:hover{color:var(--rubric)} .group details summary:hover::before{background:var(--rubric)}
+.group details .items{margin-top:.35rem}
+/* item lists: one small star to a line, struck in the strand's own color */
+.group ul.items{list-style:none; margin:.45rem 0 0; padding:0}
+.group ul.items li{display:grid; grid-template-columns:.95rem 1fr; gap:.5rem; margin-top:.28rem}
+.group ul.items li:first-child{margin-top:0}
+.group .ib{width:.58rem; height:.58rem; margin-top:.46rem; opacity:.9}
 .group blockquote{margin:.45rem 0 0; padding-left:.8rem; border-left:2px solid var(--rubric); font-family:var(--display); font-style:italic}
 /* positions: a card with the strand's color at its edge */
 .card{position:relative; background:color-mix(in srgb,var(--parch) 72%,white 28%); border:1px solid var(--rule); border-left:4px solid var(--c);
@@ -130,7 +144,7 @@ button{font:inherit; color:inherit}
 .shot figcaption{margin-top:.3rem; font-size:.72rem; line-height:1.3; font-style:italic; color:var(--faded)}
 .card .d{font-variant:small-caps; letter-spacing:.04em; color:var(--rubric); font-size:1rem}
 .card h3{font-family:var(--display); font-size:1.42rem; line-height:1.2; margin:.05rem 0 0}
-.card p.x{margin:.45rem 0 0}
+.card .items{margin-top:.45rem} .card .x{margin:0}
 /* writing: a citation list */
 .cite{display:grid; grid-template-columns:1.1rem 1fr; gap:.55rem; padding:.45rem 0}
 .cite .bullet{width:.9rem; height:.9rem; margin-top:.35rem}
@@ -142,7 +156,7 @@ button{font:inherit; color:inherit}
 .row:first-of-type{border-top:0}
 .row .d{font-variant:small-caps; letter-spacing:.04em; color:var(--rubric); font-size:1rem; padding-top:.1rem}
 .row h3{font-family:var(--body); font-weight:500; font-size:1.06rem; line-height:1.35}
-.row p.x{margin:.25rem 0 0; font-size:.97rem; color:color-mix(in srgb,var(--ink) 82%,var(--parch))}
+.row .items{margin-top:.25rem} .row .x{margin:0; font-size:.97rem; color:color-mix(in srgb,var(--ink) 82%,var(--parch))}
 .row .shot{margin:0; width:104px}
 .quiet{margin-top:1.6rem; font-style:italic; color:var(--faded)}
 .about{margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--ink); color:var(--ink)}
@@ -217,7 +231,7 @@ $("#pos").textContent = p.position.replace(/ · /g, ", ");
 const FIRST = 2003, LAST = 2026, NOW = 2026.75, T0 = 2003, T1 = 2027;
 let YEAR = LAST;
 const inYear = (it, y) => it.span ? (it.start < y + 1 && it.end >= y) : Math.floor(it.start) === y;
-const POS = ["exp0","exp1","exp2","exp3","exp4","exp5"].map(i => BY[i]);
+const POS = ALL.filter(it => it.kind === "Position");   // every job, however many there are
 const DEG = ["edu3","edu2","edu1","edu0"].map(i => BY[i]);
 function roleFor(y){
   const act = POS.filter(p => inYear(p, y)), now = DEG.find(d => Math.floor(d.end) === y);
@@ -234,7 +248,7 @@ function roleFor(y){
 const RINGS = [
   {name:"Language & AI", ids:["exp0","exp1","grt0","brd0"]},
   {name:"Research",      ids:["exp2","exp3","edt0"]},
-  {name:"Learning",      ids:["exp4","exp5","edu0","edu1","edu2","edu3","edu4","edu5"]},
+  {name:"Learning",      ids:["exp4","exp5","exp6","exp7","edu0","edu1","edu2","edu3","edu4","edu5"]},
   {name:"Community",     ids:["act0","act1"]},
 ];
 const CX = 250, CY = 270;
@@ -365,20 +379,22 @@ const GROUPS = [
 const LEAVES = ALL.filter(it => !it.ticks);   // series appear through their episodes and events
 const whereFor = y => { const pl = D.places.filter(q => q.start < y + 1 && q.end >= y); return pl.map(q => q.place).join(" and "); };
 const stars = it => `<span class="th" aria-hidden="true">${it.themes.map(k => `<svg viewBox="-6 -6 12 12"><path d="${starPath(0, 0, 5.2, 5)}" fill="${col(k)}"/></svg>`).join("")}</span>`;
-const more = rest => rest.length ? `<details><summary>${rest.length} more</summary>${rest.map(t => `<p>${md(t)}</p>`).join("")}</details>` : "";
+const spark = c => `<svg class="ib" viewBox="-8 -8 16 16" aria-hidden="true"><path d="${starPath(0, 0, 6.4, 4)}" fill="${c}"/></svg>`;
+const bullets = (list, c) => list.length ? `<ul class="items">${list.map(t => `<li class="x">${spark(c)}<span>${md(t)}</span></li>`).join("")}</ul>` : "";
+const more = (rest, c) => rest.length ? `<details><summary>${rest.length} more</summary>${bullets(rest, c)}</details>` : "";
 const shortWhen = w => w.replace(new RegExp(`\\s${YEAR}$`), "") || w;
 function entry(it, lay){
-  const bul = it.items || [], rest = bul.slice(3);
-  const lead = bul.slice(0, 3).map(t => `<p class="x">${md(t)}</p>`).join("");
+  const bul = it.items || [], rest = bul.slice(3), c = col(it.themes[0]);
+  const lead = bullets(bul.slice(0, 3), c);
   if (lay === "card") return `<article class="card" id="e-${it.id}" style="--c:${col(it.themes[0])}">
     <div class="d">${esc(it.when)} · ${esc(it.kind)} ${stars(it)}</div><h3>${md(it.title)}</h3>${it.meta ? `<p class="m">${md(it.meta)}</p>` : ""}
-    ${it.quote ? `<blockquote lang="de">${esc(it.quote)}</blockquote>` : ""}${lead}${more(rest)}
+    ${it.quote ? `<blockquote lang="de">${esc(it.quote)}</blockquote>` : ""}${lead}${more(rest, c)}
     ${it.image ? `<figure class="shot"><img src="${it.image}" alt="">${it.credits ? `<figcaption>${md(it.credits)}</figcaption>` : ""}</figure>` : ""}</article>`;
   if (lay === "cite") return `<article class="cite" id="e-${it.id}"><svg class="bullet" viewBox="-6 -6 12 12" aria-hidden="true"><path d="${starPath(0, 0, 5.4, 5)}" fill="${col(it.themes[0])}"/></svg>
     <div><h3>${md(it.title)}</h3><p class="m">${md(it.meta)} <span class="k">${esc(it.kind)}</span></p></div></article>`;
   return `<article class="row" id="e-${it.id}"><div class="d">${esc(shortWhen(it.when))}</div>
     <div><h3>${md(it.title)}</h3>${it.meta ? `<p class="m">${md(it.meta)}</p>` : ""}
-      ${it.quote ? `<blockquote lang="de">${esc(it.quote)}</blockquote>` : ""}${lead}${more(rest)}</div>
+      ${it.quote ? `<blockquote lang="de">${esc(it.quote)}</blockquote>` : ""}${lead}${more(rest, c)}</div>
     ${it.image ? `<figure class="shot"><img src="${it.image}" alt="">${it.credits ? `<figcaption>${md(it.credits)}</figcaption>` : ""}</figure>` : `<span></span>`}</article>`;
 }
 function render(){
