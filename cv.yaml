@@ -113,6 +113,9 @@ education:
     start: 2007
     end: 2009
     themes: [digital-humanities]
+    items:
+      - Interdisciplinary graduate studies in comparative religion, mysticism, and the intersections of religion, literature, and culture.
+      - Coursework explored the expression of spiritual and philosophical ideas across literary traditions, with an emphasis on comparative analysis, interpretation, and critical inquiry.
 
   - degree: B.A. Japanese Language & Literature
     institution: University of Massachusetts Amherst
@@ -122,7 +125,9 @@ education:
     end: 2007-05
     themes: [japan]
     items:
-      - "Coursework in Japanese language and literature. Study abroad at Kwansei Gakuin University (関西学院大学) in Nishinomiya, Hyōgo, and International Christian University (国際基督教大学) in Mitaka, Tokyo. Minor in religious studies."
+      - Coursework in Japanese language and literature.
+      - "Study abroad at Kwansei Gakuin University (関西学院大学) in Nishinomiya, Hyōgo, and International Christian University (国際基督教大学) in Mitaka, Tokyo."
+      - Minor in religious studies.
 
   # Study abroad: its own entries, so each year in Japan stands on the chart.
   # kind: overrides the "Degree" label on the card and the astrolabe.
@@ -162,13 +167,20 @@ experience:
     items:
       - Oversees the development of the ZLS's AI and language-technology tools, and of the models behind them.
       - Advises a Master's thesis on Luxembourgish language topics, and oversees student workers and external experts across the center's digital projects.
-      - "Lead designer of [sproochmaschinn.lu](https://sproochmaschinn.lu), one of the first public web platforms for Luxembourgish speech technology, which unites the Schreifmaschinn (speech-to-text) and the Liesmaschinn (text-to-speech), and trains and maintains the models it runs on. [Launched by the Ministry of Culture](https://gouvernement.lu/fr/gouvernement/eric-thill/actualites.gouvernement2024+fr+actualites+toutes_actualites+communiques+2025+02-fevrier+10-sproochmaschinn-thill.html) in February 2025."
+      - "Lead designer of [sproochmaschinn.lu](https://sproochmaschinn.lu), one of the first public web platforms for Luxembourgish speech technology, which unites the Schreifmaschinn (speech-to-text) and the Liesmaschinn (text-to-speech). [Launched by the Ministry of Culture](https://gouvernement.lu/fr/gouvernement/eric-thill/actualites.gouvernement2024+fr+actualites+toutes_actualites+communiques+2025+02-fevrier+10-sproochmaschinn-thill.html) in February 2025."
+      - Trains and maintains the speech models behind both tools.
       - "Created SproochHub and leads its development: a platform for building and exploring Luxembourgish corpora. It ingests texts, parliamentary debates and transcribed recordings, aligns speech to its transcript, and holds some 70 million words in one searchable place, with concordance and corpus-query tools for work on word forms, collocations, dispersion and keyness."   # internal to the ZLS for now, so there is nothing to link
       - Fine-tuned Whisper Large v3 Turbo on Luxembourgish parliamentary and broadcast speech and integrated pyannote speaker diarization; version 2.0 (December 2025) doubled the training data and added speaker recognition and a second synthetic voice.
       - "Improved the Liesmaschinn's original synthetic voice, built by Marco Barnig from the voice of Max Kuborn and given to the center."
-      - "sproochmaschinn.lu in the press: [*D'Sproochmaschinn beherrscht Luxemburgisch auf Knopfdruck*](https://www.wort.lu/kultur/d-sproochmaschinn-beherrscht-luxemburgisch-auf-knopfdruck/39843950.html) and [*Praxistest: Wie gut spricht die Liesmaschinn Lëtzebuergesch?*](https://www.wort.lu/kultur/praxistest-wie-gut-spricht-die-liesmaschinn-letzebuergesch/40626825.html), *Luxemburger Wort*; [*Un outil transcrit du texte et de l'audio en luxembourgeois*](https://www.lessentiel.lu/fr/story/langue-au-luxembourg-un-outil-transcrit-du-texte-et-de-l-audio-en-luxembourgeois-103278177) and [*Luxemburg setzt auf KI zur Sprachförderung*](https://www.lessentiel.lu/de/story/sprachbarrieren-sproochmaschinn-luxemburg-setzt-auf-ki-zur-sprachfoerderung-103278196), *L'essentiel*; [*Geschwaten Texter verschrëftlechen oder Texter lauschteren*](https://100komma7.lu/news/Sproochmaschinn-lu-Neien?pd=radio), *Radio 100,7*; [*Nei digital Outile Sprooch- a Liesmaschinn*](https://play.rtl.lu/shows/lb/journal/episodes/r/3438045), *RTL Journal*; and [*Lëtzebuergesch. Digital. Fir jiddereen zougänglech.*](https://www.fgfc.lu/fr-lu/actualites/letzebuergesch-digital-fir-jiddereen-zougaenglech/), *FGFC*."
+      - "In the press: [*D'Sproochmaschinn beherrscht Luxemburgisch auf Knopfdruck*](https://www.wort.lu/kultur/d-sproochmaschinn-beherrscht-luxemburgisch-auf-knopfdruck/39843950.html), *Luxemburger Wort*."
+      - "In the press: [*Praxistest: Wie gut spricht die Liesmaschinn Lëtzebuergesch?*](https://www.wort.lu/kultur/praxistest-wie-gut-spricht-die-liesmaschinn-letzebuergesch/40626825.html), *Luxemburger Wort*."
+      - "In the press: [*Un outil transcrit du texte et de l'audio en luxembourgeois*](https://www.lessentiel.lu/fr/story/langue-au-luxembourg-un-outil-transcrit-du-texte-et-de-l-audio-en-luxembourgeois-103278177), *L'essentiel*."
+      - "In the press: [*Luxemburg setzt auf KI zur Sprachförderung*](https://www.lessentiel.lu/de/story/sprachbarrieren-sproochmaschinn-luxemburg-setzt-auf-ki-zur-sprachfoerderung-103278196), *L'essentiel*."
+      - "In the press: [*Geschwaten Texter verschrëftlechen oder Texter lauschteren*](https://100komma7.lu/news/Sproochmaschinn-lu-Neien?pd=radio), *Radio 100,7*."
+      - "In the press: [*Nei digital Outile Sprooch- a Liesmaschinn*](https://play.rtl.lu/shows/lb/journal/episodes/r/3438045), *RTL Journal*."
+      - "In the press: [*Lëtzebuergesch. Digital. Fir jiddereen zougänglech.*](https://www.fgfc.lu/fr-lu/actualites/letzebuergesch-digital-fir-jiddereen-zougaenglech/), *FGFC*."
       - Currently developing streaming speech recognition for live Luxembourgish subtitling.
-      - Represents the ZLS's language-technology work nationally and internationally: at UNESCO's LT4All conference (Paris, 2025), and as lead organizer of *Languages at Every Stage*, a technical expert meeting co-hosted with UNESCO later the same year, where he also presented the Center's work.
+      - "Represents the ZLS's language-technology work nationally and internationally: at UNESCO's LT4All conference (Paris, 2025), and as lead organizer of *Languages at Every Stage*, a technical expert meeting co-hosted with UNESCO later the same year, where he also presented the Center's work."
       - Teaches workshops and speaks publicly about these tools, as science communication and outreach.
       - "Recurring contributor to Radio 100,7's *Wat s de net sees!*, on Luxembourgish language and the technology being built for it."
 
@@ -238,8 +250,9 @@ experience:
     end: 2007-05
     themes: [teaching, japan]
     items:
-      - First contact for students interested in studying abroad.
-      - Advised on choosing countries and programs, and on what living abroad is actually like, drawing on first-hand experience of it.
+      - First point of contact for students interested in study abroad programs.
+      - Provided tailored guidance on selecting countries and academic programs.
+      - Offered insights into the practical realities of living abroad, informed by first-hand international experience.
 
 # -----------------------------------------------------------------------------
 publications:

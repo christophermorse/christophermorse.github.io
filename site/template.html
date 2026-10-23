@@ -368,16 +368,17 @@ const stars = it => `<span class="th" aria-hidden="true">${it.themes.map(k => `<
 const more = rest => rest.length ? `<details><summary>${rest.length} more</summary>${rest.map(t => `<p>${md(t)}</p>`).join("")}</details>` : "";
 const shortWhen = w => w.replace(new RegExp(`\\s${YEAR}$`), "") || w;
 function entry(it, lay){
-  const [first, ...rest] = it.items || [];
+  const bul = it.items || [], rest = bul.slice(3);
+  const lead = bul.slice(0, 3).map(t => `<p class="x">${md(t)}</p>`).join("");
   if (lay === "card") return `<article class="card" id="e-${it.id}" style="--c:${col(it.themes[0])}">
     <div class="d">${esc(it.when)} · ${esc(it.kind)} ${stars(it)}</div><h3>${md(it.title)}</h3>${it.meta ? `<p class="m">${md(it.meta)}</p>` : ""}
-    ${it.quote ? `<blockquote lang="de">${esc(it.quote)}</blockquote>` : ""}${first ? `<p class="x">${md(first)}</p>` : ""}${more(rest)}
+    ${it.quote ? `<blockquote lang="de">${esc(it.quote)}</blockquote>` : ""}${lead}${more(rest)}
     ${it.image ? `<figure class="shot"><img src="${it.image}" alt="">${it.credits ? `<figcaption>${md(it.credits)}</figcaption>` : ""}</figure>` : ""}</article>`;
   if (lay === "cite") return `<article class="cite" id="e-${it.id}"><svg class="bullet" viewBox="-6 -6 12 12" aria-hidden="true"><path d="${starPath(0, 0, 5.4, 5)}" fill="${col(it.themes[0])}"/></svg>
     <div><h3>${md(it.title)}</h3><p class="m">${md(it.meta)} <span class="k">${esc(it.kind)}</span></p></div></article>`;
   return `<article class="row" id="e-${it.id}"><div class="d">${esc(shortWhen(it.when))}</div>
     <div><h3>${md(it.title)}</h3>${it.meta ? `<p class="m">${md(it.meta)}</p>` : ""}
-      ${it.quote ? `<blockquote lang="de">${esc(it.quote)}</blockquote>` : ""}${first ? `<p class="x">${md(first)}</p>` : ""}${more(rest)}</div>
+      ${it.quote ? `<blockquote lang="de">${esc(it.quote)}</blockquote>` : ""}${lead}${more(rest)}</div>
     ${it.image ? `<figure class="shot"><img src="${it.image}" alt="">${it.credits ? `<figcaption>${md(it.credits)}</figcaption>` : ""}</figure>` : `<span></span>`}</article>`;
 }
 function render(){
@@ -405,9 +406,11 @@ const hash = s => { let h = 2166136261; for (const c of s) h = Math.imul(h ^ c.c
 function overview(){
   const svg = $("#overview"), W = 700, cols = LAST - FIRST + 1, cw = W / cols, gap = 8.6, top = 10;
   const per = []; let max = 0;
-  // one star where an entry begins, and a second where a finished span ends in a later year
-  const marks = LEAVES.flatMap(it => { const m = [{it, y: Math.floor(it.start), key: it.id}];
-    if (it.span && it.end < NOW && Math.floor(it.end) > Math.floor(it.start)) m.push({it, y: Math.floor(it.end), key: it.id + ":end"});
+  // a star in every year the entry is present, so the strip agrees with the year pages
+  const marks = LEAVES.flatMap(it => { const a = Math.floor(it.start);
+    if (!it.span) return [{it, y: a, key: it.id}];
+    const m = [];
+    for (let y = a; y <= Math.floor(Math.min(it.end, NOW)); y++) if (inYear(it, y)) m.push({it, y, key: y === a ? it.id : `${it.id}:${y}`});
     return m; });
   for (let y = FIRST; y <= LAST; y++){ const its = marks.filter(m => m.y === y)
       .sort((a,b) => (a.it.themes[0] > b.it.themes[0] ? 1 : -1) || a.it.start - b.it.start);
