@@ -400,6 +400,7 @@ talks:
   - authors: C. Morse
     title: "The Luxembourgish 'Language Machine': New Tools for Luxembourgish AI"
     event: "Elements of AI Luxembourg — Talk Time, Digital Learning Hub"
+    teaching: true
     location: Esch-Belval, Luxembourg
     country: LU
     date: 2026-04-22
@@ -425,6 +426,7 @@ talks:
   - authors: C. Morse
     title: "Unlocking Luxembourgish: Hands-On with AI-Powered NLP Tools"
     event: "Elements of AI Luxembourg — Talk Time, Digital Learning Hub"
+    teaching: true
     location: Esch-Belval, Luxembourg
     country: LU
     date: 2025-04-22   # per the ZLS 2025 activity report
@@ -673,6 +675,12 @@ organizing:
 # -----------------------------------------------------------------------------
 teaching:
   courses:
+    - title: "Automatesch Sproochveraarbechtung (Natural Language Processing)"
+      institution: "Zenter fir d'Lëtzebuerger Sprooch, for the BTS Media Writing program"
+      term: February 2026
+      year: 2026-02-06   # the full date so it sorts correctly within the year; the term is what shows
+      description: "An introduction to the concepts of natural language processing for Brevet de technicien supérieur students in Media Writing, taught as a module of the program by the Center."
+      themes: [teaching, ai-nlp, speech]
     - title: Data Visualization with D3.js
       institution: Digital Learning Hub
       url: https://dlh.lu

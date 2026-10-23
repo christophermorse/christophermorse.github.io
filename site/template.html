@@ -377,7 +377,7 @@ const GROUPS = [
   {name:"Writing",             sig:"moon",   lay:"cite", test: it => !it.parent && it.band === "writing"},
   {name:"Speaking",            sig:"star",   lay:"row",  test: it => !it.parent && it.band === "speaking" && !it.ticks && it.kind !== "Radio"},
   {name:"Radio",               sig:"ringed", lay:"row",  test: it => (it.parent && it.parent.id === "brd0") || it.kind === "Radio"},
-  {name:"Teaching",            sig:"lamp",   lay:"row",  test: it => (!it.parent && it.kind === "Course") || (it.parent && it.parent.id === "wks")},
+  {name:"Teaching",            sig:"lamp",   lay:"row",  test: it => (!it.parent && /Course|Session/.test(it.kind)) || (it.parent && it.parent.id === "wks")},
   {name:"Convening",           sig:"conj",   lay:"row",  test: it => (it.parent && it.parent.id === "sym") || (!it.parent && it.kind === "Symposium")},
   {name:"In the press",        sig:"comet",  lay:"row",  test: it => !it.parent && it.band === "press"},
   {name:"Service",             sig:"earth",  lay:"row",  test: it => !it.parent && it.band === "service"},
@@ -423,7 +423,7 @@ function render(){
 /* overview: the years as a strip of sky, each entry a star colored by its strand */
 function starPath(x, y, r, n){ let d = ""; for (let i = 0; i < n*2; i++){ const rr = i % 2 ? r*(n === 4 ? .32 : .42) : r, a = -Math.PI/2 + i*Math.PI/n;
   d += (i ? "L" : "M") + (x + rr*Math.cos(a)).toFixed(2) + " " + (y + rr*Math.sin(a)).toFixed(2); } return d + "Z"; }
-const MAG = it => it.span || it.kind === "Degree" || it.kind === "Grant" ? [5.4, 8] : /Publication|Talk|Workshop|Course|Study abroad/.test(it.kind) ? [4.3, 5] : [3.4, 4];
+const MAG = it => it.span || it.kind === "Degree" || it.kind === "Grant" ? [5.4, 8] : /Publication|Talk|Workshop|Course|Session|Study abroad/.test(it.kind) ? [4.3, 5] : [3.4, 4];
 const hash = s => { let h = 2166136261; for (const c of s) h = Math.imul(h ^ c.charCodeAt(0), 16777619); return ((h >>> 0) % 1000)/1000; };
 function overview(){
   const svg = $("#overview"), W = 700, cols = LAST - FIRST + 1, cw = W / cols, gap = 8.6, top = 10;

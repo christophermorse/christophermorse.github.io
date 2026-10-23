@@ -76,7 +76,9 @@ for kind, lst in (("Publication", P["refereed"] + P["thesis"]), ("Essay", P["oth
 
 for i, x in enumerate(cv["talks"]):
     s, w = parse(x["date"])
-    add("speaking", "Workshop" if x.get("type") == "workshop" else "Talk", f"tlk{i}", link(x["title"], x.get("url")), f'{x["event"]}, {x["location"]}',
+    # teaching: true moves a session out of Speaking and in with the courses
+    kind = "Session" if x.get("teaching") else "Workshop" if x.get("type") == "workshop" else "Talk"
+    add("teaching" if x.get("teaching") else "speaking", kind, f"tlk{i}", link(x["title"], x.get("url")), f'{x["event"]}, {x["location"]}',
         w, s, s, x.get("themes"), [x["description"]] if x.get("description") else [], image=img(x.get("image")))
 
 for i, x in enumerate(cv["broadcast"]):
