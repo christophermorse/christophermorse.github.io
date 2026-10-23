@@ -230,19 +230,29 @@ experience:
       - Ran circulation policies and workflows for students, faculty, and staff, and advocated for user needs in library planning.
 
   - title: Library Assistant
-    organization: Harvard Library
+    organization: Harvard Library, JSTOR Single Copy & Tozzer Renovation projects
     short_org: Harvard Library
     location: Cambridge, MA, USA
     country: US
-    start: 2007
-    end: 2012   # CONFIRM: one span covering both student posts, 2007-2009 and 2010-2012
-    themes: [cultural-heritage, digital-humanities]
+    start: 2010
+    end: 2012
+    themes: [digital-humanities]
     items:
-      - "Harvard Map Collection: paged maps for readers and returned them to the collection, and produced large-format facsimiles of oversized sheets on the collection's wide-format printer for researchers and artists."
-      - "Littauer Judaica Division: cataloged the division's holdings of ephemera in Aleph, in MARC format."
-      - "JSTOR Single Copy Project: decommissioned the library's extensive print JSTOR holdings in Aleph and did the cataloging the retirement called for."
-      - "Tozzer Renovation Project: moved the Tozzer Library collections ahead of the building's renovation, with the cataloging the transfer required."
-      - Wrote macros and rebuilt the workflows around them on both projects, turning record-by-record handwork into something closer to a pipeline — an early turn toward the computational work that followed.
+      - "JSTOR Single Copy Project: decommissioned the library's extensive print JSTOR holdings in Aleph, together with the cataloging their withdrawal entailed."
+      - "Tozzer Renovation Project: supported the transfer of the Tozzer Library collections in preparation for the building's renovation, cataloging material as it moved."
+      - Automated both workflows, writing macros that replaced record-by-record processing with repeatable batch procedures — the earliest of the computational work that has shaped his career since.
+
+  - title: Library Assistant
+    organization: Harvard Library, Map Collection & Littauer Judaica Division
+    short_org: Harvard Map Collection
+    location: Cambridge, MA, USA
+    country: US
+    start: 2007
+    end: 2009
+    themes: [cultural-heritage]
+    items:
+      - "Harvard Map Collection: paged cartographic material for readers and restored it to the stacks, and produced large-format facsimiles of oversized sheets on the collection's wide-format printer for researchers, artists and other patrons."
+      - "Littauer Judaica Division: cataloged the division's collection of ephemera in Aleph, to the MARC standard."
 
   - title: Study Abroad Advisor
     organization: University of Massachusetts Amherst, International Programs Office
