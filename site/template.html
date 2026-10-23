@@ -76,7 +76,7 @@ button{font:inherit; color:inherit}
 .strip .mark{stroke:var(--rubric); stroke-width:1.2; stroke-dasharray:2 2}
 .fade{animation:fadein .35s ease-out}
 @keyframes fadein{from{opacity:.15}}
-@media (prefers-reduced-motion:reduce){ #astro .rete,#astro .alidade{transition:none} .fade{animation:none} }
+@media (prefers-reduced-motion:reduce){ #astro .rete,#astro .alidade{transition:none} .fade{animation:none} #astro #glow circle{animation:none} }
 
 
 
@@ -85,6 +85,11 @@ button{font:inherit; color:inherit}
 #astro .dot:focus{outline:none}
 #astro .dot .hl{fill:none; stroke:transparent}
 #astro .dot:hover .hl,#astro .dot:focus-visible .hl{stroke:var(--ink); stroke-opacity:.5}
+/* a brass haze rises wherever the instrument answers to the pointer */
+#astro #glow{opacity:0; transition:opacity .22s ease-out}
+#astro.live #glow{opacity:1}
+#astro #glow circle{transform-box:fill-box; transform-origin:center; animation:haze 2.6s ease-in-out infinite}
+@keyframes haze{0%,100%{transform:scale(.76)} 50%{transform:scale(1.16)}}
 
 /* the leaf: the year, on the right */
 .leaf{padding:clamp(22px,4vh,44px) clamp(20px,4vw,64px) 80px; min-width:0}
@@ -258,7 +263,7 @@ const arcD = (r, a, b) => { const [x1,y1] = pol(r,a), [x2,y2] = pol(r,b), big = 
 const f = v => v.toFixed(1);
 
 function drawAstro(){
-  let s = "";
+  let s = `<defs><radialGradient id="aura"><stop offset="0" stop-color="var(--brass)" stop-opacity=".46"/><stop offset=".45" stop-color="var(--brass)" stop-opacity=".2"/><stop offset="1" stop-color="var(--brass)" stop-opacity="0"/></radialGradient></defs>`;
   // throne and shackle at the top: drawn first so the limb covers the throne's foot
   s += `<path class="eng" fill="var(--parch)" d="M${CX-34} ${CY-232} C${CX-30} ${CY-246} ${CX-14} ${CY-251} ${CX-6} ${CY-254} L${CX+6} ${CY-254} C${CX+14} ${CY-251} ${CX+30} ${CY-246} ${CX+34} ${CY-232}"/>`;
   s += `<path class="eng thin" d="M${CX-20} ${CY-236} C${CX-17} ${CY-243} ${CX-8} ${CY-246} ${CX} ${CY-247} C${CX+8} ${CY-246} ${CX+17} ${CY-243} ${CX+20} ${CY-236}"/>`;
@@ -302,6 +307,7 @@ function drawAstro(){
     <rect x="${CX-11}" y="${CY-120}" width="22" height="9" fill="var(--page)" stroke="var(--ink)"/><rect x="${CX-11}" y="${CY+111}" width="22" height="9" fill="var(--page)" stroke="var(--ink)"/>
     <rect x="${CX-9}" y="${CY-236}" width="18" height="250" fill="transparent"/></g>`;
   s += `<circle cx="${CX}" cy="${CY}" r="16" fill="var(--page)" stroke="var(--ink)" stroke-width="1.4"/><circle cx="${CX}" cy="${CY}" r="4" fill="var(--ink)"/>`;
+  s += `<g id="glow" pointer-events="none"><circle r="30" fill="url(#aura)"/></g>`;
   $("#astro").innerHTML = s;
 }
 let ROT = 0;
@@ -474,6 +480,16 @@ $("#astro").addEventListener("mouseover", e => { const g = e.target.closest(".do
   const it = BY[g.dataset.id]; tip.innerHTML = `<b>${esc(it.label)}</b><span>${esc(it.when)}</span>`; tip.style.opacity = 1; });
 $("#astro").addEventListener("mousemove", e => { tip.style.left = Math.min(e.clientX + 14, innerWidth - 290) + "px"; tip.style.top = (e.clientY + 16) + "px"; });
 $("#astro").addEventListener("mouseleave", () => tip.style.opacity = 0);
+/* the halo: it appears only over what can actually be used — an entry, the limb, the alidade */
+(function halo(){
+  const svg = $("#astro"), glow = $("#glow"), HOT = ".dot,.limb-hit,#alidade";
+  svg.addEventListener("pointermove", e => {
+    if (!e.target.closest(HOT)){ svg.classList.remove("live"); return; }
+    const p = new DOMPoint(e.clientX, e.clientY).matrixTransform(svg.getScreenCTM().inverse());
+    glow.setAttribute("transform", `translate(${p.x.toFixed(1)} ${p.y.toFixed(1)})`);
+    svg.classList.add("live"); });
+  svg.addEventListener("pointerleave", () => svg.classList.remove("live"));
+})();
 $("#astro").addEventListener("click", e => { const g = e.target.closest(".dot"); if (!g) return; const it = BY[g.dataset.id];
   const y = it.span ? Math.min(LAST, Math.max(Math.floor(it.start), Math.min(YEAR, Math.floor(it.end)))) : Math.floor(it.start);
   setYear(y); requestAnimationFrame(() => document.getElementById("e-" + it.id)?.scrollIntoView({behavior:"smooth", block:"center"})); });
