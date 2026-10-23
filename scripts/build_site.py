@@ -61,7 +61,7 @@ for i, x in enumerate(cv["grants"]):
     quote = next((m["pull_quote"] for m in press if m.get("pull_quote")), None)
     add("work", "Grant", f"grt{i}", link(x["title"], x.get("url")),
         f'{x["funder"]}, with {x["partner"]}. {x["amount"]}' + (f'. Co-led with {x["co_lead"]}' if x.get("co_lead") else ""), w, s, e, x["themes"],
-        [x["description"]] + [f'In the press: {link(m["title"], m["url"])}, *{m["outlet"]}*, {parse(m["date"])[1]}' for m in press],
+        [x["description"]],
         label=f'{x["amount"]} R&D project: multilingual, explainable NLP', quote=quote)
 for i, x in enumerate(cv["education"]):
     s, e, w = span(x.get("start"), x.get("end"))
