@@ -10,7 +10,7 @@
 <style>
 :root{
   --parch:#EFE6D1; --page:#EFE6D1; --ink:#14110E; --faded:#5E5448; --rule:#CFC2A6; --hair:#E2D7BF;
-  --rubric:#972B1A; --brass:#8F7036; --halo:#C9932F;
+  --rubric:#972B1A; --brass:#8F7036; --halo:#E6AE22;
   --t-cultural-heritage:#97762A; --t-hci-ux:#356A5A; --t-ai-nlp:#2B4777; --t-speech:#972B1A;
   --t-digital-humanities:#714F31; --t-teaching:#646827; --t-japan:#465A72; --t-community:#7E7366;
   --shadow:rgba(60,40,15,.22);
@@ -94,7 +94,7 @@ button{font:inherit; color:inherit}
 #astro #glow{opacity:0; transition:opacity .22s ease-out}
 #astro.live #glow{opacity:1}
 #astro #glow circle{transform-box:fill-box; transform-origin:center; animation:haze 2.6s ease-in-out infinite}
-@keyframes haze{0%,100%{transform:scale(.88); opacity:.8} 50%{transform:scale(1.12); opacity:1}}
+@keyframes haze{0%,100%{transform:scale(.92)} 50%{transform:scale(1.08)}}
 
 /* the leaf: the year, on the right */
 .leaf{padding:clamp(22px,4vh,44px) clamp(20px,4vw,64px) 80px; min-width:0}
@@ -270,7 +270,7 @@ const arcD = (r, a, b) => { const [x1,y1] = pol(r,a), [x2,y2] = pol(r,b), big = 
 const f = v => v.toFixed(1);
 
 function drawAstro(){
-  let s = `<defs><radialGradient id="aura"><stop offset="0" stop-color="var(--halo)" stop-opacity=".66"/><stop offset=".38" stop-color="var(--halo)" stop-opacity=".42"/><stop offset="1" stop-color="var(--halo)" stop-opacity="0"/></radialGradient></defs>`;
+  let s = `<defs><radialGradient id="aura"><stop offset="0" stop-color="var(--halo)" stop-opacity=".96"/><stop offset=".62" stop-color="var(--halo)" stop-opacity=".9"/><stop offset=".63" stop-color="var(--halo)" stop-opacity=".46"/><stop offset="1" stop-color="var(--halo)" stop-opacity="0"/></radialGradient></defs>`;
   // throne and shackle at the top: drawn first so the limb covers the throne's foot
   s += `<path class="eng" fill="var(--parch)" d="M${CX-34} ${CY-232} C${CX-30} ${CY-246} ${CX-14} ${CY-251} ${CX-6} ${CY-254} L${CX+6} ${CY-254} C${CX+14} ${CY-251} ${CX+30} ${CY-246} ${CX+34} ${CY-232}"/>`;
   s += `<path class="eng thin" d="M${CX-20} ${CY-236} C${CX-17} ${CY-243} ${CX-8} ${CY-246} ${CX} ${CY-247} C${CX+8} ${CY-246} ${CX+17} ${CY-243} ${CX+20} ${CY-236}"/>`;
@@ -314,7 +314,7 @@ function drawAstro(){
     <rect x="${CX-11}" y="${CY-120}" width="22" height="9" fill="var(--page)" stroke="var(--ink)"/><rect x="${CX-11}" y="${CY+111}" width="22" height="9" fill="var(--page)" stroke="var(--ink)"/>
     <rect x="${CX-9}" y="${CY-236}" width="18" height="250" fill="transparent"/></g>`;
   s += `<circle cx="${CX}" cy="${CY}" r="16" fill="var(--page)" stroke="var(--ink)" stroke-width="1.4"/><circle cx="${CX}" cy="${CY}" r="4" fill="var(--ink)"/>`;
-  s += `<g id="glow" pointer-events="none"><circle r="17" fill="url(#aura)"/></g>`;
+  s += `<g id="glow" pointer-events="none"><circle r="16" fill="url(#aura)"/></g>`;
   $("#astro").innerHTML = s;
 }
 let ROT = 0;
