@@ -30,8 +30,7 @@ open_questions:
 
   missing_information:
     - "talks: anything else from 2024-2026 still missing? NLP Roundtable at Uni.lu, Assises culturelles IA?"
-    - "media / Konterbont (26 Sept. 2025): a link, if the issue is online."
-    - "media / sproochmaschinn.lu launch coverage: five of the seven notices moved out of the ZLS job description carry a CONFIRM on their date. The two Luxemburger Wort pieces are the least certain — wort.lu blocks automated requests, so one is dated to Feb 2025 and the other to 2025 alone. RTL Journal, Radio 100,7 and FGFC also want checking."
+    - "media / sproochmaschinn.lu launch coverage: three of the seven notices moved out of the ZLS job description still carry a CONFIRM on their date. RTL Journal is dated to Feb 2025 only, because the player page carries no reliable date; Radio 100,7 (11 Feb. 2025) is the earliest date printed on its page; FGFC (14 Oct. 2026) comes from that page's own time element."
     - "media photos: Silicon Luxembourg (22 Sept. 2025) credits its portrait of you © ZLS, so the rights sit with your employer, not the magazine — ask ZLS comms for the original file. The Konterbont photo of you and Sara Martin carries no credit under a blanket © Autisme Luxembourg ASBL; ask ZLS first, then Konterbont. Neither can be hosted here until one of them says yes."
 
   wording_and_judgement:
@@ -132,7 +131,7 @@ education:
 
   # Study abroad: its own entries, so each year in Japan stands on the chart.
   # kind: overrides the "Degree" label on the card and the astrolabe.
-  - degree: "Study abroad: *Japanese language & culture*"
+  - degree: "Study abroad: *Kwansei Gakuin University (関西学院大学)*"
     kind: Study abroad
     institution: Kwansei Gakuin University
     location: Nishinomiya, Japan
@@ -144,7 +143,7 @@ education:
       - A full academic year of intensive Japanese language study and coursework in Japanese culture, on exchange from UMass Amherst.
       - "Member of the calligraphy club (書道部) and a private student of a practicing calligrapher."
 
-  - degree: "Study abroad: *Japanese language*"
+  - degree: "Study abroad: *International Christian University (国際基督教大学)*"
     kind: Study abroad
     institution: International Christian University
     location: Tokyo, Japan
@@ -153,7 +152,7 @@ education:
     end: 2006-08
     themes: [japan]
     items:
-      - A summer intensive in Japanese language at ICU in Mitaka, Tokyo.   # CONFIRM wording
+      - A summer intensive in Japanese language in Mitaka, Tokyo.   # CONFIRM wording
 
 # -----------------------------------------------------------------------------
 experience:
@@ -434,7 +433,7 @@ talks:
     country: FR
     date: 2025-02-24
     themes: [speech, ai-nlp]
-  # TODO: anything else 2024–2026? (NLP Roundtable Uni.lu, Assises culturelles IA, UNESCO workshop?)
+  # TODO: anything else 2024–2026? (NLP Roundtable Uni.lu, Assises culturelles IA?)
   - authors: H. Kiesow, C. Morse
     title: "Well-being from Within: Using Technology to Understand the Human Psyche."
     event: Ada Lovelace Festival
@@ -757,23 +756,23 @@ media:
     mentions: Interview about the Sproochmaschinn platform and language technologies at the ZLS.
     themes: [speech, ai-nlp]
   - { title: "Tech is Giving Luxembourgish A Digital Future", outlet: Silicon Luxembourg, date: 2025-09-22, url: "https://www.siliconluxembourg.lu/tech-is-giving-luxembourgish-a-digital-future/", themes: [speech] }
-  - title: "Praxistest: Wie gut spricht die Liesmaschinn Lëtzebuergesch?"
-    outlet: Luxemburger Wort
-    date: 2025   # CONFIRM the date: wort.lu refuses automated requests, so only the year is certain
-    url: "https://www.wort.lu/kultur/praxistest-wie-gut-spricht-die-liesmaschinn-letzebuergesch/40626825.html"
-    mentions: A hands-on test of the Liesmaschinn's synthetic speech.
-    themes: [speech]
   - title: "Wie Computer Luxemburgisch sprechen lernen"
     outlet: Revue (Wissenschaft, pp. 20–23)
     credits: "Text: Desislava Schengen; photos: Tania Feller"
     date: 2025-04-09
-    # TODO: link to the online version or issue number, if any
+    # TODO: the issue number — the line below settles that there is no online version
     image: assets/revue-2025.jpg   # your photo of the printed spread; print only, there is no online version
     pull_quote: "Ich spreche Luxemburgisch, aber nicht so gut, wie ich es mir wünsche. Dank meiner Arbeit an der ‚Lies- und Schreiwmaschinn' kann ich es jeden Tag ein bisschen besser."
     themes: [speech, ai-nlp]
+  - title: "Praxistest: Wie gut spricht die Liesmaschinn Lëtzebuergesch?"
+    outlet: Luxemburger Wort
+    date: 2025-02-13
+    url: "https://www.wort.lu/kultur/praxistest-wie-gut-spricht-die-liesmaschinn-letzebuergesch/40626825.html"
+    mentions: A hands-on test of the Liesmaschinn's synthetic speech.
+    themes: [speech]
   - title: "D'Sproochmaschinn beherrscht Luxemburgisch auf Knopfdruck"
     outlet: Luxemburger Wort
-    date: 2025-02   # CONFIRM the day: wort.lu refuses automated requests; this is launch coverage
+    date: 2025-02-10
     url: "https://www.wort.lu/kultur/d-sproochmaschinn-beherrscht-luxemburgisch-auf-knopfdruck/39843950.html"
     themes: [speech, ai-nlp]
   - title: "Un outil transcrit du texte et de l'audio en luxembourgeois"
