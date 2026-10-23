@@ -787,7 +787,6 @@ media:
     credits: "Text: Desislava Schengen; photos: Tania Feller"
     date: 2025-04-09
     image: assets/revue-2025.jpg   # your photo of the printed spread; print only, there is no online version
-    pull_quote: "Ich spreche Luxemburgisch, aber nicht so gut, wie ich es mir wünsche. Dank meiner Arbeit an der ‚Lies- und Schreiwmaschinn' kann ich es jeden Tag ein bisschen besser."
     themes: [speech, ai-nlp]
   - title: "Praxistest: Wie gut spricht die Liesmaschinn Lëtzebuergesch?"
     outlet: Luxemburger Wort
