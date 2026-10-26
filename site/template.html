@@ -36,7 +36,7 @@ button{font:inherit; color:inherit}
 .instrument{position:sticky; top:0; height:100vh; height:100dvh; display:flex; flex-direction:column; align-items:center;
   padding:clamp(22px,4vh,44px) clamp(16px,2.5vw,40px) clamp(14px,2.5vh,28px); border-right:1px solid var(--rule)}
 .who{width:100%; text-align:center; min-height:calc(var(--band,0px) - 76px); margin-bottom:0;
-  display:flex; flex-direction:column; justify-content:center; padding-bottom:.55rem; position:relative}
+  display:flex; flex-direction:column; justify-content:flex-end; padding-bottom:1.5rem; position:relative}
 /* a hairline that fades at both ends, with a brass lozenge at its centre */
 .who::after{content:""; position:absolute; left:0; right:0; bottom:-5px; height:10px;
   background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='52' height='10'%3E%3Cpath d='M26 0.5L30.5 5L26 9.5L21.5 5Z' fill='%238F7036'/%3E%3Ccircle cx='15' cy='5' r='1.2' fill='%238F7036'/%3E%3Ccircle cx='37' cy='5' r='1.2' fill='%238F7036'/%3E%3C/svg%3E") center/52px 10px no-repeat,
