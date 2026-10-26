@@ -440,7 +440,8 @@ talks:
     date: 2025-03-06
     description: "The language technologies built at the Center, with SproochHub — the corpus infrastructure underneath them — introduced as a live demonstration."
     themes: [speech, ai-nlp]
-  - authors: C. Morse
+  - id: lt4all-2025
+    authors: C. Morse
     title: "Redefining Progress in the Margins: Lessons from Big Tech & Small Data"
     event: LT4All, UNESCO
     location: Paris, France
@@ -785,6 +786,13 @@ media:
     credits: "Text: Desislava Schengen; photos: Tania Feller"
     date: 2025-04-09
     image: assets/revue-2025.jpg   # your photo of the printed spread; print only, there is no online version
+    themes: [speech, ai-nlp]
+  - title: "LT4All: Eric Thill inauguréiert Unesco-Konferenz iwwer Sproochtechnologien"
+    outlet: Commission luxembourgeoise pour la coopération avec l'UNESCO
+    date: 2025-02-25
+    url: "https://unesco.public.lu/fr/actualites/2025/fevrier/sproochentechnologien.html"
+    mentions: "Named for his LT4All talk, \"Redefining Progress in the Margins: Lessons from Big Tech & Small Data\", on Luxembourgish as a small language in a multilingual setting."
+    related: lt4all-2025   # links to the talk entry under talks
     themes: [speech, ai-nlp]
   - title: "Praxistest: Wie gut spricht die Liesmaschinn Lëtzebuergesch?"
     outlet: Luxemburger Wort
