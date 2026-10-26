@@ -182,8 +182,12 @@ button{font:inherit; color:inherit}
 /* phones: the astrolabe becomes a dial docked at the bottom */
 @media (max-width:860px){
   .layout{grid-template-columns:minmax(0,1fr)}
-  .instrument{position:static; height:auto; border-right:0; padding:20px 18px 0}
+  .instrument{position:static; height:auto; border-right:0; padding:34px 18px 0}
   .who{text-align:left; display:block; min-height:0; margin-bottom:0; padding-bottom:0; border-bottom:0}
+  /* a hairline that fades at both ends, with a brass lozenge at its centre */
+  .who::after{content:""; display:block; height:10px; margin-top:1.1rem;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='52' height='10'%3E%3Cpath d='M26 0.5L30.5 5L26 9.5L21.5 5Z' fill='%238F7036'/%3E%3Ccircle cx='15' cy='5' r='1.2' fill='%238F7036'/%3E%3Ccircle cx='37' cy='5' r='1.2' fill='%238F7036'/%3E%3C/svg%3E") center/52px 10px no-repeat,
+      linear-gradient(90deg,transparent,var(--rule) 18%,var(--brass) calc(50% - 26px),transparent calc(50% - 26px) calc(50% + 26px),var(--brass) calc(50% + 26px),var(--rule) 82%,transparent) center/100% 1px no-repeat}
   .who .ident{justify-content:flex-start}
   body{padding-bottom:178px}
   .dock{position:fixed; left:0; right:0; bottom:0; height:170px; overflow:hidden; z-index:30; display:block;
