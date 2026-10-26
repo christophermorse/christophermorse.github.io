@@ -190,7 +190,7 @@ button{font:inherit; color:inherit}
       linear-gradient(90deg,transparent,var(--rule) 18%,var(--brass) calc(50% - 26px),transparent calc(50% - 26px) calc(50% + 26px),var(--brass) calc(50% + 26px),var(--rule) 82%,transparent) center/100% 1px no-repeat}
   .who .ident{justify-content:flex-start}
   body{padding-bottom:178px}
-  .dock{position:fixed; left:0; right:0; bottom:0; height:170px; overflow:hidden; z-index:30; display:block;
+  .dock{position:fixed; left:0; right:0; bottom:0; height:170px; overflow:hidden; overflow:clip; z-index:30; display:block;
     background-color:var(--parch); background-image:inherit; border-top:1px solid var(--rule); box-shadow:0 -10px 30px -18px var(--shadow)}
   #astro{position:absolute; width:min(560px,145vw); height:auto; max-height:none; max-width:none; left:50%; top:-6px; transform:translateX(-50%); touch-action:pan-y}
   .dock .cartouche{position:absolute; left:50%; bottom:8px; transform:translateX(-50%); margin:0; background:var(--parch);
