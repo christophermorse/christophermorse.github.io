@@ -121,6 +121,7 @@ button{font:inherit; color:inherit}
 .yh{display:grid; grid-template-columns:auto 1fr; align-items:end; gap:0 1.4rem; border-bottom:1px solid var(--ink); padding-bottom:.9rem}
 .yh .num{font-family:var(--display); font-size:clamp(3.6rem,7vw,5.6rem); line-height:.82; letter-spacing:-.01em}
 .yh .role{font-family:var(--display); font-size:clamp(1.3rem,2vw,1.7rem); line-height:1.15}
+.yh .role .gloss{display:block; font-style:italic; font-size:.62em; color:var(--faded); margin-top:.2rem}
 .yh .where{font-variant:small-caps; letter-spacing:.05em; color:var(--rubric); margin-top:.3rem}
 .sigil{width:1.05em; height:1.05em; flex:none; color:var(--rubric); overflow:visible}
 .toc{display:flex; flex-wrap:wrap; gap:.35rem 1.3rem; margin:1.1rem 0 .2rem; font-variant:small-caps; letter-spacing:.03em; font-size:1.02rem}
@@ -426,9 +427,11 @@ function entry(it, lay){
 }
 function render(){
   const role = roleFor(YEAR), where = whereFor(YEAR);
+  // a translation in closing parentheses drops beneath the name, small and italic
+  const roleHTML = t => { const m = /^(.*\S)\s*\(([^()]+)\)$/.exec(t); return m ? `${esc(m[1])}<span class="gloss">${esc(m[2])}</span>` : esc(t); };
   $("#anno").innerHTML = `Anno ${YEAR}<small>${YEAR === LAST ? "the present" : "turn to any year"}</small>`;
   $("#prev").disabled = YEAR <= FIRST; $("#next").disabled = YEAR >= LAST;
-  let h = `<header class="yh fade"><div class="num">${YEAR}</div><div><div class="role">${esc(role.text)}</div>${where ? `<div class="where">${esc(where)}</div>` : ""}</div></header>`;
+  let h = `<header class="yh fade"><div class="num">${YEAR}</div><div><div class="role">${roleHTML(role.text)}</div>${where ? `<div class="where">${esc(where)}</div>` : ""}</div></header>`;
   let n = 0, body = "", toc = [];
   GROUPS.forEach((g, gi) => { const its = LEAVES.filter(it => g.test(it) && inYear(it, YEAR)).sort((a,b) => b.start - a.start);
     if (!its.length) return; n += its.length;
