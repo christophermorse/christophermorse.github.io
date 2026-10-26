@@ -432,6 +432,15 @@ talks:
     country: LU
     date: 2025-04-22   # per the ZLS 2025 activity report
     themes: [speech, ai-nlp, teaching]
+  - authors: C. Morse, D. Wagener
+    title: "Encoding Data, Decoding Meaning: Curating High-Quality Datasets for Luxembourgish NLP Tools"
+    event: "GovTech Afterwork: Advances, Challenges, and Opportunities in Creating Data for Trustworthy AI, GovTech Lab"
+    location: Luxembourg, Luxembourg
+    country: LU
+    date: 2025-04-03
+    url: "https://govtechlab.public.lu/en/agenda/2025/afterwork11.html"
+    description: "An exchange between the public and private sectors, where professionals in the field presented their concepts, current projects and practical approaches to building data for trustworthy AI."
+    themes: [speech, ai-nlp]
   - authors: C. Morse
     title: "D'Sproochmaschinn and Beyond: A Digital Corpus Infrastructure"
     event: "Digital Tools for Small Languages: Needs and Strategies, University of Luxembourg"
