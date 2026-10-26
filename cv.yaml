@@ -679,8 +679,8 @@ teaching:
   courses:
     - title: "Automatesch Sproochveraarbechtung (Natural Language Processing)"
       institution: "Zenter fir d'Lëtzebuerger Sprooch, for the BTS Media Writing program"
-      term: February 2026
-      year: 2026-02-06   # the full date so it sorts correctly within the year; the term is what shows
+      term: 6 Feb 2026
+      year: 2026-02-06   # sorts the course within the year; the term is what shows
       description: "An introduction to the concepts of natural language processing for Brevet de technicien supérieur students in Media Writing, taught as a module of the program by the Center."
       themes: [teaching, ai-nlp, speech]
     - title: Data Visualization with D3.js
