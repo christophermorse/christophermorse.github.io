@@ -164,9 +164,9 @@ experience:
     themes: [speech, ai-nlp]
     items:
       - Oversees the development of the ZLS's AI and language-technology tools, and of the models behind them.
-      - Advises a Master's thesis on Luxembourgish language topics, and oversees student workers and external experts across the center's digital projects.
       - "Lead designer of [sproochmaschinn.lu](https://sproochmaschinn.lu), one of the first public web platforms for Luxembourgish speech technology, which unites the Schreifmaschinn (speech-to-text) and the Liesmaschinn (text-to-speech). [Launched by the Ministry of Culture](https://gouvernement.lu/fr/gouvernement/eric-thill/actualites.gouvernement2024+fr+actualites+toutes_actualites+communiques+2025+02-fevrier+10-sproochmaschinn-thill.html) in February 2025."
       - "Creator and technical lead of SproochHub, a platform for building and exploring Luxembourgish corpora. It ingests texts, parliamentary debates and transcribed recordings, aligns speech to its transcript, and holds some 70 million words in one searchable place, with concordance and corpus-query tools for work on word forms, collocations, dispersion and keyness."   # internal to the ZLS for now, so there is nothing to link
+      - Advises a Master's thesis on Luxembourgish language topics, and oversees student workers and external experts across the center's digital projects.
       - Fine-tuned Whisper Large v3 Turbo on Luxembourgish parliamentary and broadcast speech and integrated pyannote speaker diarization; retrained it on a doubled dataset for version 2.0 (December 2025), the release that brought speaker recognition and a second synthetic voice.
       - "Improved the Liesmaschinn's original synthetic voice, built by Marco Barnig from the voice of Max Kuborn and given to the center."
       - "Represents the ZLS's language-technology work nationally and internationally: at UNESCO's LT4All conference (Paris, 2025), and as lead organizer of *Languages at Every Stage*, a technical expert meeting co-hosted with UNESCO later the same year, where he also presented the Center's work."
