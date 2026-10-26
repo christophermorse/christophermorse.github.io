@@ -863,6 +863,13 @@ media:
     themes: [cultural-heritage]
   - { title: "In conversation with our young researchers: Christopher Morse", outlet: Research Luxembourg, date: 2021-09-17, url: "https://www.researchluxembourg.org/en/in-conversation-with-our-young-researchers-christopher-morse/", themes: [cultural-heritage] }
   - { title: "MNHA Launches Digital Collections Platform", outlet: Chronicle.lu, date: 2019-06-18, url: "https://chronicle.lu/category/museums/29558-mnha-launches-digital-platform", themes: [cultural-heritage] }
+  - title: "A Hands-On exploration through Luxembourg's virtual and real landscapes of digital developments in Education, Research and Culture"
+    outlet: C²DH, University of Luxembourg
+    date: 2019-02-01
+    url: "https://www.uni.lu/c2dh-en/news/a-hands-on-exploration-through-luxembourgs-virtual-and-real-landscapes-of-digital-developments-in-education-research-and-culture/"
+    credits: "Text: Juliane Tatarinov"
+    mentions: "At the C²DH's first Forum Z, *Who's afraid of the Digital?*, presenting the virtual reconstruction of Larochette Castle with Marleen de Kramer: a hands-on tour of a virtual room of the castle, gathering visitors' feedback for a learning game about the site."
+    themes: [cultural-heritage, digital-humanities]
   - { title: "'Charlie' ou 'pas Charlie', comment Harvard a décidé de tout archiver", outlet: "L'Obs", date: 2016-07-08, url: "https://www.nouvelobs.com/attentats-terroristes-a-paris/20160708.OBS4267/charlie-ou-pas-charlie-comment-harvard-a-decide-de-tout-archiver.html", themes: [digital-humanities] }
   - { title: "Arts and Technology Speakers Come Together At Conference", outlet: The Harvard Crimson, date: 2015-04-24, url: "https://www.thecrimson.com/article/2015/4/24/arts-technology-together-conference/", themes: [hci-ux] }
 
