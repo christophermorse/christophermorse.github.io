@@ -36,7 +36,11 @@ button{font:inherit; color:inherit}
 .instrument{position:sticky; top:0; height:100vh; height:100dvh; display:flex; flex-direction:column; align-items:center;
   padding:clamp(22px,4vh,44px) clamp(16px,2.5vw,40px) clamp(14px,2.5vh,28px); border-right:1px solid var(--rule)}
 .who{width:100%; text-align:center; min-height:calc(var(--band,0px) - 76px); margin-bottom:0;
-  display:flex; flex-direction:column; justify-content:center; padding-bottom:.55rem; border-bottom:1px solid var(--rule)}
+  display:flex; flex-direction:column; justify-content:center; padding-bottom:.55rem; position:relative}
+/* a hairline that fades at both ends, with a brass lozenge at its centre */
+.who::after{content:""; position:absolute; left:0; right:0; bottom:-5px; height:10px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='52' height='10'%3E%3Cpath d='M26 0.5L30.5 5L26 9.5L21.5 5Z' fill='%238F7036'/%3E%3Ccircle cx='15' cy='5' r='1.2' fill='%238F7036'/%3E%3Ccircle cx='37' cy='5' r='1.2' fill='%238F7036'/%3E%3C/svg%3E") center/52px 10px no-repeat,
+    linear-gradient(90deg,transparent,var(--rule) 18%,var(--brass) calc(50% - 26px),transparent calc(50% - 26px) calc(50% + 26px),var(--brass) calc(50% + 26px),var(--rule) 82%,transparent) center/100% 1px no-repeat}
 .who h1{font-family:var(--display); font-weight:400; font-size:clamp(1.8rem,2.7vw,2.6rem); line-height:1; margin:0}
 .who h1 a{text-decoration:none}
 .who p{color:var(--faded); margin:.35rem 0 0; font-size:1rem}
@@ -67,6 +71,7 @@ button{font:inherit; color:inherit}
 #astro .alidade:focus-visible .rule{stroke:var(--rubric); stroke-width:2}
 #astro .dot.past{opacity:.45}
 #astro .limb-hit{fill:transparent; cursor:pointer}
+#astro .mount{display:none}
 .cartouche{display:flex; align-items:center; justify-content:center; gap:.8rem; margin:-.2rem 0 .2rem}
 .cartouche button{background:none; border:1px solid color-mix(in srgb,var(--ink) 35%,transparent); border-radius:50%; width:2rem; height:2rem; cursor:pointer; color:var(--ink); line-height:1}
 .cartouche button:hover{border-color:var(--rubric); color:var(--rubric)}
@@ -184,16 +189,15 @@ button{font:inherit; color:inherit}
   .layout{grid-template-columns:minmax(0,1fr)}
   .instrument{position:static; height:auto; border-right:0; padding:34px 18px 0}
   .who{text-align:left; display:block; min-height:0; margin-bottom:0; padding-bottom:0; border-bottom:0}
-  /* a hairline that fades at both ends, with a brass lozenge at its centre */
-  .who::after{content:""; display:block; height:10px; margin-top:1.1rem;
-    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='52' height='10'%3E%3Cpath d='M26 0.5L30.5 5L26 9.5L21.5 5Z' fill='%238F7036'/%3E%3Ccircle cx='15' cy='5' r='1.2' fill='%238F7036'/%3E%3Ccircle cx='37' cy='5' r='1.2' fill='%238F7036'/%3E%3C/svg%3E") center/52px 10px no-repeat,
-      linear-gradient(90deg,transparent,var(--rule) 18%,var(--brass) calc(50% - 26px),transparent calc(50% - 26px) calc(50% + 26px),var(--brass) calc(50% + 26px),var(--rule) 82%,transparent) center/100% 1px no-repeat}
+  .who::after{position:static; display:block; margin-top:1.1rem}
   .who .ident{justify-content:flex-start}
-  body{padding-bottom:178px}
-  .dock{position:fixed; left:0; right:0; bottom:0; height:170px; overflow:hidden; overflow:clip; z-index:30; display:block;
-    background-color:var(--parch); background-image:inherit; border-top:1px solid var(--rule); box-shadow:0 -10px 30px -18px var(--shadow)}
-  #astro{position:absolute; width:min(560px,145vw); height:auto; max-height:none; max-width:none; left:50%; top:-6px; transform:translateX(-50%); touch-action:pan-y}
-  .dock .cartouche{position:absolute; left:50%; bottom:8px; transform:translateX(-50%); margin:0; background:var(--parch);
+  body{padding-bottom:208px}
+  /* the dock itself is see-through: the instrument's mount draws its rounded top, and taps outside it reach the page */
+  .dock{position:fixed; left:0; right:0; bottom:0; height:calc(200px + env(safe-area-inset-bottom,0px)); overflow:hidden; overflow:clip; z-index:30; display:block; pointer-events:none}
+  #astro{position:absolute; width:min(560px,145vw); height:auto; max-height:none; max-width:none; left:50%; top:-6px; transform:translateX(-50%); touch-action:pan-y; pointer-events:none}
+  #astro .mount{display:inline}
+  #astro .mount,#astro .face,#astro .alidade,.dock .cartouche{pointer-events:auto}
+  .dock .cartouche{position:absolute; left:50%; bottom:calc(16px + env(safe-area-inset-bottom,0px)); transform:translateX(-50%); margin:0; background:var(--parch);
     border:1px solid var(--rule); border-radius:999px; padding:.15rem .4rem; box-shadow:0 4px 14px -8px var(--shadow)}
   .dock .cartouche output{font-size:1.2rem; min-width:5.6em}
   .dock{-webkit-user-select:none; user-select:none; -webkit-touch-callout:none}
@@ -278,10 +282,13 @@ const f = v => v.toFixed(1);
 
 function drawAstro(){
   let s = `<defs><radialGradient id="aura"><stop offset="0" stop-color="var(--halo)" stop-opacity=".96"/><stop offset=".62" stop-color="var(--halo)" stop-opacity=".9"/><stop offset=".63" stop-color="var(--halo)" stop-opacity=".46"/><stop offset="1" stop-color="var(--halo)" stop-opacity="0"/></radialGradient></defs>`;
+  // on phones, a parchment mount behind the instrument gives the dock its round top
+  s += `<filter id="lift" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="-3" stdDeviation="7" flood-color="rgb(60,40,15)" flood-opacity=".22"/></filter>`;
+  s += `<circle class="mount" cx="${CX}" cy="${CY}" r="246" fill="var(--parch)" stroke="var(--rule)" filter="url(#lift)"/>`;
   // throne and shackle at the top: drawn first so the limb covers the throne's foot
-  s += `<path class="eng" fill="var(--parch)" d="M${CX-34} ${CY-232} C${CX-30} ${CY-246} ${CX-14} ${CY-251} ${CX-6} ${CY-254} L${CX+6} ${CY-254} C${CX+14} ${CY-251} ${CX+30} ${CY-246} ${CX+34} ${CY-232}"/>`;
+  s += `<path class="eng" style="fill:var(--parch)" d="M${CX-34} ${CY-232} C${CX-30} ${CY-246} ${CX-14} ${CY-251} ${CX-6} ${CY-254} L${CX+6} ${CY-254} C${CX+14} ${CY-251} ${CX+30} ${CY-246} ${CX+34} ${CY-232}"/>`;
   s += `<path class="eng thin" d="M${CX-20} ${CY-236} C${CX-17} ${CY-243} ${CX-8} ${CY-246} ${CX} ${CY-247} C${CX+8} ${CY-246} ${CX+17} ${CY-243} ${CX+20} ${CY-236}"/>`;
-  s += `<circle class="eng" cx="${CX}" cy="${CY-264}" r="10" stroke-width="1.6"/><circle class="eng thin" cx="${CX}" cy="${CY-264}" r="5.5"/>`;
+  s += `<circle class="eng" cx="${CX}" cy="${CY-264}" r="10" stroke-width="1.6" style="fill:var(--parch)"/><circle class="eng thin" cx="${CX}" cy="${CY-264}" r="5.5"/>`;
   // mater and limb (inside a face group that turns on phones)
   s += `<g class="face" id="face"><circle cx="${CX}" cy="${CY}" r="236" fill="var(--parch)" fill-opacity=".6"/><circle class="eng" cx="${CX}" cy="${CY}" r="236" stroke-width="2"/><circle class="eng" cx="${CX}" cy="${CY}" r="231"/><circle class="eng" cx="${CX}" cy="${CY}" r="219"/><circle class="eng thin" cx="${CX}" cy="${CY}" r="198"/>`;
   for (let m = 0; m < (T1 - T0)*12; m++){ const t = T0 + m/12, yr = m % 12 === 0, q = m % 3 === 0;
