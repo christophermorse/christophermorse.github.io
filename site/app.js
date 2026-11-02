@@ -1,0 +1,595 @@
+const D = window.CV_DATA;
+const $ = (s) => document.querySelector(s);
+const esc = (s) =>
+  String(s ?? "").replace(
+    /[&<>"]/g,
+    (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c],
+  );
+const md = (s) =>
+  esc(s)
+    .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
+    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+    .replace(/\*([^*]+)\*/g, "<em>$1</em>");
+const plain = (s) =>
+  String(s)
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    .replace(/\*/g, "");
+const col = (k) => `var(--t-${k})`;
+const THEMES = { ...D.themes, community: "Community" };
+const ALL = [];
+D.items.forEach((it) => {
+  ALL.push(it);
+  (it.ticks || []).forEach((t) => {
+    t.parent = it;
+    ALL.push(t);
+  });
+});
+const BY = Object.fromEntries(ALL.map((i) => [i.id, i]));
+const MOBILE = matchMedia("(max-width:860px)");
+const p = D.person;
+$("#name").textContent = p.name;
+if (p.photo) {
+  const im = $("#portrait");
+  im.src = p.photo;
+  im.hidden = false;
+}
+document.title = p.name;
+/* the name takes you back to the present, at the top of the page */
+$("#name").addEventListener("click", (e) => {
+  e.preventDefault();
+  setYear(LAST);
+  window.scrollTo({
+    top: 0,
+    behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+  });
+});
+$("#pos").textContent = p.position.replace(/ · /g, ", ");
+
+/* ---------- time state ---------- */
+const FIRST = 2003,
+  LAST = 2026,
+  NOW = 2026.75,
+  T0 = 2003,
+  T1 = 2027;
+let YEAR = LAST;
+const inYear = (it, y) => (it.span ? it.start < y + 1 && it.end >= y : Math.floor(it.start) === y);
+const POS = ALL.filter((it) => it.kind === "Position"); // every job, however many there are
+const DEG = ["edu3", "edu2", "edu1", "edu0"].map((i) => BY[i]);
+function roleFor(y) {
+  const act = POS.filter((p) => inYear(p, y)),
+    now = DEG.find((d) => Math.floor(d.end) === y);
+  // a job that ended during the year gives way to a degree completed that year
+  const held = act.filter((p) => p.end >= NOW || Math.floor(p.end) > y);
+  if (held.length || (act.length && !now)) {
+    const a = [...(held.length ? held : act)].sort((x, y) => y.start - x.start)[0];
+    return { text: a.label, id: a.id };
+  }
+  if (now) return { text: now.label + ", completed", id: now.id };
+  const on = DEG.find((d) => d.span && inYear(d, y));
+  if (on) return { text: "Studying for the " + on.label, id: on.id };
+  const next = DEG.find((d) => d.end > y && d.end - y < 3);
+  if (next) return { text: "Studying for the " + next.label, id: next.id };
+  const prev = [...DEG].reverse().find((d) => d.end < y);
+  return prev ? { text: "After the " + prev.label, id: prev.id } : { text: "", id: "edu3" };
+}
+
+/* ---------- the astrolabe ---------- */
+const RINGS = [
+  { name: "Language & AI", ids: ["exp0", "exp1", "grt0", "brd0"] },
+  { name: "Research", ids: ["exp2", "exp3", "edt0"] },
+  {
+    name: "Learning",
+    ids: ["exp4", "exp5", "exp6", "exp7", "edu0", "edu1", "edu2", "edu3", "edu4", "edu5"],
+  },
+  { name: "Community", ids: ["act0", "act1", "act2"] },
+];
+const CX = 250,
+  CY = 270;
+const deg = (t) => -90 + ((t - T0) / (T1 - T0)) * 360;
+const pol = (r, t) => {
+  const a = (deg(t) * Math.PI) / 180;
+  return [CX + r * Math.cos(a), CY + r * Math.sin(a)];
+};
+const arcD = (r, a, b) => {
+  const [x1, y1] = pol(r, a),
+    [x2, y2] = pol(r, b),
+    big = (b - a) / (T1 - T0) > 0.5 ? 1 : 0;
+  return `M${x1.toFixed(1)} ${y1.toFixed(1)}A${r} ${r} 0 ${big} 1 ${x2.toFixed(1)} ${y2.toFixed(1)}`;
+};
+const f = (v) => v.toFixed(1);
+
+function drawAstro() {
+  let s = `<defs><radialGradient id="aura"><stop offset="0" stop-color="var(--halo)" stop-opacity=".96"/><stop offset=".62" stop-color="var(--halo)" stop-opacity=".9"/><stop offset=".63" stop-color="var(--halo)" stop-opacity=".46"/><stop offset="1" stop-color="var(--halo)" stop-opacity="0"/></radialGradient></defs>`;
+  // on phones, a parchment mount behind the instrument gives the dock its round top
+  s += `<filter id="lift" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="-3" stdDeviation="7" flood-color="rgb(60,40,15)" flood-opacity=".22"/></filter>`;
+  s += `<circle class="mount" cx="${CX}" cy="${CY}" r="246" fill="var(--parch)" stroke="var(--rule)" filter="url(#lift)"/>`;
+  // throne and shackle at the top: drawn first so the limb covers the throne's foot
+  s += `<path class="eng" style="fill:var(--parch)" d="M${CX - 34} ${CY - 232} C${CX - 30} ${CY - 246} ${CX - 14} ${CY - 251} ${CX - 6} ${CY - 254} L${CX + 6} ${CY - 254} C${CX + 14} ${CY - 251} ${CX + 30} ${CY - 246} ${CX + 34} ${CY - 232}"/>`;
+  s += `<path class="eng thin" d="M${CX - 20} ${CY - 236} C${CX - 17} ${CY - 243} ${CX - 8} ${CY - 246} ${CX} ${CY - 247} C${CX + 8} ${CY - 246} ${CX + 17} ${CY - 243} ${CX + 20} ${CY - 236}"/>`;
+  s += `<circle class="eng" cx="${CX}" cy="${CY - 264}" r="10" stroke-width="1.6" style="fill:var(--parch)"/><circle class="eng thin" cx="${CX}" cy="${CY - 264}" r="5.5"/>`;
+  // mater and limb (inside a face group that turns on phones)
+  s += `<g class="face" id="face"><circle cx="${CX}" cy="${CY}" r="236" fill="var(--parch)" fill-opacity=".6"/><circle class="eng" cx="${CX}" cy="${CY}" r="236" stroke-width="2"/><circle class="eng" cx="${CX}" cy="${CY}" r="231"/><circle class="eng" cx="${CX}" cy="${CY}" r="219"/><circle class="eng thin" cx="${CX}" cy="${CY}" r="198"/>`;
+  for (let m = 0; m < (T1 - T0) * 12; m++) {
+    const t = T0 + m / 12,
+      yr = m % 12 === 0,
+      q = m % 3 === 0;
+    const [a, b] = pol(219, t),
+      [c, d] = pol(yr ? 231 : q ? 226 : 223, t);
+    s += `<line x1="${f(a)}" y1="${f(b)}" x2="${f(c)}" y2="${f(d)}" stroke="var(--ink)" stroke-width="${yr ? 1.2 : 0.6}"/>`;
+  }
+  for (let y = FIRST; y <= LAST; y++) {
+    const tm = y + 0.5,
+      [x, yy] = pol(208, tm),
+      r = deg(tm) + 90;
+    s += `<text class="yl" data-r="${f(r)}" x="${f(x)}" y="${f(yy)}" font-size="${y % 5 ? 11 : 13}" text-anchor="middle" dominant-baseline="middle" ${y % 5 ? 'opacity=".75"' : ""}>${y}</text>`;
+  }
+  // a hit ring on the limb: click anywhere to set the year
+  s += `<path class="limb-hit" fill-rule="evenodd" d="M${CX - 236} ${CY}a236 236 0 1 0 472 0a236 236 0 1 0 -472 0ZM${CX - 196} ${CY}a196 196 0 1 1 392 0a196 196 0 1 1 -392 0Z"/>`;
+  // tympan: the strands of work
+  const radii = [180, 154, 128, 102];
+  RINGS.forEach((rg, i) => {
+    const r = radii[i];
+    s += `<circle class="ring" cx="${CX}" cy="${CY}" r="${r}"/>`;
+    const spans = rg.ids.map((id) => BY[id]).filter((o) => o && o.span);
+    rg.ids.forEach((id) => {
+      const it = BY[id];
+      if (!it) return;
+      const c = col(it.themes[0]);
+      const overl = spans.filter(
+        (o) =>
+          o !== it &&
+          it.span &&
+          o.start < it.end &&
+          o.end > it.start &&
+          spans.indexOf(o) < spans.indexOf(it),
+      ).length;
+      const rr = r + (overl ? 8 : 0);
+      const attrs = `class="dot" tabindex="0" role="button" data-id="${id}" aria-label="${esc(it.label)}, ${esc(it.when)}"`;
+      if (it.span) {
+        const d = arcD(rr, it.start, Math.min(it.end, NOW));
+        s += `<g ${attrs}><path d="${d}" stroke="transparent" stroke-width="16" fill="none"/><path class="hl" d="${d}" stroke-width="13" stroke-linecap="round"/><path d="${d}" stroke="${c}" stroke-width="${it.kind === "Grant" ? 5 : 8}" ${it.kind === "Grant" ? 'stroke-dasharray="4 3"' : 'stroke-linecap="round"'} fill="none"/></g>`;
+      } else {
+        const [x, y] = pol(r, it.start);
+        s += `<g ${attrs}><circle cx="${f(x)}" cy="${f(y)}" r="11" fill="transparent"/><circle class="hl" cx="${f(x)}" cy="${f(y)}" r="8"/><circle cx="${f(x)}" cy="${f(y)}" r="5.5" fill="var(--page)" stroke="${c}" stroke-width="2.2"/></g>`;
+      }
+    });
+  });
+  s += `</g>`;
+  // rete: openwork that turns with the year
+  let rete = `<circle cx="${CX + 0}" cy="${CY - 38}" r="122"/><circle cx="${CX}" cy="${CY - 38}" r="114" stroke-dasharray="1 4"/><circle cx="${CX}" cy="${CY}" r="64"/>`;
+  rete += `<path d="M${CX - 190} ${CY}H${CX - 64}M${CX + 64} ${CY}H${CX + 190}M${CX} ${CY + 64}V${CY + 190}"/>`;
+  [
+    [150, 30],
+    [172, 95],
+    [118, 160],
+    [188, 215],
+    [140, 280],
+    [176, 330],
+  ].forEach(([r, a]) => {
+    const rad = (a * Math.PI) / 180,
+      x = CX + r * Math.cos(rad),
+      y = CY + r * Math.sin(rad),
+      n = rad + Math.PI / 2;
+    rete += `<path class="star" d="M${f(x)} ${f(y)}Q${f(x - 14 * Math.cos(rad) + 5 * Math.cos(n))} ${f(y - 14 * Math.sin(rad) + 5 * Math.sin(n))} ${f(x - 26 * Math.cos(rad))} ${f(y - 26 * Math.sin(rad))}Q${f(x - 12 * Math.cos(rad) - 3 * Math.cos(n))} ${f(y - 12 * Math.sin(rad) - 3 * Math.sin(n))} ${f(x)} ${f(y)}Z"/>`;
+  });
+  for (let i = 0; i < 8; i++) {
+    const a = (i * Math.PI) / 4,
+      b = a + Math.PI / 8;
+    rete += `<path d="M${CX} ${CY}L${f(CX + 52 * Math.cos(a))} ${f(CY + 52 * Math.sin(a))}L${f(CX + 20 * Math.cos(b))} ${f(CY + 20 * Math.sin(b))}Z" stroke-width=".8"/>`;
+  }
+  s += `<g class="rete" id="rete" opacity=".42" pointer-events="none">${rete}</g>`;
+  // alidade: the pointer you turn
+  s += `<g class="alidade" id="alidade" tabindex="0" role="slider" aria-label="Year" aria-valuemin="${FIRST}" aria-valuemax="${LAST}">
+    <path d="M${CX} ${CY + 196}L${CX - 7} ${CY + 150}V${CY - 150}L${CX} ${CY - 236}L${CX + 7} ${CY - 150}V${CY + 150}Z" fill="var(--page)" fill-opacity=".82" stroke="var(--ink)" class="rule"/>
+    <path d="M${CX} ${CY - 236}L${CX - 7} ${CY - 150}H${CX + 7}Z" fill="var(--rubric)"/>
+    <line x1="${CX}" y1="${CY - 150}" x2="${CX}" y2="${CY + 150}" stroke="var(--ink)" stroke-width=".6"/>
+    <rect x="${CX - 11}" y="${CY - 120}" width="22" height="9" fill="var(--page)" stroke="var(--ink)"/><rect x="${CX - 11}" y="${CY + 111}" width="22" height="9" fill="var(--page)" stroke="var(--ink)"/>
+    <rect x="${CX - 9}" y="${CY - 236}" width="18" height="250" fill="transparent"/></g>`;
+  s += `<circle cx="${CX}" cy="${CY}" r="16" fill="var(--page)" stroke="var(--ink)" stroke-width="1.4"/><circle cx="${CX}" cy="${CY}" r="4" fill="var(--ink)"/>`;
+  s += `<g id="glow" pointer-events="none"><circle r="16" fill="url(#aura)"/></g>`;
+  $("#astro").innerHTML = s;
+}
+let ROT = 0;
+function turn() {
+  const t = YEAR === LAST ? NOW : YEAR + 0.5,
+    a = deg(t) + 90;
+  ROT = MOBILE.matches ? -a : 0;
+  $("#face").style.transform = `rotate(${ROT}deg)`;
+  $("#alidade").style.transform = `rotate(${MOBILE.matches ? 0 : a}deg)`;
+  $("#rete").style.transform = `rotate(${MOBILE.matches ? -a * 0.5 : a * 0.5}deg)`;
+  $("#alidade").setAttribute("aria-valuenow", YEAR);
+  $("#alidade").setAttribute(
+    "aria-valuetext",
+    YEAR === LAST ? `${YEAR}, the present` : String(YEAR),
+  );
+  document.querySelectorAll("#astro .dot").forEach((g) => {
+    const it = BY[g.dataset.id];
+    g.classList.toggle("past", !inYear(it, YEAR));
+  });
+  // numerals stay upright: on the desk they flip in the lower half; on phones only the top shows, so none flip
+  document.querySelectorAll("#astro .yl").forEach((el) => {
+    const r = +el.dataset.r,
+      flip = !MOBILE.matches && r > 90 && r < 270;
+    el.setAttribute(
+      "transform",
+      `rotate(${flip ? r + 180 : r} ${el.getAttribute("x")} ${el.getAttribute("y")})`,
+    );
+  });
+}
+function setYear(y, quiet) {
+  y = Math.max(FIRST, Math.min(LAST, Math.round(y)));
+  if (y === YEAR && quiet) return;
+  YEAR = y;
+  turn();
+  render();
+}
+(function wire() {
+  drawAstro();
+  const svg = $("#astro");
+  const yearAt = (e) => {
+    const p = new DOMPoint(e.clientX, e.clientY).matrixTransform(svg.getScreenCTM().inverse());
+    const x = p.x - CX,
+      y = p.y - CY;
+    let a = (Math.atan2(y, x) * 180) / Math.PI + 90 - ROT;
+    a = ((a % 360) + 360) % 360;
+    const t = T0 + (a / 360) * (T1 - T0);
+    return t > NOW + 0.1 ? (a > 340 ? LAST : FIRST) : Math.floor(t);
+  };
+  let drag = null;
+  svg.addEventListener("pointerdown", (e) => {
+    if (MOBILE.matches) {
+      drag = { x: e.clientX, y0: YEAR, moved: false, hit: !!e.target.closest(".limb-hit"), ev: e };
+      svg.setPointerCapture(e.pointerId);
+      return;
+    }
+    if (!e.target.closest("#alidade,.limb-hit")) return;
+    drag = {};
+    svg.classList.add("dragging");
+    svg.setPointerCapture(e.pointerId);
+    setYear(yearAt(e), true);
+    e.preventDefault();
+  });
+  svg.addEventListener("pointermove", (e) => {
+    if (!drag) return;
+    if (MOBILE.matches) {
+      const dx = e.clientX - drag.x;
+      if (Math.abs(dx) > 6) {
+        drag.moved = true;
+        svg.classList.add("dragging");
+      }
+      if (drag.moved) setYear(drag.y0 - dx / 30, true);
+      return;
+    }
+    setYear(yearAt(e), true);
+  });
+  const end = (e) => {
+    if (!drag) return;
+    if (MOBILE.matches && !drag.moved && drag.hit) setYear(yearAt(drag.ev));
+    drag = null;
+    svg.classList.remove("dragging");
+  };
+  svg.addEventListener("pointerup", end);
+  svg.addEventListener("pointercancel", end);
+  $("#alidade").addEventListener("keydown", (e) => {
+    const k = { ArrowRight: 1, ArrowUp: 1, ArrowLeft: -1, ArrowDown: -1, PageUp: 5, PageDown: -5 }[
+      e.key
+    ];
+    if (k) {
+      e.preventDefault();
+      setYear(YEAR + k);
+    }
+    if (e.key === "Home") {
+      e.preventDefault();
+      setYear(FIRST);
+    }
+    if (e.key === "End") {
+      e.preventDefault();
+      setYear(LAST);
+    }
+  });
+  $("#prev").addEventListener("click", () => setYear(YEAR - 1));
+  $("#next").addEventListener("click", () => setYear(YEAR + 1));
+})();
+
+/* ---------- the leaf: what happened in the chosen year ---------- */
+/* each section has a small engraved sigil and its own layout */
+const SIGIL = {
+  sun: `<circle cx="0" cy="0" r="6.2" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="0" cy="0" r="1.8" fill="currentColor"/>`,
+  moon: `<path d="M2.5 -6.5A6.8 6.8 0 1 0 2.5 6.5A5.2 5.2 0 1 1 2.5 -6.5Z" fill="currentColor"/>`,
+  star: `<path d="${starPath(0, 0, 7, 8)}" fill="currentColor"/>`,
+  ringed: `<circle cx="0" cy="0" r="3.6" fill="currentColor"/><ellipse cx="0" cy="0" rx="7.4" ry="2.6" fill="none" stroke="currentColor" stroke-width="1.1" transform="rotate(-22)"/>`,
+  lamp: `<circle cx="-4.5" cy="3.5" r="1.9" fill="currentColor"/><circle cx="0.5" cy="-4.5" r="1.9" fill="currentColor"/><circle cx="5" cy="2.5" r="1.9" fill="currentColor"/><path d="M-4.5 3.5L0.5 -4.5L5 2.5" fill="none" stroke="currentColor" stroke-width=".8"/>`,
+  conj: `<circle cx="-1.5" cy="1.5" r="4" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M1.4 -1.4L6 -6" stroke="currentColor" stroke-width="1.3"/>`,
+  rose: `<path d="${starPath(0, 0, 7.2, 4)}" fill="currentColor"/><path d="${starPath(0, 0, 4.6, 4)}" fill="var(--parch)" transform="rotate(45)"/>`,
+  comet: `<circle cx="3.5" cy="-3.5" r="2.8" fill="currentColor"/><path d="M1.5 -1.5L-6.5 6.5M3.2 -0.6L-3.8 6.8M0.6 -3.2L-6.8 3.8" stroke="currentColor" stroke-width=".9"/>`,
+  earth: `<circle cx="0" cy="0" r="6" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M0 -6V6M-6 0H6" stroke="currentColor" stroke-width="1"/>`,
+};
+const sig = (k, cls = "") =>
+  `<svg class="sigil ${cls}" viewBox="-8 -8 16 16" aria-hidden="true">${SIGIL[k]}</svg>`;
+const GROUPS = [
+  {
+    name: "Work",
+    sig: "sun",
+    lay: "card",
+    test: (it) => !it.parent && it.band === "work" && !/Degree|Study abroad/.test(it.kind),
+  },
+  {
+    name: "Education",
+    sig: "rose",
+    lay: "card",
+    test: (it) => !it.parent && it.band === "work" && /Degree|Study abroad/.test(it.kind),
+  },
+  { name: "Writing", sig: "moon", lay: "cite", test: (it) => !it.parent && it.band === "writing" },
+  {
+    name: "Speaking",
+    sig: "star",
+    lay: "row",
+    test: (it) => !it.parent && it.band === "speaking" && !it.ticks && it.kind !== "Radio",
+  },
+  {
+    name: "Radio",
+    sig: "ringed",
+    lay: "row",
+    test: (it) => (it.parent && it.parent.id === "brd0") || it.kind === "Radio",
+  },
+  {
+    name: "Teaching",
+    sig: "lamp",
+    lay: "row",
+    test: (it) =>
+      (!it.parent && /Course|Session/.test(it.kind)) || (it.parent && it.parent.id === "wks"),
+  },
+  {
+    name: "Convening",
+    sig: "conj",
+    lay: "row",
+    test: (it) => (it.parent && it.parent.id === "sym") || (!it.parent && it.kind === "Symposium"),
+  },
+  {
+    name: "In the press",
+    sig: "comet",
+    lay: "row",
+    test: (it) => !it.parent && it.band === "press",
+  },
+  { name: "Service", sig: "earth", lay: "row", test: (it) => !it.parent && it.band === "service" },
+];
+const LEAVES = ALL.filter((it) => !it.ticks); // series appear through their episodes and events
+const whereFor = (y) => {
+  const pl = D.places.filter((q) => q.start < y + 1 && q.end >= y);
+  return pl.map((q) => q.place).join(" and ");
+};
+const stars = (it) =>
+  `<span class="th" aria-hidden="true">${it.themes.map((k) => `<svg viewBox="-6 -6 12 12"><path d="${starPath(0, 0, 5.2, 5)}" fill="${col(k)}"/></svg>`).join("")}</span>`;
+const spark = (c) =>
+  `<svg class="ib" viewBox="-8 -8 16 16" aria-hidden="true"><path d="${starPath(0, 0, 6.4, 4)}" fill="${c}"/></svg>`;
+const bullets = (list, c) =>
+  list.length
+    ? `<ul class="items">${list.map((t) => `<li class="x">${spark(c)}<span>${md(t)}</span></li>`).join("")}</ul>`
+    : "";
+const more = (rest, c) =>
+  rest.length ? `<details><summary>${rest.length} more</summary>${bullets(rest, c)}</details>` : "";
+const shortWhen = (w) => w.replace(new RegExp(`\\s${YEAR}$`), "") || w;
+function entry(it, lay) {
+  const bul = it.items || [],
+    rest = bul.slice(3),
+    c = col(it.themes[0]);
+  const lead = bullets(bul.slice(0, 3), c);
+  if (lay === "card")
+    return `<article class="card" id="e-${it.id}" style="--c:${col(it.themes[0])}">
+    <div class="d">${esc(it.when)} · ${esc(it.kind)} ${stars(it)}</div><h3>${md(it.title)}</h3>${it.meta ? `<p class="m">${md(it.meta)}</p>` : ""}
+    ${it.quote ? `<blockquote lang="de">${esc(it.quote)}</blockquote>` : ""}${lead}${more(rest, c)}
+    ${it.image ? `<figure class="shot"><img src="${it.image}" alt="">${it.credits ? `<figcaption>${md(it.credits)}</figcaption>` : ""}</figure>` : ""}</article>`;
+  if (lay === "cite")
+    return `<article class="cite" id="e-${it.id}"><svg class="bullet" viewBox="-6 -6 12 12" aria-hidden="true"><path d="${starPath(0, 0, 5.4, 5)}" fill="${col(it.themes[0])}"/></svg>
+    <div><h3>${md(it.title)}</h3><p class="m">${md(it.meta)} <span class="k">${esc(it.kind)}</span></p></div></article>`;
+  return `<article class="row" id="e-${it.id}"><div class="d">${esc(shortWhen(it.when))}</div>
+    <div><h3>${md(it.title)}</h3>${it.meta ? `<p class="m">${md(it.meta)}</p>` : ""}
+      ${it.quote ? `<blockquote lang="de">${esc(it.quote)}</blockquote>` : ""}${lead}${more(rest, c)}</div>
+    ${it.image ? `<figure class="shot"><img src="${it.image}" alt="">${it.credits ? `<figcaption>${md(it.credits)}</figcaption>` : ""}</figure>` : `<span></span>`}</article>`;
+}
+function render() {
+  const role = roleFor(YEAR),
+    where = whereFor(YEAR);
+  // a translation in closing parentheses drops beneath the name, small and italic
+  const roleHTML = (t) => {
+    const m = /^(.*\S)\s*\(([^()]+)\)$/.exec(t);
+    return m ? `${esc(m[1])}<span class="gloss">${esc(m[2])}</span>` : esc(t);
+  };
+  $("#anno").innerHTML =
+    `Anno ${YEAR}<small>${YEAR === LAST ? "the present" : "turn to any year"}</small>`;
+  $("#prev").disabled = YEAR <= FIRST;
+  $("#next").disabled = YEAR >= LAST;
+  let h = `<header class="yh fade"><div class="num">${YEAR}</div><div><div class="role">${roleHTML(role.text)}</div>${where ? `<div class="where">${esc(where)}</div>` : ""}</div></header>`;
+  let n = 0,
+    body = "",
+    toc = [];
+  GROUPS.forEach((g, gi) => {
+    const its = LEAVES.filter((it) => g.test(it) && inYear(it, YEAR)).sort(
+      (a, b) => b.start - a.start,
+    );
+    if (!its.length) return;
+    n += its.length;
+    toc.push(`<a href="#g-${gi}">${sig(g.sig)}${esc(g.name)} <span>${its.length}</span></a>`);
+    body += `<section class="group lay-${g.lay} fade" id="g-${gi}"><h2>${sig(g.sig)}${esc(g.name)} <span>${its.length}</span></h2>${its.map((it) => entry(it, g.lay)).join("")}</section>`;
+  });
+  if (toc.length) h += `<nav class="toc fade" aria-label="In ${YEAR}">${toc.join("")}</nav>`;
+  h += body;
+  if (!n) h += `<p class="quiet">Nothing is on the record for ${YEAR}.</p>`;
+  $("#year").innerHTML = h;
+  overview();
+}
+
+/* overview: the years as a strip of sky, each entry a star colored by its strand */
+function starPath(x, y, r, n) {
+  let d = "";
+  for (let i = 0; i < n * 2; i++) {
+    const rr = i % 2 ? r * (n === 4 ? 0.32 : 0.42) : r,
+      a = -Math.PI / 2 + (i * Math.PI) / n;
+    d +=
+      (i ? "L" : "M") + (x + rr * Math.cos(a)).toFixed(2) + " " + (y + rr * Math.sin(a)).toFixed(2);
+  }
+  return d + "Z";
+}
+const MAG = (it) =>
+  it.span || it.kind === "Degree" || it.kind === "Grant"
+    ? [5.4, 8]
+    : /Publication|Talk|Workshop|Course|Session|Study abroad/.test(it.kind)
+      ? [4.3, 5]
+      : [3.4, 4];
+const hash = (s) => {
+  let h = 2166136261;
+  for (const c of s) h = Math.imul(h ^ c.charCodeAt(0), 16777619);
+  return ((h >>> 0) % 1000) / 1000;
+};
+function overview() {
+  const svg = $("#overview"),
+    W = 700,
+    cols = LAST - FIRST + 1,
+    cw = W / cols,
+    gap = 8.6,
+    top = 10;
+  const per = [];
+  let max = 0;
+  // a star in every year the entry is present, so the strip agrees with the year pages
+  const marks = LEAVES.flatMap((it) => {
+    const a = Math.floor(it.start);
+    if (!it.span) return [{ it, y: a, key: it.id }];
+    const m = [];
+    for (let y = a; y <= Math.floor(Math.min(it.end, NOW)); y++)
+      if (inYear(it, y)) m.push({ it, y, key: y === a ? it.id : `${it.id}:${y}` });
+    return m;
+  });
+  for (let y = FIRST; y <= LAST; y++) {
+    const its = marks
+      .filter((m) => m.y === y)
+      .sort((a, b) => (a.it.themes[0] > b.it.themes[0] ? 1 : -1) || a.it.start - b.it.start);
+    per.push(its);
+    max = Math.max(max, its.length);
+  }
+  const base = top + max * gap + 6,
+    H = base + 34;
+  let s = `<defs><radialGradient id="halo"><stop offset="0" stop-color="var(--brass)" stop-opacity=".28"/><stop offset="1" stop-color="var(--brass)" stop-opacity="0"/></radialGradient></defs>`;
+  // graduated scale, like the rim of the instrument
+  s += `<line x1="0" y1="${base}" x2="${W}" y2="${base}" stroke="var(--ink)" stroke-width=".9"/><line x1="0" y1="${base + 3}" x2="${W}" y2="${base + 3}" stroke="var(--ink)" stroke-width=".4"/>`;
+  for (let q = 0; q <= cols * 4; q++) {
+    const x = (q * cw) / 4,
+      yr = q % 4 === 0;
+    s += `<line x1="${x}" y1="${base}" x2="${x}" y2="${base + (yr ? 8 : 4)}" stroke="var(--ink)" stroke-width="${yr ? 0.8 : 0.45}"/>`;
+  }
+  per.forEach((its, i) => {
+    const y = FIRST + i,
+      x0 = i * cw,
+      on = y === YEAR;
+    s += `<g class="yr-col ${on ? "on" : ""}" tabindex="0" role="button" data-y="${y}" aria-label="${y}: ${its.length} entries"><rect class="col-hit" x="${x0 + 1}" y="0" width="${cw - 2}" height="${H}" rx="2"/>`;
+    if (on) {
+      const cy = base - (Math.max(its.length, 2) * gap) / 2;
+      s += `<ellipse cx="${x0 + cw / 2}" cy="${cy}" rx="${cw * 0.95}" ry="${Math.max(its.length, 3) * gap * 0.75}" fill="url(#halo)"/>`;
+    }
+    // stars loosen into a small cluster; same-strand stars are joined like a constellation
+    const pts = its.map(({ it, key }, j) => ({
+      it,
+      key,
+      x: x0 + cw / 2 + (hash(key) - 0.5) * cw * 0.5,
+      y: base - 6 - j * gap - (hash(key + "y") - 0.5) * 3,
+    }));
+    const byT = {};
+    pts.forEach((pt) => (byT[pt.it.themes[0]] ||= []).push(pt));
+    Object.entries(byT).forEach(([k, ps]) => {
+      if (ps.length < 2) return;
+      s += `<path d="${ps.map((pt, n) => `${n ? "L" : "M"}${pt.x.toFixed(1)} ${pt.y.toFixed(1)}`).join("")}" fill="none" stroke="${col(k)}" stroke-width=".6" stroke-dasharray="1 2.2" opacity=".75"/>`;
+    });
+    pts.forEach((pt) => {
+      const [r, n] = MAG(pt.it);
+      s += `<path class="star${on ? " tw" : ""}" data-id="${pt.it.id}" d="${starPath(pt.x, pt.y, r, n)}" fill="${col(pt.it.themes[0])}" style="--d:${(hash(pt.key + "t") * 2.4).toFixed(2)}s"><title>${esc(pt.it.label)}, ${esc(pt.it.when)}</title></path>`;
+    });
+    s += `<text x="${x0 + cw / 2}" y="${H - 4}" text-anchor="middle">${(y % 5 === 0 && Math.abs(y - YEAR) > 1) || on || (y === LAST && YEAR < LAST - 1) ? y : ""}</text>`;
+    if (on) s += `<path d="M${x0 + cw / 2} ${base + 10}l-4 7h8z" fill="var(--rubric)"/>`;
+    s += `</g>`;
+  });
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  svg.innerHTML = s;
+  $("#count").textContent = `${LEAVES.length} entries, ${FIRST}–${LAST}`;
+  fitBand();
+}
+/* the name block takes the height of the star chart beside it, so the two columns share a band */
+function fitBand() {
+  const ov = document.querySelector(".overview");
+  document.documentElement.style.setProperty(
+    "--band",
+    MOBILE.matches ? "0px" : ov.offsetHeight + "px",
+  );
+}
+addEventListener("resize", fitBand);
+$("#overview").addEventListener("click", (e) => {
+  const g = e.target.closest(".yr-col");
+  if (g) setYear(+g.dataset.y);
+});
+$("#overview").addEventListener("keydown", (e) => {
+  const g = e.target.closest(".yr-col");
+  if (g && (e.key === "Enter" || e.key === " ")) {
+    e.preventDefault();
+    setYear(+g.dataset.y);
+  }
+});
+
+/* about + contact */
+$("#about").innerHTML = `<h2>About</h2>${p.summary
+  .split(/\n+/)
+  .map((t) => `<p>${esc(t.trim())}</p>`)
+  .join("")}
+  <nav>${p.email ? `<a href="mailto:${esc(p.email)}">Email</a>` : ""}<a href="https://www.linkedin.com/in/${esc(p.linkedin)}" target="_blank" rel="noopener">LinkedIn</a><a href="https://scholar.google.com/citations?user=${esc(p.scholar)}" target="_blank" rel="noopener">Google Scholar</a></nav>
+  <small>Last revised ${new Date(D.updated).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</small>`;
+
+/* hovering the astrolabe names what you point at; clicking a ring opens its year */
+const tip = $("#tip");
+$("#astro").addEventListener("mouseover", (e) => {
+  const g = e.target.closest(".dot");
+  if (!g) {
+    tip.style.opacity = 0;
+    return;
+  }
+  const it = BY[g.dataset.id];
+  tip.innerHTML = `<b>${esc(it.label)}</b><span>${esc(it.when)}</span>`;
+  tip.style.opacity = 1;
+});
+$("#astro").addEventListener("mousemove", (e) => {
+  tip.style.left = Math.min(e.clientX + 14, innerWidth - 290) + "px";
+  tip.style.top = e.clientY + 16 + "px";
+});
+$("#astro").addEventListener("mouseleave", () => (tip.style.opacity = 0));
+/* the halo: it appears only over what can actually be used — an entry, the limb, the alidade */
+(function halo() {
+  const svg = $("#astro"),
+    glow = $("#glow"),
+    HOT = ".dot,.limb-hit,#alidade";
+  svg.addEventListener("pointermove", (e) => {
+    if (!e.target.closest(HOT)) {
+      svg.classList.remove("live");
+      return;
+    }
+    const p = new DOMPoint(e.clientX, e.clientY).matrixTransform(svg.getScreenCTM().inverse());
+    glow.setAttribute("transform", `translate(${p.x.toFixed(1)} ${p.y.toFixed(1)})`);
+    svg.classList.add("live");
+  });
+  svg.addEventListener("pointerleave", () => svg.classList.remove("live"));
+})();
+$("#astro").addEventListener("click", (e) => {
+  const g = e.target.closest(".dot");
+  if (!g) return;
+  const it = BY[g.dataset.id];
+  const y = it.span
+    ? Math.min(LAST, Math.max(Math.floor(it.start), Math.min(YEAR, Math.floor(it.end))))
+    : Math.floor(it.start);
+  setYear(y);
+  requestAnimationFrame(() =>
+    document.getElementById("e-" + it.id)?.scrollIntoView({ behavior: "smooth", block: "center" }),
+  );
+});
+
+turn();
+(document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(render);
+render();
+MOBILE.addEventListener("change", () => {
+  turn();
+  fitBand();
+});

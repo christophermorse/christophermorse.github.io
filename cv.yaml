@@ -1,0 +1,941 @@
+# =============================================================================
+#  Source for the website and the PDF CV. See README.md for the build.
+#
+#  Conventions
+#   - American spelling, except in proper names and French or German titles.
+#   - Dates: YYYY, YYYY-MM or YYYY-MM-DD. `end: present` means ongoing.
+#   - Text fields accept light markdown: *italic*, **bold**, [text](url).
+#   - `themes` tags drive the color and filtering of the visualization.
+#   - `print: false` keeps an entry off the PDF.
+#   - Contact details live in cv.private.yaml, which is not committed.
+# =============================================================================
+
+meta:
+  last_updated: 2026-10-22
+
+themes:
+  cultural-heritage: Museums & digital cultural heritage
+  hci-ux:            Human-computer interaction & UX
+  ai-nlp:            AI, NLP & explainable AI
+  speech:            Speech & language technology
+  digital-humanities: Digital humanities & research computing
+  teaching:          Teaching & training
+  japan:             Japan & Japanese studies
+
+person:
+  first_name: Christopher M.
+  last_name: Morse
+  suffix: Ph.D.
+  position: Computational Linguist · Speech & Language Technology · Human-Centered AI
+  photo: assets/portrait.jpg
+  summary: >-
+    Technology changes how we encounter and experience culture; this much is
+    certain. But how do these interactions enable us to connect with culture and
+    create meaning from it? That question has shaped my career for more than a
+    decade, taking on new dimensions with each attempt to answer it.
+
+    At Harvard, building computational tools for humanities scholars, I explored
+    how meaning emerges from historical sources and the new questions computation
+    allows us to ask of them. My doctoral research in human-computer interaction
+    shifted the focus to museum visitors: what a collection becomes for the person
+    standing in front of it. Later, directing an applied AI lab, I turned to the
+    gap between what a model decides and what a person can understand of that
+    decision. Today, my work brings me to language itself: developing speech and
+    language models for Luxembourgish at the Zenter fir d'Lëtzebuerger Sprooch,
+    so that a language spoken by fewer than half a million people can be spoken
+    to machines as readily as to other people. The tools have evolved, but the
+    question remains the same.
+  linkedin: cmmorse
+  google_scholar:
+    id: 6ZSS-ZEAAAAJ
+    name: Christopher Morse
+  github: christophermorse
+  homepage: https://christophermorse.github.io/
+
+# -----------------------------------------------------------------------------
+places:   # drawn as a ribbon above the timeline
+  - { place: Massachusetts, start: 2003, end: 2017-09 }
+  - { place: Japan, start: 2004-08, end: 2005-07 }
+  - { place: Japan, start: 2006-06, end: 2006-08 }
+  - { place: Luxembourg, start: 2017-09, end: present }
+
+# -----------------------------------------------------------------------------
+education:
+  - degree: "Ph.D. Psychology: *Human-Computer Interaction*"
+    institution: University of Luxembourg
+    location: Esch-sur-Alzette, Luxembourg
+    country: LU
+    start: 2017
+    end: 2021-09
+    themes: [hci-ux, cultural-heritage]
+    items:
+      - "Dissertation: *Museum Meaning-making: Experience Design for Digital Cultural Heritage.* Supervised by Dr. Vincent Koenig."
+      - "Funded by the Luxembourg National Research Fund through its PRIDE program, as one of eleven doctoral positions in the *Digital History and Hermeneutics* Doctoral Training Unit at the C²DH, coordinated by Prof. Andreas Fickers."
+
+  - degree: "A.L.M. Information Technology: *Digital Media & Instructional Design*"
+    institution: Harvard University, Extension School
+    location: Cambridge, MA, USA
+    country: US
+    start: 2012
+    end: 2015
+    themes: [digital-humanities, teaching]
+    items:
+      - "Thesis: *Harmonia: Interactive Music Theory Application.* A web application that teaches the musical modes through interactive data visualization."
+      - Computer-science coursework in programming, data visualization and web applications, with digital photography and interactive media alongside.
+
+  - degree: M.T.S. Religion, Literature, & Culture
+    institution: Harvard University, Divinity School
+    location: Cambridge, MA, USA
+    country: US
+    start: 2007
+    end: 2009
+    themes: [digital-humanities]
+    items:
+      - Interdisciplinary graduate studies in comparative religion, mysticism, and the intersections of religion, literature, and culture.
+      - Coursework explored the expression of spiritual and philosophical ideas across literary traditions, with an emphasis on comparative analysis, interpretation, and critical inquiry.
+
+  - degree: B.A. Japanese Language & Literature
+    institution: University of Massachusetts Amherst
+    location: Amherst, MA, USA
+    country: US
+    start: 2003-09
+    end: 2007-05
+    themes: [japan]
+    items:
+      - Coursework in Japanese language and literature.
+      - "Study abroad at Kwansei Gakuin University (関西学院大学) in Nishinomiya, Hyōgo, and International Christian University (国際基督教大学) in Mitaka, Tokyo."
+      - Minor in religious studies.
+
+  # `kind` overrides the "Degree" label on the timeline.
+  - degree: "Study abroad: *Kwansei Gakuin University (関西学院大学)*"
+    kind: Study abroad
+    institution: Kwansei Gakuin University
+    location: Nishinomiya, Japan
+    country: JP
+    start: 2004-08
+    end: 2005-07
+    themes: [japan]
+    items:
+      - A full academic year of intensive Japanese language study and coursework in Japanese culture, on exchange from UMass Amherst.
+      - "Member of the calligraphy club (書道部) and a private student of a practicing calligrapher."
+
+  - degree: "Study abroad: *International Christian University (国際基督教大学)*"
+    kind: Study abroad
+    institution: International Christian University
+    location: Tokyo, Japan
+    country: JP
+    start: 2006-06
+    end: 2006-08
+    themes: [japan]
+    items:
+      - A summer intensive in Japanese language, literature, and formal writing in Mitaka, Tokyo.
+
+# -----------------------------------------------------------------------------
+experience:
+  - title: Computational Linguist
+    organization: Zenter fir d'Lëtzebuerger Sprooch / Center for the Luxembourgish Language
+    short_org: "Zenter fir d'Lëtzebuerger Sprooch (Center for the Luxembourgish Language)"
+    location: Strassen, Luxembourg
+    country: LU
+    start: 2024-04-01
+    end: present
+    themes: [speech, ai-nlp]
+    items:
+      - Oversees the development of the ZLS's AI and language-technology tools, and of the models behind them.
+      - "Lead designer of [sproochmaschinn.lu](https://sproochmaschinn.lu), one of the first public web platforms for Luxembourgish speech technology, which unites the Schreifmaschinn (speech-to-text) and the Liesmaschinn (text-to-speech). [Launched by the Ministry of Culture](https://gouvernement.lu/fr/gouvernement/eric-thill/actualites.gouvernement2024+fr+actualites+toutes_actualites+communiques+2025+02-fevrier+10-sproochmaschinn-thill.html) in February 2025."
+      - "Creator and technical lead of SproochHub, a platform for building and exploring Luxembourgish corpora. It ingests texts, parliamentary debates and transcribed recordings, aligns speech to its transcript, and holds some 70 million words in one searchable place, with concordance and corpus-query tools for work on word forms, collocations, dispersion and keyness."
+      - Advises a Master's thesis on Luxembourgish language topics, and oversees student workers and external experts across the center's digital projects.
+      - Fine-tuned Whisper Large v3 Turbo on Luxembourgish parliamentary and broadcast speech and integrated pyannote speaker diarization; retrained it on a doubled dataset for version 2.0 (December 2025), the release that brought speaker recognition and a second synthetic voice.
+      - "Improved the Liesmaschinn's original synthetic voice, built by Marco Barnig from the voice of Max Kuborn and given to the center."
+      - "Represents the ZLS's language-technology work nationally and internationally: at UNESCO's LT4All conference (Paris, 2025), and as lead organizer of *Languages at Every Stage*, a technical expert meeting co-hosted with UNESCO later the same year, where he also presented the Center's work."
+      - Teaches workshops and speaks publicly about these tools, as science communication and outreach.
+      - "Recurring contributor to Radio 100,7's *Wat s de net sees!*, on Luxembourgish language and the technology being built for it."
+
+  - title: Director of Labs
+    organization: Zortify
+    location: Luxembourg, Luxembourg
+    country: LU
+    start: 2021-09
+    end: 2024-02
+    themes: [ai-nlp, hci-ux]
+    items:
+      - Built and led Zortify Labs, an interdisciplinary R&D team of researchers, data scientists, psychologists, and designers working on natural language processing, UX, and explainable AI for HR technology.
+      - Supervised the project's doctoral researchers and postdocs alongside the co-director, in a hybrid academic and industry arrangement run with the University of Luxembourg.
+      - Co-led, with Dr Siwen Guo, a €1.4 million R&D project funded by the Luxembourg Ministry of the Economy in partnership with SnT (University of Luxembourg), on multilingual NLP models and interfaces that make AI decisions understandable.
+      - Translated research into product direction, explaining what AI can and cannot do to clients, executives, and investors.
+      - Built research partnerships with universities and industry, and organized the 2023 Zortify Summer School on the Future of Work.
+      - Represented the lab publicly through teaching, publications, talks, and press coverage.
+
+  - title: Doctoral Researcher
+    organization: University of Luxembourg — Centre for Contemporary & Digital History (C²DH) & Human-Computer Interaction Research Group
+    short_org: University of Luxembourg
+    location: Esch-sur-Alzette, Luxembourg
+    country: LU
+    start: 2017
+    end: 2021
+    themes: [cultural-heritage, hci-ux]
+    items:
+      - Investigated how people make meaning from museum collections across physical and digital spaces, drawing on HCI, the psychology of aesthetics, and museology.
+      - Designed and ran user studies of visitors' cognitive and emotional responses to digital museum interfaces, in partnership with the Musée National d'Histoire et d'Art (MNHA).
+      - Published in *ACM Journal on Computing and Cultural Heritage*, *Behaviour & Information Technology*, and *Museums and the Web*, and taught courses in HCI, digital history, and digital museology.
+      - "TEDx speaker: [*Experiential Culture: Feeling the Museum of the Future*](https://www.youtube.com/watch?v=Cp6c0o3N4eQ)"
+
+  - title: Senior Humanities Research Computing Specialist
+    organization: Harvard University Arts & Humanities Research Computing
+    short_org: Harvard
+    location: Cambridge, MA, USA
+    country: US
+    start: 2013
+    end: 2017
+    themes: [digital-humanities, cultural-heritage, teaching]
+    items:
+      - Partnered with humanities faculty to bring computational methods into their research, from linked data and SPARQL to multilingual text mapping.
+      - Built scholarly tools on the International Image Interoperability Framework (IIIF), including a digital critical edition of a 16th-century manuscript at the Biblioteca Apostolica Vaticana, and taught IIIF workshops across the university.
+      - "Created the IIIF image viewer interface through which visitors explored several of the larger objects in *Beyond Words: Illuminated Manuscripts in Boston Collections*, an exhibit spanning Boston's cultural institutions."
+      - Designed data visualizations and interactive tools that made research findings explorable for non-specialist audiences.
+      - Co-founded the *ArtTechPsyche* series and co-organized the Digital Futures Consortium's art-and-technology events at Harvard, among them *sIGHTLines*, THATCamp Harvard and *Thinking with Your Eyes*.
+
+  - title: Access Services Supervisor
+    organization: Harvard Divinity School Library & Harvard-Yenching Library
+    short_org: Harvard
+    location: Cambridge, MA, USA
+    country: US
+    start: 2012
+    end: 2013
+    themes: [digital-humanities]
+    items:
+      - Supervised and trained the access services team across two libraries.
+      - Ran circulation policies and workflows for students, faculty, and staff, and advocated for user needs in library planning.
+
+  - title: Library Assistant
+    organization: Harvard Library, JSTOR Single Copy & Tozzer Renovation projects
+    short_org: Harvard Library
+    location: Cambridge, MA, USA
+    country: US
+    start: 2010
+    end: 2012
+    themes: [digital-humanities]
+    items:
+      - "JSTOR Single Copy Project: decommissioned the library's extensive print JSTOR holdings in Aleph, together with the cataloging their withdrawal entailed."
+      - "Tozzer Renovation Project: supported the transfer of the Tozzer Library collections in preparation for the building's renovation, cataloging material as it moved."
+      - Automated both workflows, writing macros that replaced record-by-record processing with repeatable batch procedures.
+
+  - title: Library Assistant
+    organization: Harvard Library, Map Collection & Littauer Judaica Division
+    short_org: Harvard Map Collection
+    location: Cambridge, MA, USA
+    country: US
+    start: 2007
+    end: 2009
+    themes: [cultural-heritage]
+    items:
+      - "Harvard Map Collection: paged cartographic material for readers and restored it to the stacks, and produced large-format facsimiles of oversized sheets on the collection's wide-format printer for researchers, artists and other patrons."
+      - "Littauer Judaica Division: cataloged the division's collection of ephemera in Aleph, to the MARC standard."
+
+  - title: Study Abroad Advisor
+    organization: University of Massachusetts Amherst, International Programs Office
+    short_org: UMass Amherst
+    location: Amherst, MA, USA
+    country: US
+    start: 2005-09
+    end: 2007-05
+    themes: [teaching, japan]
+    items:
+      - First point of contact for students interested in study abroad programs.
+      - Provided tailored guidance on selecting countries and academic programs.
+      - Offered insights into the practical realities of living abroad, informed by first-hand international experience.
+
+# -----------------------------------------------------------------------------
+publications:
+  refereed:
+    - authors: A. Lushnikova, C. Morse, S. Doublet, V. Koenig, K. Bongard-Blanchy
+      title: "Self-Determination Theory Applied To Museum Website Experiences: Fulfill Visitor Needs, Increase Motivation, and Promote Engagement."
+      venue: "Proceedings of the European Conference on Cognitive Ergonomics (ECCE '23), Article 26, 1–7"
+      year: 2023
+      url: https://doi.org/10.1145/3605655.3605658
+      themes: [cultural-heritage, hci-ux]
+
+    - authors: C. Morse, J. Niess, K. Bongard-Blanchy, S. Rivas, C. Lallemand, V. Koenig
+      title: "Impressions that last: representing the meaningful museum experience"
+      venue: Behaviour & Information Technology 42(8), 1127–1154
+      year: 2023
+      url: https://www.tandfonline.com/doi/abs/10.1080/0144929X.2022.2061375
+      themes: [cultural-heritage, hci-ux]
+
+    - authors: C. Morse
+      title: Meaning-making in the digital museum
+      venue: Studies in Digital History and Hermeneutics
+      year: 2022
+      url: https://www.degruyter.com/serial/sdhh-b/html?lang=en
+      themes: [cultural-heritage]
+
+    - authors: C. Morse, B. Landau, C. Lallemand, L. Wieneke, V. Koenig
+      title: "From #MuseumAtHome to #AtHomeAtTheMuseum: Digital Museums and Dialogical Engagement Beyond the COVID-19 Pandemic."
+      venue: ACM Journal on Computing and Cultural Heritage (JOCCH)
+      year: 2022
+      url: https://dl.acm.org/doi/full/10.1145/3480955
+      themes: [cultural-heritage, hci-ux]
+
+    - authors: C. Morse, J. Niess, C. Lallemand, L. Wieneke, V. Koenig
+      title: "Casual leisure in rich-prospect: Advancing visual information behavior for digital museum collections."
+      venue: ACM Journal on Computing and Cultural Heritage (JOCCH) 14(3), 1–23
+      year: 2021
+      url: https://dl.acm.org/doi/abs/10.1145/3437257
+      themes: [cultural-heritage, hci-ux]
+
+    - authors: C. Morse, C. Lallemand, L. Wieneke, V. Koenig
+      title: "Virtual masterpieces: Innovation through public co-creation for digital museum collections."
+      venue: International Journal of the Inclusive Museum 15(1)
+      year: 2021
+      url: https://orbilu.uni.lu/handle/10993/49419
+      themes: [cultural-heritage]
+
+    - authors: C. Morse, M. de Kramer
+      title: "What's in a Name: Gamifying the Intangible History of Larochette, Luxembourg."
+      venue: Proceedings of the 23rd International Conference on Cultural Heritage and New Technologies 2018
+      year: 2019
+      url: https://orbilu.uni.lu/handle/10993/41724
+      themes: [cultural-heritage]
+
+    - authors: C. Morse, V. Koenig, C. Lallemand, L. Wieneke
+      title: "Art in Rich-Prospect: Evaluating Next-Generation User Interfaces for Cultural Heritage."
+      venue: "MW2019: Museums and the Web"
+      year: 2019
+      url: https://mw19.mwconf.org/paper/art-in-rich-prospect-evaluating-next-generation-user-interfaces-for-cultural-heritage-2/
+      themes: [cultural-heritage, hci-ux]
+
+    - authors: M. de Kramer, S. Mesch, C. Morse
+      title: Reconstructing the historic landscape of Larochette, Luxembourg.
+      venue: Euro-Mediterranean Conference (Lecture Notes in Computer Science)
+      year: 2018
+      url: https://link.springer.com/chapter/10.1007/978-3-030-01765-1_4
+      themes: [cultural-heritage, digital-humanities]
+
+  thesis:
+    - authors: C. Morse
+      title: "Museum Meaning-making: Experience Design for Digital Cultural Heritage"
+      venue: Doctoral dissertation, University of Luxembourg
+      year: 2021
+      themes: [cultural-heritage, hci-ux]
+
+  other:
+    - authors: C. Morse
+      title: Un partenaire de conversation culturelle.
+      venue: La lettre de l'Ocim
+      year: 2023
+      url: https://ocim.fr/lettre/conversations-immersives-technologies-emergentes-au-musee/
+      themes: [cultural-heritage, ai-nlp]
+    - authors: C. Morse
+      title: Les musées et l'expérience utilisateur (UX)
+      venue: La lettre de l'Ocim
+      year: 2022
+      url: https://ocim.fr/lettre/musees-et-economie-creativelexperience-utilisateur-adaptative/
+      themes: [cultural-heritage, hci-ux]
+    - authors: C. Morse
+      title: Curating the Meaningful Museum
+      venue: Culture.lu
+      year: 2021
+      url: https://www.culture.lu/blog/articles/its-not-rocket-science/curating-meaningful-museum
+      themes: [cultural-heritage]
+    - authors: C. Morse
+      title: A (Digital) Museum for the Rest of Us
+      venue: Culture.lu
+      year: 2021
+      url: https://www.culture.lu/blog/articles/its-not-rocket-science/digital-museum-rest-us
+      themes: [cultural-heritage]
+    - authors: S. Van Herck, C. Morse
+      title: "#LuxLife: Reflections on The Recurated Museum."
+      venue: C²DH Thinkering Blog
+      year: 2020
+      url: https://www.c2dh.uni.lu/thinkering/luxlife-reflections-recurated-museum
+      themes: [cultural-heritage]
+    - authors: C. Morse
+      title: "The Experiential Museum: about two Design Jam workshops organized at the museum"
+      venue: "museomag 03/2019, pp. 24–25 (Musée National d'Histoire et d'Art)"
+      year: 2019
+      url: "https://collections.mnaha.lu/fullscreen/alma990013389880107251_1903/24/"
+      themes: [cultural-heritage, hci-ux]
+    - authors: J. Emanuel, C. Morse, L. Hollis
+      title: "The New Interactive: Reimagining Visual Collections as Immersive Environments."
+      venue: Visual Resources Association (VRA) Bulletin 43(2)
+      year: 2016
+      url: https://online.vraweb.org/index.php/vrab/article/view/52
+      themes: [digital-humanities, cultural-heritage]
+
+# -----------------------------------------------------------------------------
+talks:
+  - id: note-to-self-2026
+    type: workshop
+    authors: C. Morse
+    title: "Note to Self: Remember Everything"
+    event: THE NETWORK (Luxembourg's professional women's network)
+    location: Luxembourg
+    country: LU
+    date: 2026-04-22
+    description: Hands-on workshop on the Zettelkasten method for building a connected personal knowledge base, and on using AI to support note creation.
+    url: "https://www.linkedin.com/posts/thenetworklu_facilitator-spotlight-christopher-morse-activity-7449694373904199680-REl9"
+    themes: [ai-nlp, teaching]
+  - authors: C. Morse
+    title: "The Luxembourgish 'Language Machine': New Tools for Luxembourgish AI"
+    event: "Elements of AI Luxembourg — Talk Time, Digital Learning Hub"
+    teaching: true
+    location: Esch-Belval, Luxembourg
+    country: LU
+    date: 2026-04-22
+    url: "https://www.linkedin.com/posts/cmmorse_many-thanks-to-the-digital-learning-hub-luxembourg-activity-7453087665349898240-_Ssa"
+    themes: [speech, ai-nlp, teaching]
+  - type: workshop
+    authors: C. Morse (co-presenter)
+    title: "Démonstration d'outils d'intelligence artificielle"
+    event: "Assises culturelles IA, Ministère de la Culture"
+    location: Differdange, Luxembourg
+    country: LU
+    date: 2025-11-12
+    description: "Interactive demonstration of a Luxembourgish speech-to-speech chatbot using ZLS tools."
+    themes: [ai-nlp, teaching]
+  - authors: C. Morse
+    title: "Toward an AI-Informed Digital Ecosystem for Luxembourgish"
+    event: "Languages at Every Stage: A Technical Dialogue on Inclusive Language Technology Development, UNESCO and the ZLS"
+    location: Online
+    country: LU
+    date: 2025-09-25
+    description: "The applied language technologies built at the Center — speech recognition, speech synthesis and corpus-linguistic tools — and how open standards, participatory design and transparent data practices make them a question of digital sovereignty."
+    themes: [speech, ai-nlp]
+  - authors: C. Morse
+    title: "Unlocking Luxembourgish: Hands-On with AI-Powered NLP Tools"
+    event: "Elements of AI Luxembourg — Talk Time, Digital Learning Hub"
+    teaching: true
+    location: Esch-Belval, Luxembourg
+    country: LU
+    date: 2025-04-22
+    themes: [speech, ai-nlp, teaching]
+  - authors: C. Morse, D. Wagener
+    title: "Encoding Data, Decoding Meaning: Curating High-Quality Datasets for Luxembourgish NLP Tools"
+    event: "GovTech Afterwork: Advances, Challenges, and Opportunities in Creating Data for Trustworthy AI, GovTech Lab"
+    location: Luxembourg, Luxembourg
+    country: LU
+    date: 2025-04-03
+    url: "https://govtechlab.public.lu/en/agenda/2025/afterwork11.html"
+    description: "An exchange between the public and private sectors, where professionals in the field presented their concepts, current projects and practical approaches to building data for trustworthy AI."
+    themes: [speech, ai-nlp]
+  - authors: C. Morse
+    title: "D'Sproochmaschinn and Beyond: A Digital Corpus Infrastructure"
+    event: "Digital Tools for Small Languages: Needs and Strategies, University of Luxembourg"
+    location: Esch-sur-Alzette, Luxembourg
+    country: LU
+    date: 2025-03-06
+    description: "The language technologies built at the Center, with SproochHub — the corpus infrastructure underneath them — introduced as a live demonstration."
+    themes: [speech, ai-nlp]
+  - id: lt4all-2025
+    authors: C. Morse
+    title: "Redefining Progress in the Margins: Lessons from Big Tech & Small Data"
+    event: LT4All, UNESCO
+    location: Paris, France
+    country: FR
+    date: 2025-02-24
+    themes: [speech, ai-nlp]
+  - authors: H. Kiesow, C. Morse
+    title: "Well-being from Within: Using Technology to Understand the Human Psyche."
+    event: Ada Lovelace Festival
+    location: Berlin, Germany
+    country: DE
+    date: 2022-09-14
+    themes: [ai-nlp]
+  - authors: C. Morse, H. Kiesow
+    title: "Resilience in the singularity: using technology to understand the human psyche."
+    event: PIRATE Summit
+    location: Cologne, Germany
+    country: DE
+    date: 2022-06-27
+    themes: [ai-nlp]
+  - authors: C. Morse
+    title: "Experiential culture: feeling the museum of the future"
+    event: TEDx University of Luxembourg
+    location: Esch-sur-Alzette, Luxembourg
+    country: LU
+    date: 2019-10-25
+    url: https://www.youtube.com/watch?v=Cp6c0o3N4eQ
+    themes: [cultural-heritage]
+  - authors: C. Morse
+    title: Emotional Design for Digital Cultural Heritage.
+    event: "Interact 2019: Doctoral Consortium"
+    location: Paphos, Cyprus
+    country: CY
+    date: 2019-09
+    themes: [cultural-heritage, hci-ux]
+  - authors: C. Morse et al.
+    title: "Art in Rich-Prospect: Evaluating Next-Generation User Interfaces for Cultural Heritage."
+    event: MuseWeb 2019
+    location: Boston, MA, USA
+    country: US
+    date: 2019-04
+    themes: [cultural-heritage, hci-ux]
+  - authors: C. Morse
+    title: Emotional Design for Digital Cultural Heritage.
+    event: "Harvard University: ArtTechPsyche V"
+    location: Cambridge, MA, USA
+    country: US
+    date: 2019-03-29
+    themes: [cultural-heritage, hci-ux]
+  - authors: C. Morse
+    title: Novel Interfaces for Cultural Heritage.
+    event: European Academy of Religion Conference
+    location: Bologna, Italy
+    country: IT
+    date: 2018-03-05
+    themes: [cultural-heritage]
+  - authors: C. Morse et al.
+    title: Présentation de la formation doctorale du Luxembourg Centre for Contemporary and Digital History - C²DH.
+    event: DH Nord
+    location: Lille, France
+    country: FR
+    date: 2017-11-27
+    themes: [digital-humanities]
+  - authors: A. Phillips, C. Morse
+    title: Creating a Digital Critical Edition of a 16th Century Bilingual Manuscript at the Biblioteca Apostolica Vaticana.
+    event: International Image Interoperability Framework (IIIF) Conference
+    location: Vatican City
+    country: VA
+    date: 2017-06-07
+    themes: [digital-humanities, cultural-heritage]
+  - authors: C. Morse
+    title: "Hacking Mirador: The International Image Interoperability Framework (IIIF) and Digital Scholarly Editions"
+    event: Boston College
+    location: Boston, MA, USA
+    country: US
+    date: 2017-03-27
+    themes: [digital-humanities]
+
+# -----------------------------------------------------------------------------
+organizing:
+  - title: "Languages at Every Stage: A Technical Dialogue on Inclusive Language Technology Development"
+    role: Lead organizer
+    host: "Zenter fir d'Lëtzebuerger Sprooch and UNESCO"
+    location: Online
+    country: LU
+    date: 2025-09-25
+    description: "Experts from national language institutions, academia, civil society and industry on how indigenous, minoritized and under-resourced languages can thrive in digital environments. Building on UNESCO's LT4All conference and the draft Global Roadmap for Multilingualism in the Digital Era, it asked how AI, open data and infrastructure might be aligned so that linguistic diversity drives innovation rather than exclusion."
+    themes: [speech, ai-nlp]
+  - title: "Zortify Summer School: The Future of Work"
+    host: Zortify
+    location: "Luxembourg, Luxembourg"
+    country: LU
+    date: 2023-08-28
+    description: "A week at PwC Luxembourg for some thirty PhD students, postdocs, researchers and industry professionals, on the future of work and the AI being built for it. Covered by [RTL Today](https://today.rtl.lu/news/business-and-tech/zortify-summer-school-the-future-of-work-2102344)."
+    themes: [ai-nlp]
+  - title: MNHA Design Jam
+    host: "Musée National d'Histoire et d'Art"
+    location: "Luxembourg, Luxembourg"
+    country: LU
+    date: 2019-06
+    description: "Two public sessions run with the museum's Service Numérisation, in which designers, museum staff and members of the public worked through design-thinking exercises on the new collections platform and built low-fidelity prototypes of their own."
+    themes: [cultural-heritage, hci-ux]
+  - title: "Making History Together: Public Participation in Museums"
+    role: Co-organizer
+    host: University of Luxembourg
+    location: "Online, from Luxembourg"
+    country: LU
+    date: 2020-12-15
+    url: "https://orbilu.uni.lu/handle/10993/49662"
+    description: "An international online symposium of scholars, museum professionals and heritage practitioners on how participatory history is built in museums, across co-creation and co-production, communities of interpretation, digital participatory practice, and empowerment."
+    themes: [cultural-heritage]
+  - title: ArtTechPsyche III
+    role: Co-founder and co-organizer
+    host: Harvard University
+    location: "Cambridge, MA, USA"
+    country: US
+    date: 2017-04-20
+    url: "https://digital-futures-consortium.github.io/art-tech-psyche-iii/"
+    description: "The third edition, at Arts @ 29 Garden: a day of immersive digital experiences, art exhibitions, technology demos and speakers, with Harvard DARTH and the Harvard Library."
+    image: assets/arttechpsyche-iii-2017.jpg
+    credits: "Poster: C. Morse"
+    themes: [hci-ux]
+  - title: "Visual Eloquence: A Hands-on Workshop for Creating Effective Data Visualizations"
+    role: Co-organizer
+    host: Harvard University
+    location: "Cambridge, MA, USA"
+    country: US
+    date: 2016-11-02
+    url: "https://digital-futures-consortium.github.io/visual-eloquence/"
+    description: "A participatory workshop on visualizing data: short presentations, a hands-on exercise building a data-driven narrative, and an open lab for participants' own projects. Co-presented with Harvard Library and Digital History at Harvard."
+    themes: [digital-humanities, teaching]
+  - title: ArtTechPsyche II
+    role: Co-founder and co-organizer
+    host: Harvard University
+    location: "Cambridge, MA, USA"
+    country: US
+    date: 2016-04-14
+    url: "https://digital-futures-consortium.github.io/art-tech-psyche-ii/"
+    description: "The second edition, again at Arts @ 29 Garden, on how technology shapes us and how artists in turn challenge and inform what technology becomes."
+    image: assets/arttechpsyche-ii-2016.jpg
+    credits: "Poster: C. Morse"
+    themes: [hci-ux]
+  - title: "sIGHTLines: proJECT"
+    role: Co-organizer
+    host: Harvard University
+    location: "Cambridge, MA, USA"
+    country: US
+    date: 2016-02-11
+    url: "https://digital-futures-consortium.github.io/sightlines-project/"
+    description: "Prepare, discover, interact. The last of the sIGHTLines trilogy: a look at the near future of interactive imagery for cultural heritage, across conservation, education, and augmented, virtual and mixed reality."
+    themes: [digital-humanities]
+  - title: "sIGHTLines: obJECT"
+    role: Co-organizer
+    host: Harvard University
+    location: "Cambridge, MA, USA"
+    country: US
+    date: 2015-12-03
+    url: "https://digital-futures-consortium.github.io/sightlines-object/"
+    description: "Preserve, use, engage. What emerging technologies were doing to technical imagery in the humanities, with multispectral imaging, art conservation, gamification and data visualization."
+    themes: [digital-humanities]
+  - title: "Memories Realized: From Objects and Media to Curation and Scholarship"
+    role: Co-organizer
+    host: Harvard University
+    location: "Cambridge, MA, USA"
+    country: US
+    date: 2015-11-10
+    url: "https://digital-futures-consortium.github.io/memories-realized/"
+    description: "A panel on how memory, events and personal objects become online archives, and on the sometimes complicated path from cultural heritage material to scholarly resource."
+    themes: [cultural-heritage]
+  - title: "sIGHTLines: obSERVE"
+    role: Co-organizer
+    host: Harvard University
+    location: "Cambridge, MA, USA"
+    country: US
+    date: 2015-10-14
+    url: "https://digital-futures-consortium.github.io/sightlines-observe/"
+    description: "Capture, process, deliver. The first of the sIGHTLines trilogy, on image acquisition: 2D, multispectral and 3D imaging, and the case for shared standards, open access and collaboration."
+    themes: [digital-humanities]
+  - title: Art Technology Psyche
+    role: Co-founder and co-organizer
+    host: Harvard University
+    location: "Cambridge, MA, USA"
+    country: US
+    date: 2015-04-23
+    url: "https://digital-futures-consortium.github.io/art-tech-psyche/"
+    description: "The first ArtTechPsyche: a day of art installations, software demos and speakers celebrating human expression at the meeting point of technology and the arts."
+    image: assets/arttechpsyche-2015.jpg
+    credits: "Poster: C. Morse"
+    themes: [hci-ux]
+  - title: THATCamp Harvard
+    role: Co-organizer
+    host: Harvard University
+    location: "Cambridge, MA, USA"
+    country: US
+    date: 2014-09-27
+    url: "https://digital-futures-consortium.github.io/thatcamp-2014/"
+    description: "An unconference at the Graduate School of Education, where humanists and technologists of every skill level learned and built together in sessions proposed on the spot."
+    image: assets/thatcamp-harvard-2014.jpg
+    credits: "Poster: C. Morse"
+    themes: [digital-humanities]
+  - title: "Thinking with Your Eyes: Visualizing the Arts, Humanities, & Sciences"
+    role: Co-organizer
+    host: Harvard University
+    location: "Cambridge, MA, USA"
+    country: US
+    date: 2014-02-27   # ran 27-28 February 2014
+    url: "https://digital-futures-consortium.github.io/thinking-with-your-eyes-visualizing-the-arts-humanities-sciences/"
+    description: "A two-day symposium on visualization across the disciplines, keynoted by Martin Wattenberg and Fernanda Viégas of Google's Big Picture group, with lightning rounds, roundtables and hands-on workshops. Covered by the [Harvard Gazette](https://news.harvard.edu/gazette/story/2014/03/grasping-with-the-eyes/)."
+    image: assets/thinking-with-your-eyes-logo.png
+    credits: "Logo: C. Morse"
+    themes: [digital-humanities]
+  - title: "A More Open Future for the Past: Publishing, Data, and Archaeology"
+    role: Co-organizer
+    host: Harvard University
+    location: "Cambridge, MA, USA"
+    country: US
+    date: 2013-11-13
+    url: "https://digital-futures-consortium.github.io/more-open-future/"
+    description: "Eric Kansa on Open Context, an open-access publishing venue for archaeology built on the idea of data sharing as publishing, with peer review and linked open data. The inaugural talk of the Consortium's series on digital scholarship, an hour after the NOW Edition and in the same room."
+    themes: [digital-humanities]
+  - title: "Digital Futures: The NOW Edition"
+    role: Co-organizer
+    host: Harvard University
+    location: "Cambridge, MA, USA"
+    country: US
+    date: 2013-11-13
+    url: "https://digital-futures-consortium.github.io/digital-futures-now-edition/"
+    description: "A showcase of digital projects from across the university, opening with metaLab on crowd-curated museum collections, and given over to informal conversation about digital work in teaching and scholarship."
+    themes: [digital-humanities]
+
+# -----------------------------------------------------------------------------
+teaching:
+  courses:
+    - title: "Automatesch Sproochveraarbechtung (Natural Language Processing)"
+      institution: "Zenter fir d'Lëtzebuerger Sprooch, for the BTS Media Writing program"
+      term: 6 Feb 2026
+      year: 2026-02-06   # sort key; `term` is what is displayed
+      description: "An introduction to the concepts of natural language processing for Brevet de technicien supérieur students in Media Writing, taught as a module of the program by the Center."
+      themes: [teaching, ai-nlp, speech]
+    - title: Data Visualization with D3.js
+      institution: Digital Learning Hub
+      url: https://dlh.lu
+      term: Spring 2023
+      year: 2023
+      description: Introduction to interactive data visualization with the D3.js JavaScript library.
+      themes: [teaching, digital-humanities]
+    - title: The Recurated Museum
+      institution: University of Luxembourg
+      term: Spring 2020
+      year: 2020
+      description: Digital museology course on the design and development of digital cultural heritage interfaces.
+      themes: [teaching, cultural-heritage]
+    - title: Human-Computer Interaction
+      institution: University of Luxembourg
+      term: Fall & Spring 2019–20
+      year: 2019
+      description: Introduction to human-computer interaction and the psychology of technology use.
+      themes: [teaching, hci-ux]
+    - title: Introduction to Digital History
+      institution: University of Luxembourg
+      term: Spring 2019
+      year: 2019
+      description: Introduction to digital history and humanities computing for cultural heritage.
+      themes: [teaching, digital-humanities]
+  workshops:
+    - { title: "A Digital Rosetta: Mapping Multilingual Text", host: Harvard University, date: 2016-11, themes: [teaching, digital-humanities] }
+    - { title: "SPARQL: Become a Data Guru", host: Harvard University, date: 2016-11, themes: [teaching, digital-humanities] }
+    - { title: "Classical Language Toolkit (CLTK): Tools for the Ultimate Digital Commentary", host: Harvard University, date: 2016-10, themes: [teaching, digital-humanities] }
+    - { title: "Hacking Mirador: Building Scholarly Scrapbooks with IIIF", host: Harvard University, date: 2016-10, themes: [teaching, digital-humanities] }
+    - { title: Artful Narratives with Klynt, host: Harvard University, date: 2015-03, themes: [teaching, digital-humanities] }
+
+# -----------------------------------------------------------------------------
+grants:
+  - category: Research & Development Project
+    title: "Towards accurate and unbiased natural language processing (NLP) for Europe – Building domain-specific multilingual models and enabling usable and explainable insights from text data for European decision-makers."
+    url: https://chronicle.lu/category/innovation/45773-zortify-snt-join-forces-to-pioneer-ethical-use-of-ai
+    funder: Luxembourg Ministry of the Economy
+    partner: SnT, University of Luxembourg
+    co_lead: Dr Siwen Guo
+    amount: €1.4 million
+    start: 2022
+    end: 2024
+    description: "Built on three pillars: training language models on ethically sourced data for European languages, including low-resource ones such as Luxembourgish; explainability, opening up how complex language models reach decisions; and interaction design, so non-experts can use the technology and its insights."
+    press:   # media entries (matched by url) shown with the grant
+      - https://www.siliconluxembourg.lu/zortify-snt-pioneer-next-gen-hr-ai-tech/
+      - https://chronicle.lu/category/innovation/45773-zortify-snt-join-forces-to-pioneer-ethical-use-of-ai
+    themes: [ai-nlp, hci-ux]
+
+# -----------------------------------------------------------------------------
+skills:
+  - category: Speech & ML
+    items: [Whisper fine-tuning, pyannote (speaker diarization), "voice model training: Coqui TTS, VITS, VITS2, IndexTTS2", Hugging Face, PyTorch, on-premise model deployment]
+  - category: Python
+    items: [Flask, Jupyter, Neo4j, PyTorch]
+  - category: JavaScript & Visualization
+    items: [D3.js, Vega, ReactJS, Three.js, A-Frame.js, NodeJS]
+  - category: Linked Data & Markup
+    items: [IIIF, LinkedArt, SPARQL, XML, HTML5/CSS, LaTeX]
+  - category: Research Methods
+    items: [User studies, Experience design, Mixed-methods UX research]
+  - category: Graphic & Print
+    items: [Adobe Illustrator, Adobe InDesign, Adobe Photoshop, Inkscape]
+
+languages:
+  - { language: English, level: native }
+  - { language: Japanese, level: C1 }
+  - { language: French, level: C1 }
+  - { language: Luxembourgish, level: B2 }
+  - { language: Spanish, level: A2 }
+
+# -----------------------------------------------------------------------------
+media:
+  - title: "Lëtzebuergesch. Digital. Fir jiddereen zougänglech."
+    outlet: FGFC
+    date: 2026-10-14
+    url: "https://www.fgfc.lu/fr-lu/actualites/letzebuergesch-digital-fir-jiddereen-zougaenglech/"
+    themes: [speech, ai-nlp]
+  - title: "Facilitator Spotlight: Christopher Morse"
+    outlet: THE NETWORK (LinkedIn)
+    date: 2026-04-14
+    url: "https://www.linkedin.com/posts/thenetworklu_facilitator-spotlight-christopher-morse-activity-7449694373904199680-REl9"
+    related: note-to-self-2026   # links to the workshop entry under talks
+    themes: [ai-nlp, teaching]
+  - title: "Nei digital Outile Sprooch- a Liesmaschinn"
+    outlet: RTL Journal
+    date: 2025-12-13
+    url: "https://play.rtl.lu/shows/lb/journal/episodes/r/3438045"
+    mentions: Television news coverage of the Sproochmaschinn's second launch, for version 2.0.
+    themes: [speech]
+  - title: "Vum LOD bis zur Kënschtlecher Intelligenz"
+    outlet: "Konterbont (Dag vun der Lëtzebuerger Sprooch issue)"
+    date: 2025-09-26
+    url: "https://konterbont.app/lod-bis-ki/"
+    credits: "Text: Heng Barone"
+    mentions: Interview about the Sproochmaschinn platform and language technologies at the ZLS.
+    themes: [speech, ai-nlp]
+  - { title: "Tech is Giving Luxembourgish A Digital Future", outlet: Silicon Luxembourg, date: 2025-09-22, url: "https://www.siliconluxembourg.lu/tech-is-giving-luxembourgish-a-digital-future/", themes: [speech] }
+  - title: "Wie Computer Luxemburgisch sprechen lernen"
+    outlet: Revue (Wissenschaft, pp. 20–23)
+    credits: "Text: Desislava Schengen; photos: Tania Feller"
+    date: 2025-04-09
+    image: assets/revue-2025.jpg
+    themes: [speech, ai-nlp]
+  - title: "LT4All: Eric Thill inauguréiert Unesco-Konferenz iwwer Sproochtechnologien"
+    outlet: Commission luxembourgeoise pour la coopération avec l'UNESCO
+    date: 2025-02-25
+    url: "https://unesco.public.lu/fr/actualites/2025/fevrier/sproochentechnologien.html"
+    mentions: "Named for his LT4All talk, \"Redefining Progress in the Margins: Lessons from Big Tech & Small Data\", on Luxembourgish as a small language in a multilingual setting."
+    related: lt4all-2025   # links to the talk entry under talks
+    themes: [speech, ai-nlp]
+  - title: "Praxistest: Wie gut spricht die Liesmaschinn Lëtzebuergesch?"
+    outlet: Luxemburger Wort
+    date: 2025-02-13
+    url: "https://www.wort.lu/kultur/praxistest-wie-gut-spricht-die-liesmaschinn-letzebuergesch/40626825.html"
+    mentions: A hands-on test of the Liesmaschinn's synthetic speech.
+    themes: [speech]
+  - title: "D'Sproochmaschinn beherrscht Luxemburgisch auf Knopfdruck"
+    outlet: Luxemburger Wort
+    date: 2025-02-10
+    url: "https://www.wort.lu/kultur/d-sproochmaschinn-beherrscht-luxemburgisch-auf-knopfdruck/39843950.html"
+    themes: [speech, ai-nlp]
+  - title: "Un outil transcrit du texte et de l'audio en luxembourgeois"
+    outlet: L'essentiel
+    date: 2025-02-10
+    url: "https://www.lessentiel.lu/fr/story/langue-au-luxembourg-un-outil-transcrit-du-texte-et-de-l-audio-en-luxembourgeois-103278177"
+    themes: [speech, ai-nlp]
+  - title: "Luxemburg setzt auf KI zur Sprachförderung"
+    outlet: L'essentiel
+    date: 2025-02-10
+    url: "https://www.lessentiel.lu/de/story/sprachbarrieren-sproochmaschinn-luxemburg-setzt-auf-ki-zur-sprachfoerderung-103278196"
+    themes: [speech, ai-nlp]
+  - title: "Geschwaten Texter verschrëftlechen oder Texter lauschteren"
+    outlet: Radio 100,7
+    date: 2025-02-11
+    url: "https://100komma7.lu/news/Sproochmaschinn-lu-Neien?pd=radio"
+    themes: [speech]
+  - title: "Sproochmaschinn.lu: Eric Thill présente les applications numériques pour la langue luxembourgeoise"
+    outlet: Le gouvernement luxembourgeois
+    date: 2025-02-10
+    url: "https://gouvernement.lu/fr/gouvernement/eric-thill/actualites.gouvernement2024+fr+actualites+toutes_actualites+communiques+2025+02-fevrier+10-sproochmaschinn-thill.html"
+    mentions: "Pictured and named at the launch, with Daniel Wagener and Alexandre Ecker"
+    image: assets/sproochmaschinn-launch-2025.jpg
+    # gouvernement.lu allows photos to be reproduced where the source is named,
+    # so this credit must stay visible wherever the picture appears.
+    credits: "Photo © MCULT, Ministère de la Culture"
+    themes: [speech, ai-nlp]
+  - title: "Inaugural Zortify Summer School to Address Future of Work"
+    outlet: Chronicle.lu
+    date: 2023-08-03
+    url: "https://chronicle.lu/category/hr-recruitment/46229-inaugural-zortify-summer-school-to-address-future-of-work"
+    credits: "Text: ED"
+    pull_quote: "The future of AI is human, and the future of work is us."
+    mentions: "Quoted on the first Zortify Summer School"
+    themes: [ai-nlp, teaching]
+  - { title: "Back to school: Zortify's data-driven future of work", outlet: Delano, date: 2023-06-28, url: "https://delano.lu/article/back-to-school-zortify-s-data-", themes: [ai-nlp] }
+  - title: "Zortify, SnT Join Forces to Pioneer Ethical Use of AI"
+    outlet: Chronicle.lu
+    date: 2023-06-28
+    url: "https://chronicle.lu/category/innovation/45773-zortify-snt-join-forces-to-pioneer-ethical-use-of-ai"
+    mentions: "Pictured at the partnership signing; named with Dr Siwen Guo as leading the R&D project with SnT"
+    themes: [ai-nlp, hci-ux]
+  - title: "Zortify & SnT Pioneer Next-Gen HR AI Tech"
+    outlet: Silicon Luxembourg
+    date: 2023-05-15
+    url: "https://www.siliconluxembourg.lu/zortify-snt-pioneer-next-gen-hr-ai-tech/"
+    credits: "Text: Jess Bauldry"
+    pull_quote: "The future of AI is human. At its core, AI is a reflection of ourselves, so it is essential that we create ethically and responsibly in order to reflect the best of us."
+    mentions: "Quoted on responsible AI development"
+    themes: [ai-nlp, hci-ux]
+  - { title: "Zortify et le SnT unis autour d'une IA «éthique» pour les RH", outlet: Paperjam, date: 2023-05-12, url: "https://paperjam.lu/article/zortify-et-snt-unis-autour-ia-", themes: [ai-nlp] }
+  - { title: "Careers Talk: Becoming Director of Zortify Labs", outlet: EURAXESS Luxembourg, date: 2023-01-16, url: "https://youtu.be/v242qHjBMfU", themes: [ai-nlp] }
+  - title: "Christopher Morse: Mediatioun brauch Emotioun"
+    outlet: "Radio 100,7"
+    date: 2022-01-19
+    url: "https://www.100komma7.lu/article/kultur/christopher-morse-mediatioun-brauch-emotioun"
+    mentions: "Interview; [listen to the broadcast](https://100komma7.lu/program/episode/382599/20220119084800-20220119085400?pd=radio&show_id=256597&episode_id=435869)"
+    themes: [cultural-heritage]
+  - { title: "In conversation with our young researchers: Christopher Morse", outlet: Research Luxembourg, date: 2021-09-17, url: "https://www.researchluxembourg.org/en/in-conversation-with-our-young-researchers-christopher-morse/", themes: [cultural-heritage] }
+  - { title: "MNHA Launches Digital Collections Platform", outlet: Chronicle.lu, date: 2019-06-18, url: "https://chronicle.lu/category/museums/29558-mnha-launches-digital-platform", themes: [cultural-heritage] }
+  - title: "A Hands-On exploration through Luxembourg's virtual and real landscapes of digital developments in Education, Research and Culture"
+    outlet: C²DH, University of Luxembourg
+    date: 2019-02-01
+    url: "https://www.uni.lu/c2dh-en/news/a-hands-on-exploration-through-luxembourgs-virtual-and-real-landscapes-of-digital-developments-in-education-research-and-culture/"
+    credits: "Text: Juliane Tatarinov"
+    mentions: "At the C²DH's first Forum Z, *Who's afraid of the Digital?*, presenting the virtual reconstruction of Larochette Castle with Marleen de Kramer: a hands-on tour of a virtual room of the castle, gathering visitors' feedback for a learning game about the site."
+    themes: [cultural-heritage, digital-humanities]
+  - { title: "'Charlie' ou 'pas Charlie', comment Harvard a décidé de tout archiver", outlet: "L'Obs", date: 2016-07-08, url: "https://www.nouvelobs.com/attentats-terroristes-a-paris/20160708.OBS4267/charlie-ou-pas-charlie-comment-harvard-a-decide-de-tout-archiver.html", themes: [digital-humanities] }
+  - { title: "Arts and Technology Speakers Come Together At Conference", outlet: The Harvard Crimson, date: 2015-04-24, url: "https://www.thecrimson.com/article/2015/4/24/arts-technology-together-conference/", themes: [hci-ux] }
+
+# -----------------------------------------------------------------------------
+broadcast:
+  - show: "Wat s de net sees!"
+    outlet: "Radio 100,7"
+    role: Recurring contributor (ZLS language series)
+    url: "https://100komma7.lu/show/Wat-s-de-net-sees/"
+    start: 2025
+    end: present
+    themes: [speech, ai-nlp]
+    episodes:
+      - title: "Schwätz kee Kabes, du domm Noss!"
+        with: Sarah Hess
+        date: 2026-09-17
+        topic: The Luxembourgish habit of building insults out of fruit and vegetables.
+        url: "https://100komma7.lu/show/Wat-s-de-net-sees/202609171640/episode/Schwatz-kee-Kabes-du-domm-Noss?pd=radio"
+      - title: "From digits to digital: D'Liesmaschinn an d'Zuelen"
+        with: Sara Martin
+        date: 2026-01-29
+        topic: Numbers in Luxembourgish and how the text-to-speech Liesmaschinn learns to read them.
+        url: "https://100komma7.lu/show/Wat-s-de-net-sees/202601291640/episode/From-digits-to-digital-D-Liesmaschinn-an-d-Zuelen?pd=radio"
+      - title: "Spréch a Riedewendungen am Lëtzebuergeschen an am Engleschen: Deel 3"
+        with: Sarah Hess
+        date: 2025-11-27
+        topic: The origins of well-known sayings in Luxembourgish and English.
+        url: "https://100komma7.lu/show/Wat-s-de-net-sees/202511271640/episode/Sprech-a-Riedewendungen-am-Letzebuergeschen-an-am-Engleschen-Deel-3"
+      - title: "Nach méi Spréchwierder am Lëtzebuergeschen an am Engleschen"
+        with: Sarah Hess
+        date: 2025-11-13
+        topic: Proverbs in Luxembourgish and English (part 2).
+        url: "https://100komma7.lu/show/Wat-s-de-net-sees/202511131640/episode/Nach-mei-Sprechwierder-am-Letzebuergeschen-an-am-Engleschen?pd=radio"
+      - title: "Spréchwierder am Lëtzebuergeschen an am Engleschen: Deel 1"
+        with: Sarah Hess
+        date: 2025-09-25
+        topic: Proverbs in Luxembourgish and English (part 1).
+        url: "https://100komma7.lu/show/Wat-s-de-net-sees/202509251640/episode/Sprechwierder-am-Letzebuergeschen-an-am-Engleschen-Deel-1?pd=radio"
+      - title: "Computerlinguistik a KI am Lëtzebuergeschen"
+        with: Daniel Wagener
+        date: 2025-03-19
+        topic: An introduction to computational linguistics and what it has to do with artificial intelligence.
+        url: "https://100komma7.lu/show/Wat-s-de-net-sees/202503191645/episode/Computerlinguistik-a-KI-am-Letzebuergeschen?pd=radio"
+
+  - show: "Frech duerch de Summer — Episod 4: Vun „dommen Nëss“ a „granzege Porretten“"
+    outlet: RTL Radio
+    role: Guest of Jean-Marc Turmes, with Sarah Hess
+    url: "https://www.rtl.lu/radio/home/vun-dommen-ness-a-granzege-porretten-1727061976"
+    date: 2026-08-11
+    topic: "A summer series on Luxembourgish rudeness, built around *Vun Dräibiz bis Vullemätti*, the newest volume in the ZLS's *Lëtzebuerger Wuertschatz*."
+    themes: [speech]
+
+# -----------------------------------------------------------------------------
+editorial:
+  - { role: Editorial Board, venue: DH Benelux, url: "https://dhbenelux.org/", start: 2018, end: 2021, themes: [digital-humanities] }
+  - { role: Reviewer, venue: "CHI: Conference on Human Factors in Computing Systems", url: "https://dl.acm.org/conference/chi", year: 2021, themes: [hci-ux] }
+  - { role: Reviewer, venue: Journal on Computing and Cultural Heritage (JOCCH), url: "https://dl.acm.org/journal/jocch", year: 2018, themes: [cultural-heritage] }
+
+# -----------------------------------------------------------------------------
+activities:
+  - role: Board Member
+    organization: Harvard Club of Luxembourg
+    location: Luxembourg, Luxembourg
+    country: LU
+    start: 2021-06
+    end: 2024
+    items:
+      - Connected Luxembourg-based alumni with the wider Harvard network and organized events across the Greater Benelux region.
+      - Supported Harvard-wide initiatives including Global Networking Night, the Harvard Book Prize, and new-student orientations.
+  - role: Member
+    organization: Tutti Celli
+    location: Cambridge, MA, USA
+    country: US
+    start: 2013
+    end: 2017
+    items:
+      - Cellist in a cello ensemble led by Cynthia Forbes.
+  - role: Member
+    organization: American Academy of Religion
+    location: United States
+    country: US
+    start: 2007
+    end: 2009
+    items:
+      - The scholarly society for the academic study of religion, joined during the M.T.S. at Harvard Divinity School.
