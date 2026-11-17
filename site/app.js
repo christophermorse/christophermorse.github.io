@@ -15,6 +15,7 @@ const plain = (s) =>
     .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
     .replace(/\*/g, "");
 const col = (k) => `var(--t-${k})`;
+const BROADCAST_KINDS = new Set(["Radio", "Podcast"]);
 const THEMES = { ...D.themes, community: "Community" };
 const ALL = [];
 D.items.forEach((it) => {
@@ -324,13 +325,13 @@ const GROUPS = [
     name: "Speaking",
     sig: "star",
     lay: "row",
-    test: (it) => !it.parent && it.band === "speaking" && !it.ticks && it.kind !== "Radio",
+    test: (it) => !it.parent && it.band === "speaking" && !it.ticks && !BROADCAST_KINDS.has(it.kind),
   },
   {
-    name: "Radio",
+    name: "Radio & Podcasts",
     sig: "ringed",
     lay: "row",
-    test: (it) => (it.parent && it.parent.id === "brd0") || it.kind === "Radio",
+    test: (it) => (it.parent && it.parent.id === "brd0") || BROADCAST_KINDS.has(it.kind),
   },
   {
     name: "Teaching",

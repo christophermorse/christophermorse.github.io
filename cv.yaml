@@ -11,7 +11,7 @@
 # =============================================================================
 
 meta:
-  last_updated: 2026-10-22
+  last_updated: 2026-11-17
 
 themes:
   cultural-heritage: Museums & digital cultural heritage
@@ -905,6 +905,15 @@ broadcast:
     date: 2026-08-11
     topic: "A summer series on Luxembourgish rudeness, built around *Vun Dräibiz bis Vullemätti*, the newest volume in the ZLS's *Lëtzebuerger Wuertschatz*."
     themes: [speech]
+
+  - show: "LPEA Insights 2026 Podcast: The Culture Insider — Luxembourg Beyond the Office"
+    kind: Podcast
+    outlet: LPEA (Luxembourg Private Equity & Venture Capital Association)
+    role: Guest of Jean-François Revelant (Elvinger Hoss Prussen); recorded at the LPEA Insights Conference
+    url: "https://www.youtube.com/watch?v=fiA_rqlOsRw"
+    date: 2026-11-12
+    topic: "Luxembourg's cultural sector and how international newcomers can become part of it: multilingualism, local traditions, volunteering, networking and must-see cultural events, drawn from more than a decade of living in the country."
+    themes: [cultural-heritage]
 
 # -----------------------------------------------------------------------------
 editorial:

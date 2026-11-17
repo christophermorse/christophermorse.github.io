@@ -284,7 +284,7 @@ def render_radio(cv):
         if episodes:
             details += f" {len(episodes)} episodes."
         rows.append(line_row(when, f'{title}{closing_period(show["show"])} {muted(details)}'))
-    return section("Radio", "".join(rows))
+    return section("Radio & Podcasts", "".join(rows))
 
 
 def render_press(cv):

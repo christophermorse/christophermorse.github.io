@@ -208,7 +208,7 @@ def broadcast_items(cv):
             start, when = timeline_position(show.get("date"))
             yield make_item(
                 "speaking",
-                "Radio",
+                show.get("kind", "Radio"),
                 f"brd{i}",
                 title,
                 meta,
