@@ -853,8 +853,24 @@ button {
   .who .ident {
     justify-content: flex-start;
   }
+  /* the page itself stays still and only the layout scrolls inside it: phone browsers hide
+     their toolbars as the page scrolls, which resizes the screen and jolts the dock */
+  html,
   body {
-    padding-bottom: 208px;
+    height: 100%;
+    overflow: hidden;
+  }
+  body {
+    position: fixed;
+    inset: 0;
+  }
+  .layout {
+    height: 100%;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .leaf {
+    padding-bottom: calc(80px + 208px);
   }
   /* the dock itself is see-through: the instrument's mount draws its rounded top, and taps outside it reach the page */
   .dock {

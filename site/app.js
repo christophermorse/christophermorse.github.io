@@ -39,10 +39,12 @@ document.title = p.name;
 $("#name").addEventListener("click", (e) => {
   e.preventDefault();
   setYear(LAST);
-  window.scrollTo({
+  const to = {
     top: 0,
     behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
-  });
+  };
+  window.scrollTo(to);
+  $(".layout").scrollTo(to); // on phones the layout scrolls, not the page (see style.css)
 });
 $("#pos").textContent = p.position.replace(/ · /g, ", ");
 
