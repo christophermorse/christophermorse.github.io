@@ -27,9 +27,6 @@ D.items.forEach((it) => {
 });
 const BY = Object.fromEntries(ALL.map((i) => [i.id, i]));
 const MOBILE = matchMedia("(max-width:860px)");
-// TRIAL: ?dock=top tries the top-hung dock (see .dock-top in style.css)
-if (new URLSearchParams(location.search).get("dock") === "top")
-  document.documentElement.classList.add("dock-top");
 const p = D.person;
 $("#name").textContent = p.name;
 if (p.photo) {
