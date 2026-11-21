@@ -16,7 +16,13 @@ from cv_common import MONTHS, ROOT, load_cv, load_yaml, month_label, sort_key, y
 
 DEFAULT_OUTPUT = ROOT / "Christopher_Morse_CV.pdf"
 PRIVATE_FILE = ROOT / "cv.private.yaml"
-BROWSERS = ("google-chrome", "chromium", "chromium-browser")
+BROWSERS = (
+    "google-chrome",
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "chromium",
+    "chromium-browser",
+    "/Applications/Chromium.app/Contents/MacOS/Chromium",
+)
 HARVARD = "Harvard University"
 BRASS = "#8F7036"
 RUBRIC = "#972B1A"
@@ -331,8 +337,8 @@ def render_colophon(cv, person):
         '<div class="colophon"><svg viewBox="0 0 40 40">'
         f'<circle cx="20" cy="20" r="19" fill="none" stroke="{BRASS}" stroke-width=".5"/>'
         f'{points}<circle cx="20" cy="20" r="1.8" fill="{RUBRIC}"/></svg>'
-        f"Updated {MONTHS[updated.month - 1]} {updated.year}. The interactive edition lives at "
-        f'<a href="{site}">{bare_url(site)}</a>.</div>'
+        f"<span>Updated {MONTHS[updated.month - 1]} {updated.year}. The interactive edition "
+        f'lives at <a href="{site}">{bare_url(site)}</a>.</span></div>'
     )
 
 
@@ -387,14 +393,25 @@ def print_to_pdf(document, output):
         )
 
 
+def apply_overrides(cv, overrides):
+    """Apply PDF-only edits from cv.private.yaml, keyed by section and entry title."""
+    for section, by_title in overrides.items():
+        entries = {entry.get("title") or entry.get("degree"): entry for entry in cv[section]}
+        for title, fields in by_title.items():
+            if title not in entries:
+                sys.exit(f"cv.private.yaml: no {section} entry titled {title!r}")
+            entries[title].update(fields)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("output", nargs="?", type=Path, default=DEFAULT_OUTPUT)
     args = parser.parse_args()
 
     cv = load_cv()
-    private = load_yaml(PRIVATE_FILE) if PRIVATE_FILE.exists() else {}
-    person = {**cv["person"], **(private or {}).get("person", {})}
+    private = (load_yaml(PRIVATE_FILE) if PRIVATE_FILE.exists() else None) or {}
+    apply_overrides(cv, private.get("pdf_overrides", {}))
+    person = {**cv["person"], **private.get("person", {})}
     print_to_pdf(render_document(cv, person), args.output.resolve())
     print(f"Built {args.output}")
 

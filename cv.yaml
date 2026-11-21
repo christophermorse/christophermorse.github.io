@@ -11,7 +11,7 @@
 # =============================================================================
 
 meta:
-  last_updated: 2026-11-17
+  last_updated: 2026-11-21
 
 themes:
   cultural-heritage: Museums & digital cultural heritage
@@ -867,6 +867,11 @@ broadcast:
     end: present
     themes: [speech, ai-nlp]
     episodes:
+      - title: "Gehunnegs a Gebotters"
+        with: Sarah Hess
+        date: 2026-11-19
+        topic: How Luxembourgish uses food to say things more vividly.
+        url: "https://100komma7.lu/show/Wat-s-de-net-sees/202611191640/episode/Gehunnegs-a-Gebotters?pd=radio"
       - title: "Schwätz kee Kabes, du domm Noss!"
         with: Sarah Hess
         date: 2026-09-17
