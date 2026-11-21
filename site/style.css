@@ -978,3 +978,9 @@ button {
   color: var(--faded);
   font-style: italic;
 }
+/* the hover label is for a mouse: on phones and touch screens a tap already opens the entry */
+@media (max-width: 860px), (hover: none) {
+  .tip {
+    display: none;
+  }
+}
