@@ -857,17 +857,26 @@ button {
     padding-bottom: 208px;
   }
   /* the dock itself is see-through: the instrument's mount draws its rounded top, and taps outside it reach the page */
+  /* the dock runs on past the bottom of the screen, so whatever a browser's toolbar uncovers
+     or lets show through (Safari's is see-through) is more of the instrument, never the page */
   .dock {
+    --under: 120px;
     position: fixed;
     left: 0;
     right: 0;
-    bottom: 0;
-    height: calc(200px + env(safe-area-inset-bottom, 0px));
+    bottom: calc(-1 * var(--under));
+    height: calc(200px + env(safe-area-inset-bottom, 0px) + var(--under));
     overflow: hidden;
     overflow: clip;
     z-index: 30;
     display: block;
     pointer-events: none;
+  }
+  /* TRIAL (?dock=top): hang the dock from the top at its toolbar-shown height, so a toolbar
+     that hides only uncovers more of it instead of moving it */
+  .dock-top .dock {
+    top: calc(100svh - 200px - env(safe-area-inset-bottom, 0px));
+    bottom: auto;
   }
   #astro {
     position: absolute;
@@ -893,7 +902,7 @@ button {
   .dock .cartouche {
     position: absolute;
     left: 50%;
-    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px) + var(--under));
     transform: translateX(-50%);
     margin: 0;
     background: var(--parch);
