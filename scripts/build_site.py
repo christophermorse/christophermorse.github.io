@@ -3,7 +3,7 @@
 import json
 import shutil
 
-from cv_common import ROOT, load_cv, strip_markdown, timeline_position, timeline_span
+from cv_common import PRESENT, ROOT, load_cv, strip_markdown, timeline_position, timeline_span
 
 OUTPUT = ROOT / "_site"
 STATIC_FILES = ("style.css", "app.js")
@@ -437,6 +437,7 @@ def site_data(cv):
         "items": [item for section in sections for item in section(cv)],
         "places": place_spans(cv),
         "updated": str(cv["meta"]["last_updated"]),
+        "present": PRESENT,
         "bands": BANDS,
     }
 

@@ -9,8 +9,15 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent
 MONTHS = "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split()
 
-# Where "present" falls on the timeline. Keep in step with NOW in site/app.js.
-PRESENT = 2026.75
+
+def decimal_year(day):
+    """Return a date as a decimal year, with the same month/day weighting as the timeline."""
+    return day.year + (day.month - 1 + day.day / 31) / 12
+
+
+# Where "present" falls on the timeline: the build date. The page moves "present" spans
+# up to the viewer's own date (NOW in site/app.js), so the site never needs a rebuild to stay current.
+PRESENT = decimal_year(datetime.date.today())
 
 
 def load_yaml(path):

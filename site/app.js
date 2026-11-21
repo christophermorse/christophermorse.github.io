@@ -47,11 +47,17 @@ $("#name").addEventListener("click", (e) => {
 $("#pos").textContent = p.position.replace(/ · /g, ", ");
 
 /* ---------- time state ---------- */
+/* the present is the viewer's own date, weighted like the build's dates (cv_common.decimal_year) */
+const TODAY = new Date();
 const FIRST = 2003,
-  LAST = 2026,
-  NOW = 2026.75,
+  LAST = TODAY.getFullYear(),
+  NOW = LAST + (TODAY.getMonth() + TODAY.getDate() / 31) / 12,
   T0 = 2003,
-  T1 = 2027;
+  T1 = LAST + 1;
+// spans built as running to "present" were cut off at the build date; carry them on to today
+[...ALL, ...D.places].forEach((it) => {
+  if (it.end === D.present) it.end = Math.max(it.end, NOW);
+});
 let YEAR = LAST;
 const inYear = (it, y) => (it.span ? it.start < y + 1 && it.end >= y : Math.floor(it.start) === y);
 const POS = ALL.filter((it) => it.kind === "Position"); // every job, however many there are
